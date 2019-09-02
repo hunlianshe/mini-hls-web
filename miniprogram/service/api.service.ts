@@ -3,17 +3,24 @@
 import httpServer from './httpServer';
 
 /**
- * 获取openid
+ * 从微信获取openid
+ * @param {code: wx.login().code}
  */
-const getOpenid = (code: string) => httpServer.get({ url: '/mini/getOpenid?code=' + code });
+const getOpenid = (code: string) => httpServer.get({ url: '/users/openidfromwx/:code=' + code });
 
-const getAccessToken = () => httpServer.get({ url: '/mini/getAccessToken' });
+// const getOpenid = (code: string) => httpServer.get({ url: '/mini/getOpenid?code=' + code });
 
 /**
  * 创建用户
- * @param {}
+ * @param {user}
  */
 const insertUser = (user: any) => httpServer.post({ url: '/user/insertUser', data: user });
+
+
+/****************************************************************************************/
+
+const getAccessToken = () => httpServer.get({ url: '/mini/getAccessToken' });
+
 
 /**
  * 更新用户信息
