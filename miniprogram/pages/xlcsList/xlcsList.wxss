@@ -1,0 +1,12 @@
+/* miniprogram/pages/xlcsList/xlcsList.wxss */
+.xlcsListPage {
+  margin: 40rpx;
+}
+.xlcsListPage .block-cell {
+  background: #efefef;
+  border-radius: 8rpx;
+  height: 260rpx;
+  margin-bottom: 40rpx;
+  text-align: center;
+  justify-content: center;
+}

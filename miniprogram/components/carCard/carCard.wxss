@@ -1,0 +1,79 @@
+/* components/carCard/carCard.wxss */
+
+.carCard {
+  display: flex;
+  width: 100%;
+}
+
+.carCard .car-image {
+  width: 115px;
+}
+
+.carCard image {
+  width: 100px;
+  height: 80px;
+}
+
+.carCard .car-info {
+  flex: 1;
+}
+
+.carCard .title-text {
+  color: #13334D;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.carCard .small-text {
+  padding-top: 2px;
+  font-size: 12px;
+}
+
+.carCard .price-text {
+  color: #35A1FB;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.carCard .car-info-flex {
+  display: flex;
+  align-items: center;
+}
+
+.carCard .car-info-flex .small-text {
+  flex: 1;
+}
+
+.carCard .car-info-flex .cancel {
+  color: #666666;
+  border: 1px solid #efefef;
+  border-radius: 50px;
+  font-size: 12px !important;
+  text-align: center;
+  padding:2px 10px 7px 10px;
+  line-height:0.6;
+}
+
+.carCard .car-info-flex .add {
+  background-color: #35A1FB;
+  color: #ffffff;
+  border-radius: 50px;
+  font-size: 12px !important;
+  text-align: center;
+  padding:2px 10px 7px 10px;
+  line-height:0.6;
+}
+
+.carCard .heightFix {
+  min-height: 40px;
+  display: flex;
+}
+
+.carCard .heightFix .small-text{
+  flex: 1;
+}
+
+.carCard .icon-soldout {
+
+}
+ 

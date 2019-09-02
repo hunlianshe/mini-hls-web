@@ -1,0 +1,9 @@
+<!--pages/home/home.wxml-->
+
+<view>
+  <text>pages/home/home.wxml</text>
+  <text>
+    匹配数据
+    若未注册，则随机匹配
+  </text>
+</view>

@@ -1,0 +1,41 @@
+<view>
+  <page-container>
+    <view>
+      <view class="subtitle">
+        匹配信息
+      </view>
+      <view class="registerInfo">
+        <view class="title">年龄</view>
+        <view>
+          <view class="block">25岁以下</view>
+          <view class="block">25~30岁</view>
+          <view class="block">30~35岁</view>
+          <view class="block">35~45岁</view>
+          <view class="block">45~55岁</view>
+          <view class="block">55岁以上</view>
+        </view>
+        <view class="title">身高</view>
+        <view>
+          <view class="block">160以下</view>
+          <view class="block">160～165</view>
+          <view class="block">165～170</view>
+          <view class="block">170～175</view>
+          <view class="block">175～180</view>
+          <view class="block">180以上</view>
+        </view>
+        <view class="title">收入</view>
+        <view>
+          <view class="block">5千以下</view>
+          <view class="block">5千～1万</view>
+          <view class="block">1万～2万</view>
+          <view class="block">2万～5万</view>
+          <view class="block">5万以上</view>
+        </view>
+      </view>
+      <view class="footer-container">
+        <button class="common-btn" catchtap="next">下一步</button>
+        <view class="jump-over" catchtap="jumpOver">跳过</view>
+      </view>
+    </view>
+  </page-container>
+</view>

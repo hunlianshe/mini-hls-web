@@ -1,0 +1,33 @@
+<!--pages/nameCard/nameCard.wxml-->
+<view class='nameCard' 
+  style="background: url({{backgroundImage}});background-repeat:no-repeat;background-size:100%;">
+  <view class='qrcode'>
+      <!--<Icon iconName="download" width='14px' height='14px'/>
+    <button  open-type='share' class='actions' bindtap='sharePage'>
+    </button>-->
+    <view class="share">
+      <button  open-type='share' class='actions'>
+        <Icon iconName="share3" width='16px' height='16px'/>
+      </button>
+    </view>
+    <image src='{{userInfo.qrcode}}' mode='aspectFit'/>
+    <view class='title-text'>{{shopName}}</view>
+  </view>
+  <view class='detail'>
+    <view class='car-flex'>
+      <Icon iconName="people" width='20px' height='20px' />
+      <view>{{userInfo.name}}</view>
+    </view>
+    <view class='car-flex'>
+      <Icon iconName="call" width='14px' height='16px' />
+      <view>{{userInfo.phone}}</view>
+    </view>
+    <view class='car-flex'>
+      <Icon iconName="address" width='12px' height='16px' />
+      <view>{{addressInfo}}</view>
+    </view>
+  </view>
+  <view class="bg-car">
+    <image mode="widthFix" src="../../image/bg_car.png" />
+  </view>
+</view>

@@ -1,0 +1,16 @@
+
+<view class="matchingPage" 
+style="background-image: url('../../public/image/matching.png');background-repeat:repeat;background-size:130%;">
+  <view class="cover-page">
+    <view class="loading">
+      <view>
+        {{matching ? "正在匹配..." : "匹配完成"}}
+      </view>
+      <image src="{{matching ? '../../public/image/hearts.png' : '../../public/image/hearts.png' }}" mode="aspectFit" />
+    </view>
+    <view class="head" wx:for="{{headList}}" wx:key="{{index}}" 
+      style="left: {{item.left}}px; width: {{item.width}}rpx; height: {{item.width}}rpx">
+      <image src="{{item.src}}" style="width: {{item.width}}rpx; height: {{item.width}}rpx" />
+    </view>
+  </view>
+</view>

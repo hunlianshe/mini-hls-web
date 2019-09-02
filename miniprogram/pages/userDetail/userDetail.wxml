@@ -1,0 +1,81 @@
+<view class="userDetail">
+  <view style="background: #ffffff; padding-bottom: 30rpx;">
+    <view class="head">
+      <image src="../../public/image/xzpd.png" />
+    </view>
+    <view class="outline">
+      <view class="display-flex" style="justify-content: center;padding-bottom: 30rpx;">
+        <text>刘祖宽</text>
+        <image src="../../public/image/male01.png" />
+      </view>
+      <view class="small">
+        <text>24岁</text> |
+        <text>程序员</text> |
+        <text>本科</text>
+      </view>
+    </view>
+
+    <scroll-view scroll-x class='scroll-cell image-list'>
+      <block wx:for="{{user.images}}" wx:key="{{index}}">
+        <image src="{{item}}" mode="aspectFill" />
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="detail">
+    <view class="detail-cell">
+      <view class="subtitle">基本信息</view>
+      <view>
+        <view class="block">
+          处女座
+        </view>
+        <view class="block">
+          未婚
+        </view>
+        <view class="block">
+          现居：上海
+        </view>
+        <view class="block">
+          软件公司
+        </view>
+      </view>
+    </view>
+
+    <view class="detail-cell">
+      <view class="subtitle">择偶标准</view>
+      <view>
+        <view class="block">
+          身高：170～180
+        </view>
+        <view class="block">
+          年龄：20岁～30岁
+        </view>
+        <view class="block">
+          收入：2万～5万
+        </view>
+      </view>
+    </view>
+    <view class="detail-cell">
+      <view class="subtitle">其他信息</view>
+      <view>
+        <view class="block">
+          处女座
+        </view>
+        <view class="block">
+          未婚
+        </view>
+        <view class="block">
+          现居：上海
+        </view>
+        <view class="block">
+          软件公司
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="footer">
+    <button class="common-btn">红娘牵线</button>
+    <button class="common-btn">喜欢ta</button>
+  </view>
+</view>

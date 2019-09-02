@@ -1,0 +1,23 @@
+
+.constellation {
+  padding: 10rpx 0;
+}
+
+.constellation .block {
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+.constellation .block image {
+  width: 110rpx;
+  height: 110rpx;
+  display: block;
+  margin: auto;
+  padding: 10rpx 0;
+}
+
+.constellation .block .name {
+  font-size: 14px;
+  color: #3e3d3d;
+}

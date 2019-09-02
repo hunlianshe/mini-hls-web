@@ -1,0 +1,32 @@
+<view>
+  <page-container>
+    <view class="registerSex">
+      <view class="subtitle">
+        你的性别
+      </view>
+      <view class="sex">
+        <view class="sex-cell">
+          <image src="../../public/image/male.png" mode="aspectFit"/>
+          <view>
+            男生
+          </view>
+        </view>
+        <view class="sex-cell">
+          <image src="../../public/image/female.png" mode="aspectFit" />
+          <view>
+            女生
+          </view>
+        </view>
+      </view>
+      <view class="footer-container">
+        <button class="common-btn" catchtap="next">下一步</button>
+        <view class="jump-over" catchtap="jumpOver">跳过</view>
+      </view>
+    </view>
+    
+  </page-container>
+  
+  <!--<open-data type="userAvatarUrl"></open-data>
+  <open-data type="userGender" lang="zh_TW"></open-data>
+  <open-data type="userCity"></open-data>-->
+</view>

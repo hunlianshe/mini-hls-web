@@ -1,0 +1,84 @@
+<view class="matchResult">
+  <view>
+    <view class="head-left">
+      <image src="../../public/image/female01.png" />
+    </view>
+    <view class="head-right">
+      <image src="../../public/image/male01.png" />
+    </view>
+    <view class="grade">80</view>
+    <view class="total-grade-cell display-flex">
+      <view class="cell-left flex-full">
+        <view class="text">Lisa Yan</view>
+      </view>
+      <view class="cell-right flex-full">
+        <view class="text">Tim Liuuuu</view>
+      </view>
+    </view>
+
+    <view class="match-cell display-flex">
+      <view class="head-img">
+        <image src="../../public/image/female.png" />
+      </view>
+      <image src="../../public/image/lineHeartLeft.png" style="height: 54rpx; width: 142rpx;" mode="aspectFit" />
+      <view class="label">
+        配对成功
+      </view>
+      <image src="../../public/image/lineHeartRight.png" style="height: 54rpx; width: 142rpx;" mode="aspectFit" />
+      <view class="head-img">
+        <image src="../../public/image/female.png" />
+      </view>
+    </view>
+
+    <view class="signs">
+      <view class="display-flex">
+        <view class="flex-full">
+          <view class="block">
+            处女座
+          </view>
+        </view>
+        <view class="block">
+          金牛座
+        </view>
+      </view>
+      <view class="display-flex">
+        <view class="flex-full">
+          <view class="block">
+            处女座
+          </view>
+        </view>
+        <view class="block">
+          金牛座
+        </view>
+      </view>
+    </view>
+    
+    <view class="prograss">
+      <mini-prograss percent="90" type="星座" />
+    </view>
+    <view class="prograss">
+      <mini-prograss percent="90" type="身高" />
+    </view>
+    <view class="prograss">
+      <mini-prograss percent="90" type="收入" />
+    </view>
+
+  </view>
+
+  <view class="explain">
+    <view class="title">
+      帮你解说
+    </view>
+    <h3>白羊座</h3>，内心有着一个被放大的自我，这个自我里住着一个天真的孩子，孩子都会认为自己就是世界的中心，所以白羊座会有一点自私，但他们对朋友都不具心机，讲义气，想法和说话速度一样快的白羊座，有时也较少在意别人的感受。<br></br>
+    <h3>白羊座</h3>，内心有着一个被放大的自我，这个自我里住着一个天真的孩子，孩子都会认为自己就是世界的中心，所以白羊座会有一点自私，但他们对朋友都不具心机，讲义气，想法和说话速度一样快的白羊座，有时也较少在意别人的感受。<br></br>
+    <h3>白羊座</h3>，内心有着一个被放大的自我，这个自我里住着一个天真的孩子，孩子都会认为自己就是世界的中心，所以白羊座会有一点自私，但他们对朋友都不具心机，讲义气，想法和说话速度一样快的白羊座，有时也较少在意别人的感受。<br></br>
+    <h3>白羊座</h3>，内心有着一个被放大的自我，这个自我里住着一个天真的孩子，孩子都会认为自己就是世界的中心，所以白羊座会有一点自私，但他们对朋友都不具心机，讲义气，想法和说话速度一样快的白羊座，有时也较少在意别人的感受。  
+  </view>
+  <view class="footer">
+    <button class="common-btn">更多匹配</button>
+    <button class="common-btn">查看资料</button>
+  </view>
+  <view class="footer">
+    <button class="common-btn">补充资料，精确匹配</button>
+  </view>
+</view>

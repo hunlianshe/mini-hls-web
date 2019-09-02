@@ -1,0 +1,23 @@
+<view>
+  <page-container>
+    <view class="registerXz">
+      <view class="subtitle">
+        你的星座
+      </view>
+      <view class="constellation">
+        <view class="block" wx:for="{{constellation}}" wx:key="{{item.en}}">
+          <image src="../../public/image/Signs/{{item.en}}.png" mode="aspectFit"/>
+          <view class="name">
+            {{item.ch}}
+          </view>
+        </view>
+        
+      </view>
+      <view class="footer-container">
+        <button class="common-btn" catchtap="next">下一步</button>
+        <view class="jump-over" catchtap="jumpOver">跳过</view>
+      </view>
+    </view>
+    
+  </page-container>
+</view>

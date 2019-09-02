@@ -1,0 +1,77 @@
+/* pages/nameCard/nameCard.wxss */
+.nameCard {
+  /* background-color: #ffffff; */
+  width: 100%;
+  height: 100%;
+  /* background: -webkit-linear-gradient(to bottom right, #D9EFFD, #A0D3FE);  */
+  /* background: -o-linear-gradient(to bottom right, #35A1FB, #4BB6FC, #A0D3FE);
+  background: -moz-linear-gradient(to bottom right, #35A1FB, #4BB6FC, #A0D3FE);
+  background: linear-gradient(to bottom right, #35A1FB, #4BB6FC, #A0D3FE); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background: #D9EFFD;
+}
+
+.nameCard .qrcode {
+  text-align: center;
+}
+
+.nameCard .qrcode image {
+  width: 40%;
+}
+
+.nameCard .qrcode .small-text {
+  font-size: 14px;
+}
+
+.nameCard .qrcode .actions {
+  float: right;
+  padding:15px;
+  background:#ffffff;
+}
+
+.nameCard .qrcode .actions icon{
+  padding: 0px 5px;
+}
+
+.nameCard .detail {
+  padding: 5px 20px;
+}
+
+.nameCard .detail icon {
+  padding-right: 10px;
+}
+
+.nameCard .detail .car-flex {
+  padding: 10px 0px;
+}
+
+.nameCard canvas {
+  width:100%;
+  height:90%;
+  margin-top: 10%;
+  position:fixed;
+  background-color:#D9EFFD;
+}
+
+.nameCard .share {
+  padding:5px;
+  text-align:right;
+  display:inline-block;
+  width:100%;
+}
+
+.nameCard .share button {
+  background:#F5F7FA;
+  line-height: 1;
+}
+
+.nameCard .share button::after{ 
+  border: none; 
+}
+
+.nameCard .bg-car {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}

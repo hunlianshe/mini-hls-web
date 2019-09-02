@@ -1,0 +1,38 @@
+<!--pages/home/home.wxml 首页广场-->
+<view class='home-page'>
+  <view class="head" bindtap="doTest">
+    心理测试1
+  </view>
+  <view class="list">
+    <view class="list-box" bindtap="goXzys">
+      <text>星座运势</text>
+      <image src="../../public/image/xzys.png" mode="widthFix" />
+    </view>
+    <view class="list-box" bindtap="goXlcsList">
+      <text>心理测试</text>
+      <image src="../../public/image/xlcs.png" mode="widthFix" />
+    </view>
+    <view class="list-box" bindtap="goMatch">
+      <text>星座配对</text>
+      <image src="../../public/image/xzpd.png" mode="widthFix" />
+    </view>
+  </view>
+
+  <view class="content-block">
+    <view class="title">
+      星座运势
+    </view>
+    <view class="block-cell">今日星座运势</view>
+    <view class="block-cell">本月星座运势</view>
+  </view>
+
+  <view class="content-block">
+    <view class="title">
+      心理测试
+    </view>
+    <view class="block-cell" bindtap="doTest">心理测试1</view>
+    <view class="block-cell" bindtap="doTest">心理测试2</view>
+  </view>
+
+</view>
+

@@ -1,0 +1,25 @@
+<view>
+  <page-container>
+    <view class="registerPhone">
+      <view class="subtitle">
+        绑定手机号
+      </view>
+      <form bindsubmit="formSubmit" bindreset="formReset">
+        <view>
+          <input name="phone" placeholder="please input here" />
+          <input name="code" placeholder="please input here" />
+        </view>
+        <view class="footer-container">
+          <button class="common-btn" 
+            open-type="getUserInfo" 
+            bindgetuserinfo="getUserInfo"
+            catchtap="next">
+            绑定
+          </button>
+          <view class="jump-over" catchtap="jumpOver">跳过</view>
+        </view>
+      </form>
+    </view>
+  </page-container>
+</view>
+

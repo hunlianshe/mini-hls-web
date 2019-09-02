@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible Node.js debug attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "extest1",
+            "program": "${workspaceRoot}/example/node_modules/dtsmake/lib/index.js",
+            "cwd": "${workspaceRoot}",
+            "args": [
+                "-s","${workspaceRoot}/node_modules/sinon/pkg/sinon.js",
+                "--dist","${workspaceRoot}/example/dist/sinon"
+            ],
+            "sourceMaps": false
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run with mocha",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/mocha",
+            "cwd": "${workspaceRoot}",
+            "args": ["--compilers","ts:espower-typescript/guess","test/*-test.ts"],
+            "sourceMaps": false
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "プログラムの起動",
+            "program": "${workspaceRoot}\\lib\\dtsmake.js",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "プロセスに添付",
+            "port": 5858
+        }
+    ]
+}

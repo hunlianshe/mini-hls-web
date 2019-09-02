@@ -1,0 +1,10 @@
+<view class="xlcsListPage">
+  <view class="block-cell display-flex" bindtap="doTest"
+  style='background-image: url("../../public/image/timg.png");background-repeat:no-repeat;background-size:100%;'>
+    测测你的个人社交吸引力
+  </view>
+  <view class="block-cell display-flex" bindtap="doTest"
+  style='background-image: url("../../public/image/timg.png");background-repeat:no-repeat;background-size:100%;'>
+    测测你的个人社交吸引力
+  </view>
+</view>

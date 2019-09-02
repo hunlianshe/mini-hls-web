@@ -1,0 +1,273 @@
+// pages/wherehouse/wherehouse.js
+
+const apiServicePro = require('../../service/api.service');
+const {
+  showModal,
+} = require('../../utils/utils');
+
+Page({
+  data: {
+    inputValue: '',
+    _active: '1', // 1 店铺 0 汽车
+    shopList: [],
+    carList: [],
+    currentPageShop: 1,
+    currentPageCar: 1,
+    totalShop: 0,
+    totalCar: 0,
+    pageSize: 10,
+    currentQrcode: '', 
+    currentPhone: '',
+    pageLoaded: false,
+    popWechat: false,
+    shopName: '',
+    brand: '',
+  },
+
+  onLoad: function (options) {
+    this.getWarehouseList({ needLoading: '1' });
+    this.getWarehouseCarList({});
+  },
+
+  tabSwitch(e) {
+    const index = e.currentTarget.dataset.index;
+    this.setData({
+      _active: index,
+      inputValue: '',
+      brand: '',
+      shopName: '',
+    })
+  },
+
+  /**
+   * 获取仓库店铺列表
+   * @param {Object} params 
+   */
+  getWarehouseList(params) {
+    apiServicePro.getWarehouseList(params).then((result) => {
+      if (result.code === 200) {
+        const totalShop = result.data.count;
+        const dataList = result.data.rows;
+        dataList.forEach((el) => {
+          el.Shop.isOpen = false;
+          el.Shop.isFollowShop = true;
+        })
+        let shopList = this.data.shopList;
+        if (params.id) {
+          shopList = shopList.concat(dataList);
+        } else {
+          shopList = dataList;
+        }
+        this.setData({
+          shopList,
+          totalShop,
+          pageLoaded: true
+        });
+      } else {
+        showModal();
+      }
+    }).catch((err) => {
+      showModal();
+    })
+  },
+
+  /**
+   * 获取仓库汽车列表
+   * @param {Object} params 
+   */
+  getWarehouseCarList(params) {
+    apiServicePro.getWarehouseCarList(params).then((result) => {
+      if (result.code === 200) {
+        const totalCar = result.data.count;
+        let carList = this.data.carList;
+        if (params.id) {
+          carList = carList.concat(result.data.rows);
+        } else {
+          carList = result.data.rows;
+        }
+        this.setData({
+          carList,
+          totalCar
+        });
+      } else {
+        showModal();
+      }
+    }).catch((err) => {
+      showModal();
+    })
+  },
+
+  goCarDetail(e) {
+    wx.navigateTo({
+      url: `../carDetail/carDetail?id=${e.currentTarget.dataset.id}`,
+    })
+  },
+
+  /** 店铺首页 */
+  goShop(e) {
+    wx.navigateTo({
+      url: `../shop/shop?id=${e.currentTarget.dataset.id}`,
+    })
+  },
+
+  /** 搜索 */
+  doSearch(e) {
+    const _active = this.data._active;
+    if (_active === '1') {
+      const params = {
+        shopName: e.detail.value
+      }
+      this.setData({ shopName: e.detail.value});
+      this.getWarehouseList(params);
+    } else {
+      const params = {
+        brand: e.detail.value
+      }
+      this.setData({ brand: e.detail.value });
+      this.getWarehouseCarList(params);
+    }
+  },
+
+  /** 展开闭合汽车 */
+  openCars(e) {
+    const id = e.currentTarget.dataset.id;
+    const shopList = this.data.shopList;
+    shopList.forEach((el) => {
+      if (el.id === id) {
+        el.isOpen = !el.isOpen;
+      }
+    })
+    this.setData({
+      shopList,
+    })
+  },
+
+  /** 取消收藏店铺 */
+  unFollowShop(e) {
+    const params = {
+      id: e.detail.id,
+      follow: false
+    };
+    apiServicePro.followShop(params).then((result) => {
+      if (result.code === 200) {
+        this.dataDeal(e);
+        wx.showToast({
+          title: '取消成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      } else {
+        showModal();
+      }
+    }, (err) => {
+    })
+  },
+
+  dataDeal(e) {
+    const id = e.detail.id;
+    const shopList = this.data.shopList;
+    shopList.forEach((el) => {
+      if (el.Shop.id === id) {
+        el.Shop.isFollowShop = false;
+      }
+    })
+    this.setData({
+      shopList,
+    });
+  },
+
+  /** 打开微信二维码弹框 */
+  popWechat(e) {
+    const currentQrcode = e.currentTarget.dataset.qrcode;
+    const currentPhone = e.currentTarget.dataset.phone;
+    this.setData({
+      currentQrcode,
+      currentPhone,
+      popWechat: true
+    })
+  },
+
+  /** 关闭微信二维码弹框 */
+  closeWechat() {
+    this.setData({
+      popWechat: false
+    })
+  },
+
+  /** 取消加入仓库 */
+  cancelJoin(e) {
+    const id = e.currentTarget.dataset.id || e.detail.id;
+    const params = {
+      id,
+      follow: false,
+    };
+    apiServicePro.joinWarehouse(params).then((result) => {
+      if (result.code === 200) {
+        this.getWarehouseList({}, '0');
+        this.getWarehouseCarList({}, '0');
+        wx.showToast({
+          title: '取消成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+      } else {
+        showModal();
+      }
+    }, (err) => {
+    })
+  },
+
+  onReady: function () {
+
+  },
+
+  onShow: function () {
+    const { pageLoaded } = this.data;
+    if (pageLoaded) {
+      this.getWarehouseList({}, '0');
+      this.getWarehouseCarList({}, '0');
+    };
+  },
+
+  onHide: function () {
+  },
+
+  onUnload: function () {
+  },
+
+  /** 下拉刷新 */
+  onPullDownRefresh: function () {
+    const _active = this.data._active;
+    if (_active === '1') {
+      this.getWarehouseList({});
+    } else {
+      this.getWarehouseCarList({});
+    }
+    wx.stopPullDownRefresh();
+  },
+
+  onReachBottom: function () {
+    const _active = this.data._active;
+    if (_active === '1') {
+      let currentPageShop = this.data.currentPageShop;
+      let totalShop = this.data.totalShop;
+      let pageSize = this.data.pageSize;
+      if (currentPageShop * pageSize < totalShop) {
+        this.getWarehouseList({ currentPage: currentPageShop });
+      }
+    } else {
+      let currentPageCar = this.data.currentPageCar;
+      let totalCar = this.data.totalCar;
+      let pageSize = this.data.pageSize;
+      if (currentPageCar * pageSize < totalCar) {
+        this.getWarehouseCarList({ currentPage: currentPageCar });
+      }
+    }
+  },
+
+  onShareAppMessage: function () {
+
+  }
+})

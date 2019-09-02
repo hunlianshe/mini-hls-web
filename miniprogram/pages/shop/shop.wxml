@@ -1,0 +1,180 @@
+<!--pages/shop/shop.wxml-->
+<view class='shopPage'>
+  <view class='shop-head'>
+    <view class='car-flex shop-head-info'>
+      <image src="{{shopDetail.logo ? shopDetail.logo : '../../image/logo.jpeg'}}" />
+      <view class='flex_1'>
+        <view class='car-flex paddingBottom_5'>
+          <view class='car-flex flex_1'>
+            <text class='title'>{{shopDetail.shopName}}</text>
+            <!--<text class='level'>v1</text>-->
+            <block wx:if="{{shopDetail.isMe}}">
+              <Icon iconName='edit' width='14px' height='14px' catchtap='goEditShop'/>
+            </block>
+          </view>
+          <button open-type='share' class='btn-share'>
+            <Icon iconName="share3" width='14px' height='14px'/>
+            分享
+          </button>
+        </view>
+        <view class='car-flex' style='line-height:0.9;'>
+          <text class='number'>
+            粉丝数：{{shopDetail.shopStatistics.byFollowShops}} 
+          </text>
+          <text>
+            汽车被收藏量：{{shopDetail.shopStatistics.byFollowCars}}
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class='hr'></view>
+    <view class='car-flex address' catchtap='setClipboardData'>
+      <Icon iconName='address' width='12px' height='15px' class='icon-address'/>
+      <view class='line-v'>
+        {{shopDetail.province ? shopDetail.province : ''}}{{shopDetail.city ? shopDetail.city : ''}}{{shopDetail.area ? shopDetail.area : ''}}{{shopDetail.address}}
+      </view>
+      <Icon iconName='weChat'
+            width='20px'
+            height='16.67px' 
+            catchtap="popWechat" 
+            data-qrcode="{{shopDetail.qrcode}}"
+            data-phone='{{shopDetail.phone}}'/>
+      <Icon iconName='call' width='15px' height='15px' catchtap='phoneCall' data-phone='{{shopDetail.phone}}'/>
+    </view>
+    <view class='hr'></view>
+    <view class='shop-menu'>
+      <!-- <view bindtap='doSearch'>
+        <icon type="search" size="15" />
+        <input
+          disabled='true'
+          placeholder="搜索"
+          placeholder-class='placeholder'/>
+      </view> -->
+      <view class='{{_active === "1" ? "active" : ""}}' bindtap='tabSwitch' data-index="1">首页</view>
+      <view class='{{_active === "0" ? "active" : ""}}' bindtap='tabSwitch' data-index="0">全部汽车</view>
+    </view>
+  </view>
+  <block wx:if="{{_active === '1'}}">
+    <!-- <view>
+      <view class='shop-new'>
+        <view class='car-info'>
+          <view>斯科达 速派 2016款</view>
+          <view><text class='price'>56.3</text>万</view>
+        </view>
+        <view class='t_r'></view>
+      </view>
+      <carSwiper></carSwiper>
+    </view> -->
+    
+    <block wx:if="{{shopDetail.Cars.length > 0}}">
+      <view class='shop-view'>
+        <view class='subtitle'>-- 店铺汽车 --</view>  
+        <block wx:for="{{shopDetail.Cars}}" wx:key='{{item.id}}'>
+          <view class='shop-box' catchtap='goCarDetail' data-id='{{item.id}}'>
+            <block wx:if='{{item.status === 0}}'>
+              <view class="icon-soldout">
+                <Icon iconName='soldout' width='30px' height='25px'/>
+              </view>
+            </block>
+            <image class='car-image' src="{{item.indexImage}}" mode='aspectFill'></image>
+            <view class='car-info'>
+              <view class='desc'>{{item.brand}}</view>
+              <view class='car-flex'>
+                <text class="flex_1">¥{{item.price}}万</text>
+                <block wx:if="{{shopDetail.isMe}}">
+                  <view class="icon-edit" catchtap='goEditCar' data-id='{{item.id}}'>
+                    <Icon iconName='edit' width='14px' height='14px'/>
+                  </view>
+                </block>
+                <block wx:else>
+                  <text class='{{item.isFollowCar ? "cancel" : "add"}}' 
+                    catchtap='addWherehouse' 
+                    data-id='{{item.id}}'
+                    data-follow='{{item.isFollowCar}}'>
+                    {{item.isFollowCar ? "取消收藏" : "加入仓库"}}
+                  </text>
+                </block>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view wx:if="{{shopDetail.Cars.length > 0}}" style="padding-bottom: 110rpx;">
+      <block wx:for="{{shopDetail.Cars}}" wx:key="{{item.id}}">
+        <view class='all-cars'>
+          <block wx:if="{{shopDetail.isMe}}">
+            <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
+              <carCard
+                data-id='{{item.id}}'
+                carDetail="{{item}}"
+                type="edit"
+                bind:clickEvent="goEditCar"/>
+            </view>
+          </block>
+          <block wx:else>
+            <view catchtap='goCarDetail' class='carCard' data-id='{{item.id}}'>
+              <carCard
+                data-id='{{item.id}}'
+                carDetail="{{item}}"
+                bind:clickEvent="addWherehouse"/>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <block wx:if="{{shopDetail.Cars.length <= 0}}">
+    <view class="no-cars">
+      <view>没有汽车不会出现在广场哦</view>
+      <view>赶快去个人中心<text class="theme-text" bindtap="goCreateCar">创建汽车</text>吧</view>
+    </view>
+  </block>
+
+  <view class='fixedFooter'>
+    <block wx:if="{{from === 'share'}}">
+      <view class='btn-star'
+        catchtap="backHome">
+        <Icon iconName='backHome' width='20px' height='20px'></Icon>
+      </view>
+    </block>
+    <block wx:if="{{shopDetail.isMe}}">
+      <view class='btn-star'></view>
+    </block>
+    <block wx:else>
+      <view class='btn-star' 
+        catchtap="followShop" 
+        data-id='{{shopDetail.id}}' 
+        data-follow='{{shopDetail.isFollowShop}}'>
+        <Icon iconName="{{shopDetail.isFollowShop ? 'star' : 'star2'}}" width='20px' height='20px' ></Icon>
+      </view>
+    </block>
+    <!-- <view class='btn-star'>
+      <Icon
+        class='{{shopDetail.isFollowShop ? "follow" : ""}}'
+        bindtap='followShop'
+        data-id='{{shopDetail.id}}'
+        data-follow='{{shopDetail.isFollowShop}}'>
+        {{shopDetail.isFollowShop ? '已收藏' : '收藏'}}
+      </button>
+    </view> -->
+    <view class='btn-weChat' 
+      catchtap="popWechat" 
+      data-qrcode="{{shopDetail.qrcode}}" 
+      data-phone='{{shopDetail.phone}}'>
+      <Icon iconName='weChat2' width='20px' height='16.67px'></Icon>
+      <text>微信联系</text>
+    </view>
+    <view class='btn-call' catchtap='phoneCall' data-phone='{{shopDetail.phone}}'>
+      <Icon iconName='call2' width='15px' height='15px' ></Icon>
+      <text>电话预约</text>
+    </view>
+  </view>
+
+  <block wx:if ="{{popWechat}}">
+    <wechatDialog qrcode='{{currentQrcode}}' phone='{{currentPhone}}' bind:closeWechat="closeWechat"/>
+  </block>
+</view>

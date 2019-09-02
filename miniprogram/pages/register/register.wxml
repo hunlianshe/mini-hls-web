@@ -1,0 +1,208 @@
+<!--pages/createCar/createCar.wxml-->
+<view class='createCarPage'>
+  <view class='subtitle'>
+    填写车辆信息
+  </view>
+  <form bindsubmit="onSubmit" bindreset="formReset">
+    <view class='info-box'>
+      <view class='info-cell display-flex'>
+        <text>昵称</text>
+        <input type="digit" class="align-right" name="price" value="{{price}}"
+               maxlength="7" placeholder="请填写昵称" placeholder-class="placeholder"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>性别</text>
+        <view class="{{ sex ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sexArray}}">
+            <view class="picker">
+              {{sex ? sex : '请选择'}}
+              <input hidden="true" name="sex" value="{{sex}}"/>
+            </view>
+          </picker>
+        </view>
+        <d iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>生日</text>
+        <view class="{{ birthday ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker mode="date" value="{{birthday}}" start="1980-01-01" 
+                  end="{{dateNow}}" bindchange="bindDateChange">
+            <view class="picker">
+              {{birthday ? birthday : '请选择'}}
+              <input hidden="true" name="birthday" value="{{birthday}}"/>
+            </view>
+          </picker>
+        </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>身高</text>
+        <input type="digit" class="align-right" name="height" value="{{height}}" 
+          maxlength="10" placeholder="请填写身高" placeholder-class="placeholder"/>
+        <view class='pleft_5'>cm</view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>月收入</text>
+        <view class="{{ salary ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryArray}}">
+            <view class="picker">
+              {{sex ? sex : '请选择'}}
+              <input hidden="true" name="salary" value="{{salary}}"/>
+            </view>
+          </picker>
+        </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+      <view class='info-cell display-flex' bindtap='popPicker'>
+        <text>工作地区</text>
+        <view class="{{ city ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          {{city ? city : '请选择'}}
+          <input hidden="true" name="city" value="{{city}}"/>
+        </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>学历</text>
+        <view class="{{ education ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindEducationChange" value="{{education}}" range="{{educationArray}}">
+            <view class="picker">
+              {{education ? education : '请选择'}}
+              <input hidden="true" name="education" value="{{education}}"/>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>婚姻状况</text>
+        <view class="{{ isMarriage ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindMarriageChange" value="{{isMarriage}}" range="{{isMarriageArray}}">
+            <view class="picker">
+              {{isMarriage ? isMarriage : '请选择'}}
+              <input hidden="true" name="isMarriage" value="{{isMarriage}}"/>
+            </view>
+          </picker>
+        </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>是否有孩子</text>
+        <view class="{{ hasChild ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindHasChildChange" value="{{hasChild}}" range="{{hasChildArray}}">
+            <view class="picker">
+              {{hasChild ? hasChild : '请选择'}}
+              <input hidden="true" name="hasChild" value="{{hasChild}}"/>
+            </view>
+          </picker>
+        </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>是否想要孩子</text>
+        <view class="{{ wantChild ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindWantChildChange" value="{{wantChild}}" range="{{wantChildArray}}">
+            <view class="picker">
+              {{wantChild ? wantChild : '请选择'}}
+              <input hidden="true" name="wantChild" value="{{wantChild}}"/>
+            </view>
+          </picker>
+        </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+
+       <view class='info-cell display-flex'>
+        <text>职业</text>
+        <input type="text" class="align-right" name="job" value="{{job}}"
+               maxlength="7" placeholder="请填写昵称" placeholder-class="placeholder"/>
+      </view>
+
+      <view class='info-cell display-flex'>
+        <text>买房情况</text>
+        <view class="{{ house ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindHouseChange" value="{{house}}" range="{{houseArray}}">
+            <view class="picker">
+              {{house ? house : '请选择'}}
+              <input hidden="true" name="house" value="{{house}}"/>
+            </view>
+          </picker>
+        </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
+      </view>
+      
+      <!--<block wx:if="{{popHidden && popHiddenBrand}}">
+        <view class='info-cell display-flex' style="align-items:flex-start" >
+          <textarea name="note" value="{{note}}" bindinput="inputNote" maxlength="300" auto-height
+            placeholder="对车况还有更多补充，可以填写在这里哦"  placeholder-class="placeholder"/>
+        </view>
+        <text class="words">{{leftLenth}}</text>
+      </block>
+      <view class='info-cell display-flex'>
+        <view class="flex-full">
+          <view>封面图片</view>
+          <view class='small-text'>最想让用户看到的第一张图</view>
+        </view>
+        <view class="weui-uploader">
+          <view class="weui-uploader__bd">
+            <block wx:if="{{indexImage !== ''}}">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <view class="weui-uploader__file" bindtap="chooseIndexImage" id="{{item}}">
+                  <image class="weui-uploader__img" src="{{indexImage}}" mode="aspectFill" />
+                </view>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseIndexImage"></view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class='info-cell'>
+        <view class='wechat'>
+          <view>图片上传</view>
+        </view>
+        <view class="weui-uploader">
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" id="uploaderFiles">
+              <block wx:for="{{oldImages}}" wx:key="*this">
+                <view class="weui-uploader__file" id="{{item}}">
+                  <icon class="icon-del" iconName='del' width='15px' height='15px'
+                    catchtap='delImage' data-array='oldImages' data-index='{{index}}'/>                  
+                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+              <block wx:for="{{uploadImgs}}" wx:key="*this">
+                <view class="weui-uploader__file" id="{{item}}">
+                  <icon class="icon-del" iconName='del' width='15px' height='15px'
+                    catchtap='delImage'  data-array='uploadImgs' data-index='{{index}}'/>                  
+                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseOtherImage" 
+                    data-num='{{uploadImgs.length + oldImages.length}}'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      -->
+    </view>
+    <button form-type="submit" disable="{{submitDisable}}">提交</button>
+  </form>
+
+  <view hidden="{{popHidden}}">
+    <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
+  </view>
+
+</view>

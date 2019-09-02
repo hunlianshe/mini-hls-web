@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/register/register",
+    "pages/home/home",
+    "pages/userDetail/userDetail",
+    "pages/xzysDetail/xzysDetail",
+    "pages/matchmaker/matchmaker",
+    "pages/xzys/xzys",
+    "pages/matching/matching",
+    "pages/matcheXz/matcheXz",
+    "pages/xlcsDetail/xlcsDetail",
+    "pages/matchResult/matchResult",
+    "pages/matched/matched",
+    "pages/registerSex/registerSex",
+    "pages/registerXz/registerXz",
+    "pages/registerInfo/registerInfo",
+    "pages/registerPhone/registerPhone",
+    "pages/registerStandard/registerStandard",
+    "pages/myHome/myHome",
+    "pages/fateList/fateList",
+    "pages/createShop/createShop",
+    "pages/wherehouse/wherehouse",
+    "pages/logs/logs",
+    "pages/fate/fate",
+    "pages/xlcsList/xlcsList",
+    "pages/xlcsResult/xlcsResult",
+    "pages/myImages/myImages"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "婚恋社",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#90949C",
+    "selectedColor": "#1E90FF",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "广场",
+        "iconPath": "image/menu_1.png",
+        "selectedIconPath": "image/menu_1_active.png"
+      },
+      {
+        "pagePath": "pages/fate/fate",
+        "text": "缘分",
+        "iconPath": "image/menu_2.png",
+        "selectedIconPath": "image/menu_2_active.png"
+      },
+      {
+        "pagePath": "pages/myHome/myHome",
+        "text": "我的",
+        "iconPath": "image/menu_3.png",
+        "selectedIconPath": "image/menu_3_active.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "mini-prograss": "/components/miniPrograss/miniPrograss",
+    "page-container": "/components/pageContainer/pageContainer",
+    "icon": "/components/icon/icon",
+    "shopHead": "/components/shopHead/shopHead",
+    "shopCar": "/components/shopCar/shopCar",
+    "footer": "/components/footer/footer",
+    "carCard": "/components/carCard/carCard",
+    "pickCity": "/components/pickCity/pickCity",
+    "pickBrand": "/components/pickBrand/pickBrand",
+    "carSwiper": "/components/carSwiper/carSwiper",
+    "noData": "/components/noData/noData",
+    "fixedFooter": "/components/fixedFooter/fixedFooter",
+    "wechatDialog": "/components/wechatDialog/wechatDialog",
+    "phoneCall": "/components/phoneCall/phoneCall"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用来为您提供更好的数据搜索使用"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

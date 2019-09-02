@@ -1,0 +1,39 @@
+<!--components/pickCity.wxml-->
+<view>
+  <view class='pick-title car-flex'>
+    <text>请选择浏览城市</text>
+    <text bindtap='doSelsct' data-id='' data-name='' class='pick-title-cnacle'>取消</text>
+  </view>
+
+  <scroll-view scroll-y scroll-with-animation scroll-into-view="{{currentView}}" class='pickCity-model'>
+    <view class='pickCity'>
+      <view id="{{item.code}}">
+          <view class='pickCity-city-code'>热门城市</view>
+          <view class='pickCity-city-data'>
+            <block wx:for="{{hotCityList}}" wx:key="{{item.id}}">
+              <text bindtap='doSelsct' data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text>        
+            </block>
+          </view>
+        </view>
+
+      <block wx:for="{{cityList}}" wx:key="{{item.code}}">
+        <view id="{{item.code}}">
+          <view class='pickCity-city-code'>{{item.code}}</view>
+          <view class='pickCity-city-data'>
+            <block wx:for="{{item.data}}" wx:key="{{item.id}}">
+              <text bindtap='doSelsct' data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text>        
+            </block>
+          </view>
+        </view>
+      </block>
+
+      <view class='pickCity-left-code'>
+        <block wx:for="{{cityList}}" wx:key="{{item.code}}">
+          <text bindtap='jumpToView' data-code="{{item.code}}">{{item.code}}</text>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>
+

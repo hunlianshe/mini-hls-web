@@ -1,0 +1,52 @@
+.matchingPage {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin-top: 100rpx;
+}
+.matchingPage .cover-page {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#15023660, #601665);
+  top: 0;
+  opacity: 0.9;
+}
+
+.matchingPage .head {
+  position: absolute;
+  border-radius: 50rpx;
+  animation: matching 20s infinite;
+  -webkit-animation: matching 20s infinite;
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.matchingPage .head image {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.matchingPage .loading {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.matchingPage .loading image {
+  height: 30rpx;
+}
+
+@keyframes matching {
+  from { bottom: 0px; }
+  to { bottom: 100vh; }
+}
+
+/* 微信小程序必须加这个才生效 */
+@-webkit-keyframes matching /*Safari and Chrome*/
+{
+  from { bottom: 0px; }
+  to { bottom: 100vh; }
+}

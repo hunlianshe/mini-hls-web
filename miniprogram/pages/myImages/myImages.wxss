@@ -1,0 +1,93 @@
+/* pages/createCar/createCar.wxss */
+@import "../../lib/weui.wxss";
+
+.createCarPage {
+
+}
+.createCarPage .subtitle {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #9B9B9B;
+}
+
+.createCarPage .info-box {
+  margin-bottom: 15px;
+  padding: 0px 15px; 
+  font-size: 16px;
+  color: #4A4A4A;
+  background: #ffffff;
+}
+
+.createCarPage .info-cell{
+  padding: 10px 0px; 
+}
+
+.createCarPage .info-cell text{
+  padding-right:20rpx;
+  color:#556677;
+}
+
+.createCarPage input {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.createCarPage .placeholder {
+  text-align: right;
+  color: #9B9B9B;
+  z-index: 0;
+}
+
+.createCarPage icon {
+  padding-left: 5px;
+}
+
+.createCarPage .pleft_5 {
+  padding-left: 5px;
+}
+
+.createCarPage .weui-uploader{
+  /* flex: 1; */
+  padding-top:5px;
+}
+
+.createCarPage button {
+  margin: 30px 15px;
+  border-radius: 0px;
+  color: #ffffff;
+  background: linear-gradient(to right, #35A1FB, rgb(30, 148, 245));
+}
+
+.createCarPage .align-right {
+  text-align: right;
+}
+
+.createCarPage .icon-del {
+  position: absolute;
+  margin-top:-8px;
+  margin-left:-12px;
+}
+
+.createCarPage textarea {
+  height: 50px;
+  flex: 1;
+  padding: 10px;
+  background: #edf2f6;
+  z-index: 0;
+  min-height:60px;
+}
+
+.createCarPage .words {
+  float:right;
+  line-height:12px;
+  margin-top:-35px;
+  margin-right:4px;
+  padding:2px 5px;
+  text-align:center;
+  background:#C1C9CF;
+  border-radius:20px;
+  font-size:10px;
+  opacity:0.8;
+  color:#ffffff !important;
+  z-index:0;
+}

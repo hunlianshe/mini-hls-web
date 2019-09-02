@@ -1,0 +1,18 @@
+
+/* components/pageContainer/page-container.wxss */
+.page-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #D979F6, #F8E5FB);
+}
+
+.page-container .content-box {
+  position: fixed;
+  margin: 160rpx 100rpx 60rpx 100rpx;
+  padding: 30rpx;
+  height: calc(100vh - 280rpx);
+  width: calc(100vw - 260rpx);
+  background: #ffffff;
+  border-radius: 46rpx;
+} 

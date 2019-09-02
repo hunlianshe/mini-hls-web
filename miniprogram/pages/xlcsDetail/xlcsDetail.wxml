@@ -1,0 +1,19 @@
+<view class="xlcsDetailPage" 
+style='background-image: url("../../public/image/timg.png");background-repeat:no-repeat;background-size:100%;'>
+  <view class="question">
+    <view class="question-title display-flex"> 
+      <view>=</view>
+      {{question.title}}
+      <view>=</view>
+    </view>
+    <text>{{question.desc}}</text>
+    <view class="page">
+      {{questionIndex + 1}}/{{questionList.length}}
+    </view>
+  </view>
+  <view class="block">
+    <block wx:for="{{question.options}}" wx:key="{{item.option}}">
+      <button class="options" bindtap="select" data-option="{{item.option}}" data-index="{{index}}">{{item.text}}</button>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/feedback/feedback.wxml-->
+
+<view class='feedbackPage'>
+  <view class='subtitle'>添加汽车小店，邀请你加入官方微信群</view>
+  <view class='car-flex info-cell'>
+    <view>微信群</view>
+    <view class='wechat-number' 
+          bindtap="setClipboardData" data-wechat='qcxd_17502131654'>qcxd_17502131654</view>
+    <Icon iconName='arrowRight' width="7px" height="12px"/>
+  </view>
+  <view style='text-align:center;'>
+    <image src='../../image/wechat.jpeg' mode="aspectFit"></image>
+  </view>
+
+<view bindtap='saveImg'>
+  <button>保存二维码</button>
+</view>
+  
+</view>

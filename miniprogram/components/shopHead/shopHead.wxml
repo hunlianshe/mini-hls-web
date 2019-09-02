@@ -1,0 +1,42 @@
+<!--components/shopHead/shopHead.wxml-->
+<view class='homeHead'>
+  <view class='home-shop'>
+    <view class='shop-header'>
+      <image src="{{shopInfo.logo ? shopInfo.logo : '../../image/logo.jpeg'}}" mode='aspectFill'></image>
+    </view>
+    <view class='shop-info'>
+      <view class='shop-title'>
+        <!-- <block wx:if="{{shopIntro}}">
+          <view class='level'>v1</view>
+        </block> -->
+        <text>{{shopInfo.shopName}}</text>
+        <!-- <block wx:if="{{!shopIntro}}">
+          <view class='level'>v1</view>
+        </block> -->
+        <block wx:if="{{!shopInfo.isMe}}">
+          <block wx:if='{{shopInfo.isFollowShop}}'>
+            <Icon iconName='star' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
+          </block>
+          <block wx:else>
+            <Icon iconName='star2' width='20px' height='20px' catchtap='followShop' data-id="{{shopInfo.id}}" data-follow="{{shopInfo.isFollowShop}}" />
+          </block>
+        </block>
+      </view>
+      <view wx:if="{{shopIntro}}" class='shop-intro'>
+        <text>{{shopInfo.introduce ? shopInfo.introduce :  ''}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='hr'></view>
+  <view class='car-flex address' catchtap="setClipboardData" data-shopInfo="{{shopInfo}}">
+   <!-- <Icon iconName='address' width='12px' height='15px' class='icon-address'/>-->
+    <view class='line-v'>
+      <view>
+        {{shopInfo.province ? shopInfo.province : ''}}{{shopInfo.city ? shopInfo.city : ''}}{{shopInfo.area ? shopInfo.area : ''}}{{shopInfo.address}}
+      </view>
+    </view>
+    <!--<Icon iconName='weChat' width='20px' height='16.67px' catchtap="popWechat"/>
+    <Icon iconName='call' width='15px' height='15px' catchtap='phoneCall' data-phone='{{shopInfo.phone}}'/>-->
+  </view>
+  <view class='hr'></view>
+</view>

@@ -1,0 +1,24 @@
+.registerInfo {
+  margin-right: -10rpx;
+}
+
+.registerInfo .title {
+  font-size: 32rpx;
+  color: #333333;
+  padding: 20rpx 0;
+}
+
+.registerInfo .block {
+  padding: 4rpx 18rpx;
+  display: inline-block;
+  border-radius: 30rpx;
+  border: 1px solid #C0BCBC;
+  color: #262323;
+  font-size: 14px;
+  margin: 10rpx 0;
+  margin-right: 10rpx;
+}
+
+/* .registerInfo .block + .block {
+  margin-left: 10rpx;
+} */

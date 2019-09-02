@@ -1,0 +1,54 @@
+.matchXzPage {
+  position: absolute;
+  padding: 0 40rpx;
+  background: #faf7fb;
+  height: 100%;
+  width: calc(100% - 80rpx);
+}
+
+.matchXzPage .section {
+  margin: 30rpx 0;
+  text-align: center;
+  font-size: 32rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+}
+
+.matchXzPage .section__title {
+  color: #333333;
+  padding-left: 30rpx;
+}
+
+.matchXzPage .picker {
+  text-align: right;
+  padding-right: 20rpx;
+  color: #333333;
+}
+
+.matchXzPage .picker-place {
+  color: #D8D8D8;
+  text-align: right;
+  padding-right: 20rpx;
+}
+
+.matchXzPage .footer-btn {
+  position: fixed;
+  width: calc(100% - 80rpx);
+  bottom: 40rpx;
+}
+
+.matchXzPage .footer-btn button {
+  margin: 40rpx;
+  color: #ffffff;
+  font-size: 40rpx;
+  /* background: linear-gradient(to right, #D979F6, #F16E8C); */
+  background: #E39BF0;
+  border: none;
+  line-height: 80rpx;
+}
+
+.matchXzPage .footer-btn button[disabled] {
+  opacity: 0.5;
+}
+

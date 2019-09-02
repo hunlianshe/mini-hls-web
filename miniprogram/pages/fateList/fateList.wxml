@@ -1,0 +1,46 @@
+<view class="fateListpage">
+
+  <view class="display-flex tab">
+    <view class="subtab" bindtap="switchTab" data-index="1">
+      <text class='{{_active === "1" ? "active" : ""}}'>喜欢我</text>
+    </view>
+    <view class="subtab" bindtap="switchTab" data-index="2">
+      <text class='{{_active === "2" ? "active" : ""}}'>我喜欢</text>
+    </view>
+    <view class="subtab" bindtap="switchTab" data-index="3">
+      <text class='{{_active === "3" ? "active" : ""}}'>相互喜欢</text>
+    </view>
+  </view>
+
+  <view class="display-flex item-cell">
+    <view class="head">
+      <image src="../../public/image/pp.png" />
+    </view>
+    <view class="flex-full">
+      <view class="theme-text">Lisa yan</view>
+      <view>24岁 | 程序员 | 本科 | 处女座</view>
+    </view>
+    
+  </view>
+  <view class="display-flex item-cell">
+    <view class="head">
+      <image src="../../public/image/pp.png" />
+    </view>
+    <view class="flex-full">Lisa yan</view>
+    <view>6时56分</view>
+  </view>
+  <view class="display-flex item-cell">
+    <view class="head">
+      <image src="../../public/image/pp.png" />
+    </view>
+    <view class="flex-full">Lisa yan</view>
+    <view>2019年8月20日</view>
+  </view>
+  <view class="display-flex item-cell">
+    <view class="head">
+      <image src="../../public/image/pp.png" />
+    </view>
+    <view class="flex-full">Lisa yan</view>
+    <view>2019年7月20日</view>
+  </view>
+</view>

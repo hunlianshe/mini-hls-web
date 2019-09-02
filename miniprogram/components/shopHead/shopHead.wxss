@@ -1,0 +1,137 @@
+
+
+.homeHead {
+  padding: 0px 10px;
+  background:#ffffff;
+}
+
+.home-shop {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  padding: 15px 0px 10px 0px;
+  background-color: #ffffff;
+}
+
+.home-shop + .home-shop {
+  margin-top: 15px;
+}
+
+.home-shop .shop-header image {
+  width: 40px;
+  height: 40px;
+}
+
+.home-shop .shop-info {
+  padding: 0px 10px;
+  flex: 1;
+}
+
+.home-shop .shop-title {
+  display: flex;
+  align-items: center;
+  padding-bottom: 2px;
+  font-size: 16px;
+  color: #13334D;
+}
+.home-shop .shop-title .level {
+  width:23px;
+  height:14px;
+  margin-right: 10px;
+  text-align: center;
+  border-radius:2px;
+  font-size:11px;
+  font-family:"Times New Roman",Georgia,Serif;
+  color:#ffffff;
+  background-image:linear-gradient(to bottom,#f59518, #f3e247, #f59518);
+}
+
+.home-shop .shop-title image{
+  width: 18px;
+  height: 18px;
+  padding-left: 10px;
+}
+
+.home-shop .shop-title text{
+  flex: 1;
+}
+
+.home-shop .shop-verify{
+  border: 1px solid #35A1FB;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #35A1FB;
+  font-size: 11px;
+}
+
+.home-shop .shop-no-verify {
+  border: 1px solid #9DACB6;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: #9DACB6;
+  font-size: 11px;
+}
+
+.home-shop .shop-intro {
+  display: flex;
+  width: 100%;
+  margin: 3px 0px;
+  overflow-y: hidden;
+  /* height: 16px; */
+  /* padding: 6px 0px; */
+  color: #ACB4B9;
+  /* border-bottom: 1px solid #efefef;  */
+  font-size: 13px; 
+}
+
+.home-shop .shop-intro text {
+  /* display: inline-block; */
+  display: -webkit-box;
+  /* overflow: hidden;   */
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 20px;  
+}
+
+.homeHead .address {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.homeHead .address text{
+  flex: 1;
+  font-size: 14px;
+  line-height: 0px;
+}
+
+.homeHead .address icon {
+  padding-left: 15px;
+} 
+
+.homeHead .address .icon-address {
+  padding:0px 7px 0px 0px;
+}
+
+.homeHead .address .line-v {
+  flex: 1;
+  font-size: 28rpx;
+  font-weight: 400;
+  border-right: 1px solid #d8e2e9;
+  padding: 0px 5px;
+}
+
+/*0.5px线条*/
+.hr {
+  position: relative;
+}
+.hr:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(0deg, #d8e2e9 50%, transparent 50%);
+}

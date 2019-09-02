@@ -1,0 +1,136 @@
+.matchResult {
+
+}
+
+.matchResult .head-left,
+.matchResult .head-right {
+  position: absolute;
+  top: 20rpx;
+  /* width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx; */
+}
+
+.matchResult .head-left image,
+.matchResult .head-right image {
+  width: 75rpx;
+  height: 75rpx;
+}
+
+.matchResult .head-left {
+  left: 20rpx;
+}
+
+.matchResult .head-right {
+  right: 20rpx;
+}
+
+.matchResult .total-grade-cell {
+  background: linear-gradient(to right, #E29FF520, #DD83F9, #E29FF520);
+  margin: 60rpx 0 20rpx 0;
+  color: #ffffff;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+
+.matchResult .grade {
+  position: absolute;
+  top: 20rpx;
+  padding: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border: 20rpx solid #ffffff;
+  border-radius: 160rpx;
+  margin-left: calc(50% - 70rpx);
+  margin-right: calc(50% - 70rpx);
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #D05CAC, #E29FF5);
+}
+
+.matchResult .total-grade-cell .cell-left {
+  padding: 0 80rpx 0 140rpx ;
+  position: relative;
+}
+
+.matchResult .total-grade-cell .cell-right {
+  padding: 0 140rpx 0 80rpx;
+  position: relative;
+}
+
+.matchResult .total-grade-cell .cell-left .text,
+.matchResult .total-grade-cell .cell-right .text {
+  width: 150rpx;
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+
+.matchResult .match-cell {
+  padding: 20rpx 0;
+  color: #DD83F9;
+  justify-content: center;
+}
+
+.matchResult .match-cell .head-img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100rpx;
+}
+
+.matchResult .head-img image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 100rpx;
+}
+
+.matchResult .match-cell .label {
+  padding: 0 20rpx;
+  text-align: center;
+}
+
+.matchResult .signs {
+  padding: 20rpx;
+}
+
+.matchResult .signs .block {
+  padding: 4rpx 18rpx;
+  display: inline-block;
+  border-radius: 8rpx;
+  border: 1px solid #C0BCBC;
+  color: #666666;
+  font-size: 14px;
+  margin: 10rpx 0;
+  margin-right: 10rpx;
+}
+
+.matchResult .prograss {
+  padding: 40rpx 30rpx 0 30rpx;
+}
+
+.matchResult .explain {
+  font-size: 28rpx;
+  padding: 30rpx;
+  color: #3E3D3D;
+  padding-bottom: 180rpx;
+}
+
+.matchResult .explain .title {
+  font-size: 32rpx;
+  color: #333333;
+  padding-bottom: 30rpx;
+  text-align: center;
+}
+
+.matchResult .footer {
+  position: fixed;
+  bottom: 40rpx;
+  display: flex;
+  width: 100%;
+}
+
+.matchResult .footer button {
+  line-height: 70rpx;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+}
