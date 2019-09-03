@@ -1,4 +1,3 @@
-// pages/createCar/createCar.js
 // import apiServicePro = require('../../service/api.service');
 import uploadImage from '../../utils/oss';
 import env from '../../config';

@@ -1,4 +1,3 @@
-<!--pages/createCar/createCar.wxml-->
 <view class='registerPage'>
   <view class='subtitle'>
     我的相册
