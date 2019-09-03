@@ -6,10 +6,10 @@ style="background-image: url('../../public/image/matching.png');background-repea
       <view style="margin-left: 200rpx;">
         <text>开启你的缘分</text>
       </view> 
-      <view style="margin-left: 400rpx;margn-top: 60rpx;">
+      <view style="margin-left: 400rpx;margin-top: 40rpx;">
         <text>找到你的幸福</text>
       </view> 
-      <view>
+      <view style="text-align: center; margin-top: 40rpx;">
         <image mode="widthFix" src='../../public/image/hearts.png' />
       </view>
     </view>
