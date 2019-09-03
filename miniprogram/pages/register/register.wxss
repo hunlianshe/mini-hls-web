@@ -1,16 +1,16 @@
 /* pages/createCar/createCar.wxss */
 @import "../../lib/weui.wxss";
 
-.createCarPage {
+.registerPage {
 
 }
-.createCarPage .subtitle {
+.registerPage .subtitle {
   padding: 5px 10px;
   font-size: 12px;
   color: #9B9B9B;
 }
 
-.createCarPage .info-box {
+.registerPage .info-box {
   margin-bottom: 15px;
   padding: 0px 15px; 
   font-size: 16px;
@@ -18,57 +18,57 @@
   background: #ffffff;
 }
 
-.createCarPage .info-cell{
+.registerPage .info-cell{
   padding: 10px 0px; 
 }
 
-.createCarPage .info-cell text{
+.registerPage .info-cell text{
   padding-right:20rpx;
   color:#556677;
 }
 
-.createCarPage input {
+.registerPage input {
   flex: 1;
   padding-left: 10px;
 }
 
-.createCarPage .placeholder {
+.registerPage .placeholder {
   text-align: right;
   color: #9B9B9B;
   z-index: 0;
 }
 
-.createCarPage icon {
+.registerPage icon {
   padding-left: 5px;
 }
 
-.createCarPage .pleft_5 {
+.registerPage .pleft_5 {
   padding-left: 5px;
 }
 
-.createCarPage .weui-uploader{
+.registerPage .weui-uploader{
   /* flex: 1; */
   padding-top:5px;
 }
 
-.createCarPage button {
+.registerPage button {
   margin: 30px 15px;
   border-radius: 0px;
   color: #ffffff;
   background: #E39BF0;
 }
 
-.createCarPage .align-right {
+.registerPage .align-right {
   text-align: right;
 }
 
-.createCarPage .icon-del {
+.registerPage .icon-del {
   position: absolute;
   margin-top:-8px;
   margin-left:-12px;
 }
 
-.createCarPage textarea {
+.registerPage textarea {
   height: 50px;
   flex: 1;
   padding: 10px;
@@ -77,7 +77,7 @@
   min-height:60px;
 }
 
-.createCarPage .words {
+.registerPage .words {
   float:right;
   line-height:12px;
   margin-top:-35px;

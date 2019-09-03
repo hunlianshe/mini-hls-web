@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/myImages/myImages",
     "pages/register/register",
     "pages/home/home",
     "pages/userDetail/userDetail",
@@ -23,8 +24,7 @@
     "pages/logs/logs",
     "pages/fate/fate",
     "pages/xlcsList/xlcsList",
-    "pages/xlcsResult/xlcsResult",
-    "pages/myImages/myImages"
+    "pages/xlcsResult/xlcsResult"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

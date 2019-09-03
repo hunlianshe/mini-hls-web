@@ -1,7 +1,7 @@
 <!--pages/createCar/createCar.wxml-->
-<view class='createCarPage'>
+<view class='registerPage'>
   <view class='subtitle'>
-  
+    我的相册
   </view>
   <form bindsubmit="onSubmit" bindreset="formReset">
     <view class='info-box'>
@@ -57,7 +57,7 @@
         </view>
       </view>
     </view>
-    <button form-type="submit" disable="{{submitDisable}}">提交</button>
+    <button form-type="submit" disable="{{submitDisable}}">保存</button>
   </form>
 
   <view hidden="{{popHidden}}">

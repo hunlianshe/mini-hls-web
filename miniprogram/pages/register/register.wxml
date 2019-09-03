@@ -1,5 +1,5 @@
 <!--pages/createCar/createCar.wxml-->
-<view class='createCarPage'>
+<view class='registerPage'>
   <form bindsubmit="onSubmit" bindreset="formReset">
     <view class='info-box'>
       <view class='info-cell display-flex'>
@@ -195,7 +195,7 @@
       </view>
       -->
     </view>
-    <button form-type="submit" disable="{{submitDisable}}">提交</button>
+    <button form-type="submit" disable="{{submitDisable}}">保存</button>
   </form>
 
   <view hidden="{{popHidden}}">
