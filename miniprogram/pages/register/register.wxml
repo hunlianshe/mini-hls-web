@@ -1,8 +1,5 @@
 <!--pages/createCar/createCar.wxml-->
 <view class='createCarPage'>
-  <view class='subtitle'>
-    填写车辆信息
-  </view>
   <form bindsubmit="onSubmit" bindreset="formReset">
     <view class='info-box'>
       <view class='info-cell display-flex'>

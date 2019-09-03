@@ -82,20 +82,18 @@ Page({
   /** 汽车详情 */
   getCarDetail(id: any) {
     apiServicePro.getUserDetail(id).then((result: any) => {
-      const { isMarriageArray } = this.data
       if (result) {
         this.setData!({
           brand: result.data.brand,
           brandDetail: result.data.brandDetail,         // 二级车系
           city: result.data.city,
           price: result.data.price,                     // 价格
-          birthday: this.getYMD(result.data.birthday),  // 上牌时间
-          height: result.data.height,             // 行驶里程
+          birthday: this.getYMD(result.data.birthday),  // 生日
+          height: result.data.height,                   // 身高
           transfersNumber: result.data.transfersNumber, // 过户次数
-          isMarriageValue: isMarriageArray[result.data.isMarriage].value,
-          isMarriage: result.data.isMarriage,
-          education: result.data.education,
-          sex: result.data.sex,             // 车况
+          isMarriage: result.data.isMarriage,           // 婚姻状况
+          education: result.data.education,             // 教育
+          sex: result.data.sex,                         // 性别
           note: result.data.note,                       // 补充
           indexImage: result.data.indexImage,
           oldImages: result.data.images,                // 图片
