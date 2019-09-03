@@ -20,7 +20,7 @@
 .loadingPage .cover-page .text {
   font-size: 40rpx;
   color: #ffffff;
-  padding: 100rpx 0;
+  padding: 160rpx 0;
 }
 
 .loadingPage .begin {

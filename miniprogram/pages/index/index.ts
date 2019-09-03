@@ -6,6 +6,8 @@ import {
   cityReplace,
 } from '../../utils/utils';
 
+import User from '../../interface/user';
+
 Page({
   data: {
     user: {openid: ''},
@@ -205,7 +207,7 @@ Page({
 
   /** 获取用户信息 */
   getUser(e:any) {
-    let userInfo = e.detail.userInfo;
+    let userInfo: User = e.detail.userInfo;
     userInfo.openid = this.data.user.openid;
     if (!userInfo.openid) {
       return;

@@ -2,6 +2,8 @@
 // import config from '../config';
 import httpServer from './httpServer';
 
+import User from '../interface/user';
+
 /**
  * 从微信获取openid
  * @param {code: wx.login().code}
@@ -12,9 +14,9 @@ const getOpenid = (code: string) => httpServer.get({ url: '/users/openidfromwx/:
 
 /**
  * 创建用户
- * @param {user}
+ * @param {user: User }
  */
-const insertUser = (user: any) => httpServer.post({ url: '/user/insertUser', data: user });
+const insertUser = (user: User) => httpServer.post({ url: '/user/insertUser', data: user });
 
 
 /****************************************************************************************/
