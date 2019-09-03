@@ -6,7 +6,7 @@
 .myHome .home-head {
   padding: 30rpx;
   color: #ffffff;
-  background-color: #D979F6;
+  background-color: #E39BF0;
 }
 
 .myHome .home-head .head-img {

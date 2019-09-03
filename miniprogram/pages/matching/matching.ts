@@ -15,28 +15,28 @@ Page({
    */
   onLoad: function (options: any) {
     console.log(options);
-    let headInterval = setInterval(() => {
-      let headList = this.data.headList;
-      if (headList.length > 10) {
-        clearInterval(headInterval);
-        return;
-      }
-      const windowWidth = wx.getSystemInfoSync().windowWidth
-      let left = 80 + Math.random() * (windowWidth - 160);
-      let width = 60 + Math.random() * 40;
-      console.log('left', left);
-      headList.push({
-        'src': '../../public/image/xzpd.png',
-        'left': left.toString(),
-        'width': width.toString(),
-      });
-      this.setData!({
-        headList,
-      });
-    }, 2000);
-    this.setData!({
-      headInterval,
-    });
+    // let headInterval = setInterval(() => {
+    //   let headList = this.data.headList;
+    //   if (headList.length > 10) {
+    //     clearInterval(headInterval);
+    //     return;
+    //   }
+    //   const windowWidth = wx.getSystemInfoSync().windowWidth
+    //   let left = 80 + Math.random() * (windowWidth - 160);
+    //   let width = 60 + Math.random() * 40;
+    //   console.log('left', left);
+    //   headList.push({
+    //     'src': '../../public/image/xzpd.png',
+    //     'left': left.toString(),
+    //     'width': width.toString(),
+    //   });
+    //   this.setData!({
+    //     headList,
+    //   });
+    // }, 2000);
+    // this.setData!({
+    //   headInterval,
+    // });
     setTimeout(() => {
       this.setData!({
         matching: false,
