@@ -1,0 +1,25 @@
+<!--pages/loading/loading.wxml-->
+<view class="loadingPage" 
+style="background-image: url('../../public/image/matching.png');background-repeat:repeat;background-size:130%;">
+  <view class="cover-page">
+    <view class='text'>
+      <view style="margin-left: 200rpx;">
+        <text>开启你的缘分</text>
+      </view> 
+      <view style="margin-left: 400rpx;margn-top: 60rpx;">
+        <text>找到你的幸福</text>
+      </view> 
+      <view>
+        <image mode="widthFix" src='../../public/image/hearts.png' />
+      </view>
+    </view>
+    <view class='begin'>
+      <block wx:if="{{hasStorage}}">
+        <button>即将开启缘分</button>
+      </block>
+      <block wx:else>
+        <button open-type="getUserInfo" bindgetuserinfo="goHome">开启缘分</button>
+      </block>
+    </view>
+  </view>
+</view>

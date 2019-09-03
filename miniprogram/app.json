@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/matchmaker/matchmaker",
     "pages/myImages/myImages",
     "pages/home/home",
