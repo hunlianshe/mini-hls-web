@@ -8,14 +8,14 @@ style="background-image: url('../../public/image/matching.png');background-repea
         <view class="title-cell active" >电话联系</view>
         <view class="title-cell">微信联系</view>
       </view>
-      <view class="contract-info">
+      <!--<view class="contract-info">
         <view class="label">稍后红娘会给你来电</view>
         <button class="common-btn">接听红娘电话</button>
-      </view>
-      <!--<view class="contract-info">
+      </view>-->
+      <view class="contract-info">
         <view>扫二维码添加红娘微信</view>
         <image src="../../public/image/xzpd.png" mode="aspectFit" />
-      </view>-->
+      </view>
       
     </view>
     <view class="footer">

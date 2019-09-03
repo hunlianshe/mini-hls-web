@@ -42,13 +42,13 @@
 .matchmakerPage .contract-info {
   background: #ffffff;
   text-align: center;
-  padding: 30rpx;
+  padding: 60rpx;
   border-top: 1px solid #601665;
   border-radius: 32rpx;
 }
 
 .matchmakerPage .label {
-  padding: 80rpx;
+  padding: 60rpx;
 }
 
 .matchmakerPage .contract-info image {
