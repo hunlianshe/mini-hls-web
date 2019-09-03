@@ -219,7 +219,10 @@ Page({
           key: "user",
           data: userInfo,
           success: () => {
-            this.getUserShopInfo();
+            wx.switchTab({
+              url: `../home/home`,
+            });
+            // this.getUserShopInfo();
           }
         });
       }
