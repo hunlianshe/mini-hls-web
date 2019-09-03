@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/home/home",
+    "pages/matchmaker/matchmaker",
     "pages/myImages/myImages",
+    "pages/home/home",
     "pages/register/register",
     "pages/userDetail/userDetail",
     "pages/xzysDetail/xzysDetail",
-    "pages/matchmaker/matchmaker",
     "pages/xzys/xzys",
     "pages/matching/matching",
     "pages/matcheXz/matcheXz",
