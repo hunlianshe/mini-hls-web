@@ -209,6 +209,7 @@ Page({
   getUser(e:any) {
     let userInfo: User = e.detail.userInfo;
     userInfo.openid = this.data.user.openid;
+    console.log('userInfo', e.detail.userInfo);
     if (!userInfo.openid) {
       return;
     }
