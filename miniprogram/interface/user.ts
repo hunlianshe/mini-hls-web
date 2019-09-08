@@ -8,7 +8,7 @@ interface User {
   workCity?: string,          // 工作 市
   workRegion?: string,        // 工作 区
   education?: string,         // 学历
-  isMarriage?: boolean,       // 是否已婚 没有值->请选择 - boolean
+  isMarriage?: boolean,       // 是否已婚 没有值->请选择
   hasChild?: boolean,         // 是否有孩子
   wantChild?: boolean,        // 是否想要孩子
   jobGeneral?: string,        // 工作类型的大类别

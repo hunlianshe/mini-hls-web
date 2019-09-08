@@ -121,7 +121,7 @@
 
        <view class='info-cell display-flex'>
         <text>职业</text>
-        <input type="text" class="align-right" name="job" value="{{job}}"
+        <input type="text" class="align-right" name="jobGeneral" value="{{jobGeneral}}"
                maxlength="7" placeholder="请填写昵称" placeholder-class="placeholder"/>
       </view>
 
@@ -140,9 +140,5 @@
     </view>
     <button form-type="submit" disable="{{submitDisable}}">保存</button>
   </form>
-
-  <view hidden="{{popHidden}}">
-    <pickCity currentCity='{{currentCity}}' cityList='{{cityList}}' bind:pickevent="doSelect"></pickCity>
-  </view>
 
 </view>
