@@ -19,6 +19,12 @@ const getOpenid = (code: string) => httpServer.get({ url: `/users/openidfromwx/$
 const register = (user: User) => httpServer.post({ url: '/users/register', data: user });
 
 /**
+ * 更新用户信息
+ * @param {}
+ */
+const updateUser = (user: User) => httpServer.post({ url: `/users/updateUserInfo`, data: user });
+
+/**
  * 获取星座详解
  */
 const getFortune = (fortuneName: string) => httpServer.get({ url: `/fortune/${fortuneName}` });
@@ -44,12 +50,6 @@ const getHoroscopet = (consName: string, type: string) => httpServer.get({ url: 
 
 const getAccessToken = () => httpServer.get({ url: '/mini/getAccessToken' });
 
-
-/**
- * 更新用户信息
- * @param {}
- */
-const updateUser = (params: any) => httpServer.post({ url: `/user/updateUser`, data: params });
 
 // const register = (user: any) => httpServer.post({ url: '/user/insertUser', data: user });
 /**
@@ -91,13 +91,13 @@ const updateShop = (params: any) => httpServer.post({ url: `/shop/updateShop`, d
 export {
   getOpenid,
   register,
+  updateUser,
   getFortune,
   getPsyList,
   getPsyTest,
   getHoroscopet,
 
   getAccessToken,
-  updateUser,
   getUserInfo,
   getCityList,
   getAllDistrict,

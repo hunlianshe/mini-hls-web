@@ -7,22 +7,18 @@ import * as utils from '../../utils/utils';
 Page({
   data: {
     user: { openid: '' },
-    carId: '',
-    shopId: '',
-    brand: '',            // 品牌
-    brandDetail: '',      // 二级车系
-    price: '',            // 价格
-    birthday: '',         // 上牌时间
-    height: '',        // 行驶里程
-    transfersNumber: '',  // 过户次数
+    nickName: '',
+    gender: '', 
+    birth: '',            // 生日
+    height: '',           // 身高
+    month_incomeRange: '',  
     isMarriage: '未婚',
-    sex: '', 
     education: '', 
     hasChild: '', 
     wantChild: '', 
     job: '',
     house: '',   
-    sexIndex: 0,
+    genderIndex: 0,
     note: '',
     leftLenth: 300,
     indexImage: '',
@@ -42,8 +38,8 @@ Page({
     popHiddenBrand: true,
     submitDisable: false,
     isMarriageArray: ['未婚', '离异'],
-    sexArray: ['男','女'],
-    salaryArray: [
+    genderArray: ['男','女'],
+    monthIncomeArray: [
       '5千以下', '5千～1万', '1万～2万', '2万～5万', '5万以上'
     ],
     educationArray: [
@@ -88,12 +84,12 @@ Page({
           brandDetail: result.data.brandDetail,         // 二级车系
           city: result.data.city,
           price: result.data.price,                     // 价格
-          birthday: this.getYMD(result.data.birthday),  // 生日
+          birth: this.getYMD(result.data.birth),  // 生日
           height: result.data.height,                   // 身高
           transfersNumber: result.data.transfersNumber, // 过户次数
           isMarriage: result.data.isMarriage,           // 婚姻状况
           education: result.data.education,             // 教育
-          sex: result.data.sex,                         // 性别
+          gender: result.data.gender,                         // 性别
           note: result.data.note,                       // 补充
           indexImage: result.data.indexImage,
           oldImages: result.data.images,                // 图片
@@ -120,12 +116,12 @@ Page({
     const aliyunServerURL = env.uploadImageUrl;
 
     if (!utils.validateEmpty(value.brand, '请选择品牌车系') ||
-        !utils.validateEmpty(value.birthday, '请选择上牌日期') ||
+        !utils.validateEmpty(value.birth, '请选择上牌日期') ||
         !utils.validateEmpty(value.height, '请输入行驶里程') ||
         !utils.validateEmpty(value.city, '请输选择牌照所在地') ||
         !utils.validateEmpty(value.price, '请输入价格') ||
         !utils.validateEmpty(value.transfersNumber, '请输入过户次数') ||
-        !utils.validateEmpty(value.sex, '请选择车况') ||
+        !utils.validateEmpty(value.gender, '请选择车况') ||
         !utils.validateEmpty(this.data.indexImage, '请上传汽车首页照片') ||
         !utils.validateImages(this.data.oldImages.concat(this.data.uploadImgs), '请上传汽车照片')) {
       return false;
@@ -353,10 +349,10 @@ Page({
     }
   },
 
-  /** 上牌时间 */
-  bindDateChange(e: any) {
+  /** 生日 */
+  bindBirthChange(e: any) {
     this.setData!({
-      birthday: e.detail.value
+      birth: e.detail.value
     })
   },
 
@@ -397,17 +393,17 @@ Page({
   },
 
   /** 性别 */
-  bindSexChange(e: any) {
-    const { sexArray } = this.data
+  bindGenderChange(e: any) {
+    const { genderArray } = this.data
     this.setData!({
-      sex: sexArray[e.detail.value]
+      gender: genderArray[e.detail.value]
     })
   },
   /** 月收入 */
-  bindSalaryChange(e: any) {
-    const { salaryArray } = this.data
+  bindMonthIncomeChange(e: any) {
+    const { monthIncomeArray } = this.data
     this.setData!({
-      salary: salaryArray[e.detail.value]
+      month_incomeRange: monthIncomeArray[e.detail.value]
     })
   },
 

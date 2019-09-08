@@ -4,17 +4,17 @@
     <view class='info-box'>
       <view class='info-cell display-flex'>
         <text>昵称</text>
-        <input type="digit" class="align-right" name="price" value="{{price}}"
+        <input type="digit" class="align-right" name="nickName" value="{{nickName}}"
                maxlength="7" placeholder="请填写昵称" placeholder-class="placeholder"/>
       </view>
 
       <view class='info-cell display-flex'>
         <text>性别</text>
-        <view class="{{ sex ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
-          <picker bindchange="bindSexChange" value="{{sexIndex}}" range="{{sexArray}}">
+        <view class="{{ gender ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{genderArray}}">
             <view class="picker">
-              {{sex ? sex : '请选择'}}
-              <input hidden="true" name="sex" value="{{sex}}"/>
+              {{gender ? gender : '请选择'}}
+              <input hidden="true" name="gender" value="{{gender}}"/>
             </view>
           </picker>
         </view>
@@ -23,12 +23,12 @@
 
       <view class='info-cell display-flex'>
         <text>生日</text>
-        <view class="{{ birthday ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
-          <picker mode="date" value="{{birthday}}" start="1980-01-01" 
-                  end="{{dateNow}}" bindchange="bindDateChange">
+        <view class="{{ birth ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker mode="date" value="{{birth}}" start="1980-01-01" 
+                  end="{{dateNow}}" bindchange="bindBirthChange">
             <view class="picker">
-              {{birthday ? birthday : '请选择'}}
-              <input hidden="true" name="birthday" value="{{birthday}}"/>
+              {{birth ? birth : '请选择'}}
+              <input hidden="true" name="birth" value="{{birth}}"/>
             </view>
           </picker>
         </view>
@@ -45,11 +45,11 @@
 
       <view class='info-cell display-flex'>
         <text>月收入</text>
-        <view class="{{ salary ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
-          <picker bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryArray}}">
+        <view class="{{ month_incomeRange ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindMonthIncomeChange" value="{{monthIncomeIndex}}" range="{{monthIncomeArray}}">
             <view class="picker">
-              {{sex ? sex : '请选择'}}
-              <input hidden="true" name="salary" value="{{salary}}"/>
+              {{month_incomeRange ? month_incomeRange : '请选择'}}
+              <input hidden="true" name="month_incomeRange" value="{{month_incomeRange}}"/>
             </view>
           </picker>
         </view>
@@ -134,66 +134,6 @@
         </view>
         <icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
-      
-      <!--<block wx:if="{{popHidden && popHiddenBrand}}">
-        <view class='info-cell display-flex' style="align-items:flex-start" >
-          <textarea name="note" value="{{note}}" bindinput="inputNote" maxlength="300" auto-height
-            placeholder="对车况还有更多补充，可以填写在这里哦"  placeholder-class="placeholder"/>
-        </view>
-        <text class="words">{{leftLenth}}</text>
-      </block>
-      <view class='info-cell display-flex'>
-        <view class="flex-full">
-          <view>封面图片</view>
-          <view class='small-text'>最想让用户看到的第一张图</view>
-        </view>
-        <view class="weui-uploader">
-          <view class="weui-uploader__bd">
-            <block wx:if="{{indexImage !== ''}}">
-              <view class="weui-uploader__files" id="uploaderFiles">
-                <view class="weui-uploader__file" bindtap="chooseIndexImage" id="{{item}}">
-                  <image class="weui-uploader__img" src="{{indexImage}}" mode="aspectFill" />
-                </view>
-              </view>
-            </block>
-            <block wx:else>
-              <view class="weui-uploader__input-box">
-                <view class="weui-uploader__input" bindtap="chooseIndexImage"></view>
-              </view>
-            </block>
-          </view>
-        </view>
-      </view>
-      <view class='info-cell'>
-        <view class='wechat'>
-          <view>图片上传</view>
-        </view>
-        <view class="weui-uploader">
-          <view class="weui-uploader__bd">
-            <view class="weui-uploader__files" id="uploaderFiles">
-              <block wx:for="{{oldImages}}" wx:key="*this">
-                <view class="weui-uploader__file" id="{{item}}">
-                  <icon class="icon-del" iconName='del' width='15px' height='15px'
-                    catchtap='delImage' data-array='oldImages' data-index='{{index}}'/>                  
-                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-                </view>
-              </block>
-              <block wx:for="{{uploadImgs}}" wx:key="*this">
-                <view class="weui-uploader__file" id="{{item}}">
-                  <icon class="icon-del" iconName='del' width='15px' height='15px'
-                    catchtap='delImage'  data-array='uploadImgs' data-index='{{index}}'/>                  
-                  <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-                </view>
-              </block>
-            </view>
-            <view class="weui-uploader__input-box">
-              <view class="weui-uploader__input" bindtap="chooseOtherImage" 
-                    data-num='{{uploadImgs.length + oldImages.length}}'></view>
-            </view>
-          </view>
-        </view>
-      </view>
-      -->
     </view>
     <button form-type="submit" disable="{{submitDisable}}">保存</button>
   </form>
