@@ -1,16 +1,8 @@
-// import { IMyApp } from '../../app';
-// import * as Api from '../../service/api.service';
-// const Api = require('../../service/api/api-promisify.service');
-// const {
-//   cityReplace,
-//   showModal,
-// } = require('../../utils/utils');
-
-// const app = getApp<IMyApp>();
+import * as Api from '../../service/api.service';
 
 Page({
   data: {
-    shopList: [],
+    psyTest: [],
     currShopList: [],
     dataAlready: false,
     currentCity: '',
@@ -42,6 +34,7 @@ Page({
     // this.setData!({
     //   pageLoaded: true,
     // })
+    this.getPsyList();
   },
   
   
@@ -60,9 +53,9 @@ Page({
   },
   
   /** 心理测试 */
-  doTest() {
+  doTest(e: any) {
     wx.navigateTo({
-      url: `../xlcsDetail/xlcsDetail`,
+      url: `../xlcsDetail/xlcsDetail?id=${e.currentTarget.dataset.id}`,
     })
   },
 
@@ -73,12 +66,15 @@ Page({
     })
   },
 
- /** 汽车详情 */
-  goCarDetail(e: any) {
-    wx.navigateTo({
-      url: `../carDetail/carDetail?id=${e.currentTarget.dataset.id}`,
+  /** 获取心理测试 */
+  getPsyList() {
+    Api.getPsyList().then((result: any) => {
+      this.setData!({
+        psyTest: result.data,
+      })
     })
   },
+
 
   /** 首页搜索 */
   doSearch(e: any) {

@@ -30,8 +30,9 @@
     <view class="title">
       心理测试
     </view>
-    <view class="block-cell" bindtap="doTest">心理测试1</view>
-    <view class="block-cell" bindtap="doTest">心理测试2</view>
+    <block wx:for="{{psyTest}}" wx:key="{{item._id}}" >
+      <view class="block-cell" bindtap="doTest" data-id="{{item._id}}">{{item.name}}</view>
+    </block>
   </view>
 
 </view>
