@@ -230,28 +230,6 @@ Page({
     });
   },
 
-  /** 获取用户信息（店铺信息） */
-  getUserShopInfo() {
-    Api.getUserInfo().then((result:any) => {
-      if (result) {
-        const userShopInfo = result.data;
-        wx.setStorage({
-          key: 'userShopInfo',
-          data: userShopInfo,
-        });
-        if (this.data.auth == true) {
-          wx.navigateBack({
-            delta: 2
-          });
-        } else {
-          wx.switchTab({
-            url: `../home/home`,
-          });
-        }
-      }
-    });
-  },
-
   /** 选择城市 */
   doSelect(e: any) {
     if (e.detail.name) {
@@ -271,17 +249,5 @@ Page({
   },
 
   onReady: function () {
-  },
-
-  onShow: function () {
-  },
-
-  onHide: function () {
-  },
-
-  onUnload: function () {
-  },
-
-  onReachBottom: function () {
   },
 })
