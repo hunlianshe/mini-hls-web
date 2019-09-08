@@ -3,7 +3,7 @@ style='background-image: url("../../public/image/timg.png");background-repeat:no
   <view class="question">
     <view class="question-title display-flex"> 
       <view>=</view>
-      {{question.title}}
+      {{psyTest.name}}
       <view>=</view>
     </view>
     <text>{{question.desc}}</text>

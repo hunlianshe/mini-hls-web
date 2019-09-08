@@ -23,11 +23,21 @@ const insertUser = (user: User) => httpServer.post({ url: '/user/insertUser', da
  */
 const getFortune = (fortuneName: string) => httpServer.get({ url: `/fortune/${fortuneName}` });
 
+/**
+ * 获取心里测试的题目列表
+ */
+const getPsyList = () => httpServer.get({ url: `/psychological-test/list` });
 
 /**
  * 获取心里测试的题目列表
  */
-const getPsyTest = () => httpServer.get({ url: `/psychological-test/getPsyTest` });
+const getPsyTest = (id: string) => httpServer.get({ url: `/psychological-test/${id}` });
+
+
+/**
+ * 星座运势详解
+ */
+const getHoroscopet = (consName: string, type: string) => httpServer.get({ url: `/horoscope/realtime?consName=${consName}&type=${type}` });
 
 
 /****************************************************************************************/
@@ -82,7 +92,9 @@ export {
   getOpenid,
   insertUser,
   getFortune,
+  getPsyList,
   getPsyTest,
+  getHoroscopet,
 
   getAccessToken,
   updateUser,

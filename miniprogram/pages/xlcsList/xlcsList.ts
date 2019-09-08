@@ -7,18 +7,18 @@ Page({
   },
 
   onLoad: function () {
-    this.getPsyTest();
+    this.getPsyList();
   },
 
-  doTest() {
+  doTest(e: any) {
     wx.navigateTo({
-      url: `../xlcsDetail/xlcsDetail`,
+      url: `../xlcsDetail/xlcsDetail?id=${e.currentTarget.dataset.id}`,
     })
   },
 
   /** 获取心理测试题目 */
-  getPsyTest() {
-    Api.getPsyTest().then((result: any) => {
+  getPsyList() {
+    Api.getPsyList().then((result: any) => {
       this.setData!({
         psyTest: result.data,
       })

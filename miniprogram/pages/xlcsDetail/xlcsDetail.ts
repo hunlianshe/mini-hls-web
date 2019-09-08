@@ -1,67 +1,16 @@
-// pages/xlcsDetail/xlcsDetail.js
-Page({
+import * as Api from '../../service/api.service';
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
     question: {},
     questionIndex: 0,
-    questionList: [
-      {
-        title: '我的社交引力场',
-        desc: '和朋友一起去唱歌，你喜欢坐在哪个位置？',
-        options: [
-          {
-            option: 'A',
-            text: '靠门的位置',
-            isSelect: false,
-          },
-          {
-            option: 'B',
-            text: '最中间',
-            isSelect: true,
-          },
-          {
-            option: 'C',
-            text: '靠门的位置',
-            isSelect: false,
-          }
-        ]
-      },
-      {
-        title: '我的社交引力场',
-        desc: '以下能让人有安全感的是？',
-        options: [
-          {
-            option: 'A',
-            text: '一只小狗',
-            isSelect: false,
-          },
-          {
-            option: 'B',
-            text: '恋人的拥抱',
-            isSelect: false,
-          },
-          {
-            option: 'C',
-            text: '手机',
-            isSelect: false,
-          }
-        ]
-      }
-    ],
+    questionList: [] as any[],
     answerList: [] as string[],
+    psyTest: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function () {
-    let question = this.data.questionList[this.data.questionIndex];
-    this.setData!({
-      question,
-    })
+  onLoad: function (options: any) {
+    this.getPsyTest(options.id);
   },
 
   select(e: any) {
@@ -72,8 +21,8 @@ Page({
       answerList,
     } = this.data;
     console.log(questionList[questionIndex]);
-    console.log(questionList[questionIndex].options[index]);
-    questionList[questionIndex].options[index].isSelect = true;
+    console.log(questionList[questionIndex].answerOptions[index]);
+    questionList[questionIndex].answerOptions[index].isSelect = true;
     answerList.push(option);
     console.log(answerList);
     if ((questionIndex + 1) === questionList.length) { // last question
@@ -90,45 +39,17 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  /** 获取心理测试题目 */
+  getPsyTest(id: string) {
+    Api.getPsyTest(id).then((result: any) => {
+      this.setData!({
+        psyTest: result.data,
+        questionList: result.data.content,
+      });
+      let question = this.data.questionList[this.data.questionIndex];
+      this.setData!({
+        question,
+      });
+    })
   },
 })
