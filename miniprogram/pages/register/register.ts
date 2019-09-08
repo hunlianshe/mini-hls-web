@@ -102,7 +102,7 @@ Page({
       !utils.validateEmpty(this.data.isMarriage, '请选择婚姻状况') ||
       !utils.validateEmpty(this.data.hasChild, '请选择是否有孩子') ||
       !utils.validateEmpty(this.data.wantChild, '请选择是否想要孩子') ||
-      !utils.validateEmpty(this.data.jobGeneral, '请选择职业') ||
+      // !utils.validateEmpty(this.data.jobGeneral, '请选择职业') ||
       !utils.validateEmpty(this.data.haveHouse, '请选择买房情况')) {
       return false;
     }
@@ -113,10 +113,11 @@ Page({
   /** update */
   doSubmit(e: any) {
     const params = e.detail.value;
+    const { openid } = this.data.user;
     this.setData!({
       submitDisable: true
     });
-    Api.updateUser(Object.assign(params)).then((result: any) => {
+    Api.updateUser(Object.assign({openid}, params)).then((result: any) => {
       wx.hideLoading(); 
       this.setData!({
         submitDisable: true
@@ -179,10 +180,11 @@ Page({
 
   /** 性别 */
   bindGenderChange(e: any) {
-    const { genderArray } = this.data
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
-      gender: genderArray[e.detail.value]
-    })
+      gender: parseInt(e.detail.value) + 1
+    });
+    console.log('parseInt(e.detail.value)', (parseInt(e.detail.value) + 1))
   },
 
   /** 月收入 */

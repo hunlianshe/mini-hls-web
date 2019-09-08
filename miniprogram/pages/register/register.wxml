@@ -13,7 +13,7 @@
         <view class="{{ gender ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
           <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{genderArray}}">
             <view class="picker">
-              {{gender ? gender : '请选择'}}
+              {{genderArray[(gender - 1)] ? genderArray[(gender - 1)] : '请选择'}}
               <input hidden="true" name="gender" value="{{gender}}"/>
             </view>
           </picker>
