@@ -1,10 +1,9 @@
 interface User {
-  // 微信获取的用户信息
   nickName?: string,
   gender?: number,
   birth?: string,
   height?: number,            // 身高
-  salary?: string,            //月收入
+  salary?: string,            // 月收入
   workProvince?: string,      // 工作 省
   workCity?: string,          // 工作 市
   workRegion?: string,        // 工作 区

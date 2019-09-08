@@ -370,7 +370,7 @@ Page({
   bindWantChildChange(e: any) {
     const { wantChildArray } = this.data
     this.setData!({
-      hasChild: wantChildArray[e.detail.value]
+      wantChild: wantChildArray[e.detail.value]
     })
   },
 
