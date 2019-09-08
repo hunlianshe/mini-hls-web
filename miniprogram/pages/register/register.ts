@@ -11,7 +11,7 @@ Page({
     gender: '', 
     birth: '',            // 生日
     height: '',           // 身高
-    month_incomeRange: '',  
+    salary: '',  
     isMarriage: '未婚',
     education: '', 
     hasChild: '', 
@@ -19,6 +19,7 @@ Page({
     job: '',
     house: '',   
     genderIndex: 0,
+    salaryIndex: 0,
     note: '',
     leftLenth: 300,
     indexImage: '',
@@ -27,7 +28,6 @@ Page({
     uploadImgs: [],       // 图片
     count: 9,
     city: '',             // 上牌地点
-    // cityId: '',
     selectValue: '',
     cityList: [],
     hotCityList: [],
@@ -39,7 +39,7 @@ Page({
     submitDisable: false,
     isMarriageArray: ['未婚', '离异'],
     genderArray: ['男','女'],
-    monthIncomeArray: [
+    salaryArray: [
       '5千以下', '5千～1万', '1万～2万', '2万～5万', '5万以上'
     ],
     educationArray: [
@@ -53,7 +53,7 @@ Page({
   /**
   * 生命周期函数--监听页面加载
   */
-  onLoad: function (options: any) {
+  onLoad: function () {
     let _this = this;
     wx.getStorage({
       key: 'user',
@@ -63,13 +63,6 @@ Page({
         })
       },
     });  
-    if (options.carId) {
-      _this.getCarDetail(options.carId);
-    }
-    _this.setData!({
-      shopId: options.shopId,
-      carId: options.carId || ''
-    });
     this.setData!({
       dateNow: this.getYMD(new Date())
     });
@@ -135,21 +128,20 @@ Page({
         dir: `images/shop/${openid}/` + indexImage.replace('http://tmp/', ''),
         success: function (res: any) {
           indexImage = `${aliyunServerURL}/${res}`;
-          that.uploadAndSubmit(e, indexImage);
+          that.uploadAndSubmit();
         },
         fail: function () {
-          that.uploadAndSubmit(e, indexImage);
+          that.uploadAndSubmit();
         }
       });
     } else {
-      that.uploadAndSubmit(e, indexImage);
+      that.uploadAndSubmit();
     }
   },
 
-  uploadAndSubmit(e: any, indexImage: any) {
+  uploadAndSubmit() {
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
-    let that = this;
     let count = 0;
     let images: any[] = [];
     const uploadImgs = this.data.uploadImgs;
@@ -166,12 +158,12 @@ Page({
             count++;
             images.push(`${aliyunServerURL}/${res}`);
             if (count === uploadImgs.length) {
-              if (that.data.carId !== '') {
-                images = images.concat(that.data.oldImages);
-                that.updateCar(e, indexImage, images, that.data.carId);
-              } else {
-                that.doSubmit(e, indexImage, images);
-              }
+              // if (that.data.carId !== '') {
+              //   images = images.concat(that.data.oldImages);
+              //   that.updateCar(e, indexImage, images, that.data.carId);
+              // } else {
+              //   that.doSubmit(e, indexImage, images);
+              // }
             } else {
               // wx.hideLoading();
             }
@@ -182,12 +174,12 @@ Page({
         });
       }
     } else {
-      if (that.data.carId !== '') {
-        images = images.concat(that.data.oldImages);  // 合并编辑之前的汽车图片
-        that.updateCar(e, indexImage, images, that.data.carId);
-      } else {
-        that.doSubmit(e, indexImage, images);
-      }
+      // if (that.data.carId !== '') {
+      //   images = images.concat(that.data.oldImages);  // 合并编辑之前的汽车图片
+      //   that.updateCar(e, indexImage, images, that.data.carId);
+      // } else {
+      //   that.doSubmit(e, indexImage, images);
+      // }
       wx.hideLoading();
     }
   },
@@ -400,10 +392,10 @@ Page({
     })
   },
   /** 月收入 */
-  bindMonthIncomeChange(e: any) {
-    const { monthIncomeArray } = this.data
+  bindSalaryChange(e: any) {
+    const { salaryArray } = this.data
     this.setData!({
-      month_incomeRange: monthIncomeArray[e.detail.value]
+      salary: salaryArray[e.detail.value]
     })
   },
 

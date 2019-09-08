@@ -45,11 +45,11 @@
 
       <view class='info-cell display-flex'>
         <text>月收入</text>
-        <view class="{{ month_incomeRange ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
-          <picker bindchange="bindMonthIncomeChange" value="{{monthIncomeIndex}}" range="{{monthIncomeArray}}">
+        <view class="{{ salary ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryArray}}">
             <view class="picker">
-              {{month_incomeRange ? month_incomeRange : '请选择'}}
-              <input hidden="true" name="month_incomeRange" value="{{month_incomeRange}}"/>
+              {{salary ? salary : '请选择'}}
+              <input hidden="true" name="salary" value="{{salary}}"/>
             </view>
           </picker>
         </view>

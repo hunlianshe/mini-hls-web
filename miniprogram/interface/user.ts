@@ -3,13 +3,13 @@ interface User {
   nickName?: string,
   gender?: number,
   birth?: string,
-  height?: number,           // 身高
+  height?: number,            // 身高
   month_incomeRange?: string, //月收入
-  work_province?: string,    // 工作 省
-  work_city?: string,        // 工作 市
-  work_region?: string,      //工作 区
-  education?: string,        // 学历
-  marital_status?: boolean,  // 是否已婚 没有值->请选择 - boolean
+  work_province?: string,     // 工作 省
+  work_city?: string,         // 工作 市
+  work_region?: string,       // 工作 区
+  education?: string,         // 学历
+  marital_status?: boolean,   // 是否已婚 没有值->请选择 - boolean
   with_child?: boolean,       // 是否有孩子
   want_child?: boolean,       // 是否想要孩子
   job_general?: string,       // 工作类型的大类别
