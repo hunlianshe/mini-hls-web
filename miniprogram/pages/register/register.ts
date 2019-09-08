@@ -17,7 +17,7 @@ Page({
     hasChild: '', 
     wantChild: '', 
     job: '',
-    house: '',   
+    haveHouse: '',   
     genderIndex: 0,
     salaryIndex: 0,
     note: '',
@@ -47,7 +47,7 @@ Page({
     ],
     hasChildArray: ['是', '否'],
     wantChildArray: ['是', '否'],
-    houseArray: ['已买', '未买'],
+    haveHouseArray: ['已买', '未买'],
   },
 
   /**
@@ -77,12 +77,11 @@ Page({
           brandDetail: result.data.brandDetail,         // 二级车系
           city: result.data.city,
           price: result.data.price,                     // 价格
-          birth: this.getYMD(result.data.birth),  // 生日
+          birth: this.getYMD(result.data.birth),        // 生日
           height: result.data.height,                   // 身高
-          transfersNumber: result.data.transfersNumber, // 过户次数
           isMarriage: result.data.isMarriage,           // 婚姻状况
           education: result.data.education,             // 教育
-          gender: result.data.gender,                         // 性别
+          gender: result.data.gender,                   // 性别
           note: result.data.note,                       // 补充
           indexImage: result.data.indexImage,
           oldImages: result.data.images,                // 图片
@@ -108,15 +107,13 @@ Page({
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
 
-    if (!utils.validateEmpty(value.brand, '请选择品牌车系') ||
-        !utils.validateEmpty(value.birth, '请选择上牌日期') ||
-        !utils.validateEmpty(value.height, '请输入行驶里程') ||
+    if (!utils.validateEmpty(value.nickName, '请输入昵称') ||
+        !utils.validateEmpty(value.birth, '请选择生日') ||
+        !utils.validateEmpty(value.height, '请输入身高') ||
         !utils.validateEmpty(value.city, '请输选择牌照所在地') ||
         !utils.validateEmpty(value.price, '请输入价格') ||
-        !utils.validateEmpty(value.transfersNumber, '请输入过户次数') ||
         !utils.validateEmpty(value.gender, '请选择车况') ||
-        !utils.validateEmpty(this.data.indexImage, '请上传汽车首页照片') ||
-        !utils.validateImages(this.data.oldImages.concat(this.data.uploadImgs), '请上传汽车照片')) {
+        !utils.validateEmpty(this.data.indexImage, '请上传汽车首页照片')) {
       return false;
     }
 
@@ -377,10 +374,10 @@ Page({
     })
   },
 
-  bindHouseChange(e: any) {
-    const { houseArray } = this.data
+  bindHaveHouseChange(e: any) {
+    const { haveHouseArray } = this.data
     this.setData!({
-      house: houseArray[e.detail.value]
+      haveHouse: haveHouseArray[e.detail.value]
     })
   },
 

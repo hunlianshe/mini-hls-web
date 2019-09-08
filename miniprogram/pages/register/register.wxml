@@ -124,11 +124,11 @@
 
       <view class='info-cell display-flex'>
         <text>买房情况</text>
-        <view class="{{ house ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
-          <picker bindchange="bindHouseChange" value="{{house}}" range="{{houseArray}}">
+        <view class="{{ haveHouse ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+          <picker bindchange="bindHaveHouseChange" value="{{haveHouse}}" range="{{haveHouseArray}}">
             <view class="picker">
-              {{house ? house : '请选择'}}
-              <input hidden="true" name="house" value="{{house}}"/>
+              {{haveHouse ? haveHouse : '请选择'}}
+              <input hidden="true" name="haveHouse" value="{{haveHouse}}"/>
             </view>
           </picker>
         </view>

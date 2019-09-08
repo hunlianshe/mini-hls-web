@@ -14,7 +14,7 @@ interface User {
   want_child?: boolean,       // 是否想要孩子
   job_general?: string,       // 工作类型的大类别
   job_detail?: string,        // 工作类型的小类别
-  have_house?: string,        // 是否有房子
+  haveHouse?: string,        // 是否有房子
   phone?: string,             // 电话号码
   language?: string,  
   city?: string,
