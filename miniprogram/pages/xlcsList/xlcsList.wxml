@@ -1,10 +1,13 @@
 <view class="xlcsListPage">
-  <view class="block-cell display-flex" bindtap="doTest"
+  <block wx:for="{{psyTest}}" wx:key="{{item._id}}">
+    <view class="block-cell display-flex" bindtap="doTest" data-iiem="{{item}}"
+    style='background-image: url("../../public/image/timg.png");background-repeat:no-repeat;background-size:100%;'>
+      {{item.name}}
+    </view>
+  </block>
+  
+  <!--<view class="block-cell display-flex" bindtap="doTest"
   style='background-image: url("../../public/image/timg.png");background-repeat:no-repeat;background-size:100%;'>
     测测你的个人社交吸引力
-  </view>
-  <view class="block-cell display-flex" bindtap="doTest"
-  style='background-image: url("../../public/image/timg.png");background-repeat:no-repeat;background-size:100%;'>
-    测测你的个人社交吸引力
-  </view>
+  </view>-->
 </view>

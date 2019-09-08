@@ -1,18 +1,13 @@
-// miniprogram/pages/xlcsList/xlcsList.js
+import * as Api from '../../service/api.service';
+
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    psyTest: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function () {
-
+    this.getPsyTest();
   },
 
   doTest() {
@@ -21,9 +16,15 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  /** 获取心理测试题目 */
+  getPsyTest() {
+    Api.getPsyTest().then((result: any) => {
+      this.setData!({
+        psyTest: result.data,
+      })
+    })
+  },
+
   onReady: function () {
 
   },

@@ -8,7 +8,7 @@ import User from '../interface/user';
  * 从微信获取openid
  * @param {code: wx.login().code}
  */
-const getOpenid = (code: string) => httpServer.get({ url: `/users/openidfromwx/:code=${code}` });
+const getOpenid = (code: string) => httpServer.get({ url: `/users/openidfromwx/${code}` });
 
 // const getOpenid = (code: string) => httpServer.get({ url: '/mini/getOpenid?code=' + code });
 
