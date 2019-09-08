@@ -56,11 +56,14 @@
         <icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
 
-      <view class='info-cell display-flex' bindtap='popPicker'>
+      <view class='info-cell display-flex'>
         <text>工作地区</text>
-        <view class="{{ city ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
-          {{city ? city : '请选择'}}
-          <input hidden="true" name="city" value="{{city}}"/>
+        <view class="flex-full align-right">
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker">
+              {{region.length > 0 ? region[0]+ ' ' + region[1] + ' ' + region[2] : '请选择'}}
+            </view>
+          </picker>
         </view>
         <icon iconName='arrowRight' width="7px" height="12px"/>
       </view>

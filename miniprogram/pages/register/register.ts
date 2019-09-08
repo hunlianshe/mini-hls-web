@@ -11,7 +11,8 @@ Page({
     gender: '', 
     birth: '',            // 生日
     height: '',           // 身高
-    salary: '',  
+    salary: '', 
+    region: [], 
     isMarriage: '未婚',
     education: '', 
     hasChild: '', 
@@ -388,12 +389,20 @@ Page({
       gender: genderArray[e.detail.value]
     })
   },
+
   /** 月收入 */
   bindSalaryChange(e: any) {
     const { salaryArray } = this.data
     this.setData!({
       salary: salaryArray[e.detail.value]
-    })
+    });
+  },
+
+  bindRegionChange: function (e:any) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData!({
+      region: e.detail.value,
+    });
   },
 
   inputNote(e: any) {
