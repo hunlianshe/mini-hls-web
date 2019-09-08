@@ -6,14 +6,16 @@ style='background-image: url("../../public/image/timg.png");background-repeat:no
       {{psyTest.name}}
       <view>=</view>
     </view>
-    <text>{{question.desc}}</text>
+    <text>{{question.question}}</text>
     <view class="page">
       {{questionIndex + 1}}/{{questionList.length}}
     </view>
   </view>
   <view class="block">
-    <block wx:for="{{question.options}}" wx:key="{{item.option}}">
-      <button class="options" bindtap="select" data-option="{{item.option}}" data-index="{{index}}">{{item.text}}</button>
+    <block wx:for="{{question.answerOptions}}" wx:key="{{item.optionIndex}}">
+      <button class="options" bindtap="select" data-option="{{item.optionContent}}" data-index="{{index}}">
+        <text>{{item.optionContent}}</text>
+      </button>
     </block>
   </view>
 </view>
