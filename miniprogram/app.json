@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/index/index",
     "pages/matchmaker/matchmaker",
     "pages/myImages/myImages",
-    "pages/home/home",
     "pages/register/register",
     "pages/userDetail/userDetail",
     "pages/xzysDetail/xzysDetail",
@@ -36,25 +36,25 @@
   },
   "tabBar": {
     "color": "#90949C",
-    "selectedColor": "#1E90FF",
+    "selectedColor": "#E39BF0",
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "广场",
-        "iconPath": "image/menu_1.png",
-        "selectedIconPath": "image/menu_1_active.png"
+        "iconPath": "public/image/menu_1.png",
+        "selectedIconPath": "public/image/menu_1_active.png"
       },
       {
         "pagePath": "pages/fate/fate",
         "text": "缘分",
-        "iconPath": "image/menu_2.png",
-        "selectedIconPath": "image/menu_2_active.png"
+        "iconPath": "public/image/menu_2.png",
+        "selectedIconPath": "public/image/menu_2_active.png"
       },
       {
         "pagePath": "pages/myHome/myHome",
         "text": "我的",
-        "iconPath": "image/menu_3.png",
-        "selectedIconPath": "image/menu_3_active.png"
+        "iconPath": "public/image/menu_3.png",
+        "selectedIconPath": "public/image/menu_3_active.png"
       }
     ]
   },

@@ -34,23 +34,23 @@
 
   <view style="padding: 0 30rpx; background:#ffffff;">
     <view class='display-flex home-cell-list' bindtap='myImages'>
-      <icon iconName="car" width='40rpx' height='24rpx' />
+      <!--<icon iconName="car" width='40rpx' height='24rpx' />-->
       <text class='small-text flex-full'>我的相册</text>
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />
     </view>
     <view class='display-flex home-cell-list' bindtap='register'>
-      <icon iconName="shop" width='40rpx' height='40rpx' />
+      <!--<icon iconName="shop" width='40rpx' height='40rpx' />-->
       <text class='small-text flex-full'>我的资料</text>
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />
     </view>
    
     <view class='display-flex home-cell-list' bindtap='goMatchmaker'>
-      <icon iconName="qrcode" width='32rpx' height='32rpx' style="padding:4rpx;"/>
+      <!--<icon iconName="qrcode" width='32rpx' height='32rpx' style="padding:4rpx;"/>-->
       <text class='small-text flex-full'>择偶条件</text>
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />
     </view>
      <view class='display-flex home-cell-list' bindtap='goMatchmaker'>
-      <icon iconName="qrcode" width='32rpx' height='32rpx' style="padding:4rpx;"/>
+      <!--<icon iconName="qrcode" width='32rpx' height='32rpx' style="padding:4rpx;"/>-->
       <text class='small-text flex-full'>红娘</text>
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />
     </view>
