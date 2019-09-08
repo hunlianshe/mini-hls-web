@@ -212,7 +212,7 @@ Page({
     if (!userInfo.openid) {
       return;
     }
-    Api.insertUser(userInfo).then((result:any) => {
+    Api.register(userInfo).then((result:any) => {
       if (result.code === 200) {
         userInfo.token = result.data.token;
         wx.setStorage({
