@@ -1,28 +1,45 @@
-// pages/xzysDetail/xzysDetail.js
+import * as Api from '../../service/api.service';
+import xzList from '../../public/json/zxList';
+
+const dataList: any[] = [];
+xzList.data.forEach((e: any) => {
+  dataList.push(e.ch);
+});
+
 Page({
   data: {
     dataIndex: 0,
-    dataList: ['水平座', '双鱼座', '天蝎座', '魔蝎座'],
-    otherData: '',
+    fortuneName: '',
+    fortuneData: {},
+    xzList: dataList,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function () {
-
+  onLoad: function (options: any) {
+    console.log(options);
+    this.setData!({
+      fortuneName: options.fortuneName,
+    })
+    this.getFortune(options.fortuneName);
   },
 
   otherPick: function (e: any) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
-      otherData: e.detail.value
-    })
+      fortuneName: dataList[e.detail.value],
+    });
+    this.getFortune(this.data.fortuneName);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  /** 获取星座详解 */
+  getFortune(fortuneName: string) {
+    Api.getFortune(fortuneName).then((result: any) => {
+      let fortuneData = result.data;
+      this.setData!({
+        fortuneData,
+      });
+    });
+  },
+
   onReady: function () {
 
   },
@@ -48,17 +65,4 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 })

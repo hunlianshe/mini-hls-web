@@ -72,9 +72,11 @@ Page({
   },
 
   /** 星座运势 */
-  goXzysDetail() {
+  goXzysDetail(e:any) {
+    console.log('goXzysDetail e', e)
+    let fortuneName = e.currentTarget.dataset.fortunename;
     wx.navigateTo({
-      url: `../xzysDetail/xzysDetail`,
+      url: `../xzysDetail/xzysDetail?fortuneName=${fortuneName}`,
     })
   },
 

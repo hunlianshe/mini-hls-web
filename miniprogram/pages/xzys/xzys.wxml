@@ -3,7 +3,7 @@
     查看你的星座运势
   </view>
   <view class="constellation">
-    <view class="block" wx:for="{{constellation}}" wx:key="{{item.en}}" bindtap="goXzysDetail">
+    <view class="block" wx:for="{{constellation}}" wx:key="{{item.en}}" bindtap="goXzysDetail" data-fortunename="{{item.ch}}">
       <image src="../../public/image/Signs/{{item.en}}.png" mode="aspectFit"/>
       <view class="name">
         {{item.ch}}

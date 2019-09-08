@@ -41,12 +41,13 @@
 .myHome .home-cell-list {
   padding: 20rpx 0rpx;
   background-color: #ffffff;
+  border-bottom: 1rpx solid #efefef;
 }
 
-.myHome .home-cell-list + .home-cell-list {
+/* .myHome .home-cell-list + .home-cell-list {
   background-color: #ffffff;
   border-top: 2rpx solid #efefef;
-}
+} */
 
 .myHome .marginTop_10 {
   margin-top: 20rpx;

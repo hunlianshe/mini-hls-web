@@ -2,9 +2,9 @@
   <view class="top"
   style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
      <view>星座详解</view>
-     <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{dataList}}">
-      <view class='{{dataList[otherData] ? "picker" : "picker-place"}}'>
-        {{dataList[otherData] ? dataList[otherData] : "选择星座"}}
+     <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}">
+      <view class='{{fortuneName ? "picker" : "picker-place"}}'>
+        {{fortuneName ? fortuneName : "选择星座"}}
       </view>
     </picker>
   </view>
@@ -14,15 +14,14 @@
       <image src="../../public/image/Signs/Leo.png" mode="aspectFit" />
     </view>
     <view class="flex-full">
-      <view>水瓶座</view>
-      <view>生辰：3.21～4.20</view>
-      <view>属性：21～4.20</view>
-      <view>特点：勇敢、火热、大方</view>
+      <view>{{fortuneData.name}}</view>
+      <view>生辰：{{fortuneData.birth}}</view>
+      <view>属性：{{fortuneData.attributes}}</view>
+      <view>特点：{{fortuneData.feature}}</view>
     </view>
   </view>
   <view class="detail">
-    白羊座，内心有着一个被放大的自我，这个自我里住着一个天真的孩子，孩子都会认为自己就是世界的中心，所以白羊座会有一点自私，但他们对朋友都不具心机，讲义气，想法和说话速度一样快的白羊座，有时也较少在意别人的感受。
-    白羊座，内心有着一个被放大的自我，这个自我里住着一个天真的孩子，孩子都会认为自己就是世界的中心，所以白羊座会有一点自私，但他们对朋友都不具心机，讲义气，想法和说话速度一样快的白羊座，有时也较少在意别人的感受。
+    {{fortuneData.desc}}
   </view>
 </view>
 <view class="footer">
