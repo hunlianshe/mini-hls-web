@@ -123,13 +123,14 @@ Page({
         submitDisable: true
       });     
       if (result.code === 200) {
-        wx.navigateTo({
-          url: `../home/home`,
-        });
-      } else if (result.code === 1202) {
-        utils.showModal('信息校验不通过，请核对汽车信息');
+        utils.showModal('更新成功')
+        setTimeout(() => {
+          wx.switchTab({
+            url: `../myHome/myHome`,
+          });
+        }, 1000);
       } else {
-        utils.showModal();
+        utils.showModal('系统异常，请稍后再试');
       }
     })
   },

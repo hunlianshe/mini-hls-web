@@ -19,15 +19,31 @@ const getOpenid = (code: string) => httpServer.get({ url: `/users/openidfromwx/$
 const register = (user: User) => httpServer.post({ url: '/users/register', data: user });
 
 /**
+ * 获取用户信息
+ * @param {}
+ */
+const getUserInfo = (id: string) => httpServer.get({ url: `/users/getUserInfo/${id}` });
+
+/**
  * 更新用户信息
  * @param {}
  */
 const updateUser = (user: User) => httpServer.post({ url: `/users/updateUserInfo`, data: user });
 
 /**
- * 获取星座详解
+ * 关注(收藏)接口
  */
-const getFortune = (fortuneName: string) => httpServer.get({ url: `/fortune/${fortuneName}` });
+const putUsersLike = (openid: string) => httpServer.put({ url: `/users/like/${openid}` });
+
+/**
+ * 获取喜欢的类别和数量
+ */
+const getUsersLikeCount = () => httpServer.get({ url: `/users/like/count` });
+
+/**
+ * 获取对应喜欢类别的用户列表
+ */
+const getUsersListLikes = () => httpServer.get({ url: `/users/listLikes` });
 
 /**
  * 获取心里测试的题目列表
@@ -39,11 +55,16 @@ const getPsyList = () => httpServer.get({ url: `/psychological-test/list` });
  */
 const getPsyTest = (id: string) => httpServer.get({ url: `/psychological-test/${id}` });
 
+/**
+ * 获取星座详解
+ */
+const getFortune = (fortuneName: string) => httpServer.get({ url: `/fortune/${fortuneName}` });
 
 /**
  * 星座运势详解
  */
 const getHoroscopet = (consName: string, type: string) => httpServer.get({ url: `/horoscope/realtime?consName=${consName}&type=${type}` });
+
 
 
 /****************************************************************************************/
@@ -52,17 +73,12 @@ const getAccessToken = () => httpServer.get({ url: '/mini/getAccessToken' });
 
 
 // const register = (user: any) => httpServer.post({ url: '/user/insertUser', data: user });
-/**
- * 获取用户信息
- * @param {}
- */
-const getUserInfo = () => httpServer.get({ url: `/user/userInfo` });
 
 /**
  * 获取用户信息
  * @param {}
  */
-const getUserDetail = (id: any) => httpServer.get({ url: `/user/userInfo?id=${id}` });
+const getUserDetail = (id: any) => httpServer.get({ url: `/user/getUserInfo?id=${id}` });
 /**
  * 获取城市列表
  * @param {}
@@ -92,13 +108,16 @@ export {
   getOpenid,
   register,
   updateUser,
-  getFortune,
+  getUserInfo,
+  putUsersLike,
+  getUsersLikeCount, 
+  getUsersListLikes,
   getPsyList,
   getPsyTest,
+  getFortune,
   getHoroscopet,
 
   getAccessToken,
-  getUserInfo,
   getCityList,
   getAllDistrict,
   createShop,

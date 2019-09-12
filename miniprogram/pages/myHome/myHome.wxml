@@ -7,15 +7,15 @@
   </view>
   <view class='display-flex home-center'>
     <view bindtap="goFateList">
-      <view class='number'>5{{userStatistics.followCars}}</view>
+      <view class='number'>{{meLike}}</view>
       <view class='small-text'>我喜欢</view>
     </view>
     <view bindtap="goFateList">
-      <view class='number'>5{{userStatistics.followShops}}</view>
+      <view class='number'>{{likeMe}}</view>
       <view class='small-text'>喜欢我</view>
     </view>
     <view bindtap="goFateList">
-      <view class='number'>1{{userStatistics.byFollowShops}}</view>
+      <view class='number'>{{likeEachOther}}</view>
       <view class='small-text'>相互喜欢</view>
     </view>
   </view>

@@ -69,6 +69,7 @@ const promisify = (callback: any) => {
 }
 
 const _get = (...argus: any) => _request(Object.assign({}, argus[0], { method: 'GET' }));
+const _put = (...argus: any) => _request(Object.assign({}, argus[0], { method: 'PUT' }));
 const _post = (...argus: any) => _request(Object.assign({}, argus[0], { method: 'POST' }));
 const _post_form = (...argus: any) => _request(Object.assign({}, argus[0], {
   method: 'POST',
@@ -80,6 +81,7 @@ const _post_form = (...argus: any) => _request(Object.assign({}, argus[0], {
 
 let HttpServer = {
   get: promisify(_get),
+  put: promisify(_put),
   post: promisify(_post),
   post_form: promisify(_post_form),
 };

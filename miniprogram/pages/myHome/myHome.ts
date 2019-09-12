@@ -1,13 +1,16 @@
 // pages/myHome/myHome.js
 
-import apiServicePro = require('../../service/api.service');
+import * as Api from '../../service/api.service';
 
 Page({
   data: {
-    user: {},
+    user: { openid: '' },
     userInfo: {},
     userStatistics: {},
     pageLoaded: false,
+    meLike: 0,
+    likeMe: 0,
+    likeEachOther: 0,
   },
 
   onLoad: function () {
@@ -21,9 +24,52 @@ Page({
       },
     });
     this.getUserInfo();
+    this.getUsersLikeCount();
     this.setData!({
       pageLoaded: true,
     })
+  },
+
+  /** 获取用户信息 */
+  getUserInfo() {
+    const { openid } = this.data.user;
+    Api.getUserInfo(openid).then((result: any) => {
+      if (result) {
+        const userInfo = result.data;
+        this.setData!({
+          userInfo,
+          // userStatistics: userInfo.statistics,
+        });
+        //   wx.setStorage({
+        //     key: 'userShopInfo',
+        //     data: userInfo,
+        //   });
+      }
+    });
+  },
+
+  /** 获取喜欢的类别和数量 */
+  getUsersLikeCount() {
+    Api.getUsersLikeCount().then((result: any) => {
+      if (result) {
+        const usersLikeCount = result.data;
+        let meLike, likeMe, likeEachOther;
+        usersLikeCount.forEach((e: any) => {
+          if (e.type === "meLike") {
+            meLike = e.count;
+          } else if (e.type === "likeMe") {
+            likeMe = e.count;
+          } else {
+            likeEachOther = e.count;
+          }
+        });
+        this.setData!({
+          meLike,
+          likeMe,
+          likeEachOther,
+        });
+      }
+    });
   },
 
   /** 心理测试列表 */
@@ -45,38 +91,14 @@ Page({
     })
   },
 
-  /** 获取用户信息（店铺信息） */
-  getUserInfo() {
-    apiServicePro.getUserInfo().then(result => {
-      if (result) {
-      //   const userInfo = result.data;
-      //   this.setData!({
-      //     userInfo,
-      //     userStatistics: userInfo.statistics,
-      //   });
-      //   wx.setStorage({
-      //     key: 'userShopInfo',
-      //     data: userInfo,
-      //   });
-      }
-    });
-  },
-
-  /** 创建店铺 */
-  createShop() {
-    wx.navigateTo({
-      url: '../createShop/createShop',
-    })
-  },
-
-  /** 创建汽车 */
+  /** 红娘 */
   goMatchmaker(): any {
     wx.navigateTo({
       url: `../matchmaker/matchmaker`,
     })
   },
 
-  /** 查看店铺 */
+  /** 喜欢人列表 */
   goFateList() {
     // const id = this.data.userInfo.Shop.id;
     wx.navigateTo({
@@ -84,36 +106,10 @@ Page({
     })
   },
 
-  /** 名片 */
-  goNamecard() {
-    wx.navigateTo({
-      url: '../nameCard/nameCard',
-    })
-  },
-
-  /** 用户反馈 */
-  goFeedback() {
-    wx.navigateTo({
-      url: '../feedback/feedback',
-    })
-  },
-
-  shopQrcode() {
-    wx.navigateTo({
-      url: `../shopQrcode/shopQrcode`,
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     const { pageLoaded } = this.data;
     if (pageLoaded) {
@@ -121,31 +117,11 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 })
