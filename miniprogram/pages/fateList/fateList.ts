@@ -1,7 +1,9 @@
+import * as Api from '../../service/api.service';
 
 Page({
   data: {
     _active: '1',
+    listLikes: [] as any[],
   },
 
   onLoad: function (options: any) {
@@ -10,8 +12,22 @@ Page({
     })
   },
 
-  onReady: function () {
+  
 
+  onReady: function () {
+    this.getUsersListLikes();
+  },
+
+  /** 获取对应喜欢类别的用户列表 */
+  getUsersListLikes() {
+    Api.getUsersListLikes().then((result: any) => {
+      if (result) {
+        const listLikes = result.data;
+        this.setData!({
+          listLikes,
+        });
+      }
+    });
   },
 
   switchTab(e: any) {

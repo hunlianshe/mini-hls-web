@@ -43,7 +43,7 @@ const getUsersLikeCount = () => httpServer.get({ url: `/users/like/count` });
 /**
  * 获取对应喜欢类别的用户列表
  */
-const getUsersListLikes = () => httpServer.get({ url: `/users/listLikes` });
+const getUsersListLikes = () => httpServer.post({ url: `/users/listLikes` });
 
 /**
  * 获取心里测试的题目列表

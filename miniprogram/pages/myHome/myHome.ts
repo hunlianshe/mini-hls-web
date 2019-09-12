@@ -1,4 +1,3 @@
-// pages/myHome/myHome.js
 
 import * as Api from '../../service/api.service';
 
