@@ -1,23 +1,15 @@
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     _active: '1',
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function () {
-
+  onLoad: function (options: any) {
+    this.setData!({
+      _active: options.type,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },

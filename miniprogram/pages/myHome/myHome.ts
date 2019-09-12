@@ -99,10 +99,11 @@ Page({
   },
 
   /** 喜欢人列表 */
-  goFateList() {
+  goFateList(e: any) {
     // const id = this.data.userInfo.Shop.id;
+    const { type } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `../fateList/fateList`,
+      url: `../fateList/fateList?type=${type}`,
     })
   },
 
