@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/matchXZResult/matchXZResult",
     "pages/index/index",
     "pages/registerPhone/registerPhone",
     "pages/home/home",

@@ -20,6 +20,7 @@
       <view>特点：{{fortuneData.feature}}</view>
     </view>
   </view>
+  <view class="subtitle">运势分析</view>
   <view class="detail">
     {{fortuneData.desc}}
   </view>
