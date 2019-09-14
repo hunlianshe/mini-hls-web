@@ -31,6 +31,18 @@ const getUserInfo = (id: string) => httpServer.get({ url: `/users/getUserInfo/${
 const updateUser = (user: User) => httpServer.post({ url: `/users/updateUserInfo`, data: user });
 
 /**
+ * 手机号注册
+ * @param {}
+ */
+const addPhone = (data: any) => httpServer.post({ url: `/users/addPhone`, data: data });
+
+/**
+ * 发送短信验证码
+ * @param {}
+ */
+const sendSms = (data: any) => httpServer.post({ url: `/users/sendSms`, data: data });
+
+/**
  * 关注(收藏)接口
  */
 const putUsersLike = (openid: string) => httpServer.put({ url: `/users/like/${openid}` });
@@ -108,6 +120,8 @@ export {
   getOpenid,
   register,
   updateUser,
+  sendSms,
+  addPhone,
   getUserInfo,
   putUsersLike,
   getUsersLikeCount, 
