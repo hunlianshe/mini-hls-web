@@ -30,10 +30,7 @@ Page({
     let _this = this;
     wx.getStorageInfo({
       success(res) {
-        if (res.keys.indexOf('user') !== -1 &&
-          res.keys.indexOf('currentCity') !== -1 &&
-          res.keys.indexOf('userShopInfo') !== -1 &&
-          !_this.data.auth) {
+        if (res.keys.indexOf('user') !== -1 && !_this.data.auth) {
           _this.setData!({
             hasStorage: true
           })
@@ -44,8 +41,6 @@ Page({
           }, 1500);
         } else {
           _this.getOpenid();
-          // _this.getCityList(); // 放入缓存
-          // _this.getHotCityList();
           if (app.globalData.userLocation) {
             wx.showLoading({
               title: '定位中',
@@ -82,50 +77,6 @@ Page({
       fail: function (err) {
         console.log('wx.login failed', err)
       }
-    })
-  },
-
-  /** 获取城市列表 */
-  getCityList() {
-    Api.getCityList({}).then((result: any) => {
-      if (result.code === 200) {
-        const cityList = result.data;
-        cityList.forEach((e: any) => {
-          e.data.forEach((city: any) => {
-            city.name = cityReplace(city.name);
-          })
-        });
-        this.setData!({
-          cityList: result.data,
-        });
-        wx.setStorage({
-          key: 'cityList',
-          data: result.data,
-        });
-      } else { }
-    }).catch((err) => {
-      console.log('getCityList err', err);
-    })
-  },
-
-  /** 获取城市列表 */
-  getHotCityList() {
-    Api.getCityList({hot: 1}).then((result: any) => {
-      if (result.code === 200) {
-        const hotCityList = result.data;
-        hotCityList.forEach((e:any) => {
-          e.name = cityReplace(e.name);
-        });
-        this.setData!({
-          hotCityList: result.data,
-        });
-        wx.setStorage({
-          key: 'hotCityList',
-          data: result.data,
-        });
-      } else { }
-    }).catch((err) => {
-      console.log('getHotCityList err', err);
     })
   },
 
@@ -196,16 +147,11 @@ Page({
     })
   },
 
-  /** 
+  /**
    * 获取授权和用户信息
    * 创建用户（后端判断是否已经创建）
    * 跳转广场tabBar页
-   */
-  goHome(e:any) {
-    this.getUser(e);
-  },
-
-  /** 获取用户信息 */
+  */
   getUser(e:any) {
     let userInfo: User = e.detail.userInfo;
     userInfo.openid = this.data.user.openid;
@@ -223,11 +169,11 @@ Page({
             wx.switchTab({
               url: `../home/home`,
             });
-            // this.getUserShopInfo();
           }
         });
       }
     }).catch(() => {
+      console.log('取消授权，留在本页')
     });
   },
 

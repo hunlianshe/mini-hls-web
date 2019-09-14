@@ -1,7 +1,10 @@
 import * as Api from '../../service/api.service';
+import { IMyApp } from '../../app';
+const app = getApp<IMyApp>();
 
 Page({
   data: {
+    userInfo: {} as any,
     psyTest: [],
     currShopList: [],
     dataAlready: false,
@@ -21,19 +24,19 @@ Page({
   },
 
   onLoad () {
-    // let _this = this;
-    // wx.getStorage({
-    //   key: 'currentCity',
-    //   success: function(res) {
-    //     _this.setData!({
-    //       currentCity: res.data,
-    //     });
-    //   },
-    // });
-    // this.getShopList({needLoading: '1'});
-    // this.setData!({
-    //   pageLoaded: true,
-    // })
+    let _this = this;
+    wx.getStorage({
+      key: 'user',
+      success: function(res) {
+        app.globalData.userInfo = res.data;
+        _this.setData!({
+          userInfo: res.data,
+        });
+      },
+    });
+    this.setData!({
+      pageLoaded: true,
+    })
     this.getPsyList();
   },
   

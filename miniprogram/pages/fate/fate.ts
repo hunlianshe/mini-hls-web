@@ -46,8 +46,11 @@ Page({
 
   /** 详情 */
   userDetail() {
+    // wx.navigateTo({
+    //   url: `../userDetail/userDetail`,
+    // })
     wx.navigateTo({
-      url: `../userDetail/userDetail`,
+      url: '../registerPhone/registerPhone',
     })
   },
 

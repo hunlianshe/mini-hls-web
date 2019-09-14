@@ -1,8 +1,10 @@
 //app.ts
+import User from './interface/user';
+
 export interface IMyApp {
-  userInfoReadyCallback?(res: wx.UserInfo): void
+  userInfoReadyCallback?(res: User): void
   globalData: {
-    userInfo?: wx.UserInfo
+    userInfo?: User
   }
 }
 

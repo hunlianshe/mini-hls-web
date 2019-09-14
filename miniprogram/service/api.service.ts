@@ -13,7 +13,7 @@ const getOpenid = (code: string) => httpServer.get({ url: `/users/openidfromwx/$
 // const getOpenid = (code: string) => httpServer.get({ url: '/mini/getOpenid?code=' + code });
 
 /**
- * 创建用户
+ * 创建用户,用户授权时使用
  * @param {user: User }
  */
 const register = (user: User) => httpServer.post({ url: '/users/register', data: user });

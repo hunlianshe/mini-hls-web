@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/registerPhone/registerPhone",
     "pages/home/home",
     "pages/matchmaker/matchmaker",
     "pages/myImages/myImages",
@@ -16,7 +17,6 @@
     "pages/registerSex/registerSex",
     "pages/registerXz/registerXz",
     "pages/registerInfo/registerInfo",
-    "pages/registerPhone/registerPhone",
     "pages/registerStandard/registerStandard",
     "pages/myHome/myHome",
     "pages/fateList/fateList",
