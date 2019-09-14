@@ -17,7 +17,7 @@
 <view class="outline">
   <view class="match-item">
       <view>{{fortuneData.title}}</view>
-      <view>友情：{{fortuneData.birth}}</view>
+      <view>友情：{{fortuneData.grade}}</view>
       <view>爱情：{{fortuneData.attributes}}</view>
       <view>婚姻：{{fortuneData.feature}}</view>
       <view>亲情：{{fortuneData.feature}}</view>

@@ -24,6 +24,7 @@ interface User {
   openid?: string,            // wx openid
   token?: string,
   deleteStatus?: boolean,
+  constellation?: string,
 }
 
 export default User;

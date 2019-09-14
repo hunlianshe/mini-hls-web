@@ -2,6 +2,8 @@ import * as Api from '../../service/api.service';
 import { IMyApp } from '../../app';
 const app = getApp<IMyApp>();
 
+import Horoscope from '../../interface/horoscope';
+
 Page({
   data: {
     userInfo: {} as any,
@@ -21,6 +23,7 @@ Page({
     totalCount: 0,
     pullDown: false,
     pullUp: false,
+    horoscopeData: {} as Horoscope,
   },
 
   onLoad () {
@@ -38,6 +41,7 @@ Page({
       pageLoaded: true,
     })
     this.getPsyList();
+    this.getHoroscopet(encodeURIComponent(this.data.userInfo.constellation || '白羊座'));
   },
   
   
@@ -76,6 +80,14 @@ Page({
         psyTest: result.data,
       })
     })
+  },
+
+  getHoroscopet(consName: string) {
+    Api.getHoroscopet(consName, 'today').then((result: any) => {
+      this.setData!({
+        horoscopeData: result.data,
+      })
+    });
   },
 
 

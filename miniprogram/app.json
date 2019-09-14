@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/matchXZResult/matchXZResult",
     "pages/index/index",
     "pages/registerPhone/registerPhone",
-    "pages/home/home",
     "pages/matchmaker/matchmaker",
     "pages/myImages/myImages",
     "pages/register/register",
