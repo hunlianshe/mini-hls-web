@@ -9,18 +9,33 @@ Page({
   onLoad: function (options: any) {
     this.setData!({
       _active: options.type,
-    })
+    });
+    this.getUsersListLikes(this.data._active);
   },
 
   
 
   onReady: function () {
-    this.getUsersListLikes();
   },
 
   /** 获取对应喜欢类别的用户列表 */
-  getUsersListLikes() {
-    Api.getUsersListLikes().then((result: any) => {
+  getUsersListLikes(active: string) {
+    let type = 'likeMe';
+    switch (active) {
+      case '1':
+        type = 'likeMe';
+        break;
+      case '2':
+        type = 'meLick';
+        break;
+      case '3':
+        type = 'likeEachOther';
+        break;
+      default:
+        break;
+    }
+    const params = { type, }
+    Api.getUsersListLikes(params).then((result: any) => {
       if (result) {
         const listLikes = result.data;
         this.setData!({
@@ -30,11 +45,13 @@ Page({
     });
   },
 
+  /** 切换tab */
   switchTab(e: any) {
     const index = e.currentTarget.dataset.index;
     this.setData!({
       _active: index,
-    })
+    });
+    this.getUsersListLikes(this.data._active);
   },
 
   /**
