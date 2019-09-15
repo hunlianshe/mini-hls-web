@@ -22,7 +22,7 @@ Page({
     salaryIndex: 0,
     dateNow: '',
     submitDisable: false,
-    isMarriageArray: ['未婚', '离异'],
+    isMarriageArray: ['未婚', '离婚'],
     genderArray: ['男','女'],
     salaryArray: [
       '5千以下', '5千～1万', '1万～2万', '2万～5万', '5万以上'
@@ -32,7 +32,7 @@ Page({
     ],
     hasChildArray: ['是', '否'],
     wantChildArray: ['是', '否'],
-    haveHouseArray: ['已买', '未买'],
+    haveHouseArray: ['已买房', '未买房'],
     multiIndex: [, ],
     multiArray: [[],[]] as any,
     jobJson: jobJson,

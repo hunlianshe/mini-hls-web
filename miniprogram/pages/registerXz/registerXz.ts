@@ -2,7 +2,7 @@ import * as Api from '../../service/api.service';
 // import { IMyApp } from '../../app';
 // const app = getApp<IMyApp>();
 
-const constellation = [
+const constellationList = [
   {
     en: 'Aquarius',
     ch: '水瓶座',
@@ -68,7 +68,8 @@ const constellation = [
 Page({
   data: {
     scene: '',
-    constellation: constellation,
+    constellation: '',
+    constellationList: constellationList,
   },
 
   onLoad: function (options: any) {
@@ -99,16 +100,15 @@ Page({
     }
     wx.navigateTo({
       url: '../registerInfo/registerInfo',
-    })
+    });
   },
 
   updateUser() {
     const user = {
       openid: 'app.globalData.userInfo.openid',
-      constellation: this.data.constellation
+      constellation: this.data.constellation,
     } as any;
     Api.updateUser(user).then((result: any) => {
-      wx.hideLoading();
       this.setData!({
         submitDisable: true
       });

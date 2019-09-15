@@ -5,14 +5,14 @@
 }
 
 .xlcsDetailPage .block {
- margin: 20rpx 100rpx;
+ margin: 20rpx 60rpx;
  text-align: center;
 }
 
 .xlcsDetailPage .question {
   background: #ffffff;
   border-radius: 8rpx;
-  height: 340rpx;
+  height: 280rpx;
   margin: 60rpx 60rpx 80rpx 60rpx;
   text-align: center;
   justify-content: center;
@@ -32,18 +32,23 @@
 
 .xlcsDetailPage .page {
   position: absolute;
-  top: 380rpx;
+  top: 320rpx;
   right: 80rpx;
   font-size: 28rpx;
 }
 
 .xlcsDetailPage .options {
   width: 100%;
-  margin: 40rpx 0;
+  margin: 30rpx 0;
   margin-left: auto;
   margin-right: auto;
   background: #ffffff;
   font-size: 32rpx;
+  padding: 20rpx;
+}
+
+.xlcsDetailPage .options view{
+  line-height: 50rpx
 }
 
 .xlcsDetailPage .options.active {

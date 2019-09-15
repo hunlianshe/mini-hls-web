@@ -95,7 +95,7 @@ Page({
 
   next(): void {
     wx.navigateTo({
-      url: '../registerStandard/registerStandard',
+      url: '../matching/matching',
     })
   },
    
