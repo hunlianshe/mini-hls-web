@@ -31,7 +31,7 @@ Page({
   putUsersLike() {
     const { openid } = this.data;
     Api.putUsersLike(openid).then((result: any) => {
-      if (result) {
+      if (result.code === '200') {
         utils.showModal('收藏成功');
       }
     });

@@ -22,8 +22,8 @@
     <view class="title">
       星座运势
     </view>
-    <view class="block-cell">今日星座运势</view>
-    <view class="block-cell">本月星座运势</view>
+    <view class="block-cell" bindtap="getHoroscopet" data-type="today">今日星座运势</view>
+    <view class="block-cell" bindtap="getHoroscopet" data-type="month">本月星座运势</view>
   </view>
 
   <view class="content-block">

@@ -64,6 +64,7 @@ const constellation = [
 
 Page({
   data: {
+    sence: '',
     constellation: constellation,
   },
 
@@ -71,7 +72,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options: any) {
-    console.log(options);
+    this.setData!({
+      sence: options.sence,
+    });
   },
 
   jumpOver(): void {
@@ -80,8 +83,13 @@ Page({
     })
   },
 
-  next(): void {
-    console.log('next');
+  next() {
+    if (this.data.sence === 'home') {
+      wx.switchTab({
+        url: '../home/home',
+      });
+      return;
+    }
     wx.navigateTo({
       url: '../registerInfo/registerInfo',
     })

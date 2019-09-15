@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/myImages/myImages",
     "pages/registerStandard/registerStandard",
     "pages/home/home",
     "pages/matchXZResult/matchXZResult",
     "pages/registerPhone/registerPhone",
     "pages/matchmaker/matchmaker",
-    "pages/myImages/myImages",
     "pages/register/register",
     "pages/userDetail/userDetail",
     "pages/xzysDetail/xzysDetail",

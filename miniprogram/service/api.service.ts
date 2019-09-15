@@ -80,7 +80,7 @@ const getFortune = (fortuneName: string) => httpServer.get({ url: `/fortune/${fo
 /**
  * 星座运势详解
  */
-const getHoroscopet = (consName: string, type: string) => httpServer.get({ url: `/horoscope/realtime?consName=${consName}&type=${type}` });
+const getHoroscopet = (consName: string, type: string) => httpServer.get({ url: `/fortune/horoscope/realtime?consName=${consName}&type=${type}` });
 
 
 

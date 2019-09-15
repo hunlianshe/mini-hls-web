@@ -4,7 +4,7 @@
   </view>
   <form bindsubmit="onSubmit" bindreset="formReset">
     <view class='info-box'>
-      <view class='info-cell display-flex'>
+      <!--<view class='info-cell display-flex'>
         <view class="flex_1">
           <view>封面图片</view>
           <view class='small-text'></view>
@@ -25,7 +25,7 @@
             </block>
           </view>
         </view>
-      </view>
+      </view>-->
       <view class='info-cell'>
         <view class='wechat'>
           <view>图片上传</view>

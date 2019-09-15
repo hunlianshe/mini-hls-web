@@ -56,9 +56,9 @@
         <icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
 
-      <view class="{{ region.length > 0 ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+      <view class='info-cell display-flex'>
         <text>工作地区</text>
-        <view class="flex-full align-right">
+        <view class="{{ region.length > 0 ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
           <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
             <view class="picker">
               {{region.length > 0 ? region[0]+ ' ' + region[1] + ' ' + region[2] : '请选择'}}
