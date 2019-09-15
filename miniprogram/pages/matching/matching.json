@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#64216C",
+  "navigationBarTitleText": "婚恋社",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#64216C"
 }
