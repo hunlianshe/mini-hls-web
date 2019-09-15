@@ -34,13 +34,13 @@ const updateUser = (user: User) => httpServer.post({ url: `/users/updateUserInfo
  * 手机号注册
  * @param {}
  */
-const addPhone = (data: any) => httpServer.post({ url: `/users/addPhone`, data: data });
+const addPhone = (data: any) => httpServer.post({ url: `/users/addPhone`, data, });
 
 /**
  * 发送短信验证码
  * @param {}
  */
-const sendSms = (data: any) => httpServer.post({ url: `/users/sendSms`, data: data });
+const sendSms = (data: any) => httpServer.post({ url: `/users/sendSms`, data, });
 
 /**
  * 关注(收藏)接口
@@ -55,7 +55,7 @@ const getUsersLikeCount = () => httpServer.get({ url: `/users/like/count` });
 /**
  * 获取对应喜欢类别的用户列表
  */
-const getUsersListLikes = () => httpServer.post({ url: `/users/listLikes` });
+const getUsersListLikes = (data: any) => httpServer.post({ url: `/users/listLikes`, data, });
 
 /**
  * 获取心里测试的题目列表

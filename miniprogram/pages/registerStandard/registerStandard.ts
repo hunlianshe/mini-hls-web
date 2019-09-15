@@ -18,7 +18,6 @@ Page({
   },
 
   next(): void {
-    console.log('navicate to home')
     wx.navigateTo({
       url: '../home/home',
     })

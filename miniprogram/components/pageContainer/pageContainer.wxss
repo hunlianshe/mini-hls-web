@@ -4,7 +4,8 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to bottom, #D979F6, #F8E5FB);
+  /* background: linear-gradient(to bottom, #D979F6, #F8E5FB); */
+  background: #ffffff;
 }
 
 .page-container .content-box {
@@ -15,4 +16,5 @@
   width: calc(100vw - 260rpx);
   background: #ffffff;
   border-radius: 46rpx;
+  box-shadow: 2rpx 2rpx 4rpx 4rpx #F9C7D3;
 } 

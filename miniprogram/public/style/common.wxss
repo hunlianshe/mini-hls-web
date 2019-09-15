@@ -32,7 +32,7 @@
 
 .footer-container {
   position: absolute;
-  bottom: 0;
+  bottom: 40rpx;
   width: calc(100% - 60rpx);
   font-size: 14px;
   color: #666666;

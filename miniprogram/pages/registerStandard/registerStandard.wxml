@@ -34,7 +34,7 @@
       </view>
       <view class="footer-container">
         <button class="common-btn" catchtap="next">开启缘分</button>
-        <view class="jump-over" catchtap="jumpOver">跳过</view>
+        <!--<view class="jump-over" catchtap="jumpOver">跳过</view>-->
       </view>
     </view>
   </page-container>
