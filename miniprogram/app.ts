@@ -4,7 +4,7 @@ import User from './interface/user';
 export interface IMyApp {
   userInfoReadyCallback?(res: User): void
   globalData: {
-    userInfo?: User
+    userInfo: User
   }
 }
 
@@ -53,5 +53,6 @@ App<IMyApp>({
     })
   },
   globalData: {
+    userInfo: {} as User
   }
 })
