@@ -6,8 +6,8 @@
       </view>
       <view class="constellation">
         <view class="block" wx:for="{{constellationList}}" wx:key="{{item.ch}}" 
-        bindtap="select" data-constellation="{{item.ch}}" >
-          <image src="../../public/image/Signs/{{item.en}}.png" mode="aspectFit"/>
+          bindtap="select" data-constellation="{{item.ch}}" >
+          <image src="../../public/image/Signs/{{item.en}}{{constellation === item.ch ? '_active' : ''}}.png" mode="aspectFit"/>
           <view class="{{constellation === item.ch ? 'name active' : 'name'}}">
             {{item.ch}}
           </view>
