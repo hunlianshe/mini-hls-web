@@ -1,3 +1,6 @@
+import * as Api from '../../service/api.service';
+// import { IMyApp } from '../../app';
+// const app = getApp<IMyApp>();
 
 const constellation = [
   {
@@ -64,27 +67,31 @@ const constellation = [
 
 Page({
   data: {
-    sence: '',
+    scene: '',
     constellation: constellation,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options: any) {
     this.setData!({
-      sence: options.sence,
+      scene: options.scene,
     });
   },
 
-  jumpOver(): void {
+  jumpOver() {
     wx.navigateTo({
       url: '../home/home',
     })
   },
 
+  select(e: any) {
+    const { constellation } = e.currentTarget.dataset;
+    this.setData!({
+      constellation,
+    });
+  },
+
   next() {
-    if (this.data.sence === 'home') {
+    if (this.data.scene === 'home') {
       wx.switchTab({
         url: '../home/home',
       });
@@ -93,6 +100,27 @@ Page({
     wx.navigateTo({
       url: '../registerInfo/registerInfo',
     })
+  },
+
+  updateUser() {
+    const user = {
+      openid: 'app.globalData.userInfo.openid',
+      constellation: this.data.constellation
+    } as any;
+    Api.updateUser(user).then((result: any) => {
+      wx.hideLoading();
+      this.setData!({
+        submitDisable: true
+      });
+      if (result.code === 200) {
+        // utils.showModal('更新成功')
+        setTimeout(() => {
+          wx.switchTab({
+            url: `../myHome/myHome`,
+          });
+        }, 1000);
+      }
+    });
   },
 
   /**

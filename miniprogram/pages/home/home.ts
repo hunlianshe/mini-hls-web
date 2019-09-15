@@ -34,7 +34,7 @@ Page({
         _this.setData!({
           userInfo: res.data,
         });
-        this.getUserInfo()l
+        _this.getUserInfo();
       },
     });
     this.setData!({
@@ -83,13 +83,19 @@ Page({
 
   /** 运势分析  */
   getHoroscopet(e: any) {
-    const { type } = e.currentTarget.dataset;
-    const consName = encodeURIComponent(this.data.userInfo.constellation)
-    Api.getHoroscopet(consName, type).then((result: any) => {
-      this.setData!({
-        horoscopeData: result.data,
+    const consName = this.data.userInfo.constellation;
+    if (consName) {
+      const { type } = e.currentTarget.dataset;
+      Api.getHoroscopet(consName, type).then((result: any) => {
+        this.setData!({
+          horoscopeData: result.data,
+        })
+      });
+    } else {
+      wx.navigateTo({
+        url: '../registerXz/registerXz?scene=home'
       })
-    });
+    }
   },
 
   /** 获取用户详细信息 */
@@ -138,7 +144,6 @@ Page({
       pullDown: true,
       pullUp: false
     });
-    this.getShopList({ needLoading: '1' });
     wx.stopPullDownRefresh();
   },
 
@@ -150,7 +155,6 @@ Page({
       pullDown: false,
       pullUp: true
     });
-    this.getShopList({ needLoading: '1' });
   },
 
   /**

@@ -21,7 +21,7 @@ interface User {
   province?: string,
   country?: string,
   avatarUrl?: string,
-  openid?: string,            // wx openid
+  openid?: string,          // wx openid
   token?: string,
   deleteStatus?: boolean,
   constellation?: string,

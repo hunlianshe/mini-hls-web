@@ -22,7 +22,7 @@ const register = (user: User) => httpServer.post({ url: '/users/register', data:
  * 获取用户信息
  * @param {}
  */
-const getUserInfo = (id: string) => httpServer.get({ url: `/users/getUserInfo/${id}` });
+const getUserInfo = (openid: string) => httpServer.get({ url: `/users/getUserInfo/${openid}` });
 
 /**
  * 更新用户信息
