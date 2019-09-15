@@ -18,7 +18,7 @@ Page({
   /** 获取用户信息 */
   getUserInfo(openid: string) {
     Api.getUserInfo(openid).then((result: any) => {
-      if (result.code === '200') {
+      if (result.code == 200) {
         const userInfo = result.data;
         this.setData!({
           userInfo,

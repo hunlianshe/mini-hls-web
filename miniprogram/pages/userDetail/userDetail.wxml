@@ -10,13 +10,13 @@
       </view>
       <view class="small">
         <text>{{userInfo.age}}岁</text> |
-        <text>{{userInfo.jobGeneral}} {{userInfo.jobGeneral}}</text> |
+        <text>{{userInfo.jobGeneral}} {{userInfo.jobDetail}}</text> |
         <text>{{userInfo.education}}</text>
       </view>
     </view>
 
     <scroll-view scroll-x class='scroll-cell image-list'>
-      <block wx:for="{{user.images}}" wx:key="{{index}}">
+      <block wx:for="{{userInfo.photos}}" wx:key="{{index}}">
         <image src="{{item}}" mode="aspectFill" />
       </block>
     </scroll-view>
@@ -26,50 +26,61 @@
     <view class="detail-cell">
       <view class="subtitle">基本信息</view>
       <view>
-        <view class="block">
-          处女座
-        </view>
-        <view class="block">
-          未婚
-        </view>
-        <view class="block">
-          现居：上海
-        </view>
-        <view class="block">
-          软件公司
-        </view>
+        <block wx:if="{{userInfo.constellation}}">
+          <view class="block">
+            {{userInfo.constellation}}
+          </view>
+        </block>
+        <block wx:if="{{userInfo.isMarriage}}">
+          <view class="block">
+            {{userInfo.isMarriage}}
+          </view>
+        </block>
+        <block wx:if="{{userInfo.workCity}}">
+          <view class="block">
+            坐标：{{userInfo.workCity}}
+          </view>
+        </block>
+        <block wx:if="{{userInfo.haveHouse}}">
+          <view class="block">
+            {{userInfo.haveHouse}}
+          </view>
+        </block>
       </view>
     </view>
 
     <view class="detail-cell">
       <view class="subtitle">择偶标准</view>
-      <view>
+      <block wx:if="{{userInfo.objectInfo}}">
         <view class="block">
-          身高：170～180
+          身高：{{userInfo.objectInfo.height}}cm
         </view>
         <view class="block">
-          年龄：20岁～30岁
+          年龄：{{userInfo.objectInfo.age}}
         </view>
         <view class="block">
-          收入：2万～5万
+          收入：{{userInfo.objectInfo.salary}}
         </view>
-      </view>
+      </block>
     </view>
     <view class="detail-cell">
       <view class="subtitle">其他信息</view>
       <view>
-        <view class="block">
-          处女座
-        </view>
-        <view class="block">
-          未婚
-        </view>
-        <view class="block">
-          现居：上海
-        </view>
-        <view class="block">
-          软件公司
-        </view>
+        <block wx:if="{{userInfo.hasChild}}">
+          <view class="block">
+            是否有小孩：{{userInfo.hasChild}}
+          </view>
+        </block>
+        <block wx:if="{{userInfo.hasChild}}">
+          <view class="block">
+            是否想要小孩：{{userInfo.hasChild}}
+          </view>
+        </block>
+        <block wx:if="{{userInfo.nationality}}">
+          <view class="block">
+            {{userInfo.nationality}}
+          </view>
+        </block>
       </view>
     </view>
   </view>

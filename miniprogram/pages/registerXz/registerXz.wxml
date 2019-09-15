@@ -5,7 +5,7 @@
         你的星座
       </view>
       <view class="constellation">
-        <view class="block" wx:for="{{constellation}}" wx:key="{{item.ch}}" 
+        <view class="block" wx:for="{{constellationList}}" wx:key="{{item.ch}}" 
         bindtap="select" data-constellation="{{item.ch}}">
           <image src="../../public/image/Signs/{{item.en}}.png" mode="aspectFit"/>
           <view class="name">
