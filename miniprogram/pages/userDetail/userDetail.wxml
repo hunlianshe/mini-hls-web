@@ -53,7 +53,7 @@
       <view class="subtitle">择偶标准</view>
       <block wx:if="{{userInfo.objectInfo}}">
         <view class="block">
-          身高：{{userInfo.objectInfo.height}}cm
+          身高：{{userInfo.objectInfo.height}}
         </view>
         <view class="block">
           年龄：{{userInfo.objectInfo.age}}

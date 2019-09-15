@@ -75,7 +75,7 @@ Page({
 
   goMatch() {
     wx.navigateTo({
-      url: '../matching/matching'
+      url: '../registerXz/registerXz'
     })
   },
 
