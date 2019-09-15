@@ -1,6 +1,6 @@
 import * as Api from '../../service/api.service';
-// import { IMyApp } from '../../app';
-// const app = getApp<IMyApp>();
+import { IMyApp } from '../../app';
+const app = getApp<IMyApp>();
 
 const constellationList = [
   {
@@ -85,6 +85,7 @@ Page({
   },
 
   select(e: any) {
+    console.log(e);
     const { constellation } = e.currentTarget.dataset;
     this.setData!({
       constellation,
@@ -105,7 +106,7 @@ Page({
 
   updateUser() {
     const user = {
-      openid: 'app.globalData.userInfo.openid',
+      openid: app.globalData.userInfo.openid,
       constellation: this.data.constellation,
     } as any;
     Api.updateUser(user).then((result: any) => {
