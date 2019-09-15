@@ -3,19 +3,7 @@
   <view class="match">
     开启匹配
   </view>
-  <block wx:for="{{userList}}" wx:key="index">
-    <view class="user-box" bindtap="userDetail" >
-      <image src="../../public/image/pp.png" mode="widthFix"/>
-      <view style="padding: 20rpx;">
-        <view class="display-flex">
-          <text class="flex-full">LZK</text>
-          <text class="label">处女座</text>
-        </view>
-        <view class="info">
-          24岁 | 程序员 | 本科
-        </view>
-      </view>
-    </view>
+  <block wx:for="{{userList}}" wx:key="{{_id}}">
     <view class="user-box" bindtap="userDetail" >
       <image src="{{item.photos[0]}}" mode="widthFix"/>
       <view style="padding: 20rpx;">

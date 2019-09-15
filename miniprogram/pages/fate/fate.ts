@@ -55,15 +55,14 @@ Page({
   },
 
   /**
-   * 
-   * @param {Object} params 
+   * @param {string} objectId
    */
   getUserList(objectId: string) {
     const params = { objectId }
     Api.getUserList(params).then((result: any) => {
       if (result.code === 200) {
         const { userList } = this.data;
-        userList.push(result.data);
+        userList.concat(result.data);
         this.setData!({
           userList,
         });
@@ -119,10 +118,6 @@ Page({
   onReachBottom: function () {
     const { userList } = this.data;
     const lastId = userList.length > 0 ? userList[userList.length - 1]._id : ''
-    // this.setData!({
-    //   pullDown: false,
-    //   pullUp: true
-    // });
     this.getUserList(lastId);
   },
 
