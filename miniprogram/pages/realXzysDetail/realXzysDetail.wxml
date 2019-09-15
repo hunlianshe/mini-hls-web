@@ -1,0 +1,31 @@
+<view class="xzysDetail">
+  <view class="top"
+  style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
+     <view>{{date}}运势</view>
+     <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}">
+      <view class='{{fortuneName ? "picker" : "picker-place"}}'>
+        {{fortuneName ? fortuneName : "选择星座"}}
+      </view>
+    </picker>
+  </view>
+<view class="outline">
+  <view class="display-flex">
+    <view>
+      <image src="../../public/image/Signs/Leo.png" mode="aspectFit" />
+    </view>
+    <view class="flex-full">
+      <view>{{fortuneData.name}}</view>
+      <!-- <view>生辰：{{fortuneData.birth}}</view> -->
+      <!-- <view>属性：{{fortuneData.attributes}}</view> -->
+      <!-- <view>特点：{{fortuneData.feature}}</view> -->
+    </view>
+  </view>
+  <view class="subtitle">运势分析</view>
+  <view class="detail">
+    {{fortuneData.summary}}
+  </view>
+</view>
+<view class="footer">
+    <button class="common-btn">分享</button>
+  </view>
+</view>

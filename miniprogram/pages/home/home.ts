@@ -83,19 +83,23 @@ Page({
 
   /** 运势分析  */
   getHoroscopet(e: any) {
-    const consName = this.data.userInfo.constellation;
-    if (consName) {
+    const consName = this.data.userInfo.constellation || '白羊座';
+    // if (consName) {
+        
       const { type } = e.currentTarget.dataset;
-      Api.getHoroscopet(consName, type).then((result: any) => {
-        this.setData!({
-          horoscopeData: result.data,
-        })
-      });
-    } else {
       wx.navigateTo({
-        url: '../registerXz/registerXz?scene=home'
+        url: '../realXzysDetail/realXzysDetail?consName='+consName+'&type='+type
       })
-    }
+      // Api.getHoroscopet(consName, type).then((result: any) => {
+      //   this.setData!({
+      //     horoscopeData: result.data,
+      //   })
+      // });
+    // } else {
+    //   wx.navigateTo({
+    //     url: '../registerXz/registerXz?scene=home'
+    //   })
+    // }
   },
 
   /** 获取用户详细信息 */

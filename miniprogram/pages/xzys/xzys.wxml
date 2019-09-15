@@ -1,6 +1,6 @@
 <view class="xzysPage">
   <view class="title">
-    查看你的星座详解
+    查看你的星座运势
   </view>
   <view class="constellation">
     <view class="block" wx:for="{{constellation}}" wx:key="{{item.en}}" bindtap="goXzysDetail" data-fortunename="{{item.ch}}">
@@ -11,9 +11,9 @@
     </view>
   </view>
   
-  <view class="card"
+  <view class="card"  bindtap="get" bindtap="getCharacter"
     style='background-image: url("../../public/image/card1.png");background-repeat:no-repeat;background-size:100%;'>
-    十二星座性格分析
+    十二星座运势
   </view>
 
    <view class="card"

@@ -1,5 +1,5 @@
 
-const app = getApp();
+const app:any = getApp();
 import * as Api from '../../service/api.service';
 import config from '../../config';
 import {
