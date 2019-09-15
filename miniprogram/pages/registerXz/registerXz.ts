@@ -99,16 +99,15 @@ Page({
     }
     wx.navigateTo({
       url: '../registerInfo/registerInfo',
-    })
+    });
   },
 
   updateUser() {
     const user = {
       openid: 'app.globalData.userInfo.openid',
-      constellation: this.data.constellation
+      constellation: this.data.constellation,
     } as any;
     Api.updateUser(user).then((result: any) => {
-      wx.hideLoading();
       this.setData!({
         submitDisable: true
       });
