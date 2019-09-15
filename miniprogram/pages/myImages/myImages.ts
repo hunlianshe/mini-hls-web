@@ -1,8 +1,11 @@
 // import apiServicePro = require('../../service/api.service');
 import uploadImage from '../../utils/oss';
 import env from '../../config';
-import * as utils from '../../utils/utils';
-
+// import { IMyApp } from '../../app';
+// const app:any = getApp<IMyApp>();
+let user:any
+// import * as utils from '../../utils/utils';
+import * as Api from '../../service/api.service';
 Page({
   data: {
     user: { openid : ''},
@@ -50,6 +53,24 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function () {
+    let self = this;
+    wx.getStorage({
+      key: 'user',
+      success: function (res) {
+        console.log('res', res)
+        Api.getUserInfo(res.data.openid).then((result: any) => {
+          console.log('1212', result)
+          if (result) {
+            user = result.data
+            console.log(' result', result.data.photos)
+            self.setData!({
+              oldImages: result.data.photos,
+            });
+          }
+        });
+      }
+    })
+  
   },
 
   getYMD(dateStr: string) {
@@ -63,31 +84,23 @@ Page({
   },
 
   /** 准备提交 */
-  onSubmit(e: any): any {
+  onSubmit(): any {
     let that = this;
-    const value = e.detail.value;
+    // const value = e.detail.value;
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
 
-    if (!utils.validateEmpty(value.brand, '请选择品牌车系') ||
-        !utils.validateEmpty(value.dateCard, '请选择上牌日期') ||
-        !utils.validateEmpty(value.kilometer, '请输入行驶里程') ||
-        !utils.validateEmpty(value.city, '请输选择牌照所在地') ||
-        !utils.validateEmpty(value.price, '请输入价格') ||
-        !utils.validateEmpty(value.transfersNumber, '请输入过户次数') ||
-        !utils.validateEmpty(value.introduce, '请选择车况') ||
-        !utils.validateEmpty(this.data.indexImage, '请上传汽车首页照片') ||
-        !utils.validateImages(this.data.oldImages.concat(this.data.uploadImgs), '请上传汽车照片')) {
-      return false;
-    }
+   
 
     let indexImage = this.data.indexImage;
     let uploadIndexPath = this.data.uploadIndexPath;
     if (uploadIndexPath !== '') {
+      console.log('are you ok...')
       uploadImage({
         filePath: indexImage,
         dir: `images/shop/${openid}/` + indexImage.replace('http://tmp/', ''),
         success: function (res: any) {
+          console.log('indexImage', indexImage)
           indexImage = `${aliyunServerURL}/${res}`;
           that.uploadAndSubmit();
         },
@@ -119,14 +132,14 @@ Page({
           success: function (res: any) {
             count++;
             images.push(`${aliyunServerURL}/${res}`);
+            console.log("images", images);
+            wx.hideLoading();
+            
             if (count === uploadImgs.length) {
-              if (that.data.carId !== '') {
                 images = images.concat(that.data.oldImages);
-              } else {
-                // that.doSubmit(e, indexImage, images);
-              }
+                that.updateUserImage(images);
             } else {
-              // wx.hideLoading();
+              wx.hideLoading();
             }
           },
           fail: function () {
@@ -135,13 +148,17 @@ Page({
         });
       }
     } else {
-      if (that.data.carId !== '') {
         images = images.concat(that.data.oldImages);  // 合并编辑之前的汽车图片
-      } else {
-        // that.doSubmit(e, indexImage, images);
-      }
+        that.updateUserImage(images);
       wx.hideLoading();
     }
+  },
+
+  updateUserImage(images:Array<any>) {
+    console.log('images', images)
+    Api.updateUser({ openid: user.openid, photos: images}).then((result) => {
+      console.log("result",result)
+    })
   },
 
 

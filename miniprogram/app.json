@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/myImages/myImages",
     "pages/realXzysDetail/realXzysDetail",
     "pages/xzysDetail/xzysDetail",
-    "pages/myImages/myImages",
     "pages/registerStandard/registerStandard",
     "pages/home/home",
     "pages/matchXZResult/matchXZResult",

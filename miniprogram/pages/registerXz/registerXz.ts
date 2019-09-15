@@ -1,6 +1,6 @@
 import * as Api from '../../service/api.service';
-// import { IMyApp } from '../../app';
-// const app = getApp<IMyApp>();
+import { IMyApp } from '../../app';
+const app: any = getApp<IMyApp>();
 
 const constellationList = [
   {
@@ -73,9 +73,11 @@ Page({
   },
 
   onLoad: function (options: any) {
-    this.setData!({
-      scene: options.scene,
-    });
+    if (options.scene) {
+      this.setData!({
+        scene: options.scene,
+      });
+    }
   },
 
   jumpOver() {
@@ -92,20 +94,30 @@ Page({
   },
 
   next() {
-    if (this.data.scene === 'home') {
-      wx.switchTab({
-        url: '../home/home',
-      });
-      return;
-    }
-    wx.navigateTo({
-      url: '../registerInfo/registerInfo',
+    console.log('--->', this.data.constellation);
+    Api.updateUser({
+      openid: app.globalData.userInfo.openid,
+      constellation: this.data.constellation
+    }).then((result: any) => {
+      console.log('esult.code', result.code)
+      if (result.code === 200) {
+        if (this.data.scene === 'home') {
+          wx.switchTab({
+            url: '../home/home',
+          });
+          return;
+        }
+        wx.navigateTo({
+          url: '../registerInfo/registerInfo',
+        });
+      }
     });
+
   },
 
   updateUser() {
     const user = {
-      openid: 'app.globalData.userInfo.openid',
+      openid: app.globalData.userInfo.openid,
       constellation: this.data.constellation,
     } as any;
     Api.updateUser(user).then((result: any) => {

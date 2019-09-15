@@ -46,6 +46,7 @@ const uploadFile = function (params:any) {
         return;
       }
       if (params.success) {
+        console.log('are you coming...')
         params.success(aliyunFileKey);
       }
     },
@@ -77,7 +78,7 @@ const getPolicyBase64 = function () {
 
 const getSignature = function (policyBase64:any) {
   const accesskey = env.AccessKeySecret;
-
+  console.log('Crypto.SHA1', Crypto.SHA1)
   const bytes = Crypto.HMAC(Crypto.SHA1, policyBase64, accesskey, {
     asBytes: true
   });

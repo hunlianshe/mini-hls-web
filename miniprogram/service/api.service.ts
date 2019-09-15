@@ -28,7 +28,7 @@ const getUserInfo = (openid: string) => httpServer.get({ url: `/users/getUserInf
  * 更新用户信息
  * @param {}
  */
-const updateUser = (user: User) => httpServer.post({ url: `/users/updateUserInfo`, data: user });
+const updateUser = (user: any) => httpServer.post({ url: `/users/updateUserInfo`, data: user });
 
 /**
  * 手机号注册
