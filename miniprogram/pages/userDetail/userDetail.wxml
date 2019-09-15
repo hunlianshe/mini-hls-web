@@ -5,13 +5,13 @@
     </view>
     <view class="outline">
       <view class="display-flex" style="justify-content: center;padding-bottom: 30rpx;">
-        <text>刘祖宽</text>
+        <text>{{userInfo.nickName}}</text>
         <image src="../../public/image/male01.png" />
       </view>
       <view class="small">
-        <text>24岁</text> |
-        <text>程序员</text> |
-        <text>本科</text>
+        <text>{{userInfo.age}}岁</text> |
+        <text>{{userInfo.jobGeneral}} {{userInfo.jobGeneral}}</text> |
+        <text>{{userInfo.education}}</text>
       </view>
     </view>
 
@@ -76,6 +76,6 @@
   
   <view class="footer">
     <button class="common-btn">红娘牵线</button>
-    <button class="common-btn">喜欢ta</button>
+    <button class="common-btn" bindtap="putUsersLike">喜欢ta</button>
   </view>
 </view>

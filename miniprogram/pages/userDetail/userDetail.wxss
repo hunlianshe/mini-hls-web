@@ -3,6 +3,7 @@
   background: #fbf9fc;
   padding: 30rpx;
   padding-bottom: 200rpx;
+  padding-top: 30rpx;
 }
 
 .userDetail .head,
@@ -13,7 +14,6 @@
   margin-left: auto;
   margin-right: auto;
   background: #ffffff;
-  padding-top: 20rpx;
 }
 
 .userDetail .outline {

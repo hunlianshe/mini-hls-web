@@ -1,28 +1,38 @@
-import * as Api from '../../service/api.service';
-// import { IMyApp } from '../../app';
-// const app = getApp<IMyApp>();
+import * as Api from '../../service/api.service'; 
+import * as utils from '../../utils/utils';
+
 
 Page({
   data: {
-    userOpenid: '',
+    openid: '',
     userInfo: {} as any,
   },
 
   onLoad: function (options: any) {
     this.setData!({
-      userOpenid: options.openid,
+      openid: options.openid,
     });
+    this.getUserInfo(options.openid);
   },
 
   /** 获取用户信息 */
-  getUserInfo() {
-    const { userOpenid } = this.data;
-    Api.getUserInfo(userOpenid).then((result: any) => {
-      if (result) {
+  getUserInfo(openid: string) {
+    Api.getUserInfo(openid).then((result: any) => {
+      if (result.code === '200') {
         const userInfo = result.data;
         this.setData!({
           userInfo,
         });
+      }
+    });
+  },
+
+  /** 关注(收藏)接口 */
+  putUsersLike() {
+    const { openid } = this.data;
+    Api.putUsersLike(openid).then((result: any) => {
+      if (result) {
+        utils.showModal('收藏成功');
       }
     });
   },
