@@ -4,7 +4,7 @@
     开启匹配
   </view>
   <block wx:for="{{userList}}" wx:key="{{_id}}">
-    <view class="user-box" bindtap="userDetail" >
+    <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
       <image src="{{item.photos[0]}}" mode="widthFix"/>
       <view style="padding: 20rpx;">
         <view class="display-flex">

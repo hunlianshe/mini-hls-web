@@ -1,48 +1,37 @@
-// pages/userDetail/userDetail.js
+import * as Api from '../../service/api.service';
+// import { IMyApp } from '../../app';
+// const app = getApp<IMyApp>();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    user: {
-      images: [
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-        '../../public/image/xzpd.png',
-      ]
-    }
+    userOpenid: '',
+    userInfo: {} as any,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function () {
-
+  onLoad: function (options: any) {
+    this.setData!({
+      userOpenid: options.openid,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  /** 获取用户信息 */
+  getUserInfo() {
+    const { userOpenid } = this.data;
+    Api.getUserInfo(userOpenid).then((result: any) => {
+      if (result) {
+        const userInfo = result.data;
+        this.setData!({
+          userInfo,
+        });
+      }
+    });
+  },
+
   onReady: function () {
-
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
+  onShow: function () {
   },
 
   /**
@@ -59,17 +48,4 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 })

@@ -45,13 +45,14 @@ Page({
   },
 
   /** 详情 */
-  userDetail() {
-    // wx.navigateTo({
-    //   url: `../userDetail/userDetail`,
-    // })
+  userDetail(e: any) {
+    const { openid } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '../registerPhone/registerPhone',
+      url: `../userDetail/userDetail?openid=${openid}`,
     })
+    // wx.navigateTo({
+    //   url: '../registerPhone/registerPhone',
+    // })
   },
 
   /**
