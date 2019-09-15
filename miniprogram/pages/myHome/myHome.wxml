@@ -44,7 +44,7 @@
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />
     </view>
    
-    <view class='display-flex home-cell-list' bindtap='goMatchmaker'>
+    <view class='display-flex home-cell-list' bindtap='goMatchStandard'>
       <!--<icon iconName="qrcode" width='32rpx' height='32rpx' style="padding:4rpx;"/>-->
       <text class='small-text flex-full'>择偶条件</text>
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />

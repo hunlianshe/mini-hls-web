@@ -90,6 +90,12 @@ Page({
     })
   },
 
+  goMatchStandard() {
+    wx.navigateTo({
+      url: `../registerStandard/registerStandard`,
+    })
+  },
+
   /** 红娘 */
   goMatchmaker(): any {
     wx.navigateTo({

@@ -20,6 +20,8 @@
   margin-right: 10rpx;
 }
 
-/* .registerStandard .block + .block {
-  margin-left: 10rpx;
-} */
+.registerStandard .block.active {
+  border: 1px solid #E39BF0;
+  background: #E39BF0;
+  color: #ffffff;
+}
