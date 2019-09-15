@@ -13,20 +13,21 @@ Page({
     fortuneName: '',
     fortuneData: {},
     xzList: dataList,
+    date:'今日'
 
   },
 
   onLoad: function (options: any) {
     console.log('options',options)
+    options.type
     this.setData!({
       fortuneName: options.consName,
+      date:  options.type === 'today'?'今日':'本月',
     });
     this.getFortune(options.consName,options.type) 
   },
 
   otherPick: function (e: any) {
-    console.log('---->')
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       fortuneName: dataList[e.detail.value],
     });

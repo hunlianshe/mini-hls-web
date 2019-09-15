@@ -79,6 +79,14 @@ Page({
       url: `../xzysDetail/xzysDetail?fortuneName=${fortuneName}`,
     })
   },
+  getCharacter(e:any) {
+    let consName = e.currentTarget.dataset.fortunename || "白羊";
+    wx.navigateTo({
+      url: `../realXzysDetail/realXzysDetail?consName=${consName}&type=today`,
+    })
+  },
+  
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

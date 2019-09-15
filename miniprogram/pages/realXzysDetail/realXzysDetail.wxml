@@ -1,7 +1,7 @@
 <view class="xzysDetail">
   <view class="top"
   style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
-     <view>今日运势</view>
+     <view>{{date}}运势</view>
      <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}">
       <view class='{{fortuneName ? "picker" : "picker-place"}}'>
         {{fortuneName ? fortuneName : "选择星座"}}

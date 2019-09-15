@@ -85,7 +85,6 @@ Page({
   getHoroscopet(e: any) {
     const consName = this.data.userInfo.constellation || '白羊座';
     // if (consName) {
-      console.log('are you ok')
         
       const { type } = e.currentTarget.dataset;
       wx.navigateTo({
