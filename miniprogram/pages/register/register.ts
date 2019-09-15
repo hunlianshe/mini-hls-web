@@ -12,7 +12,7 @@ Page({
     height: '',           // 身高
     salary: '', 
     region: [], 
-    isMarriage: '未婚',
+    isMarriage: '',
     education: '', 
     hasChild: '', 
     wantChild: '', 
@@ -33,7 +33,7 @@ Page({
     hasChildArray: ['是', '否'],
     wantChildArray: ['是', '否'],
     haveHouseArray: ['已买', '未买'],
-    multiIndex: [0, 0],
+    multiIndex: [, ],
     multiArray: [[],[]] as any,
     jobJson: jobJson,
   },
@@ -235,10 +235,10 @@ Page({
     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
     const { multiArray, multiIndex } = this.data;
     multiIndex[e.detail.column] = e.detail.value;
-    multiArray[1] = [];
     if (e.detail.column === 0) {
-      console.log(jobJson.data[multiIndex[0]].data);
-      jobJson.data[multiIndex[0]].data.forEach((item: any) => {
+      multiArray[1] = [];
+      console.log(jobJson.data[multiIndex[0] || 0].data);
+      jobJson.data[multiIndex[0] || 0].data.forEach((item: any) => {
         multiArray[1].push(item.name);
         console.log(multiArray[1]);
       });
