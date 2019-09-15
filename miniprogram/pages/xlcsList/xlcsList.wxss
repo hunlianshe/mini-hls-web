@@ -5,8 +5,10 @@
 .xlcsListPage .block-cell {
   background: #efefef;
   border-radius: 8rpx;
-  height: 260rpx;
-  margin-bottom: 40rpx;
+  height: 300rpx;
+  margin-bottom: 60rpx;
   text-align: center;
   justify-content: center;
+  font-size: 40rpx;
+  color: rgb(91, 30, 102);
 }
