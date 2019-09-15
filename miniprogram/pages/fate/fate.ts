@@ -61,12 +61,11 @@ Page({
     const params = { objectId }
     Api.getUserList(params).then((result: any) => {
       if (result.code === 200) {
-        const { userList } = this.data;
-        userList.concat(result.data);
+        let dataList = this.data.userList;
+        dataList = dataList.concat(result.data);
         this.setData!({
-          userList,
+          userList: dataList,
         });
-        console.log(userList.length);
       }
     }).catch((err) => {
       console.log('get user List', err);
