@@ -19,13 +19,13 @@
     <view class="user-box" bindtap="userDetail" >
       <image src="{{item.photos[0]}}" mode="widthFix"/>
       <view style="padding: 20rpx;">
-        <!--view class="display-flex">
+        <view class="display-flex">
           <text class="flex-full">{{item.name}}</text>
           <text class="label">{{item.constellation}}</text>
-        </view-->
-        <!--view class="info">
+        </view>
+        <view class="info">
           {{item.age}}岁 | {{item.jobGeneral}}{{item.jobDetail}} | {{item.education}}
-        </view-->
+        </view>
       </view>
     </view>
   </block>
