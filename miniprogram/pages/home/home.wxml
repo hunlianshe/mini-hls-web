@@ -1,7 +1,16 @@
 <!--pages/home/home.wxml 首页广场-->
 <view class='home-page'>
-  <view class="head" bindtap="doTest">
-    心理测试1
+  <view class="head" bindtap="doTest"
+    style="background-image: url('../../public/image/home-ad.png');">
+    <view class="intro">
+      <view style="width: 100%;">
+        <view style="font-size: 52rpx;">婚恋社</view>
+        <view style="text-align: center;font-size: 42rpx;">认真又好玩的婚配网站</view>
+      </view>
+    </view>
+    <view class="address">
+      地址: 嘉兴市嘉兴市嘉兴市XXXX
+    </view>
   </view>
   <view class="list">
     <view class="list-box" bindtap="goXzys">
