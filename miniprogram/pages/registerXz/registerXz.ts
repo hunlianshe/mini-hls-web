@@ -87,6 +87,7 @@ Page({
   },
 
   select(e: any) {
+    console.log(e);
     const { constellation } = e.currentTarget.dataset;
     this.setData!({
       constellation,
@@ -125,7 +126,6 @@ Page({
         submitDisable: true
       });
       if (result.code === 200) {
-        // utils.showModal('更新成功')
         setTimeout(() => {
           wx.switchTab({
             url: `../myHome/myHome`,
@@ -160,20 +160,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 })

@@ -9,6 +9,10 @@
   text-align: center;
 }
 
+.constellation .active {
+  color: #E39BF0 !important;
+}
+ 
 .constellation .block image {
   width: 110rpx;
   height: 110rpx;

@@ -21,8 +21,8 @@
     </view>
   </view>
   <view class="subtitle">运势分析</view>
-  <view class="detail">
-    {{fortuneData.desc}}
+  <view class="detail" >
+  <rich-text nodes="{{fortuneData.desc}}"></rich-text>
   </view>
 </view>
 <view class="footer">
