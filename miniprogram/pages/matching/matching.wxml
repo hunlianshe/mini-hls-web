@@ -8,9 +8,9 @@ style="background-image: url('../../public/image/matching.png');background-repea
       </view>
       <image src="{{matching ? '../../public/image/hearts.png' : '../../public/image/hearts.png' }}" mode="aspectFit" />
     </view>
-    <view class="head" wx:for="{{headList}}" wx:key="{{index}}" 
+    <!--view class="head" wx:for="{{headList}}" wx:key="{{index}}" 
       style="left: {{item.left}}px; width: {{item.width}}rpx; height: {{item.width}}rpx">
       <image src="{{item.src}}" style="width: {{item.width}}rpx; height: {{item.width}}rpx" />
-    </view>
+    </view-->
   </view>
 </view>

@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <view class='fate-page'>
-  <view class="match">
+  <view class="match" bindtap="goMatch">
     开启匹配
   </view>
   <block wx:for="{{userList}}" wx:key="{{_id}}">

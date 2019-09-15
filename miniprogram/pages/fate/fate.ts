@@ -72,6 +72,12 @@ Page({
     })
   },
 
+  goMatch() {
+    wx.navigateTo({
+      url: '../matching/matching'
+    })
+  },
+
   onReady: function () {
   },
 
