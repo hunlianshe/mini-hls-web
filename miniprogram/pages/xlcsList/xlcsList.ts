@@ -19,8 +19,12 @@ Page({
   /** 获取心理测试题目 */
   getPsyList() {
     Api.getPsyList().then((result: any) => {
+      let psyTest = result.data;
+      psyTest.forEach((e: any) => {
+        e.image = `../../public/image/xlcs_${e.type}.png`;
+      });
       this.setData!({
-        psyTest: result.data,
+        psyTest,
       })
     })
   },

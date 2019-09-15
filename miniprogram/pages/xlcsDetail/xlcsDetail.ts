@@ -7,6 +7,7 @@ Page({
     questionList: [] as any[],
     answerList: [] as string[],
     psyTest: [],
+    bgImg: '',
   },
 
   onLoad: function (options: any) {
@@ -46,9 +47,11 @@ Page({
         psyTest: result.data,
         questionList: result.data.content,
       });
-      let question = this.data.questionList[this.data.questionIndex];
+      const question = this.data.questionList[this.data.questionIndex];
+      const bgImg = `../../public/image/xlcs_${result.data.type}.png`;
       this.setData!({
         question,
+        bgImg,
       });
     })
   },

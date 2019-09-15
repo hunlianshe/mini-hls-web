@@ -1,7 +1,7 @@
 <view class="xlcsListPage">
   <block wx:for="{{psyTest}}" wx:key="{{item._id}}">
     <view class="block-cell display-flex" bindtap="doTest" data-id="{{item._id}}"
-    style='background-image: url("../../public/image/timg.png");background-repeat:no-repeat;background-size:100%;'>
+    style='background: url({{item.image}}) no-repeat; background-size:100%;'>
       {{item.name}}
     </view>
   </block>
