@@ -11,7 +11,7 @@
     </view>
   </view>
   
-  <view class="card"
+  <view class="card"  bindtap="getHoroscopet"
     style='background-image: url("../../public/image/card1.png");background-repeat:no-repeat;background-size:100%;'>
     十二星座性格分析
   </view>

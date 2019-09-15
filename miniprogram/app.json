@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/realXzysDetail/realXzysDetail",
+    "pages/xzysDetail/xzysDetail",
     "pages/myImages/myImages",
     "pages/registerStandard/registerStandard",
     "pages/home/home",
@@ -9,7 +11,6 @@
     "pages/matchmaker/matchmaker",
     "pages/register/register",
     "pages/userDetail/userDetail",
-    "pages/xzysDetail/xzysDetail",
     "pages/xzys/xzys",
     "pages/matching/matching",
     "pages/matcheXz/matcheXz",
