@@ -58,6 +58,11 @@ const getUsersLikeCount = () => httpServer.get({ url: `/users/like/count` });
 const getUsersListLikes = (data: any) => httpServer.post({ url: `/users/listLikes`, data, });
 
 /**
+ * 获取用户列表
+ */
+const getUserList = (data: any) => httpServer.post({ url: `/users/listUsers`, data, });
+
+/**
  * 获取心里测试的题目列表
  */
 const getPsyList = () => httpServer.get({ url: `/psychological-test/list` });
@@ -126,6 +131,7 @@ export {
   putUsersLike,
   getUsersLikeCount, 
   getUsersListLikes,
+  getUserList,
   getPsyList,
   getPsyTest,
   getFortune,

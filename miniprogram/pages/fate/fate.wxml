@@ -3,7 +3,7 @@
   <view class="match">
     开启匹配
   </view>
-  <block>
+  <block wx:for="{{userList}}" wx:key="index">
     <view class="user-box" bindtap="userDetail" >
       <image src="../../public/image/pp.png" mode="widthFix"/>
       <view style="padding: 20rpx;">
@@ -17,77 +17,25 @@
       </view>
     </view>
     <view class="user-box" bindtap="userDetail" >
-      <image src="../../public/image/0001.jpg" mode="widthFix"/>
+      <image src="{{item.photos[0]}}" mode="widthFix"/>
       <view style="padding: 20rpx;">
-        <view class="display-flex">
-          <text class="flex-full">LZK</text>
-          <text class="label">处女座</text>
-        </view>
-        <view class="info">
-          24岁 | 程序员 | 本科
-        </view>
-      </view>
-    </view>
-    <view class="user-box" bindtap="userDetail" >
-      <image src="../../public/image/pp.png" mode="widthFix"/>
-      <view style="padding: 20rpx;">
-        <view class="display-flex">
-          <text class="flex-full">LZK</text>
-          <text class="label">处女座</text>
-        </view>
-        <view class="info">
-          24岁 | 程序员 | 本科
-        </view>
-      </view>
-    </view>
-    <view class="user-box" bindtap="userDetail" >
-      <image src="../../public/image/0001.jpg" mode="widthFix"/>
-      <view style="padding: 20rpx;">
-        <view class="display-flex">
-          <text class="flex-full">LZK</text>
-          <text class="label">处女座</text>
-        </view>
-        <view class="info">
-          24岁 | 程序员 | 本科
-        </view>
-      </view>
-    </view>
-    <view class="user-box" bindtap="userDetail" >
-      <image src="../../public/image/0001.jpg" mode="widthFix"/>
-      <view style="padding: 20rpx;">
-        <view class="display-flex">
-          <text class="flex-full">LZK</text>
-          <text class="label">处女座</text>
-        </view>
-        <view class="info">
-          24岁 | 程序员 | 本科
-        </view>
-      </view>
-    </view>
-    <view class="user-box" bindtap="userDetail" >
-      <image src="../../public/image/pp.png" mode="widthFix"/>
-      <view style="padding: 20rpx;">
-        <view class="display-flex">
-          <text class="flex-full">LZK</text>
-          <text class="label">处女座</text>
-        </view>
-        <view class="info">
-          24岁 | 程序员 | 本科
-        </view>
+        <!--view class="display-flex">
+          <text class="flex-full">{{item.name}}</text>
+          <text class="label">{{item.constellation}}</text>
+        </view-->
+        <!--view class="info">
+          {{item.age}}岁 | {{item.jobGeneral}}{{item.jobDetail}} | {{item.education}}
+        </view-->
       </view>
     </view>
   </block>
   
-  <block wx:if="{{dataAlready && shopList.length > 0 && (pageSize * (currentPage + 1) > totalCount)}}">
+  <block wx:if="{{dataAlready && userList.length > 0 && (pageSize * (currentPage + 1) > totalCount)}}">
     <footer />
   </block>
 
-  <block wx:if="{{dataAlready && shopList.length === 0}}">
+  <block wx:if="{{dataAlready && userList.length === 0}}">
     <noData type='{{keyword ? 1 : 0}}' />
-  </block>
-
-  <block wx:if ="{{popWechat}}">
-    <wechatDialog qrcode='{{currentQrcode}}' phone='{{currentPhone}}' bind:closeWechat="closeWechat"/>
   </block>
 </view>
 
