@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml 首页广场-->
 <view class='home-page'>
-  <view class="head" bindtap="doTest"
+  <view class="head"
     style="background-image: url('../../public/image/home-ad.png');">
     <view class="intro">
       <view style="width: 100%;">
