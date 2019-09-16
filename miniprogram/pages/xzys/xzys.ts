@@ -80,7 +80,7 @@ Page({
     })
   },
   getCharacter(e:any) {
-    let consName = e.currentTarget.dataset.fortunename || "白羊";
+    let consName = e.currentTarget.dataset.fortunename || "白羊座";
     wx.navigateTo({
       url: `../realXzysDetail/realXzysDetail?consName=${consName}&type=today`,
     })

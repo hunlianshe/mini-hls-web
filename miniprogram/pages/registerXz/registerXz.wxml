@@ -14,7 +14,7 @@
         </view>
       </view>
       <view class="footer-container">
-        <button class="common-btn" catchtap="next">下一步</button>
+        <button class="common-btn"  catchtap="next">下一步</button>
       </view>
     </view>
     
