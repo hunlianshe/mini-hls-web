@@ -1,17 +1,13 @@
 import * as Api from '../../service/api.service';
 import xzList from '../../public/json/zxList';
 
-const dataList: any[] = [];
-xzList.data.forEach((e: any) => {
-  dataList.push(e.ch);
-});
-
 Page({
   data: {
     dataIndex: 0,
     fortuneName: '',
+    fortuneNameEn: 'Aquarius',
     fortuneData: {},
-    xzList: dataList,
+    xzList: xzList.data,
   },
 
   onLoad: function (options: any) {
@@ -25,7 +21,8 @@ Page({
   otherPick: function (e: any) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
-      fortuneName: dataList[e.detail.value],
+      fortuneName: xzList.data[e.detail.value],
+      fortuneNameEn: xzList.data[e.detail.value].en,
     });
     this.getFortune(this.data.fortuneName);
   },

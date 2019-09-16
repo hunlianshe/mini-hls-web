@@ -39,8 +39,15 @@
   text-align: center;
 }
 
+.xzysDetail .title {
+  padding: 30rpx 0;
+  font-size: 36rpx;
+  text-align: center;
+}
+
 .xzysDetail .outline {
   margin: 0 50rpx;
+  padding-bottom: 200rpx;
 }
 
 .xzysDetail .outline image {
