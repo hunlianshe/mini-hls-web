@@ -1,1 +1,51 @@
 /* pages/xlcsResult/xlcsResult.wxss */
+.xlcsResult {
+}
+
+.xlcsResult .result-box {
+  position: absolute; 
+  height: calc(100% - 100px);
+  margin: 40rpx;
+  width: calc(100% - 80rpx);
+  border: 2rpx solid #999999;
+}
+
+.xlcsResult .title {
+  text-align: center;
+  font-size: 40rpx;
+  padding: 30rpx 0;
+}
+
+
+.xlcsResult .content {
+  position: absolute;
+  right: 0;
+  text-align: center;
+  font-size: 36rpx;
+  padding: 30rpx;
+  width: 45%;
+  font-family: fantasy;
+}
+
+.xlcsResult .code {
+  position: absolute;
+  bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 30rpx;
+}
+
+.xlcsResult .code image {
+  width: 90rpx;
+  height: 90rpx;
+  padding-right: 20rpx;
+}
+
+.xlcsResult .footer {
+  position: absolute;
+  padding: 0 40rpx;
+  bottom: 30rpx;
+  font-size: 22rpx;
+  color: #666666;
+}

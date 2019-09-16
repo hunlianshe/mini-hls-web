@@ -57,7 +57,7 @@
 }
 
 .xzysDetail .outline .detail {
-  margin-top: 60rpx;
+  line-height: 50rpx;
 }
 
 .xzysDetail .footer {

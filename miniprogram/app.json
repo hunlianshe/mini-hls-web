@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/xlcsResult/xlcsResult",
     "pages/index/index",
     "pages/myImages/myImages",
     "pages/realXzysDetail/realXzysDetail",
@@ -14,7 +15,6 @@
     "pages/xzys/xzys",
     "pages/matching/matching",
     "pages/matcheXz/matcheXz",
-    "pages/xlcsDetail/xlcsDetail",
     "pages/matchResult/matchResult",
     "pages/matched/matched",
     "pages/registerSex/registerSex",
@@ -27,7 +27,7 @@
     "pages/logs/logs",
     "pages/fate/fate",
     "pages/xlcsList/xlcsList",
-    "pages/xlcsResult/xlcsResult"
+    "pages/xlcsDetail/xlcsDetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

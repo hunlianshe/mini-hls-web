@@ -1,2 +1,26 @@
-<!--pages/xlcsResult/xlcsResult.wxml-->
-<text>pages/xlcsResult/xlcsResult.wxml</text>
+<view class="xlcsResult">
+  <view class="result-box"
+    style="background: url(../../public/image/xlcs_2.png) no-repeat; background-size:100%;">
+    <view class="title">
+      你是什么样的情人
+    </view>
+    <view class="content">
+      你过于热情和天真，非常爱你的伴侣也经常显露出来，会在对方怀里嘤嘤嘤，非常甜蜜，但也可能以后让伴侣觉得烦。你过于依赖你的伴侣，深深陷入恋情中，可能会为情受伤
+（文字方向是从右到左竖着的）
+    </view>
+    <view class="code">
+      <image src="../../public/image/wechat.png" mode="aspectFit" />
+      <view>
+      <view>
+        测试资料获取人：微信名
+      </view> 
+      <view>
+        长按识别了解你是什么样的情人
+      </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    ta们也参与了该测试并且和你有相似的属性
+  </view>
+</view>
