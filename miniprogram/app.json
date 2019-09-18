@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/bar/index",
     "pages/index/index",
     "pages/xlcsResult/xlcsResult",
     "pages/myImages/myImages",

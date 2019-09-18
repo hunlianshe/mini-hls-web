@@ -9,7 +9,8 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@types/node": "^12.7.1",
+    "@types/echarts": "^4.1.13",
+    "@types/node": "^12.7.5",
     "dtsmake": "0.0.10"
   }
 }
