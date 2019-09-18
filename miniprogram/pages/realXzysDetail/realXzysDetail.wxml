@@ -1,31 +1,63 @@
 <view class="xzysDetail">
   <view class="top"
   style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
-     <view>{{date}}运势</view>
+     <view>{{dateType}}运势</view>
      <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}" range-key="{{'ch'}}">
       <view class='{{fortuneName ? "picker" : "picker-place"}}'>
         {{fortuneName ? fortuneName : "选择星座"}}
       </view>
     </picker>
   </view>
-<view class="outline">
-  <view class="display-flex">
-    <view>
-      <image src="../../public/image/Signs/{{fortuneNameEn}}_active.png" mode="aspectFit" />
+  <view class="outline">
+    <view class="display-flex">
+      <view>
+        <image src="../../public/image/Signs/{{fortuneNameEn}}_active.png" mode="aspectFit" />
+      </view>
+      <block wx:if="{{dateType === '今日'}}">
+        <view class="flex-full">
+          <view>{{fortuneData.name}}</view>
+          <view>{{fortuneData.datetime}}</view>
+          <view>今日颜色：{{fortuneData.color}}</view>
+          <view>真爱指数：{{fortuneData.love}}</view>
+          <view>健康指数：{{fortuneData.health}}</view>
+          <view>赚钱指数：{{fortuneData.money}}</view>
+          <view>工作指数：{{fortuneData.work}}</view>
+        </view>
+      </block>
+      <block wx:else >
+        <view class="flex-full">
+          <view>{{fortuneData.name}}</view>
+        </view>
+      </block>
     </view>
-    <view class="flex-full">
-      <view>{{fortuneData.name}}</view>
-      <!-- <view>生辰：{{fortuneData.birth}}</view> -->
-      <!-- <view>属性：{{fortuneData.attributes}}</view> -->
-      <!-- <view>特点：{{fortuneData.feature}}</view> -->
-    </view>
+    <view class="title">运势分析</view>
+    <block wx:if="{{dateType === '今日'}}">
+      <view class="detail">
+        {{fortuneData.summary}}
+      </view>
+    </block>
+    <block wx:else >
+      <view class="detail">
+        <view class="category">恋情</view>
+        <view>
+          {{fortuneData.love}}        
+        </view>
+        <view class="category">健康</view>
+        <view>
+          {{fortuneData.health}}        
+        </view>
+        <view class="category">财运</view>
+        <view>
+          {{fortuneData.money}}        
+        </view>
+        <view class="category">工作</view>
+        <view>
+          {{fortuneData.work}}        
+        </view>
+      </view>
+    </block>
   </view>
-  <view class="title">运势分析</view>
-  <view class="detail">
-    {{fortuneData.summary}}
-  </view>
-</view>
-<view class="footer">
+  <view class="footer">
     <button class="common-btn">分享</button>
   </view>
 </view>

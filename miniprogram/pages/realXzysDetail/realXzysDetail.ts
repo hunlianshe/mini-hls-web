@@ -8,7 +8,7 @@ Page({
     fortuneNameEn: 'Aquarius',
     fortuneData: {},
     xzList: xzList.data,
-    date:'今日'
+    dateType:'今日'
 
   },
 
@@ -23,7 +23,7 @@ Page({
     });
     this.setData!({
       fortuneName: options.consName,
-      date: options.type === 'today' ? '今日' : '本月',
+      dateType: options.type === 'today' ? '今日' : '本月',
     });
     this.getFortune(options.consName,options.type) 
   },
