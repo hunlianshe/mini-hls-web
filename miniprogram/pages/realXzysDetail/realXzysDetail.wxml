@@ -18,10 +18,10 @@
           <view>{{fortuneData.name}}</view>
           <view>{{fortuneData.datetime}}</view>
           <view>今日颜色：{{fortuneData.color}}</view>
-          <view>真爱指数：{{fortuneData.love}}</view>
+          <!--<view>真爱指数：{{fortuneData.love}}</view>
           <view>健康指数：{{fortuneData.health}}</view>
           <view>赚钱指数：{{fortuneData.money}}</view>
-          <view>工作指数：{{fortuneData.work}}</view>
+          <view>工作指数：{{fortuneData.work}}</view>-->
         </view>
       </block>
       <block wx:else >
@@ -30,7 +30,7 @@
         </view>
       </block>
     </view>
-    <view class="chart-container">
+    <view wx:if="{{dateType === '今日'}}" class="chart-container">
       <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
     </view>
     <view class="title">运势分析</view>

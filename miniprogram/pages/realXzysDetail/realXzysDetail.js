@@ -1,61 +1,57 @@
 import * as Api from '../../service/api.service.js';
 import xzList from '../../public/json/zxList.js';
 import * as echarts from '../../ec-canvas/echarts';
-let chart = null;
 
-let chartData = [70,9, 90, 44];
-function initChart(canvas, width, height) {
-  chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
-  });
-  canvas.setChart(chart);
-
-  var option = {
+function setOption(chart, chartData) {
+  const option = {
     title: {
-      text: 'xxxxxx'
+      text: ''
     },
     tooltip: {},
     legend: {
-      data: ['运势分析']
+      data: ['四维分析']
     },
     radar: {
       // shape: 'circle',
       name: {
         textStyle: {
-          color: '#fff',
-          backgroundColor: '#999',
+          color: '#E39BF0',
+          backgroundColor: '#fff',
           borderRadius: 3,
           padding: [3, 5]
         }
       },
       indicator: [
-        { name: '真爱指数', max: 100 },
-        { name: '健康指数', max: 100 },
-        { name: '赚钱指数', max: 100 },
-        { name: '工作指数', max: 100 },
+        { name: '真爱', max: 100 },
+        { name: '健康', max: 100 },
+        { name: '赚钱', max: 100 },
+        { name: '工作', max: 100 },
       ]
     },
     series: [{
       name: '',
       type: 'radar',
+      // areaStyle: {normal: {}},
       data: [
         {
           value: chartData,
-          name: '运势分析'
+          name: '四维分析'
         },
       ]
     }]
   };
   chart.setOption(option);
-  return chart;
 }
 
 Page({
   data: {
     ec: {
-      onInit: initChart
+      // onInit: initChart
+      // 将 lazyLoad 设为 true 后，需要手动初始化图表
+      lazyLoad: true
     },
+    isLoaded: false,
+    isDisposed: false,
     chartData: [],
     dataIndex: 0,
     fortuneName: '',
@@ -83,7 +79,34 @@ Page({
     this.getFortune(options.consName,options.type);
   },
 
-  
+  onReady: function () {
+    // 获取组件
+    this.ecComponent = this.selectComponent('#mychart-dom-bar');
+  },
+  // 点击按钮后初始化图表
+  init: function (chartData) {
+    this.ecComponent.init((canvas, width, height) => {
+      // 获取组件的 canvas、width、height 后的回调函数
+      // 在这里初始化图表
+      const chart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+      });
+      setOption(chart, chartData);
+
+      // 将图表实例绑定到 this 上，可以在其他成员函数（如 dispose）中访问
+      this.chart = chart;
+      this.chart.dispose();
+
+      // this.setData({
+      //   isLoaded: true,
+      //   isDisposed: false
+      // });
+
+      // 注意这里一定要返回 chart 实例，否则会影响事件处理等
+      return chart;
+    });
+  },
 
   otherPick: function (e) {
     this.setData({
@@ -98,25 +121,20 @@ Page({
     Api.getHoroscopet(consName,type).then((result) => {
       console.log('result.data', result.data)
       let fortuneData = result.data;
+      let chartData = [];
       if (type === 'today') {
-        chartData.push(fortuneData.love);
-        chartData.push(fortuneData.health);
-        chartData.push(fortuneData.money);
-        chartData.push(fortuneData.work);
-        // initChart();
+        chartData.push(fortuneData.love.replace(/%/, ""));
+        chartData.push(fortuneData.health.replace(/%/, ""));
+        chartData.push(fortuneData.money.replace(/%/, ""));
+        chartData.push(fortuneData.work.replace(/%/, ""));
+        console.log(chartData);
+        this.init(chartData);
       }
       fortuneData.summary = fortuneData.summary ||  result.data.love
       this.setData({
         fortuneData,
       });
     });
-  },
-
-  onReady() {
-    setTimeout(function () {
-      // 获取 chart 实例的方式
-      console.log(chart)
-    }, 2000);
   },
 
   /**

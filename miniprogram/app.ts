@@ -2,7 +2,7 @@
 import User from './interface/user';
 
 export interface IMyApp {
-  userInfoReadyCallback?(res: User): void
+  // userInfoReadyCallback?(res: User): void
   globalData: {
     userInfo: User
   }
@@ -43,9 +43,9 @@ App<IMyApp>({
               this.globalData.userInfo = res.userInfo
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res.userInfo)
-              }
+              // if (this.userInfoReadyCallback) {
+              //   this.userInfoReadyCallback(res.userInfo)
+              // }
             }
           })
         }

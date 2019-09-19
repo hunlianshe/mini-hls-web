@@ -3,10 +3,11 @@ import { IMyApp } from '../../app';
 const app = getApp<IMyApp>();
 
 import Horoscope from '../../interface/horoscope';
+import User from '../../interface/user';
 
 Page({
   data: {
-    userInfo: {} as any,
+    userInfo: {} as User,
     psyTest: [],
     currShopList: [],
     dataAlready: false,
@@ -105,7 +106,7 @@ Page({
   /** 获取用户详细信息 */
   getUserInfo() {
     const { openid } = this.data.userInfo;
-    Api.getUserInfo(openid).then((result: any) => {
+    Api.getUserInfo(openid || '').then((result: any) => {
       if (result) {
         const userInfo = result.data;
         app.globalData.userInfo = result.data;
