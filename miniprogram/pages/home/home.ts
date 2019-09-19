@@ -7,7 +7,7 @@ import User from '../../interface/user';
 
 Page({
   data: {
-    userInfo: {} as User,
+    userInfo: { constellation: '' } as User,
     psyTest: [],
     currShopList: [],
     dataAlready: false,
@@ -84,7 +84,7 @@ Page({
 
   /** 运势分析  */
   getHoroscopet(e: any) {
-    const consName = this.data.userInfo.constellation || '白羊座';
+    const consName = this.data.userInfo.constellation ? this.data.userInfo.constellation : '白羊座';
     const { type } = e.currentTarget.dataset;
     wx.navigateTo({
       url: '../realXzysDetail/realXzysDetail?consName='+consName+'&type='+type

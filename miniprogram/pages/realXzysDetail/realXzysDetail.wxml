@@ -15,7 +15,7 @@
       </view>
       <block wx:if="{{dateType === '今日'}}">
         <view class="flex-full">
-          <view>{{fortuneData.name}}</view>
+          <view style="font-weight: 600; padding-bottom: 10rpx;">{{fortuneData.name}}</view>
           <view>{{fortuneData.datetime}}</view>
           <view>今日颜色：{{fortuneData.color}}</view>
           <!--<view>真爱指数：{{fortuneData.love}}</view>
@@ -26,14 +26,15 @@
       </block>
       <block wx:else >
         <view class="flex-full">
-          <view>{{fortuneData.name}}</view>
+          <view style="font-weight: 600;padding-bottom: 10rpx;">{{fortuneData.name}}</view>
+          <view >{{fortuneData.month}}月</view>
         </view>
       </block>
     </view>
-    <view class="chart-container" >
+    <view wx:if="{{dateType === '今日'}}" class="chart-container" >
       <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
     </view>
-    <view class="title">运势分析</view>
+    <view class="title">-- 运势分析 --</view>
     <block wx:if="{{dateType === '今日'}}">
       <view class="detail">
         {{fortuneData.summary}}
@@ -60,7 +61,7 @@
       </view>
     </block>
   </view>
-  <view class="footer">
+  <!--<view class="footer">
     <button class="common-btn">分享</button>
-  </view>
+  </view>-->
 </view>

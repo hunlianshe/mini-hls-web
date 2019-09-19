@@ -1,5 +1,4 @@
 import * as Api from '../../service/api.service'; 
-import * as utils from '../../utils/utils';
 
 
 Page({
@@ -32,8 +31,11 @@ Page({
     console.log('putUsersLike');
     const { openid } = this.data;
     Api.putUsersLike(openid).then((result: any) => {
-      if (result.code === '200') {
-        utils.showModal('收藏成功');
+      if (result.code == 200) {
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'success',
+        });
       }
     });
   },

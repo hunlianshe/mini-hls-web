@@ -41,7 +41,7 @@
 
 .xzysDetail .title {
   padding: 30rpx 0;
-  font-size: 36rpx;
+  font-size: 30rpx;
   text-align: center;
 }
 
