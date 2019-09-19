@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/bar/index",
     "pages/index/index",
+    "pages/bar/index",
     "pages/xlcsResult/xlcsResult",
     "pages/myImages/myImages",
     "pages/realXzysDetail/realXzysDetail",

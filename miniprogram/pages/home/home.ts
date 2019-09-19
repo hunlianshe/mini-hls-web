@@ -116,6 +116,12 @@ Page({
     });
   },
 
+  topInfo() {
+    wx.navigateTo({
+      url: '../bar/index'
+    })
+  },
+
   onReady: function () {
   },
 

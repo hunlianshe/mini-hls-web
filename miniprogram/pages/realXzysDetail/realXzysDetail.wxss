@@ -80,3 +80,12 @@
   border-radius: 10rpx;
   width: 360rpx;
 }
+
+.xzysDetail .chart-container {
+  height: 300rpx;
+}
+
+.xzysDetail ec-canvas {
+  width: 300rpx;
+  height: 300rpx;
+}

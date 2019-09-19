@@ -1,55 +1,143 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Api = require("../../service/api.service");
-const zxList_1 = require("../../public/json/zxList");
+import * as Api from '../../service/api.service.js';
+import xzList from '../../public/json/zxList.js';
+import * as echarts from '../../ec-canvas/echarts';
+let chart = null;
+
+let chartData = [70,9, 90, 44];
+function initChart(canvas, width, height) {
+  chart = echarts.init(canvas, null, {
+    width: width,
+    height: height,
+  });
+  canvas.setChart(chart);
+
+  var option = {
+    title: {
+      text: 'xxxxxx'
+    },
+    tooltip: {},
+    legend: {
+      data: ['运势分析']
+    },
+    radar: {
+      // shape: 'circle',
+      name: {
+        textStyle: {
+          color: '#fff',
+          backgroundColor: '#999',
+          borderRadius: 3,
+          padding: [3, 5]
+        }
+      },
+      indicator: [
+        { name: '真爱指数', max: 100 },
+        { name: '健康指数', max: 100 },
+        { name: '赚钱指数', max: 100 },
+        { name: '工作指数', max: 100 },
+      ]
+    },
+    series: [{
+      name: '',
+      type: 'radar',
+      data: [
+        {
+          value: chartData,
+          name: '运势分析'
+        },
+      ]
+    }]
+  };
+  chart.setOption(option);
+  return chart;
+}
+
 Page({
-    data: {
-        dataIndex: 0,
-        fortuneName: '',
-        fortuneNameEn: 'Aquarius',
-        fortuneData: {},
-        xzList: zxList_1.default.data,
-        dateType: '今日'
+  data: {
+    ec: {
+      onInit: initChart
     },
-    onLoad: function (options) {
-        console.log('options', options);
-        zxList_1.default.data.forEach((e) => {
-            if (options.consName === e.ch) {
-                this.setData({
-                    fortuneNameEn: e.en,
-                });
-            }
-        });
+    chartData: [],
+    dataIndex: 0,
+    fortuneName: '',
+    fortuneNameEn: 'Aquarius',
+    fortuneData: {},
+    xzList: xzList.data,
+    dateType:'今日',
+    type: 'today',
+  },
+
+  onLoad: function (options) {
+    console.log('options',options);
+    xzList.data.forEach((e) => {
+      if (options.consName === e.ch) {
         this.setData({
-            fortuneName: options.consName,
-            dateType: options.type === 'today' ? '今日' : '本月',
+          fortuneNameEn: e.en,
         });
-        this.getFortune(options.consName, options.type);
-    },
-    otherPick: function (e) {
-        this.setData({
-            fortuneName: zxList_1.default.data[e.detail.value].ch,
-            fortuneNameEn: zxList_1.default.data[e.detail.value].en,
-        });
-        this.getFortune(this.data.fortuneName);
-    },
-    getFortune(consName, type = 'month') {
-        Api.getHoroscopet(consName, type).then((result) => {
-            console.log('result.data', result.data);
-            let fortuneData = result.data;
-            fortuneData.summary = fortuneData.summary || result.data.love;
-            this.setData({
-                fortuneData,
-            });
-        });
-    },
-    onReady: function () {
-    },
-    onShow: function () {
-    },
-    onHide: function () {
-    },
-    onUnload: function () {
-    },
-});
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVhbFh6eXNEZXRhaWwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJyZWFsWHp5c0RldGFpbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFpRDtBQUNqRCxxREFBOEM7QUFFOUMsSUFBSSxDQUFDO0lBQ0gsSUFBSSxFQUFFO1FBQ0osU0FBUyxFQUFFLENBQUM7UUFDWixXQUFXLEVBQUUsRUFBRTtRQUNmLGFBQWEsRUFBRSxVQUFVO1FBQ3pCLFdBQVcsRUFBRSxFQUFFO1FBQ2YsTUFBTSxFQUFFLGdCQUFNLENBQUMsSUFBSTtRQUNuQixRQUFRLEVBQUMsSUFBSTtLQUVkO0lBRUQsTUFBTSxFQUFFLFVBQVUsT0FBWTtRQUM1QixPQUFPLENBQUMsR0FBRyxDQUFDLFNBQVMsRUFBQyxPQUFPLENBQUMsQ0FBQztRQUMvQixnQkFBTSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFNLEVBQUUsRUFBRTtZQUM3QixJQUFJLE9BQU8sQ0FBQyxRQUFRLEtBQUssQ0FBQyxDQUFDLEVBQUUsRUFBRTtnQkFDN0IsSUFBSSxDQUFDLE9BQVEsQ0FBQztvQkFDWixhQUFhLEVBQUUsQ0FBQyxDQUFDLEVBQUU7aUJBQ3BCLENBQUMsQ0FBQzthQUNKO1FBQ0gsQ0FBQyxDQUFDLENBQUM7UUFDSCxJQUFJLENBQUMsT0FBUSxDQUFDO1lBQ1osV0FBVyxFQUFFLE9BQU8sQ0FBQyxRQUFRO1lBQzdCLFFBQVEsRUFBRSxPQUFPLENBQUMsSUFBSSxLQUFLLE9BQU8sQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxJQUFJO1NBQ2pELENBQUMsQ0FBQztRQUNILElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUE7SUFDaEQsQ0FBQztJQUVELFNBQVMsRUFBRSxVQUFVLENBQU07UUFDekIsSUFBSSxDQUFDLE9BQVEsQ0FBQztZQUNaLFdBQVcsRUFBRSxnQkFBTSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLEtBQUssQ0FBQyxDQUFDLEVBQUU7WUFDM0MsYUFBYSxFQUFFLGdCQUFNLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUMsRUFBRTtTQUM5QyxDQUFDLENBQUM7UUFDSCxJQUFJLENBQUMsVUFBVSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUM7SUFDekMsQ0FBQztJQUdELFVBQVUsQ0FBQyxRQUFnQixFQUFFLElBQUksR0FBQyxPQUFPO1FBQ3ZDLEdBQUcsQ0FBQyxhQUFhLENBQUMsUUFBUSxFQUFDLElBQUksQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDLE1BQVcsRUFBRSxFQUFFO1lBQ3BELE9BQU8sQ0FBQyxHQUFHLENBQUMsYUFBYSxFQUFFLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQTtZQUN2QyxJQUFJLFdBQVcsR0FBRyxNQUFNLENBQUMsSUFBSSxDQUFDO1lBQzlCLFdBQVcsQ0FBQyxPQUFPLEdBQUcsV0FBVyxDQUFDLE9BQU8sSUFBSyxNQUFNLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQTtZQUM5RCxJQUFJLENBQUMsT0FBUSxDQUFDO2dCQUNaLFdBQVc7YUFDWixDQUFDLENBQUM7UUFDTCxDQUFDLENBQUMsQ0FBQztJQUNMLENBQUM7SUFFRCxPQUFPLEVBQUU7SUFFVCxDQUFDO0lBS0QsTUFBTSxFQUFFO0lBRVIsQ0FBQztJQUtELE1BQU0sRUFBRTtJQUVSLENBQUM7SUFLRCxRQUFRLEVBQUU7SUFFVixDQUFDO0NBRUYsQ0FBQyxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgQXBpIGZyb20gJy4uLy4uL3NlcnZpY2UvYXBpLnNlcnZpY2UnO1xuaW1wb3J0IHh6TGlzdCBmcm9tICcuLi8uLi9wdWJsaWMvanNvbi96eExpc3QnO1xuXG5QYWdlKHtcbiAgZGF0YToge1xuICAgIGRhdGFJbmRleDogMCxcbiAgICBmb3J0dW5lTmFtZTogJycsXG4gICAgZm9ydHVuZU5hbWVFbjogJ0FxdWFyaXVzJyxcbiAgICBmb3J0dW5lRGF0YToge30sXG4gICAgeHpMaXN0OiB4ekxpc3QuZGF0YSxcbiAgICBkYXRlVHlwZTon5LuK5pelJ1xuXG4gIH0sXG5cbiAgb25Mb2FkOiBmdW5jdGlvbiAob3B0aW9uczogYW55KSB7XG4gICAgY29uc29sZS5sb2coJ29wdGlvbnMnLG9wdGlvbnMpO1xuICAgIHh6TGlzdC5kYXRhLmZvckVhY2goKGU6IGFueSkgPT4ge1xuICAgICAgaWYgKG9wdGlvbnMuY29uc05hbWUgPT09IGUuY2gpIHtcbiAgICAgICAgdGhpcy5zZXREYXRhISh7XG4gICAgICAgICAgZm9ydHVuZU5hbWVFbjogZS5lbixcbiAgICAgICAgfSk7XG4gICAgICB9XG4gICAgfSk7XG4gICAgdGhpcy5zZXREYXRhISh7XG4gICAgICBmb3J0dW5lTmFtZTogb3B0aW9ucy5jb25zTmFtZSxcbiAgICAgIGRhdGVUeXBlOiBvcHRpb25zLnR5cGUgPT09ICd0b2RheScgPyAn5LuK5pelJyA6ICfmnKzmnIgnLFxuICAgIH0pO1xuICAgIHRoaXMuZ2V0Rm9ydHVuZShvcHRpb25zLmNvbnNOYW1lLG9wdGlvbnMudHlwZSkgXG4gIH0sXG5cbiAgb3RoZXJQaWNrOiBmdW5jdGlvbiAoZTogYW55KSB7XG4gICAgdGhpcy5zZXREYXRhISh7XG4gICAgICBmb3J0dW5lTmFtZTogeHpMaXN0LmRhdGFbZS5kZXRhaWwudmFsdWVdLmNoLFxuICAgICAgZm9ydHVuZU5hbWVFbjogeHpMaXN0LmRhdGFbZS5kZXRhaWwudmFsdWVdLmVuLFxuICAgIH0pO1xuICAgIHRoaXMuZ2V0Rm9ydHVuZSh0aGlzLmRhdGEuZm9ydHVuZU5hbWUpO1xuICB9LFxuXG4gIC8qKiDojrflj5blrp7ml7bmmJ/luqfov5Dlir8gKi9cbiAgZ2V0Rm9ydHVuZShjb25zTmFtZTogc3RyaW5nLCB0eXBlPSdtb250aCcpIHtcbiAgICBBcGkuZ2V0SG9yb3Njb3BldChjb25zTmFtZSx0eXBlKS50aGVuKChyZXN1bHQ6IGFueSkgPT4ge1xuICAgICAgY29uc29sZS5sb2coJ3Jlc3VsdC5kYXRhJywgcmVzdWx0LmRhdGEpXG4gICAgICBsZXQgZm9ydHVuZURhdGEgPSByZXN1bHQuZGF0YTtcbiAgICAgIGZvcnR1bmVEYXRhLnN1bW1hcnkgPSBmb3J0dW5lRGF0YS5zdW1tYXJ5IHx8ICByZXN1bHQuZGF0YS5sb3ZlXG4gICAgICB0aGlzLnNldERhdGEhKHtcbiAgICAgICAgZm9ydHVuZURhdGEsXG4gICAgICB9KTtcbiAgICB9KTtcbiAgfSxcblxuICBvblJlYWR5OiBmdW5jdGlvbiAoKSB7XG5cbiAgfSxcblxuICAvKipcbiAgICog55Sf5ZG95ZGo5pyf5Ye95pWwLS3nm5HlkKzpobXpnaLmmL7npLpcbiAgICovXG4gIG9uU2hvdzogZnVuY3Rpb24gKCkge1xuXG4gIH0sXG5cbiAgLyoqXG4gICAqIOeUn+WRveWRqOacn+WHveaVsC0t55uR5ZCs6aG16Z2i6ZqQ6JePXG4gICAqL1xuICBvbkhpZGU6IGZ1bmN0aW9uICgpIHtcblxuICB9LFxuXG4gIC8qKlxuICAgKiDnlJ/lkb3lkajmnJ/lh73mlbAtLeebkeWQrOmhtemdouWNuOi9vVxuICAgKi9cbiAgb25VbmxvYWQ6IGZ1bmN0aW9uICgpIHtcblxuICB9LFxuXG59KSJdfQ==
+      }
+    });
+    this.setData({
+      fortuneName: options.consName,
+      dateType: options.type === 'today' ? '今日' : '本月',
+      type: options.type,
+    });
+    this.getFortune(options.consName,options.type);
+  },
+
+  
+
+  otherPick: function (e) {
+    this.setData({
+      fortuneName: xzList.data[e.detail.value].ch,
+      fortuneNameEn: xzList.data[e.detail.value].en,
+    });
+    this.getFortune(this.data.fortuneName, this.data.type);
+  },
+
+  /** 获取实时星座运势 */
+  getFortune(consName, type='month') {
+    Api.getHoroscopet(consName,type).then((result) => {
+      console.log('result.data', result.data)
+      let fortuneData = result.data;
+      if (type === 'today') {
+        chartData.push(fortuneData.love);
+        chartData.push(fortuneData.health);
+        chartData.push(fortuneData.money);
+        chartData.push(fortuneData.work);
+        // initChart();
+      }
+      fortuneData.summary = fortuneData.summary ||  result.data.love
+      this.setData({
+        fortuneData,
+      });
+    });
+  },
+
+  onReady() {
+    setTimeout(function () {
+      // 获取 chart 实例的方式
+      console.log(chart)
+    }, 2000);
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+})

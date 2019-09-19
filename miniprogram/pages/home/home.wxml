@@ -1,7 +1,7 @@
 <view class='home-page'>
   <view class="head"
     style="background-image: url('../../public/image/home-ad.png');">
-    <view class="intro">
+    <view class="intro" bindtap="topInfo">
       <view style="width: 100%;">
         <view style="font-size: 52rpx;">婚恋社</view>
         <view style="text-align: center;font-size: 42rpx;">认真又好玩的婚配网站</view>
