@@ -9,7 +9,7 @@ function setOption(chart, chartData) {
     },
     tooltip: {},
     legend: {
-      data: ['四维分析']
+      data: []
     },
     radar: {
       // shape: 'circle',

@@ -82,7 +82,8 @@
 }
 
 .xzysDetail .chart-container {
-  /* height: 300rpx; */
+  height: 500rpx;
+  padding-top: 30rpx;
 }
 
 .xzysDetail ec-canvas {
