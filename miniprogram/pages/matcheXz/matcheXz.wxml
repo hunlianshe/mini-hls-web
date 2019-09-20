@@ -4,7 +4,6 @@
 </view>
   <view class="section">
     <view class="display-flex">
-      <icon iconName="feedback" width='40rpx' height='40rpx' />
       <view class="section__title">我的星座</view>
       <picker class="flex-full" bindchange="myPick" value="{{dataIndex}}" range="{{dataList}}" range-key="{{'ch'}}">
         <view class='{{myFortuneName ? "picker" : "picker-place"}}'>
@@ -16,7 +15,6 @@
   </view>
   <view class="section">
     <view class="display-flex">
-      <icon iconName="feedback" width='40rpx' height='40rpx' />
       <view class="section__title">对方星座</view>
       <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{dataList}}" range-key="{{'ch'}}">
         <view class='{{otherFortuneName ? "picker" : "picker-place"}}'>

@@ -17,7 +17,7 @@
 
 .matchXzPage .section__title {
   color: #333333;
-  padding-left: 30rpx;
+  /* padding-left: 30rpx; */
 }
 
 .matchXzPage .picker {
