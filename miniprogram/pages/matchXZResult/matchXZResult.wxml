@@ -8,11 +8,11 @@
       </view>
     </picker>
     <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}" range-key="{{'ch'}}">
-      <view class='{{fortuneName ? "picker" : "picker-place"}}'>
+      <view class='{{he ? "picker" : "picker-place"}}'>
         {{he ? he : "选择星座"}}
       </view>
     </picker>
-    <button bindtap="tapname">查看匹配结果</button>
+    <button bindtap="submit">查看匹配结果</button>
   </view>
   <view class="outline">
     <view class="match-item">
