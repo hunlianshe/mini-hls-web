@@ -5,6 +5,7 @@
     "pages/xlcsResult/xlcsResult",
     "pages/myImages/myImages",
     "pages/realXzysDetail/realXzysDetail",
+    "pages/storyDetail/storyDetail",
     "pages/xzysDetail/xzysDetail",
     "pages/registerStandard/registerStandard",
     "pages/home/home",

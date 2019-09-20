@@ -82,6 +82,11 @@ const getFortune = (fortuneName: string) => httpServer.get({ url: `/fortune/${fo
  */
 const getHoroscopet = (consName: string, type = 'today') => httpServer.get({ url: `/fortune/horoscope/realtime?consName=${consName}&type=${type}` });
 
+/**
+ * 星座运势详解
+ */
+const getConstellationStory = (consName: string) => httpServer.get({ url: `/constellation-story/listStory/${consName}` });
+
 
 
 /****************************************************************************************/
@@ -136,6 +141,7 @@ export {
   getPsyTest,
   getFortune,
   getHoroscopet,
+  getConstellationStory,
 
   getAccessToken,
   getCityList,

@@ -6,7 +6,7 @@ Page({
     dataIndex: 0,
     fortuneName: '',
     fortuneNameEn: 'Aquarius',
-    fortuneData: {},
+    storyData: {},
     xzList: xzList.data,
   },
 
@@ -15,7 +15,7 @@ Page({
     this.setData!({
       fortuneName: options.fortuneName,
     })
-    this.getFortune(options.fortuneName);
+    this.getConstellationStory(options.fortuneName);
   },
 
   otherPick: function (e: any) {
@@ -24,15 +24,15 @@ Page({
       fortuneName: xzList.data[e.detail.value].ch,
       fortuneNameEn: xzList.data[e.detail.value].en,
     });
-    this.getFortune(this.data.fortuneName);
+    this.getConstellationStory(this.data.fortuneName);
   },
 
   /** 获取星座详解 */
-  getFortune(fortuneName: string) {
-    Api.getFortune(fortuneName).then((result: any) => {
-      let fortuneData = result.data;
+  getConstellationStory(fortuneName: string) {
+    Api.getConstellationStory(fortuneName).then((result: any) => {
+      let storyData = result.data;
       this.setData!({
-        fortuneData,
+        storyData,
       });
     });
   },
