@@ -15,11 +15,13 @@ Page({
   },
 
   onLoad: function (options: any) {
+    let me = options.me;
+    let he = options.he;
     this.setData!({
-      me: options.me,
-      he: options.he,
+      me,
+      he,
     })
-    this.getConstellationMmatchingDetail(options.me, options.he);
+    this.getConstellationMmatchingDetail(me, he);
   },
 
   myPick: function (e: any) {
@@ -38,6 +40,8 @@ Page({
 
   /** 获取星座详解 */
   getConstellationMmatchingDetail(me: string, he: string) {
+    me = me.replace(/座/, '');
+    he = he.replace(/座/, '');
     Api.getConstellationMmatchingDetail(me, he).then((result: any) => {
       let fortuneData = result.data;
       this.setData!({
@@ -46,8 +50,12 @@ Page({
     });
   },
 
-  onReady: function () {
-
+  submit() {
+    let {
+      me,
+      he
+    } = this.data;
+    this.getConstellationMmatchingDetail(me, he);
   },
 
   /**
