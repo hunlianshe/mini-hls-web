@@ -1,6 +1,6 @@
 <view class="storyDetail">
   <view class="top"
-  style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
+  style="background: url('../../public/image/stars_blue.png') no-repeat;background-size:100%;">
      <view>星座故事</view>
      <picker class="flex-full" bindchange="otherPick" range="{{xzList}}" value="{{dataIndex}}" range-key="{{'ch'}}">
       <view class='{{fortuneName ? "picker" : "picker-place"}}'>

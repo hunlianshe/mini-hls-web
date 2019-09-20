@@ -26,7 +26,7 @@
   margin-left: auto;
   margin-right: auto;
   background: #ffffff;
-  border: 1rpx solid #E39BF0;
+  border: 1rpx solid #0F4DB7;
 }
 
 .storyDetail .top .picker {

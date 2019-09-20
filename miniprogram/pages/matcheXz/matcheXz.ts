@@ -1,9 +1,11 @@
+import xzList from '../../public/json/zxList';
+
 Page({
   data: {
     dataIndex: 0,
-    dataList: ['水平座', '双鱼座', '天蝎座', '魔蝎座'],
-    myData: '',
-    otherData: '',
+    dataList: xzList.data,
+    myFortuneName: '',
+    otherFortuneName: '',
   },
 
   onLoad: function (options: any) {
@@ -13,25 +15,25 @@ Page({
   myPick: function (e: any) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
-      myData: e.detail.value
-    })
+      myFortuneName: xzList.data[e.detail.value].ch,
+    });
   },
 
   otherPick: function (e: any) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
-      otherData: e.detail.value
-    })
+      otherFortuneName: xzList.data[e.detail.value].ch,
+    });
   },
 
   submit() {
+    const {
+      myFortuneName,
+      otherFortuneName
+    } = this.data;
     wx.navigateTo({
-      url: `../matching/matching`,
+      url: `../matchXZResult/matchXZResult?me=${myFortuneName}&he=${otherFortuneName}`,
     })
-  },
-
-  onReady: function () {
-
   },
 
   /**

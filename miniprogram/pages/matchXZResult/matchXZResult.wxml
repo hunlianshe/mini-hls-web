@@ -2,32 +2,32 @@
   <view class="top"
   style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
     <view>星座详解</view>
-    <picker class="flex-full" bindchange="myPick" value="{{dataIndex}}" range="{{xzList}}">
-      <view class='{{fortuneName ? "picker" : "picker-place"}}'>
-        {{fortuneName ? fortuneName : "选择星座"}}
+    <picker class="flex-full" bindchange="myPick" value="{{dataIndex}}" range="{{xzList}}" range-key="{{'ch'}}">
+      <view class='{{me ? "picker" : "picker-place"}}'>
+        {{me ? me : "选择星座"}}
       </view>
     </picker>
-    <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}">
+    <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}" range-key="{{'ch'}}">
       <view class='{{fortuneName ? "picker" : "picker-place"}}'>
-        {{fortuneName ? fortuneName : "选择星座"}}
+        {{he ? he : "选择星座"}}
       </view>
     </picker>
     <button bindtap="tapname">查看匹配结果</button>
   </view>
-<view class="outline">
-  <view class="match-item">
-      <view>{{fortuneData.title}}</view>
-      <view>友情：{{fortuneData.grade}}</view>
-      <view>爱情：{{fortuneData.attributes}}</view>
-      <view>婚姻：{{fortuneData.feature}}</view>
-      <view>亲情：{{fortuneData.feature}}</view>
+  <view class="outline">
+    <view class="match-item">
+        <view>{{fortuneData.title}}</view>
+        <view>友情：{{fortuneData.grade}}</view>
+        <view>爱情：{{fortuneData.attributes}}</view>
+        <view>婚姻：{{fortuneData.feature}}</view>
+        <view>亲情：{{fortuneData.feature}}</view>
+    </view>
+    <view class="subtitle">配对分析</view>
+    <view class="detail">
+      {{fortuneData.content}}
+    </view>
   </view>
-  <view class="subtitle">配对分析</view>
-  <view class="detail">
-    {{fortuneData.content}}
-  </view>
-</view>
-<view class="footer">
+  <view class="footer">
     <button class="common-btn">分享</button>
   </view>
 </view>

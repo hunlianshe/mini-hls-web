@@ -1,8 +1,8 @@
 {
   "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#E39BF0",
+  "navigationBarBackgroundColor": "#0F4DB7",
   "navigationBarTitleText": "婚恋社",
   "navigationBarTextStyle": "white",
-  "backgroundColor": "#E39BF0",
+  "backgroundColor": "#0F4DB7",
   "usingComponents": {}
 }

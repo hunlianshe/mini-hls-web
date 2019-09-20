@@ -6,9 +6,9 @@
     <view class="display-flex">
       <icon iconName="feedback" width='40rpx' height='40rpx' />
       <view class="section__title">我的星座</view>
-      <picker class="flex-full" bindchange="myPick" value="{{dataIndex}}" range="{{dataList}}">
-        <view class='{{dataList[myData] ? "picker" : "picker-place"}}'>
-          {{dataList[myData] ? dataList[myData] : "请选择"}}
+      <picker class="flex-full" bindchange="myPick" value="{{dataIndex}}" range="{{dataList}}" range-key="{{'ch'}}">
+        <view class='{{myFortuneName ? "picker" : "picker-place"}}'>
+          {{myFortuneName ? myFortuneName : "请选择"}}
         </view>
       </picker>
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />
@@ -18,9 +18,9 @@
     <view class="display-flex">
       <icon iconName="feedback" width='40rpx' height='40rpx' />
       <view class="section__title">对方星座</view>
-      <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{dataList}}">
-        <view class='{{dataList[otherData] ? "picker" : "picker-place"}}'>
-          {{dataList[otherData] ? dataList[otherData] : "请选择"}}
+      <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{dataList}}" range-key="{{'ch'}}">
+        <view class='{{otherFortuneName ? "picker" : "picker-place"}}'>
+          {{otherFortuneName ? otherFortuneName : "请选择"}}
         </view>
       </picker>
       <icon iconName="arrowRight" width='16rpx' height='24rpx' />
@@ -28,7 +28,7 @@
   </view>
   <view class="footer-btn">
     <button 
-      disabled="{{dataList[myData] && dataList[otherData] ? '' : 'disabled'}}" 
+      disabled="{{myFortuneName && otherFortuneName ? '' : 'disabled'}}" 
       type="default" 
       bindtap="submit"
       hover-class="defaultTap">
