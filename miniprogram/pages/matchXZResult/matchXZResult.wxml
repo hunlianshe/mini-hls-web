@@ -16,11 +16,11 @@
   </view>
   <view class="outline">
     <view class="match-item">
-        <view>{{fortuneData.title}}</view>
-        <view>友情：{{fortuneData.grade}}</view>
-        <view>爱情：{{fortuneData.attributes}}</view>
-        <view>婚姻：{{fortuneData.feature}}</view>
-        <view>亲情：{{fortuneData.feature}}</view>
+        <view style="font-weight: 600; padding-bottom: 10rpx;">{{me}} <text>VS</text> {{he}}</view>
+        <view>友情：<text>{{gradeData[0] || '★'}}</text></view>
+        <view>爱情：<text>{{gradeData[1] || '★'}}</text></view>
+        <view>婚姻：<text>{{gradeData[2] || '★'}}</text></view>
+        <view>亲情：<text>{{gradeData[3] || '★'}}</text></view>
     </view>
     <view class="title">配对分析</view>
     <view class="detail">

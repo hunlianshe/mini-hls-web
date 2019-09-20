@@ -61,6 +61,10 @@
   line-height: 50rpx;
 }
 
+.matchXZResult .match-item text {
+  color: #BD10E0
+}
+
 .matchXZResult .outline image {
   width: 100rpx;
   height: 100rpx;

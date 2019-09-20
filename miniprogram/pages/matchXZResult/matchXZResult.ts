@@ -11,6 +11,7 @@ Page({
       grade: '',
       content: ''
     },
+    gradeData: [],
     xzList: xzList.data,
   },
 
@@ -44,8 +45,11 @@ Page({
     he = he.replace(/座/, '');
     Api.getConstellationMmatchingDetail(me, he).then((result: any) => {
       let fortuneData = result.data;
+      let gradeData = fortuneData.grade.match(/\★{1,5}/g);
+      console.log(gradeData);
       this.setData!({
         fortuneData,
+        gradeData,
       });
     });
   },
