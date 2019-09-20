@@ -1,7 +1,7 @@
-<view class="xzysDetail">
+<view class="matchXZResult">
   <view class="top"
   style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
-    <view>星座详解</view>
+    <view>星座配对</view>
     <picker class="flex-full" bindchange="myPick" value="{{dataIndex}}" range="{{xzList}}" range-key="{{'ch'}}">
       <view class='{{me ? "picker" : "picker-place"}}'>
         {{me ? me : "选择星座"}}
@@ -22,7 +22,7 @@
         <view>婚姻：{{fortuneData.feature}}</view>
         <view>亲情：{{fortuneData.feature}}</view>
     </view>
-    <view class="subtitle">配对分析</view>
+    <view class="title">配对分析</view>
     <view class="detail">
       {{fortuneData.content}}
     </view>

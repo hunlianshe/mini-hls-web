@@ -1,5 +1,5 @@
 
-.xzysDetail {
+.matchXZResult {
   background: #ffffff;
   position: absolute;
   width: 100%;
@@ -8,14 +8,14 @@
   color: #666666;
 }
 
-.xzysDetail .top {
+.matchXZResult .top {
   height: 350rpx;
   text-align: center;
   color: #ffffff;
   font-size: 32rpx;
 }
 
-.xzysDetail .top picker {
+.matchXZResult .top picker {
   width: 240rpx;
   color: #666666;
   font-size: 28rpx;
@@ -29,7 +29,7 @@
   border: 1rpx solid #E39BF0;
 }
 
-.xzysDetail .top button {
+.matchXZResult .top button {
   background: #E39BF0;
   color: #ffffff;
   font-size: 22rpx;
@@ -38,54 +38,55 @@
   margin-top: 50rpx;
 }
 
-.xzysDetail .top button:after {
+.matchXZResult .top button:after {
   border: none;
 }
 
-.xzysDetail .top .picker {
+.matchXZResult .top .picker {
   text-align: center;
   color: #333333;
 }
 
-.xzysDetail .top .picker-place {
+.matchXZResult .top .picker-place {
   color: #D8D8D8;
   text-align: center;
 }
 
-.xzysDetail .outline {
+.matchXZResult .outline {
   margin: 0 50rpx;
+  padding-bottom: 200rpx;
 }
 
-.xzysDetail .match-item view {
+.matchXZResult .match-item view {
   line-height: 50rpx;
 }
 
-.xzysDetail .outline image {
+.matchXZResult .outline image {
   width: 100rpx;
   height: 100rpx;
   padding-right: 30rpx;
 }
 
-.xzysDetail .outline .detail {
+.matchXZResult .outline .detail {
   line-height: 50rpx;
 }
 
-.xzysDetail .footer {
+.matchXZResult .footer {
   position: fixed;
   bottom: 40rpx;
   display: flex;
   width: 100%;
 }
 
-.xzysDetail .footer button {
+.matchXZResult .footer button {
   line-height: 70rpx;
   font-size: 32rpx;
   border-radius: 10rpx;
   width: 360rpx;
 }
 
-.xzysDetail .subtitle{
+.matchXZResult .title{
   color: #BD10E0;
-  font-size: 28rpx;
-  padding-top: 60rpx;
+  font-size: 30rpx;
+  padding: 60rpx 0 30rpx 0;
 }
