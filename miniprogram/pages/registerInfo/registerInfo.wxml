@@ -18,9 +18,15 @@
         </view>
 
         <view class='info-cell'>
-          <input type="number" class="align-right" name="salary" value="{{salary}}" 
-            maxlength="10" placeholder="请填写收入" placeholder-class="placeholder"/>
-          <view class='pleft_5'>元</view>
+          <view class="{{ salary ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+            <picker bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryArray}}">
+              <view class="picker">
+                {{salary ? salary : '请选择'}}
+                <input hidden="true" name="salary" value="{{salary}}"/>
+              </view>
+            </picker>
+          </view>
+          <icon iconName='arrowRight' width="7px" height="12px"/>
         </view>
 
         <view class="footer-container">

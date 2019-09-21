@@ -6,11 +6,12 @@ const app: any = getApp<IMyApp>();
 Page({
   data: {
     submitDisable: false,
+    salary: '',
+    salaryArray: [
+      '5千以下', '5千～1万', '1万～2万', '2万～5万', '5万以上'
+    ],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  
   onLoad: function (options: any) {
     console.log(options);
   },
@@ -20,7 +21,7 @@ Page({
     const params = e.detail.value;
     if (!utils.validateEmpty(params.age, '请输入年龄') ||
       !utils.validateEmpty(params.height, '请输入年龄') ||
-      !utils.validateEmpty(params.salary, '请输入收入')) {
+      !utils.validateEmpty(this.data.salary, '请输入收入')) {
       return false;
     }
     const openid = app.globalData.userInfo.openid;
@@ -53,6 +54,14 @@ Page({
     wx.navigateTo({
       url: '../registerPhone/registerPhone',
     })
+  },
+
+  /** 月收入 */
+  bindSalaryChange(e: any) {
+    const { salaryArray } = this.data
+    this.setData!({
+      salary: salaryArray[e.detail.value]
+    });
   },
 
   /**

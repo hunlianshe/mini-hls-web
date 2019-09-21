@@ -7,18 +7,21 @@ const app = getApp<IMyApp>();
 
 Page({
   data: {
-    user: { openid: '' },
+    userInfo: { openid: '' },
     nickName: '',
     gender: '', 
     birth: '',            // 生日
     height: '',           // 身高
     salary: '', 
-    region: [], 
+    workCity: '',
+    workProvince: '',
+    workRegion: '',
     isMarriage: '',
     education: '', 
     hasChild: '', 
     wantChild: '', 
     jobGeneral: '',
+    jobDetail: '',
     haveHouse: '',   
     genderIndex: 0,
     salaryIndex: 0,
@@ -41,15 +44,6 @@ Page({
   },
 
   onLoad: function () {
-    let _this = this;
-    wx.getStorage({
-      key: 'user',
-      success: function (res) {
-        _this.setData!({
-          user: res.data
-        })
-      },
-    });  
     const multiArray = [[], []] as any;
     jobJson.data.forEach((item: any) => {
       multiArray[0].push(item.name);
@@ -71,14 +65,15 @@ Page({
     Api.getUserInfo(openid || '').then((result: any) => {
       if (result) {
         this.setData!({
+          userInfo: result.data,
           nickName: result.data.nickName,
           gender: result.data.gender,
           birth: this.getYMD(result.data.birth),        // 生日
           height: result.data.height,                   // 身高
           salary: result.data.salary,
-          workProvince: result.data.region && result.data.region[0] ? result.data.region[0] : '',
-          workCity: result.data.region && result.data.region[0] ? result.data.region[0] : '',
-          workRegion: result.data.region && result.data.region[0] ? result.data.region[0] : '',        
+          workProvince: result.data.workProvince,
+          workCity: result.data.workCity,
+          workRegion: result.data.workRegion,        
           isMarriage: result.data.isMarriage,           // 婚姻状况
           education: result.data.education,             // 教育
           hasChild: result.data.hasChild,
@@ -112,7 +107,7 @@ Page({
       !utils.validateEmpty(value.birth, '请选择生日') ||
       !utils.validateEmpty(value.height, '请输入身高') ||
       !utils.validateEmpty(value.salary, '请选择收入') ||
-      !utils.validateEmpty(this.data.region[0], '请选择工作所在地') ||
+      !utils.validateEmpty(this.data.workProvince, '请选择工作所在地') ||
       !utils.validateEmpty(this.data.education, '请选择学历') ||
       !utils.validateEmpty(this.data.isMarriage, '请选择婚姻状况') ||
       !utils.validateEmpty(this.data.hasChild, '请选择是否有孩子') ||
@@ -129,23 +124,31 @@ Page({
   /** update */
   doSubmit(e: any) {
     const params = e.detail.value;
-    const { openid } = this.data.user;
-    const origin = {
-      workProvince: this.data.region[0],
-      workCity: this.data.region[1],
-      workRegion: this.data.region[2],
+    console.log(e.detail.value);
+    const { userInfo } = this.data;
+    const dataParams = {
+      workProvince: this.data.workProvince,
+      workCity: this.data.workCity,
+      workRegion: this.data.workRegion,
+      jobGeneral: this.data.jobGeneral,
+      jobDetail: this.data.jobDetail,
     }
-    const job = {};
     this.setData!({
       submitDisable: true
     });
-    Api.updateUser(Object.assign({ openid }, params, origin, job)).then((result: any) => {
+    console.log(Object.assign(userInfo, params, dataParams));
+    Api.updateUser(Object.assign(userInfo, params, dataParams)).then((result: any) => {
       wx.hideLoading(); 
       this.setData!({
         submitDisable: true
       });     
       if (result.code === 200) {
-        utils.showModal('更新成功')
+        wx.showToast({
+          title: '更新成功',
+          icon: 'success',
+          duration: 1000,
+          mask: true
+        })
         setTimeout(() => {
           wx.switchTab({
             url: `../myHome/myHome`,
@@ -221,15 +224,22 @@ Page({
   /** 工作地区 */
   bindRegionChange: function (e:any) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    let region = e.detail.value;
     this.setData!({
-      region: e.detail.value,
+      workProvince: region[0],
+      workCity: region[1],
+      workRegion: region[2],
     });
   },
 
   bindMultiPickerChange: function (e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e.detail.value);
+    const { multiArray } = this.data;
+    let multiIndex = e.detail.value;
     this.setData!({
-      multiIndex: e.detail.value
+      multiIndex,
+      jobGeneral: multiArray[0][multiIndex[0]],
+      jobDetail: multiArray[1][multiIndex[1]],
     })
   },
 
@@ -242,14 +252,11 @@ Page({
       console.log(jobJson.data[multiIndex[0] || 0].data);
       jobJson.data[multiIndex[0] || 0].data.forEach((item: any) => {
         multiArray[1].push(item.name);
-        console.log(multiArray[1]);
       });
     }
-    console.log(multiIndex);
-    console.log(multiArray);
     this.setData!({
       multiArray,
-      multiIndex,
+      // multiIndex,
     });
   },
   bindDateChange: function (e:any) {

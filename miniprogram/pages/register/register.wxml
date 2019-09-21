@@ -39,7 +39,6 @@
         <input type="digit" class="align-right" name="height" value="{{height}}" 
           maxlength="10" placeholder="请填写身高" placeholder-class="placeholder"/>
         <view class='pleft_5'>cm</view>
-        <icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
 
       <view class='info-cell display-flex'>
@@ -57,10 +56,10 @@
 
       <view class='info-cell display-flex'>
         <text>工作地区</text>
-        <view class="{{ region.length > 0 ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+        <view class="{{ workProvince ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
           <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
             <view class="picker">
-              {{region.length > 0 ? region[0]+ ' ' + region[1] + ' ' + region[2] : '请选择'}}
+              {{workProvince ? workProvince+ ' ' + workCity + ' ' + workRegion : '请选择'}}
             </view>
           </picker>
         </view>
@@ -120,10 +119,10 @@
 
        <view class='info-cell display-flex'>
         <text>职业</text>
-        <view class="{{ multiIndex[0] ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
+        <view class="{{ jobGeneral ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
           <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{jobJson}}" range="{{multiArray}}">
             <view class="picker">
-              {{multiIndex[0] ? multiArray[0][multiIndex[0]] + ' ' + multiArray[1][multiIndex[1]] : '请选择'}}
+              {{jobGeneral ? jobGeneral + ' ' + jobDetail : '请选择'}}
             </view>
           </picker>
         </view>

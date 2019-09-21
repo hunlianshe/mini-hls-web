@@ -11,6 +11,7 @@
   border-radius: 10rpx;
   padding-left: 10rpx;
   color: #666666;
+  line-height: 85rpx;
 }
 
 .registerInfo input {
