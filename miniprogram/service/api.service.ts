@@ -92,6 +92,11 @@ const getConstellationStory = (consName: string) => httpServer.get({ url: `/cons
  */
 const getConstellationMmatchingDetail = (me: string, he: string) => httpServer.get({ url: `/fortune/constellationMmatching/detail?me=${me}&he=${he}` });
 
+/**
+ * 获取猫狗匹配
+ */
+const getGenerateCatOrDogResult = (data: any) => httpServer.post({ url: `/psychological-test/generateCatOrDogResult`, data });
+
 
 /****************************************************************************************/
 
@@ -147,6 +152,7 @@ export {
   getHoroscopet,
   getConstellationStory,
   getConstellationMmatchingDetail,
+  getGenerateCatOrDogResult,
 
   getAccessToken,
   getCityList,

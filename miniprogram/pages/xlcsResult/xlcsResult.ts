@@ -1,18 +1,19 @@
-// pages/xlcsResult/xlcsResult.js
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    catDogResult: {} as any,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function () {
-
+    let _this = this;
+    wx.getStorage({
+      key: 'catDogResult',
+      success: function (res) {
+        _this.setData!({
+          catDogResult: res.data
+        })
+      },
+    });
   },
 
   /**

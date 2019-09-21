@@ -5,8 +5,8 @@ Page({
     question: {},
     questionIndex: 0,
     questionList: [] as any[],
-    answerList: [] as string[],
-    psyTest: [],
+    answerList: [] as any[],
+    psyTest: [] as any,
     bgImg: '',
   },
 
@@ -24,12 +24,35 @@ Page({
     console.log(questionList[questionIndex]);
     console.log(questionList[questionIndex].answerOptions[index]);
     questionList[questionIndex].answerOptions[index].isSelect = true;
-    answerList.push(option);
+    answerList.push({
+      question: questionList[questionIndex].name, // 题目
+      answer: option,  // 答案
+    });
     console.log(answerList);
     if ((questionIndex + 1) === questionList.length) { // last question
-      wx.navigateTo({
-        url: '../xlcsResult/xlcsResult',
-      })
+      const id = this.data.psyTest._id;  // 题目id
+      const params = {
+        id,
+        inputAnswer: answerList,
+      }
+      if (this.data.psyTest.type === '2') {
+        Api.getGenerateCatOrDogResult(params).then((result: any) => {
+          if (result.data) {
+            wx.setStorage({
+              key: 'catDogResult',
+              data: result.data,
+            });
+          }
+          wx.navigateTo({
+            url: '../xlcsResult/xlcsResult',
+          })
+        })
+      } else {
+        console.log('非猫狗测试');
+        wx.navigateTo({
+          url: '../xlcsResult/xlcsResult',
+        })
+      }
     } else {
       this.setData!({
         questionIndex: questionIndex + 1,

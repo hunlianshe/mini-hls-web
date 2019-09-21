@@ -13,7 +13,7 @@ style='background: url({{bgImg}}) no-repeat;background-size:100%;'>
   </view>
   <view class="block">
     <block wx:for="{{question.answerOptions}}" wx:key="{{item.optionIndex}}">
-      <button class="options" bindtap="select" data-option="{{item.optionContent}}" data-index="{{index}}">
+      <button class="options" bindtap="select" data-option="{{item.optionIndex}}" data-index="{{index}}">
         <view>{{item.optionContent}}</view>
       </button>
     </block>
