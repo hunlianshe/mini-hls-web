@@ -5,7 +5,7 @@ import * as Api from '../../service/api.service';
 // pages/matchResult/matchResult.js
 Page({
   data: {
-    matchResult:{}
+    matchResult: {} as any,
   },
 
   /**

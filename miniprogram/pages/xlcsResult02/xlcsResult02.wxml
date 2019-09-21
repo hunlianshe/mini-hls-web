@@ -5,9 +5,11 @@
       {{name}}
       <view>=</view>
     </view>
-    
+    <view class="result-img">
+      <image src="{{catDogResult[0].imageUrl}}" mode="aspectFit" />
+    </view>
     <view class="feature" >
-      <view>
+      <view style="padding-bottom: 30rpx;font-weight: 600;">
         {{catDogResult.length === 1 ? catDogResult[0].title : '50%' + catDogResult[0].title + ' + 50%'+ catDogResult[1].title}}
       </view>
       <view wx:for="{{catDogResult}}" wx:key="{{index}}">

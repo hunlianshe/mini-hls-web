@@ -22,6 +22,15 @@
   padding: 10rpx;
 }
 
+.xlcsResult .result-img {
+  border-radius: 10rpx;
+}
+
+.xlcsResult .result-img image {
+  width: 100%;
+  height: 300rpx;
+}
+
 .xlcsResult .feature {
   padding: 40rpx 80rpx;
 }
