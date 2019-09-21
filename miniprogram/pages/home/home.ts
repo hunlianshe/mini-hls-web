@@ -61,9 +61,19 @@ Page({
   
   /** 心理测试 */
   doTest(e: any) {
-    wx.navigateTo({
-      url: `../xlcsDetail/xlcsDetail?id=${e.currentTarget.dataset.id}`,
-    })
+    const {
+      id,
+      type,
+    } = e.currentTarget.dataset.id;
+    if (type === '3') {
+      wx.navigateTo({
+        url: `../qsqy/qsqy?id=${id}`,
+      });
+    } else {
+      wx.navigateTo({
+        url: `../xlcsDetail/xlcsDetail?id=${id}`,
+      })
+    }
   },
 
   /** 星座匹配 */

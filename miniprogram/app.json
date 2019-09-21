@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/qsqy/qsqy",
     "pages/index/index",
+    "pages/qsqyResult/qsqyResult",
     "pages/matchResult/matchResult",
     "pages/registerPhone/registerPhone",
     "pages/register/register",

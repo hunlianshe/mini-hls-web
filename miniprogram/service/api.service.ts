@@ -103,6 +103,11 @@ const getConstellationMmatchingDetailComplex = () => httpServer.get({ url: `/for
  */
 const getGenerateCatOrDogResult = (data: any) => httpServer.post({ url: `/psychological-test/generateCatOrDogResult`, data });
 
+/**
+ * 前世情缘
+ */
+const getPastLove = () => httpServer.get({ url: `/psychological-test/getPastLove` });
+
 
 /****************************************************************************************/
 
@@ -160,6 +165,7 @@ export {
   getConstellationStory,
   getConstellationMmatchingDetail,
   getGenerateCatOrDogResult,
+  getPastLove,
 
   getAccessToken,
   getCityList,
