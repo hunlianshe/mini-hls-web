@@ -1,7 +1,11 @@
+import * as Api from '../../service/api.service';
+
+
+
 // pages/matchResult/matchResult.js
 Page({
   data: {
-
+    matchResult:{}
   },
 
   /**
@@ -9,6 +13,14 @@ Page({
    */
   onLoad: function (options: any) {
     console.log(options);
+    Api.getConstellationMmatchingDetailComplex().then((result:any) => {
+      console.log('result', result)
+      this.setData!({
+        matchResult: result.data,
+      });
+    }, (err) => {
+      console.log('err000', err)
+    });
   },
 
   /**
@@ -17,6 +29,25 @@ Page({
   onReady: function () {
 
   },
+
+  moreMatch(){
+    wx.navigateTo({
+      url: '../matching/matching'
+    })
+  },
+
+  /** 详情 */
+  userDetail() {
+    wx.navigateTo({
+      url: `../userDetail/userDetail?openid=${this.data.matchResult.opposite.openid}`,
+    })
+    // wx.navigateTo({
+    //   url: '../registerPhone/registerPhone',
+    // })
+  },
+
+
+
 
   /**
    * 生命周期函数--监听页面显示
