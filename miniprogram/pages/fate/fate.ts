@@ -75,11 +75,8 @@ Page({
   goMatch() {
     let userInfo = app.globalData.userInfo;
     if (userInfo && userInfo.phone) {
-      // wx.navigateTo({
-      //   url: '../matching/matching'
-      // })
       wx.navigateTo({
-        url: '../registerXz/registerXz'
+        url: '../matching/matching'
       })
     } else {
       wx.navigateTo({
