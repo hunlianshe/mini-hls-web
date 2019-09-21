@@ -47,7 +47,7 @@ Page({
           return;
         }
         wx.navigateTo({
-          url: '../registerStandard/registerStandard',
+          url: '../registerInfo/registerInfo',
         });
       }
     });

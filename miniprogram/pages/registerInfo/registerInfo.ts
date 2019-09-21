@@ -1,11 +1,11 @@
-// pages/registerInfo/registerInfo.js
+import * as Api from '../../service/api.service';
+import * as utils from '../../utils/utils';
+import { IMyApp } from '../../app';
+const app: any = getApp<IMyApp>();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    submitDisable: false,
   },
 
   /**
@@ -13,6 +13,36 @@ Page({
    */
   onLoad: function (options: any) {
     console.log(options);
+  },
+
+  /** update */
+  submit(e: any): any {
+    const params = e.detail.value;
+    if (!utils.validateEmpty(params.age, '请输入年龄') ||
+      !utils.validateEmpty(params.height, '请输入年龄') ||
+      !utils.validateEmpty(params.salary, '请输入收入')) {
+      return false;
+    }
+    const openid = app.globalData.userInfo.openid;
+    this.setData!({
+      submitDisable: true
+    });
+    Api.updateUser(Object.assign({ openid }, params,)).then((result: any) => {
+      wx.hideLoading();
+      this.setData!({
+        submitDisable: true
+      });
+      if (result.code === 200) {
+        utils.showModal('更新成功')
+        setTimeout(() => {
+          wx.switchTab({
+            url: `../registerStandard/registerStandard`,
+          });
+        }, 1000);
+      } else {
+        utils.showModal('系统异常，请稍后再试');
+      }
+    })
   },
 
   jumpOver(): void {
