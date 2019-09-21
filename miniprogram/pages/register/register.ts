@@ -2,6 +2,8 @@
 import * as Api from '../../service/api.service';
 import * as utils from '../../utils/utils';
 import jobJson from '../../public/json/jobJson';
+import { IMyApp } from '../../app';
+const app = getApp<IMyApp>();
 
 Page({
   data: {
@@ -38,9 +40,6 @@ Page({
     jobJson: jobJson,
   },
 
-  /**
-  * 生命周期函数--监听页面加载
-  */
   onLoad: function () {
     let _this = this;
     wx.getStorage({
@@ -62,15 +61,17 @@ Page({
     this.setData!({
       multiArray,
       dateNow: this.getYMD(new Date())
-    })
+    });
+    this.getUserInfo();
   },
 
-  /** 汽车详情 */
-  getCarDetail(id: any) {
-    Api.getUserDetail(id).then((result: any) => {
+  /** 用户详情 */
+  getUserInfo() {
+    const openid = app.globalData.userInfo.openid;
+    Api.getUserInfo(openid || '').then((result: any) => {
       if (result) {
         this.setData!({
-          branickNamend: result.data.nickName,
+          nickName: result.data.nickName,
           gender: result.data.gender,
           birth: this.getYMD(result.data.birth),        // 生日
           height: result.data.height,                   // 身高
