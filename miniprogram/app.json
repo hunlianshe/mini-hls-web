@@ -7,6 +7,7 @@
     "pages/registerStandard/registerStandard",
     "pages/bar/index",
     "pages/xlcsResult/xlcsResult",
+    "pages/xlcsResult02/xlcsResult02",
     "pages/myImages/myImages",
     "pages/realXzysDetail/realXzysDetail",
     "pages/storyDetail/storyDetail",

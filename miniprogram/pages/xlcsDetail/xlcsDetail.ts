@@ -6,7 +6,7 @@ Page({
     questionIndex: 0,
     questionList: [] as any[],
     answerList: [] as any[],
-    psyTest: [] as any,
+    psyTest: {} as any,
     bgImg: '',
   },
 
@@ -57,11 +57,13 @@ Page({
             wx.setStorage({
               key: 'catDogResult',
               data: result.data,
+              success: () => {
+                wx.navigateTo({
+                  url: `../xlcsResult02/xlcsResult02?name=${this.data.psyTest.name}`,
+                });
+              }
             });
           }
-          wx.navigateTo({
-            url: '../xlcsResult/xlcsResult',
-          })
         })
       } else {
         console.log('非猫狗测试');

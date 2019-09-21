@@ -1,0 +1,33 @@
+<view class="xlcsResult">
+  <view class="result-box" style="background: #efefef;">
+    <view class="title display-flex"> 
+      <view>=</view>
+      {{name}}
+      <view>=</view>
+    </view>
+    
+    <view class="feature" >
+      <view>
+        {{catDogResult.length === 1 ? catDogResult[0].title : '50%' + catDogResult[0].title + ' + 50%'+ catDogResult[1].title}}
+      </view>
+      <view wx:for="{{catDogResult}}" wx:key="{{index}}">
+        {{item.feature}}
+      </view>
+    </view>
+
+    <view class="code">
+      <image src="../../public/image/wechat.png" mode="aspectFit" />
+      <view>
+        <view>
+          测试资料获取人：微信名
+        </view> 
+        <view>
+          长按识别了解你是什么样的情人
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    ta们也参与了该测试并且和你有相似的属性
+  </view>
+</view>
