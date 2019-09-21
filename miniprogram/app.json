@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/registerPhone/registerPhone",
     "pages/index/index",
+    "pages/registerPhone/registerPhone",
     "pages/registerInfo/registerInfo",
     "pages/registerStandard/registerStandard",
     "pages/bar/index",
