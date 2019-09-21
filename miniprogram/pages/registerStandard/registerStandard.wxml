@@ -1,41 +1,39 @@
-<view>
-  <page-container>
+
+<view class="standardPage">
+  <view class="subtitle">
+    你的择偶标准
+  </view>
+  <view class="registerStandard">
+    <view class="title">年龄</view>
     <view>
-      <view class="subtitle">
-        你的择偶标准
-      </view>
-      <view class="registerStandard">
-        <view class="title">年龄</view>
-        <view>
-          <view class="{{ageNumber=== '1' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='1' data-value="25岁以下">25岁以下</view>
-          <view class="{{ageNumber=== '2' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='2' data-value="25~30岁">25~30岁</view>
-          <view class="{{ageNumber=== '3' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='3' data-value="30~35岁">30~35岁</view>
-          <view class="{{ageNumber=== '4' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='4' data-value="35~45岁">35~45岁</view>
-          <view class="{{ageNumber=== '5' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='5' data-value="45~55岁">45~55岁</view>
-          <view class="{{ageNumber=== '6' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='6' data-value="55岁以上">55岁以上</view>
-        </view>
-        <view class="title">身高</view>
-        <view>
-          <view class="{{heightNumber=== '1' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='1' data-value="160以下">160以下</view>
-          <view class="{{heightNumber=== '2' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='2' data-value="160～165">160～165</view>
-          <view class="{{heightNumber=== '3' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='3' data-value="165～170">165～170</view>
-          <view class="{{heightNumber=== '4' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='4' data-value="170～175">170～175</view>
-          <view class="{{heightNumber=== '5' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='5' data-value="175～180">175～180</view>
-          <view class="{{heightNumber=== '6' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='6' data-value="180以上">180以上</view>
-        </view>
-        <view class="title">收入</view>
-        <view>
-          <view class="{{salaryNumber=== '1' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='1' data-value="5千以下">5千以下</view>
-          <view class="{{salaryNumber=== '2' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='2' data-value="5千～1万">5千～1万</view>
-          <view class="{{salaryNumber=== '3' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='3' data-value="1万～2万">1万～2万</view>
-          <view class="{{salaryNumber=== '4' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='4' data-value="2万～5万">2万～5万</view>
-          <view class="{{salaryNumber=== '5' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='5' data-value="5万以上">5万以上</view>
-        </view>
-      </view>
-      <view class="footer-container">
-        <button class="common-btn" catchtap="next">开启缘分</button>
-        <!--<view class="jump-over" catchtap="jumpOver">跳过</view>-->
-      </view>
+      <view class="{{ageNumber=== '1' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='1' data-value="25岁以下">25岁以下</view>
+      <view class="{{ageNumber=== '2' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='2' data-value="25~30岁">25~30岁</view>
+      <view class="{{ageNumber=== '3' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='3' data-value="30~35岁">30~35岁</view>
+      <view class="{{ageNumber=== '4' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='4' data-value="35~45岁">35~45岁</view>
+      <view class="{{ageNumber=== '5' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='5' data-value="45~55岁">45~55岁</view>
+      <view class="{{ageNumber=== '6' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="1" data-number='6' data-value="55岁以上">55岁以上</view>
     </view>
-  </page-container>
-</view>
+    <view class="title">身高</view>
+    <view>
+      <view class="{{heightNumber=== '1' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='1' data-value="160以下">160以下</view>
+      <view class="{{heightNumber=== '2' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='2' data-value="160～165">160～165</view>
+      <view class="{{heightNumber=== '3' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='3' data-value="165～170">165～170</view>
+      <view class="{{heightNumber=== '4' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='4' data-value="170～175">170～175</view>
+      <view class="{{heightNumber=== '5' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='5' data-value="175～180">175～180</view>
+      <view class="{{heightNumber=== '6' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="2" data-number='6' data-value="180以上">180以上</view>
+    </view>
+    <view class="title">收入</view>
+    <view>
+      <view class="{{salaryNumber=== '1' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='1' data-value="5千以下">5千以下</view>
+      <view class="{{salaryNumber=== '2' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='2' data-value="5千～1万">5千～1万</view>
+      <view class="{{salaryNumber=== '3' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='3' data-value="1万～2万">1万～2万</view>
+      <view class="{{salaryNumber=== '4' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='4' data-value="2万～5万">2万～5万</view>
+      <view class="{{salaryNumber=== '5' ? 'block active' : 'block'}}" bindtap="getStandard" data-type="3" data-number='5' data-value="5万以上">5万以上</view>
+    </view>
+  </view>
+  <view class="footer-btn">
+    <button class="common-btn" catchtap="next">开启缘分</button>
+    <!--<view class="jump-over" catchtap="jumpOver">跳过</view>-->
+  </view>
+</view> 
+

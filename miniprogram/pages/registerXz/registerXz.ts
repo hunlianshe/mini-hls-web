@@ -109,7 +109,7 @@ Page({
           return;
         }
         wx.navigateTo({
-          url: '../registerInfo/registerInfo',
+          url: '../registerStandard/registerStandard',
         });
       }
     });

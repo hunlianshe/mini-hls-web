@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/registerStandard/registerStandard",
     "pages/index/index",
     "pages/bar/index",
     "pages/xlcsResult/xlcsResult",
@@ -7,7 +8,6 @@
     "pages/realXzysDetail/realXzysDetail",
     "pages/storyDetail/storyDetail",
     "pages/xzysDetail/xzysDetail",
-    "pages/registerStandard/registerStandard",
     "pages/home/home",
     "pages/matchXZResult/matchXZResult",
     "pages/registerPhone/registerPhone",

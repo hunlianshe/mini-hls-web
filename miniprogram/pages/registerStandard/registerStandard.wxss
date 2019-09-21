@@ -1,4 +1,11 @@
-/* pages/registerStandard/registerStandard.wxss */
+.standardPage {
+  padding: 80rpx 80rpx 0 80rpx;
+}
+
+.standardPage .subtitle {
+  padding-bottom: 40rpx;
+}
+
 .registerStandard {
   margin-right: -10rpx;
 }
@@ -6,14 +13,14 @@
 .registerStandard .title {
   font-size: 32rpx;
   color: #333333;
-  padding: 20rpx 0;
+  padding: 30rpx 0;
 }
 
 .registerStandard .block {
-  padding: 4rpx 18rpx;
+  padding: 4rpx 20rpx;
   display: inline-block;
   border-radius: 30rpx;
-  border: 2rpx solid #C0BCBC;
+  border: 1rpx solid #C0BCBC;
   color: #262323;
   font-size: 26rpx;
   margin: 10rpx 0;
@@ -24,4 +31,14 @@
   border: 2rpx solid #E39BF0;
   background: #E39BF0;
   color: #ffffff;
+}
+
+.footer-btn {
+  position: absolute;
+  bottom: 60rpx;
+  width: calc(100% - 160rpx);
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+
 }
