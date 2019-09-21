@@ -1,6 +1,6 @@
 <view>
   <page-container>
-    <view>
+    <view class="registerInfo">
       <view class="subtitle">
         匹配信息
       </view>

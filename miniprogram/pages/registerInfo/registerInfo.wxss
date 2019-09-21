@@ -2,6 +2,19 @@
   margin-right: -10rpx;
 }
 
+.registerInfo .info-cell {
+  padding: 30rpx 0;
+  font-size: 32rpx;
+}
+
+.registerInfo input {
+  flex: 1;
+}
+
+.registerInfo .pleft_5 {
+  padding-left: 10rpx;
+}
+
 .registerInfo .title {
   font-size: 32rpx;
   color: #333333;

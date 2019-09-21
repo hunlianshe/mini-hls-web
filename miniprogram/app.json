@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/registerInfo/registerInfo",
     "pages/index/index",
     "pages/registerStandard/registerStandard",
     "pages/bar/index",
@@ -21,7 +22,6 @@
     "pages/matched/matched",
     "pages/registerSex/registerSex",
     "pages/registerXz/registerXz",
-    "pages/registerInfo/registerInfo",
     "pages/myHome/myHome",
     "pages/fateList/fateList",
     "pages/createShop/createShop",
