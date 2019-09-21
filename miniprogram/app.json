@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/registerPhone/registerPhone",
     "pages/index/index",
     "pages/register/register",
-    "pages/registerPhone/registerPhone",
     "pages/registerInfo/registerInfo",
     "pages/registerStandard/registerStandard",
     "pages/bar/index",

@@ -11,8 +11,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     smsDisable: false,
-    smsTime: 0,
+    smsTime: 59,
     phone: '',
+    submitDisable: false,
   },
   
   onLoad() {
@@ -104,17 +105,26 @@ Page({
   },
    
   formSubmit(e: any): any {
+    this.setData!({
+      submitDisable: true
+    }); 
     const params = e.detail.value
     if (!utils.validateEmpty(params.phone, '请输入手机号') ||
       !utils.validateEmpty(params.code, '请输入验证码')) {
       return false;
     }
     Api.addPhone(params).then((result: any) => {
+      this.setData!({
+        submitDisable: true
+      });  
       if (result.code === 200) {
-        wx.switchTab({
+        wx.navigateTo({
           url: '../matching/matching',
         });
       } else {
+        this.setData!({
+          submitDisable: false
+        }); 
         utils.showModal(result.message);
       }
     })
