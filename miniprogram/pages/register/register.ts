@@ -36,7 +36,7 @@ Page({
     educationArray: [
       '小学', '初中', '高中', '大专', '大学本科', '硕士', '博士'
     ],
-    hasChildArray: ['是', '否'],
+    hasChildArray: ['否', '是'],
     wantChildArray: ['是', '否'],
     haveHouseArray: ['已买房', '未买房'],
     multiIndex: [, ],
