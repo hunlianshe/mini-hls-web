@@ -26,7 +26,7 @@ Page({
         type = 'likeMe';
         break;
       case '2':
-        type = 'meLick';
+        type = 'meLike';
         break;
       case '3':
         type = 'likeEachOther';
@@ -53,6 +53,18 @@ Page({
     });
     this.getUsersListLikes(this.data._active);
   },
+
+  /** 详情 */
+  userDetail(e: any) {
+    const { openid } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `../userDetail/userDetail?openid=${openid}`,
+    })
+    // wx.navigateTo({
+    //   url: '../registerPhone/registerPhone',
+    // })
+  },
+
 
   /**
    * 生命周期函数--监听页面显示
