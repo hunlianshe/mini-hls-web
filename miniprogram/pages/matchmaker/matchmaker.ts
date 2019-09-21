@@ -1,11 +1,6 @@
-// pages/matchmaker/matchmaker.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    active: '1',
   },
 
   /**
@@ -13,6 +8,12 @@ Page({
    */
   onLoad: function () {
 
+  },
+
+  switchTab(e: any) {
+    this.setData!({
+      active: e.currentTarget.dataset,
+    });
   },
 
   /**
