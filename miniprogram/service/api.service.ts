@@ -92,6 +92,12 @@ const getConstellationStory = (consName: string) => httpServer.get({ url: `/cons
  */
 const getConstellationMmatchingDetail = (me: string, he: string) => httpServer.get({ url: `/fortune/constellationMmatching/detail?me=${me}&he=${he}` });
 
+
+/**
+ * 星座匹配，和人相关
+ */
+const getConstellationMmatchingDetailComplex = () => httpServer.get({ url: `/fortune/constellationMmatching/detail-complex` });
+
 /**
  * 获取猫狗匹配
  */
@@ -161,6 +167,7 @@ export {
   createShop,
   updateShop,
   getUserDetail,
+  getConstellationMmatchingDetailComplex,
   // register,
 }
 

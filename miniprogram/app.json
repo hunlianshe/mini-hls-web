@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/matchResult/matchResult",
     "pages/index/index",
     "pages/registerPhone/registerPhone",
     "pages/register/register",
@@ -18,7 +19,6 @@
     "pages/xzys/xzys",
     "pages/matching/matching",
     "pages/matcheXz/matcheXz",
-    "pages/matchResult/matchResult",
     "pages/matched/matched",
     "pages/registerSex/registerSex",
     "pages/registerXz/registerXz",
