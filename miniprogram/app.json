@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/registerStandard/registerStandard",
     "pages/index/index",
+    "pages/registerStandard/registerStandard",
     "pages/bar/index",
     "pages/xlcsResult/xlcsResult",
     "pages/myImages/myImages",

@@ -1,11 +1,10 @@
-// import { IMyApp } from '../../app';
 // const {
 //   cityReplace,
 //   showModal,
 // } = require('../../utils/utils');
-
-// const app = getApp<IMyApp>();
 import * as Api from '../../service/api.service';
+import { IMyApp } from '../../app';
+const app = getApp<IMyApp>();
 
 Page({
   data: {
@@ -74,9 +73,16 @@ Page({
   },
 
   goMatch() {
-    wx.navigateTo({
-      url: '../registerXz/registerXz'
-    })
+    let userInfo = app.globalData.userInfo;
+    if (userInfo && userInfo.phone) {
+      wx.navigateTo({
+        url: '../matching/matching'
+      })
+    } else {
+      wx.navigateTo({
+        url: '../registerXz/registerXz'
+      })
+    }
   },
 
   onReady: function () {

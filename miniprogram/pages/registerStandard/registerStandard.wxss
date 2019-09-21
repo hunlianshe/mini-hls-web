@@ -11,20 +11,20 @@
 }
 
 .registerStandard .title {
-  font-size: 32rpx;
+  font-size: 34rpx;
   color: #333333;
   padding: 30rpx 0;
 }
 
 .registerStandard .block {
-  padding: 4rpx 20rpx;
+  padding: 5rpx 20rpx;
   display: inline-block;
   border-radius: 30rpx;
   border: 1rpx solid #C0BCBC;
   color: #262323;
-  font-size: 26rpx;
-  margin: 10rpx 0;
-  margin-right: 10rpx;
+  font-size: 28rpx;
+  margin: 16rpx 0;
+  margin-right: 20rpx;
 }
 
 .registerStandard .block.active {

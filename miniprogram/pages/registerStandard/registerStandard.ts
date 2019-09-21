@@ -1,10 +1,17 @@
-// pages/registerStandard/registerStandard.js
+import * as Api from '../../service/api.service';
+import * as utils from '../../utils/utils';
+import { IMyApp } from '../../app';
+const app: any = getApp<IMyApp>();
+
 Page({
   data: {
     type:'',
     ageNumber: '',
     heightNumber: '',
     salaryNumber: '',
+    age: '',
+    height: '',
+    salary: '',
   },
 
   onLoad: function (options: any) {
@@ -25,29 +32,59 @@ Page({
 
   getStandard(e: any) {
     const { type, value, number } = e.currentTarget.dataset;
-    let ageNumber,
-      heightNumber,
-      salaryNumber;
     switch (type) {
       case '1':
-        ageNumber = number;
+        this.setData!({
+          ageNumber: number,
+          age: value,
+        });
         break;
       case '2':
-        heightNumber = number;
+        this.setData!({
+          heightNumber: number,
+          height: value,
+        });
         break;
       case '3':
-        salaryNumber = number;
+        this.setData!({
+          salaryNumber: number,
+          salary: value,
+        });
         break;
       default:
         break;
     }
-    this.setData!({
-      ageNumber,
-      heightNumber,
-      salaryNumber,
-    })
     console.log('type:', type);
     console.log('value:', value);
+  },
+
+  updateUser(): any {
+    const {
+      age,
+      height,
+      salary,
+    } = this.data;
+    console.log(this.data);
+    if (!utils.validateEmpty(age, '请选择年龄标准') ||
+      !utils.validateEmpty(height, '请选择身高标准') ||
+      !utils.validateEmpty(salary, '请选择收入标准')) {
+      return false;
+    }
+    Api.updateUser({
+      openid: app.globalData.userInfo.openid,
+      objectInfo: { // 择偶标准
+        age,
+        height,
+        salary,
+      }
+    }).then((result: any) => {
+      console.log('esult.code', result.code)
+      if (result.code === 200) {
+        wx.navigateTo({
+          url: '../registerPhone/registerPhone',
+        });
+      }
+    });
   },
 
   onReady: function () {

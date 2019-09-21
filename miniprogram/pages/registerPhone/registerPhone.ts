@@ -100,12 +100,11 @@ Page({
   },
    
   formSubmit(e: any): void {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
     Api.addPhone(e.detail.value).then((result: any) => {
       if (result.code === 200) {
         wx.switchTab({
-          url: '../home/home',
-        })
+          url: '../matching/matching',
+        });
       } else {
         utils.showModal(result.message);
       }
@@ -116,5 +115,4 @@ Page({
     console.log('form发生了reset事件')
   }
   
-
 })
