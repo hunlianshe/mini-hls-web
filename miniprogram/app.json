@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/register/register",
     "pages/registerPhone/registerPhone",
     "pages/registerInfo/registerInfo",
     "pages/registerStandard/registerStandard",
@@ -13,7 +14,6 @@
     "pages/home/home",
     "pages/matchXZResult/matchXZResult",
     "pages/matchmaker/matchmaker",
-    "pages/register/register",
     "pages/userDetail/userDetail",
     "pages/xzys/xzys",
     "pages/matching/matching",

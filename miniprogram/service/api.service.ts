@@ -110,6 +110,7 @@ const getAccessToken = () => httpServer.get({ url: '/mini/getAccessToken' });
  * @param {}
  */
 const getUserDetail = (id: any) => httpServer.get({ url: `/user/getUserInfo?id=${id}` });
+
 /**
  * 获取城市列表
  * @param {}

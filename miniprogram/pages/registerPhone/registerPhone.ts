@@ -103,8 +103,13 @@ Page({
     })
   },
    
-  formSubmit(e: any): void {
-    Api.addPhone(e.detail.value).then((result: any) => {
+  formSubmit(e: any): any {
+    const params = e.detail.value
+    if (!utils.validateEmpty(params.phone, '请输入手机号') ||
+      !utils.validateEmpty(params.code, '请输入验证码')) {
+      return false;
+    }
+    Api.addPhone(params).then((result: any) => {
       if (result.code === 200) {
         wx.switchTab({
           url: '../matching/matching',
