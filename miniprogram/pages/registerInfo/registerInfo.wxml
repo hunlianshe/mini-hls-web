@@ -6,18 +6,21 @@
       </view>
       <form bindsubmit="submit" bindreset="formReset">
         <view class='info-cell'>
+          <text>年龄</text>
           <input type="number" class="align-right" name="age" value="{{age}}" 
             maxlength="10" placeholder="请填写年龄" placeholder-class="placeholder"/>
           <view class='pleft_5'>岁</view>
         </view>
 
         <view class='info-cell'>
+          <text>身高</text>
           <input type="number" class="align-right" name="height" value="{{height}}" 
             maxlength="10" placeholder="请填写身高" placeholder-class="placeholder"/>
           <view class='pleft_5'>cm</view>
         </view>
 
         <view class='info-cell'>
+          <text>收入</text>
           <view class="{{ salary ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
             <picker bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryArray}}">
               <view class="picker">
@@ -26,7 +29,9 @@
               </view>
             </picker>
           </view>
-          <icon iconName='arrowRight' width="7px" height="12px"/>
+          <view style="padding-right: 15rpx;">
+            <icon iconName='arrowRight' width="7px" height="12px"/>   
+          </view>
         </view>
 
         <view class="footer-container">

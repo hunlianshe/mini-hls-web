@@ -11,13 +11,22 @@
   border-radius: 10rpx;
   padding-left: 10rpx;
   color: #666666;
-  line-height: 85rpx;
+}
+
+.registerInfo picker {
+  flex: 1;
+  padding: 20rpx;
+  text-align: right;
 }
 
 .registerInfo input {
   flex: 1;
   padding: 20rpx;
 }
+
+/* .registerInfo icon{
+  padding-right: 15rpx;
+} */
 
 .registerInfo .pleft_5 {
   padding-left: 10rpx;
