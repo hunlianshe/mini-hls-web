@@ -12,35 +12,14 @@
     </view>
   </view>
 
-  <view class="display-flex item-cell">
+  <view class="display-flex item-cell" wx:for="{{listLikes}}" bindtap="userDetail" data-openid="{{item.openid}}" wx:key="{{item.id}}">
     <view class="head">
       <image src="../../public/image/pp.png" />
     </view>
     <view class="flex-full">
-      <view class="theme-text">Lisa yan</view>
-      <view>24岁 | 程序员 | 本科 | 处女座</view>
+      <view class="theme-text">{{item.nickName}}</view>
+      <view>{{item.age}}  {{item.education}}</view>
     </view>
-    
   </view>
-  <view class="display-flex item-cell">
-    <view class="head">
-      <image src="../../public/image/pp.png" />
-    </view>
-    <view class="flex-full">Lisa yan</view>
-    <view>6时56分</view>
-  </view>
-  <view class="display-flex item-cell">
-    <view class="head">
-      <image src="../../public/image/pp.png" />
-    </view>
-    <view class="flex-full">Lisa yan</view>
-    <view>2019年8月20日</view>
-  </view>
-  <view class="display-flex item-cell">
-    <view class="head">
-      <image src="../../public/image/pp.png" />
-    </view>
-    <view class="flex-full">Lisa yan</view>
-    <view>2019年7月20日</view>
-  </view>
+
 </view>
