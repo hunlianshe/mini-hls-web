@@ -3,6 +3,33 @@ import * as utils from '../../utils/utils';
 import { IMyApp } from '../../app';
 const app: any = getApp<IMyApp>();
 
+let ageObject:any = {
+  '25岁以下':'1',
+  '25~30岁':'2',
+  '30~35岁':'3',
+  '35~45岁':'4',
+  '45~55岁':'5',
+  '55岁以上':'6'
+}
+let salaryObject: any = {
+  '5千以下': '1',
+  '5千～1万': '2',
+  '1万～2万': '3',
+  '2万～5万': '4',
+  '5万以上': '5',
+  '55岁以上': '6'
+}
+
+
+let heightObject: any = {
+  '160以下': '1',
+  '160～165': '2',
+  '165～170': '3',
+  '170～175': '4',
+  '175～180': '5',
+  '"180以上': '6'
+}
+
 Page({
   data: {
     type:'',
@@ -12,9 +39,43 @@ Page({
     age: '',
     height: '',
     salary: '',
+    title:'开启缘分'
   },
 
   onLoad: function (options: any) {
+    if(options.type === 'usercenter'){
+      /** 获取用户信息 */
+      console.log('app',app.globalData)
+      Api.getUserInfo(app.globalData.userInfo.openid).then((result: any) => {
+        if (result) {
+          this.setData!({
+            title: "更新"
+          });
+          const userInfo = result.data;
+          console.log(' ageObject[userInfo.objectInfo.age]', ageObject[userInfo.objectInfo.age])
+          if (userInfo.objectInfo && userInfo.objectInfo.age ){
+            this.setData!({
+              age: userInfo.objectInfo.age,
+              ageNumber: ageObject[userInfo.objectInfo.age]
+            });
+          }
+          if (userInfo.objectInfo && userInfo.objectInfo.salary) {
+            this.setData!({
+              salary: userInfo.objectInfo.salary,
+              salaryNumber: salaryObject[userInfo.objectInfo.salary]
+            });
+          }
+          if (userInfo.objectInfo && userInfo.objectInfo.height) {
+            this.setData!({
+              height: userInfo.objectInfo.height,
+              heightNumber: heightObject[userInfo.objectInfo.height]
+            });
+          }
+
+        }
+      });
+
+    }
     console.log(options);
   },
 
@@ -23,6 +84,7 @@ Page({
       url: '../home/home',
     })
   },
+ 
 
   next(): void {
     wx.navigateTo({
@@ -63,6 +125,7 @@ Page({
       age,
       height,
       salary,
+      title
     } = this.data;
     console.log(this.data);
     if (!utils.validateEmpty(age, '请选择年龄标准') ||
@@ -79,10 +142,15 @@ Page({
       }
     }).then((result: any) => {
       console.log('esult.code', result.code)
-      if (result.code === 200) {
+      if (result.code === 200 && title !=='更新') {
         wx.navigateTo({
           url: '../registerPhone/registerPhone',
         });
+      }else{
+          utils.showModal('更新成功')
+           wx.switchTab({
+                        url: `../myHome/myHome`,
+                    });
       }
     });
   },
