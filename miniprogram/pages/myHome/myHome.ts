@@ -31,7 +31,16 @@ Page({
 
   /** 获取用户信息 */
   getUserInfo() {
-    const { openid } = this.data.user;
+    let _this = this;
+    wx.getStorage({
+      key: 'user',
+      success: function (res) {
+        const { openid } = res.data;
+        _this.requestForUserInfo(openid);
+      },
+    });
+  },
+  requestForUserInfo(openid: string) {
     Api.getUserInfo(openid).then((result: any) => {
       if (result) {
         const userInfo = result.data;
