@@ -13,6 +13,7 @@ Page({
     birth: '',            // 生日
     height: '',           // 身高
     salary: '', 
+    region: [],
     workCity: '',
     workProvince: '',
     workRegion: '',
@@ -226,6 +227,7 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let region = e.detail.value;
     this.setData!({
+      region,
       workProvince: region[0],
       workCity: region[1],
       workRegion: region[2],

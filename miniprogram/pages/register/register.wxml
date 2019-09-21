@@ -17,7 +17,7 @@
             </view>
           </picker>
         </view>
-        <d iconName='arrowRight' width="7px" height="12px"/>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
 
       <view class='info-cell display-flex'>
@@ -76,6 +76,7 @@
             </view>
           </picker>
         </view>
+        <icon iconName='arrowRight' width="7px" height="12px"/>
       </view>
 
       <view class='info-cell display-flex'>
