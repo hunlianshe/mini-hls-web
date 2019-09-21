@@ -15,7 +15,7 @@ Page({
     console.log(options);
   },
 
-  /** update */
+  /** 年龄身高收入 */
   submit(e: any): any {
     const params = e.detail.value;
     if (!utils.validateEmpty(params.age, '请输入年龄') ||
@@ -33,12 +33,9 @@ Page({
         submitDisable: true
       });
       if (result.code === 200) {
-        utils.showModal('更新成功')
-        setTimeout(() => {
-          wx.switchTab({
-            url: `../registerStandard/registerStandard`,
-          });
-        }, 1000);
+        wx.navigateTo({
+          url: `../registerStandard/registerStandard`,
+        });
       } else {
         utils.showModal('系统异常，请稍后再试');
       }

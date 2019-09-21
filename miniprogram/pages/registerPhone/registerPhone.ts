@@ -28,16 +28,20 @@ Page({
     })
   },
 
-  getPhoneCode() {
+  getPhoneCode(): any {
     const { phone } = this.data;
+    if (!utils.validateEmpty(phone, '请输入手机号')) {
+      return false;
+    }
     Api.sendSms({ phone }).then((result: any) => {
       if (result.code === 200) {
         this.setData!({
           smsDisable: true,
-        })
+        });
         let smsTime = 59;
         const smsInterval = setInterval(() => {
           if (smsTime === 0) {
+            console.log('smsTime', smsTime);
             this.setData!({
               smsDisable: false,
             })
