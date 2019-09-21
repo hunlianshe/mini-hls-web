@@ -12,7 +12,7 @@ Page({
 
   switchTab(e: any) {
     this.setData!({
-      active: e.currentTarget.dataset,
+      active: e.currentTarget.dataset.active,
     });
   },
 
