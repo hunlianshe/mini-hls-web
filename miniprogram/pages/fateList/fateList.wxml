@@ -12,14 +12,21 @@
     </view>
   </view>
 
-  <view class="display-flex item-cell" wx:for="{{listLikes}}" bindtap="userDetail" data-openid="{{item.openid}}" wx:key="{{item.id}}">
-    <view class="head">
-      <image src="../../public/image/pp.png" />
+  <block wx:if="{{listLikes.length > 0}}">
+    <view class="display-flex item-cell" wx:for="{{listLikes}}" bindtap="userDetail" data-openid="{{item.openid}}" wx:key="{{item.id}}">
+      <view class="head">
+        <image src="../../public/image/pp.png" />
+      </view>
+      <view class="flex-full">
+        <view class="theme-text">{{item.nickName}}</view>
+        <view>{{item.age}}  {{item.education}}</view>
+      </view>
     </view>
-    <view class="flex-full">
-      <view class="theme-text">{{item.nickName}}</view>
-      <view>{{item.age}}  {{item.education}}</view>
+  </block>
+  <block wx:else>
+    <view class="no-data">
+      暂无数据
     </view>
-  </view>
+  </block>
 
 </view>

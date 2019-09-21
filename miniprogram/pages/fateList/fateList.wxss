@@ -43,3 +43,9 @@
 .fateListpage .time {
   padding-right: 20rpx;
 }
+
+.no-data {
+  padding: 100rpx;
+  color: #999999;
+  text-align: center;
+}
