@@ -32,7 +32,7 @@
     </view>
   </view>
   <view class="footer-btn">
-    <button class="common-btn" catchtap="updateUser">开启缘分</button>
+    <button class="common-btn" catchtap="updateUser">{{title}}</button>
     <!--<view class="jump-over" catchtap="jumpOver">跳过</view>-->
   </view>
 </view> 

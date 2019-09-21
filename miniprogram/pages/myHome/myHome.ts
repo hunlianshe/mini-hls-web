@@ -92,7 +92,7 @@ Page({
 
   goMatchStandard() {
     wx.navigateTo({
-      url: `../registerStandard/registerStandard`,
+      url: `../registerStandard/registerStandard?type=usercenter`,
     })
   },
 
