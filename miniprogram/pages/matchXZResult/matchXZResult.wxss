@@ -87,7 +87,7 @@
   line-height: 70rpx;
   font-size: 32rpx;
   border-radius: 10rpx;
-  width: 360rpx;
+  width: 430rpx;
 }
 
 .matchXZResult .title{

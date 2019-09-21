@@ -1,5 +1,7 @@
 import * as Api from '../../service/api.service';
 import xzList from '../../public/json/zxList';
+import { IMyApp } from '../../app';
+const app = getApp<IMyApp>();
 
 Page({
   data: {
@@ -68,6 +70,20 @@ Page({
   onShow: function () {
 
   },
+
+  goMatch() {
+    let userInfo = app.globalData.userInfo;
+    if (userInfo && userInfo.phone) {
+      wx.navigateTo({
+        url: '../matching/matching'
+      })
+    } else {
+      wx.navigateTo({
+        url: '../registerXz/registerXz'
+      })
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏
