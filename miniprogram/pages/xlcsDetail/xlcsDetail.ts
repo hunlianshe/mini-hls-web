@@ -14,6 +14,22 @@ Page({
     this.getPsyTest(options.id);
   },
 
+  /** 获取心理测试题目 */
+  getPsyTest(id: string) {
+    Api.getPsyTest(id).then((result: any) => {
+      this.setData!({
+        psyTest: result.data,
+        questionList: result.data.content,
+      });
+      const question = this.data.questionList[this.data.questionIndex];
+      const bgImg = `../../public/image/xlcs_${result.data.type}.png`;
+      this.setData!({
+        question,
+        bgImg,
+      });
+    })
+  },
+
   select(e: any) {
     const { option, index } = e.currentTarget.dataset;
     const {
@@ -25,7 +41,7 @@ Page({
     console.log(questionList[questionIndex].answerOptions[index]);
     questionList[questionIndex].answerOptions[index].isSelect = true;
     answerList.push({
-      question: questionList[questionIndex].name, // 题目
+      question: questionList[questionIndex].question, // 题目
       answer: option,  // 答案
     });
     console.log(answerList);
@@ -61,21 +77,5 @@ Page({
         answerList,
       });
     }
-  },
-
-  /** 获取心理测试题目 */
-  getPsyTest(id: string) {
-    Api.getPsyTest(id).then((result: any) => {
-      this.setData!({
-        psyTest: result.data,
-        questionList: result.data.content,
-      });
-      const question = this.data.questionList[this.data.questionIndex];
-      const bgImg = `../../public/image/xlcs_${result.data.type}.png`;
-      this.setData!({
-        question,
-        bgImg,
-      });
-    })
   },
 })
