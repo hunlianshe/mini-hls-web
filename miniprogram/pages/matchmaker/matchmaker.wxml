@@ -5,8 +5,8 @@ style="background-image: url('../../public/image/matching.png');background-repea
     
     <view class="contract">
       <view class="display-flex title">
-        <view class="title-cell active" >电话联系</view>
-        <view class="title-cell">微信联系</view>
+        <view class="{{active === '1' ? 'title-cell active' : 'title-cell'}}" bindtap="switchTab" data-active="1">电话联系</view>
+        <view class="{{active === '2' ? 'title-cell active' : 'title-cell'}}" bindtap="switchTab" data-active="2">微信联系</view>
       </view>
       <!--<view class="contract-info">
         <view class="label">稍后红娘会给你来电</view>
