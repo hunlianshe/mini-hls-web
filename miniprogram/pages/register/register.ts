@@ -76,9 +76,9 @@ Page({
           birth: this.getYMD(result.data.birth),        // 生日
           height: result.data.height,                   // 身高
           salary: result.data.salary,
-          workProvince: result.data.region[0],
-          workCity: result.data.region[1],
-          workRegion: result.data.region[2],        
+          workProvince: result.data.region && result.data.region[0] ? result.data.region[0] : '',
+          workCity: result.data.region && result.data.region[0] ? result.data.region[0] : '',
+          workRegion: result.data.region && result.data.region[0] ? result.data.region[0] : '',        
           isMarriage: result.data.isMarriage,           // 婚姻状况
           education: result.data.education,             // 教育
           hasChild: result.data.hasChild,
@@ -86,7 +86,8 @@ Page({
           jobGeneral: result.data.jobGeneral,
           jobDetail: result.data.jobDetail,
           haveHouse: result.data.haveHouse,
-        })
+        });
+        console.log('data', this.data);
       }
     })
   },
