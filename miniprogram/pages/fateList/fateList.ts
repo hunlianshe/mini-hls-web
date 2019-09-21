@@ -26,7 +26,7 @@ Page({
         type = 'likeMe';
         break;
       case '2':
-        type = 'meLick';
+        type = 'meLike';
         break;
       case '3':
         type = 'likeEachOther';
