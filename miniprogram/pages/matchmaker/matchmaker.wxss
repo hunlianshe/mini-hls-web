@@ -45,6 +45,7 @@
   padding: 60rpx;
   border-top: 1px solid #601665;
   border-radius: 32rpx;
+  height: 300rpx;
 }
 
 .matchmakerPage .label {
@@ -52,8 +53,8 @@
 }
 
 .matchmakerPage .contract-info image {
-  width: 240rpx;
-  height: 240rpx;
+  width: 300rpx;
+  height: 300rpx;
 }
 
 .matchmakerPage .contract-info button {
