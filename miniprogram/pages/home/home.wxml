@@ -39,9 +39,8 @@
       心理测试
     </view>
     <block wx:for="{{psyTest}}" wx:key="{{item._id}}" >
-      <view class="block-cell" bindtap="doTest" data-id="{{item._id}}">{{item.name}}</view>
+      <view class="block-cell" bindtap="doTest" data-id="{{item._id}}" data-type="{{item.type}}">{{item.name}}</view>
     </block>
   </view>
-
 </view>
 
