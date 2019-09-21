@@ -1,31 +1,130 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Api = require("../../service/api.service");
+import * as Api from '../../service/api.service.js';
+import xzList from '../../public/json/zxList.js';
+import * as echarts from '../../ec-canvas/echarts';
+
+function setOption(chart, chartData) {
+  const option = {
+    title: {
+      text: ''
+    },
+    tooltip: {},
+    legend: {
+      data: []
+    },
+    radar: {
+      shape: 'circle',
+      name: {
+        textStyle: {
+          color: '#666666', 
+          fontSize: 6,
+        }
+      },
+      indicator: [
+        { name: '体贴指数', max: 10 },
+        { name: '异性指数', max: 10 },
+        { name: '温柔指数', max: 10 },
+        { name: '家务指数', max: 10 },
+        { name: '吵架指数', max: 10 },
+      ]
+    },
+    series: [{
+      name: '',
+      type: 'radar',
+      data: [
+        {
+          value: chartData,
+          name: '四维分析',
+          lineStyle: {
+            normal: {
+              type: 'dashed'
+            }
+          }
+        },
+      ]
+    }]
+  };
+  chart.setOption(option);
+}
+
 Page({
-    data: {
-        pastLoveData: {},
+  data: {
+    ec: {
+      // onInit: initChart
+      // 将 lazyLoad 设为 true 后，需要手动初始化图表
+      lazyLoad: true
     },
-    onLoad: function () {
-        this.getPastLove();
-    },
-    getPastLove() {
-        Api.getPastLove().then((result) => {
-            this.setData({
-                pastLoveData: result.data,
-            });
-        });
-    },
-    onReady: function () {
-    },
-    onShow: function () {
-    },
-    onHide: function () {
-    },
-    onUnload: function () {
-    },
-    onPullDownRefresh: function () {
-    },
-    onReachBottom: function () {
-    },
-});
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicXNxeVJlc3VsdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInFzcXlSZXN1bHQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBaUQ7QUFFakQsSUFBSSxDQUFDO0lBQ0gsSUFBSSxFQUFFO1FBQ0osWUFBWSxFQUFFLEVBQVM7S0FDeEI7SUFFRCxNQUFNLEVBQUU7UUFDTixJQUFJLENBQUMsV0FBVyxFQUFFLENBQUM7SUFDckIsQ0FBQztJQUVELFdBQVc7UUFDVCxHQUFHLENBQUMsV0FBVyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUMsTUFBVyxFQUFFLEVBQUU7WUFDckMsSUFBSSxDQUFDLE9BQVEsQ0FBQztnQkFDWixZQUFZLEVBQUUsTUFBTSxDQUFDLElBQUk7YUFDMUIsQ0FBQyxDQUFBO1FBQ0osQ0FBQyxDQUFDLENBQUM7SUFDTCxDQUFDO0lBS0QsT0FBTyxFQUFFO0lBRVQsQ0FBQztJQUtELE1BQU0sRUFBRTtJQUVSLENBQUM7SUFLRCxNQUFNLEVBQUU7SUFFUixDQUFDO0lBS0QsUUFBUSxFQUFFO0lBRVYsQ0FBQztJQUtELGlCQUFpQixFQUFFO0lBRW5CLENBQUM7SUFLRCxhQUFhLEVBQUU7SUFFZixDQUFDO0NBQ0YsQ0FBQyxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgQXBpIGZyb20gJy4uLy4uL3NlcnZpY2UvYXBpLnNlcnZpY2UnO1xuXG5QYWdlKHtcbiAgZGF0YToge1xuICAgIHBhc3RMb3ZlRGF0YToge30gYXMgYW55LFxuICB9LFxuXG4gIG9uTG9hZDogZnVuY3Rpb24gKCkge1xuICAgIHRoaXMuZ2V0UGFzdExvdmUoKTtcbiAgfSxcblxuICBnZXRQYXN0TG92ZSgpIHtcbiAgICBBcGkuZ2V0UGFzdExvdmUoKS50aGVuKChyZXN1bHQ6IGFueSkgPT4ge1xuICAgICAgdGhpcy5zZXREYXRhISh7XG4gICAgICAgIHBhc3RMb3ZlRGF0YTogcmVzdWx0LmRhdGEsXG4gICAgICB9KVxuICAgIH0pO1xuICB9LFxuXG4gIC8qKlxuICAgKiDnlJ/lkb3lkajmnJ/lh73mlbAtLeebkeWQrOmhtemdouWIneasoea4suafk+WujOaIkFxuICAgKi9cbiAgb25SZWFkeTogZnVuY3Rpb24gKCkge1xuXG4gIH0sXG5cbiAgLyoqXG4gICAqIOeUn+WRveWRqOacn+WHveaVsC0t55uR5ZCs6aG16Z2i5pi+56S6XG4gICAqL1xuICBvblNob3c6IGZ1bmN0aW9uICgpIHtcblxuICB9LFxuXG4gIC8qKlxuICAgKiDnlJ/lkb3lkajmnJ/lh73mlbAtLeebkeWQrOmhtemdoumakOiXj1xuICAgKi9cbiAgb25IaWRlOiBmdW5jdGlvbiAoKSB7XG5cbiAgfSxcblxuICAvKipcbiAgICog55Sf5ZG95ZGo5pyf5Ye95pWwLS3nm5HlkKzpobXpnaLljbjovb1cbiAgICovXG4gIG9uVW5sb2FkOiBmdW5jdGlvbiAoKSB7XG5cbiAgfSxcblxuICAvKipcbiAgICog6aG16Z2i55u45YWz5LqL5Lu25aSE55CG5Ye95pWwLS3nm5HlkKznlKjmiLfkuIvmi4nliqjkvZxcbiAgICovXG4gIG9uUHVsbERvd25SZWZyZXNoOiBmdW5jdGlvbiAoKSB7XG5cbiAgfSxcblxuICAvKipcbiAgICog6aG16Z2i5LiK5ouJ6Kem5bqV5LqL5Lu255qE5aSE55CG5Ye95pWwXG4gICAqL1xuICBvblJlYWNoQm90dG9tOiBmdW5jdGlvbiAoKSB7XG5cbiAgfSxcbn0pIl19
+    pastLoveData: {},
+    isLoaded: false,
+    isDisposed: false,
+    chartData: [],
+  },
+
+  onLoad: function (options) {
+    console.log('options', options);
+    this.getPastLove();
+  },
+
+  onReady: function () {
+    // 获取组件
+    // this.ecComponent = this.selectComponent('#mychart-dom-bar');
+  },
+  // 点击按钮后初始化图表
+  init: function (chartData) {
+    this.ecComponent = this.selectComponent('#mychart-dom-bar');
+    this.ecComponent.init((canvas, width, height) => {
+      // 获取组件的 canvas、width、height 后的回调函数
+      // 在这里初始化图表
+      const chart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+      });
+      setOption(chart, chartData);
+
+      // 将图表实例绑定到 this 上，可以在其他成员函数（如 dispose）中访问
+      this.chart = chart;
+      this.chart.dispose();
+
+      // 注意这里一定要返回 chart 实例，否则会影响事件处理等
+      return chart;
+    });
+  },
+
+  /** 前世情缘 */
+  getPastLove() {
+    Api.getPastLove().then((result) => {
+      let pastLoveData = result.data;
+      let chartData = [];
+      chartData.push(pastLoveData.considerStandard);
+      chartData.push(pastLoveData.hsexualStandard);
+      chartData.push(pastLoveData.gentleStandard);
+      chartData.push(pastLoveData.hworkStandard);
+      chartData.push(pastLoveData.quarrelStandard);
+      this.init(chartData);   // 图表
+      this.setData({
+        pastLoveData,
+      });
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+})

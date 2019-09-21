@@ -1,2 +1,42 @@
-<!--pages/qsqyResult/qsqyResult.wxml-->
-<text>pages/qsqyResult/qsqyResult.wxml</text>
+<view class="qsqyResult" 
+  style="background-image:url('../../public/image/qsqy.png');background-repeat:no-repeat;background-size:100%;">
+  <view class="title">
+    前世情缘
+  </view>
+  <view class="content">
+    <view>
+      性别：{{pastLoveData.gender === 1 ? '男' : '女'}}
+    </view>
+    <view>
+      职业：{{pastLoveData.job}}
+    </view>
+    <view>
+      寿命：{{pastLoveData.age}}
+    </view>
+    <view class="display-flex">
+      <view style="flex: 0.5">
+        恋爱次数：{{pastLoveData.loveTimes}}    
+      </view>
+      <view style="flex: 0.5">
+        婚姻次数：{{pastLoveData.marryTimes}}    
+      </view>
+    </view>
+    <view>
+      <view>婚姻分析: <text style="color:#666666">{{pastLoveData.marryState}}</text></view>
+    </view>
+  </view>
+  <view  class="chart-container" >
+      <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+    </view>
+   <view class="code">
+      <image src="../../public/image/wechat.png" mode="aspectFit" />
+      <view>
+        <view>
+          测试资料获取人：微信名
+        </view> 
+        <view>
+          长按识别了解你是什么样的情人
+        </view>
+      </view>
+    </view>
+</view>

@@ -1,1 +1,40 @@
-/* pages/qsqyResult/qsqyResult.wxss */
+.qsqyResult {
+
+}
+.qsqyResult .title {
+  font-size: 46rpx;
+  padding-top: 100rpx;
+  text-align: center;
+}
+
+.qsqyResult .chart-container {
+  height: 340rpx;
+  padding-top: 30rpx;
+  padding: 100rpx 80rpx;
+}
+
+.ec-canvas {
+  width: 70% !important;
+  height: 70% !important;
+}
+
+.qsqyResult .content {
+  padding: 30rpx 80rpx;
+  color: #333;
+  line-height: 50rpx;
+}
+
+.qsqyResult .code{
+  position: absolute;
+  bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 30rpx;
+}
+
+.qsqyResult .code image {
+  width: 90rpx;
+  height: 90rpx;
+  padding-right: 20rpx;
+}
