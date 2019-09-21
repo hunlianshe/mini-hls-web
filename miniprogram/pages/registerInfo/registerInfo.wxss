@@ -3,16 +3,21 @@
 }
 
 .registerInfo .info-cell {
+  display: flex;
+  align-items: center;
   padding: 30rpx 0;
   font-size: 32rpx;
 }
 
 .registerInfo input {
   flex: 1;
+  padding: 20rpx;
+  margin-left: 10rpx;
 }
 
 .registerInfo .pleft_5 {
   padding-left: 10rpx;
+  width: 54rpx;
 }
 
 .registerInfo .title {
