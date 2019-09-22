@@ -24,7 +24,7 @@
 .qsqyResult .chart-container {
   height: 340rpx;
   padding-top: 30rpx;
-  padding: 100rpx 80rpx;
+  padding: 80rpx 80rpx;
 }
 
 .ec-canvas {
@@ -36,6 +36,8 @@
   padding: 30rpx 80rpx;
   color: #333;
   line-height: 50rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'FangSong';
 }
 
 .qsqyResult .code{
