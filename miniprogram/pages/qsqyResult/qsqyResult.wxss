@@ -7,6 +7,20 @@
   text-align: center;
 }
 
+.qsqyResult .head {
+  position: absolute;
+  top: 200rpx;
+  width: 100rpx;
+  height: 100rpx;
+  right: 100rpx;
+  border: 2rpx solid #adadad;
+}
+
+.qsqyResult .head image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
 .qsqyResult .chart-container {
   height: 340rpx;
   padding-top: 30rpx;
@@ -30,7 +44,8 @@
   display: flex;
   align-items: center;
   font-size: 28rpx;
-  padding: 30rpx;
+  padding: 40rpx;
+  line-height: 5rpx;
 }
 
 .qsqyResult .code image {

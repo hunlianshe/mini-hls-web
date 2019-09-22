@@ -1,5 +1,4 @@
 import * as Api from '../../service/api.service.js';
-import xzList from '../../public/json/zxList.js';
 import * as echarts from '../../ec-canvas/echarts';
 
 function setOption(chart, chartData) {
@@ -57,11 +56,21 @@ Page({
     isLoaded: false,
     isDisposed: false,
     chartData: [],
+    userInfo: {}, 
   },
 
-  onLoad: function (options) {
-    console.log('options', options);
+  onLoad: function () {
+    let _this = this;
     this.getPastLove();
+    wx.getStorage({
+      key: 'user',
+      success: function (res) {
+        console.log('user', res)
+        _this.setData({
+          userInfo: res.data
+        })
+      },
+    });
   },
 
   onReady: function () {
@@ -106,25 +115,9 @@ Page({
     });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
+  createCanvas() {
+    const ctx = wx.createCanvasContext('qsqy', this);
+    // ctx.
+  }
 
 })

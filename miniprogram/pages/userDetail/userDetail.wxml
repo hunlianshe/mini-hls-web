@@ -86,7 +86,7 @@
   </view>
   
   <view class="footer">
-    <button class="common-btn">红娘牵线</button>
+    <button class="common-btn" bindtap="matchMaker">红娘牵线</button>
     <button class="common-btn" bindtap="putUsersLike">喜欢ta</button>
   </view>
 </view>

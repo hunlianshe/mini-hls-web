@@ -40,6 +40,12 @@ Page({
     });
   },
 
+  matchMaker() {
+    wx.navigateTo({
+      url: '../matchmaker/matchmaker',
+    })
+  },
+
   onReady: function () {
   },
 

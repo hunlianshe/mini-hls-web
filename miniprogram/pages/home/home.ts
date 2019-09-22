@@ -64,7 +64,7 @@ Page({
     const {
       id,
       type,
-    } = e.currentTarget.dataset.id;
+    } = e.currentTarget.dataset;
     if (type === '3') {
       wx.navigateTo({
         url: `../qsqy/qsqy?id=${id}`,
@@ -108,6 +108,10 @@ Page({
       if (result) {
         const userInfo = result.data;
         app.globalData.userInfo = result.data;
+        wx.setStorage({
+          key: 'user',
+          data: Object.assign(this.data.userInfo, result.data),
+        });
         this.setData!({
           userInfo,
         });
