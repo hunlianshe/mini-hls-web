@@ -1,6 +1,6 @@
 <view class='home-page'>
-  <view class="head"
-    style="background-image: url('../../public/image/home-ad.jpg');">
+  <view class="head">
+    <image src="../../public/image/home-ad.jpg" />
     <view class="intro">
       <view style="width: 100%;">
         <view style="font-size: 52rpx;">婚恋社</view>
