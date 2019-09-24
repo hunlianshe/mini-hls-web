@@ -24,7 +24,9 @@ function setOption(chart, chartData) {
         { name: `温柔${chartData[2]}`, max: 10 },
         { name: `家务${chartData[3]}`, max: 10 },
         { name: `吵架${chartData[4]}`, max: 10 },
-      ]
+      ],
+      radius: 50,
+      center: ['75%', '60%'],
     },
     series: [{
       name: '',
