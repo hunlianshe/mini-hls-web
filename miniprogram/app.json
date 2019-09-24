@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/qsqy/qsqy",
     "pages/index/index",
+    "pages/qsqy/qsqy",
     "pages/qsqyResult/qsqyResult",
     "pages/matchResult/matchResult",
     "pages/registerPhone/registerPhone",
