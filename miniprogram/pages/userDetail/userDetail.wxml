@@ -9,9 +9,7 @@
         <image src="../../public/image/male01.png" />
       </view>
       <view class="small">
-        <text>{{userInfo.age}}岁</text> |
-        <text>{{userInfo.jobGeneral}} {{userInfo.jobDetail}}</text> |
-        <text>{{userInfo.education}}</text>
+          {{userInfo.intro}}
       </view>
     </view>
 
