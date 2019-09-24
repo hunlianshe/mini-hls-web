@@ -69,7 +69,7 @@ Page({
           userInfo: result.data,
           nickName: result.data.nickName,
           gender: result.data.gender,
-          birth: this.getYMD(result.data.birth),        // 生日
+          birth: result.data.birth?this.getYMD(result.data.birth):'',        // 生日
           height: result.data.height,                   // 身高
           salary: result.data.salary,
           workProvince: result.data.workProvince,
