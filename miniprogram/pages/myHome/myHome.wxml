@@ -24,7 +24,7 @@
     <view class="display-flex">
       <view>信息完成度</view>
       <view class="number">
-        {{userInfo.finishRate}}
+        {{userInfo.finishRate}}%
       </view>
       <view class="flex-full">
         <progress percent='{{userInfo.finishRate}}' activeColor="#E39BF0" border-radius="4" stroke-width="8" />      
