@@ -12,7 +12,7 @@
           <text class="label">{{item.constellation}}</text>
         </view>
         <view class="info">
-          {{item.age}}岁 | {{item.jobGeneral}}{{item.jobDetail}} | {{item.education}}
+          {{item.intro}}
         </view>
       </view>
     </view>
