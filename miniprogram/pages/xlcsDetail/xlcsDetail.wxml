@@ -1,5 +1,5 @@
-<view class="xlcsDetailPage" 
-style='background: url({{bgImg}}) no-repeat;background-size:100%;'>
+<view class="xlcsDetailPage">
+  <image src="{{bgImg}}" />
   <view class="question">
     <view class="question-title display-flex"> 
       <view>=</view>
