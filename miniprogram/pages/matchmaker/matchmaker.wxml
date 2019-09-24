@@ -9,8 +9,8 @@ style="background-image: url('../../public/image/matching.jpg');background-repea
         <view class="{{active === '2' ? 'title-cell active' : 'title-cell'}}" bindtap="switchTab" data-active="2">微信联系</view>
       </view>
       <view class="contract-info" wx:if="{{active === '1'}}">
-        <view class="label">稍后红娘会给你来电</view>
-        <button class="common-btn">接听红娘电话</button>
+        <view class="label">电话联系红娘</view>
+        <button class="common-btn" bindtap="phoneCall">拨打电话</button>
       </view>
       <view class="contract-info" wx:else>
         <view>扫二维码添加红娘微信</view>
