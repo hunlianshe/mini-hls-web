@@ -1,1 +1,57 @@
-/* pages/qsqyResult/qsqyResult.wxss */
+.qsqyResult {
+
+}
+.qsqyResult .title {
+  font-size: 46rpx;
+  padding-top: 100rpx;
+  text-align: center;
+}
+
+.qsqyResult .head {
+  position: absolute;
+  top: 200rpx;
+  width: 100rpx;
+  height: 100rpx;
+  right: 100rpx;
+  border: 2rpx solid #adadad;
+}
+
+.qsqyResult .head image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.qsqyResult .chart-container {
+  height: 340rpx;
+  padding-top: 30rpx;
+  padding: 80rpx 80rpx;
+}
+
+.ec-canvas {
+  width: 70% !important;
+  height: 70% !important;
+}
+
+.qsqyResult .content {
+  padding: 30rpx 80rpx;
+  color: #333;
+  line-height: 50rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'FangSong';
+}
+
+.qsqyResult .code{
+  position: absolute;
+  bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 40rpx;
+  line-height: 5rpx;
+}
+
+.qsqyResult .code image {
+  width: 90rpx;
+  height: 90rpx;
+  padding-right: 20rpx;
+}

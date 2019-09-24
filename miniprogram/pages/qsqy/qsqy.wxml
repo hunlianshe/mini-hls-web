@@ -6,7 +6,10 @@
     <view>来玩个游戏，摇一摇，凑出一个小故事</view>
     <view>凑出的小故事可能就是你的前世情缘哦</view>
   </view>
-  <!--view class="bg-img"
-    style="background:url('../../public/image/mid_img.png') no-repeat;">
-  </view-->
+  <view class="bg-img" bindtap="submit"
+  style="background-image:url('../../public/image/mid_img.png');background-repeat:no-repeat;background-size:100%;">
+  </view>
+  <view class="tip">
+    本游戏纯属娱乐，请勿当真
+  </view>
 </view>

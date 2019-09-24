@@ -68,4 +68,5 @@
   bottom: 40rpx;
   font-size: 32rpx;
   color: #ffffff;
+  padding-right: 40rpx;
 }

@@ -23,7 +23,7 @@
     ]
   },
   "include": [
-    "miniprogram/**/*.ts", "miniprogram/components/pageContainer/pageContainer.js", "miniprogram/components/miniPrograss/miniPrograss.js", "miniprogram/utils/sha1.js", "miniprogram/pages/realXzysDetail/realXzysDetail.js", "miniprogram/pages/bar/index.js", "miniprogram/pages/bar/index.js"
+    "miniprogram/**/*.ts", "miniprogram/components/pageContainer/pageContainer.js", "miniprogram/components/miniPrograss/miniPrograss.js", "miniprogram/utils/sha1.js", "miniprogram/pages/qsqyResult/qsqyResult.js", "miniprogram/pages/realXzysDetail/realXzysDetail.js", "miniprogram/pages/bar/index.js", "miniprogram/pages/bar/index.js"
   ],
   "exclude": [
     "node_modules",

@@ -1,6 +1,6 @@
 
 <view class="matchingPage" 
-style="background-image: url('../../public/image/matching.png');background-repeat:repeat;background-size:130%;">
+style="background-image: url('../../public/image/matching.jpg');background-repeat:repeat;background-size:130%;">
   <view class="cover-page">
     <view class="loading">
       <view>

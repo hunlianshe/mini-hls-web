@@ -1,2 +1,48 @@
-<!--pages/qsqyResult/qsqyResult.wxml-->
-<text>pages/qsqyResult/qsqyResult.wxml</text>
+<view class="qsqyResult" 
+  style="background-image:url('../../public/image/qsqy.png');background-repeat:no-repeat;background-size:100%;">
+  <view class="title">
+    前世情缘
+  </view>
+  <view class="head">
+    <image src="{{userInfo.avatarUrl}}" mode="aspectFit"/>
+  </view>
+  <view class="content">
+    <view>
+      性别：{{pastLoveData.gender === 1 ? '男' : '女'}}
+    </view>
+    <view>
+      职业：{{pastLoveData.job}}
+    </view>
+    <view>
+      寿命：{{pastLoveData.age}}
+    </view>
+    <view class="display-flex">
+      <view style="flex: 0.5">
+        恋爱次数：{{pastLoveData.loveTimes}}    
+      </view>
+      <view style="flex: 0.5">
+        婚姻次数：{{pastLoveData.marryTimes}}    
+      </view>
+    </view>
+    <view style="padding-top: 10rpx;">
+      <view>婚姻分析: <text style="color:#666666">{{pastLoveData.marryState}}</text></view>
+    </view>
+  </view>
+  <view  class="chart-container" >
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <canvas style="width: 286px;height: 415px;background:red;position: fixed;top: -10000px;" canvas-id="qsqy"></canvas>
+  <view class="code">
+    <view>
+      <image src="../../public/image/wechat.png" mode="aspectFit" />
+      <text style="font-size: 20rpx;color:#999999">
+        长按识别
+      </text>
+    </view>
+    <view>
+      <view style="color: #999999; font-weight: 300; font-size: 24rpx;">
+        好玩的话截图分享让更多的小伙伴来玩吧～
+      </view> 
+    </view>
+  </view>
+</view>

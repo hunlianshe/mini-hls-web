@@ -1,10 +1,15 @@
 
 Page({
   data: {
-    pastLoveData: {} as any,
   },
 
   onLoad: function () {
+  },
+
+  submit() {
+    wx.navigateTo({
+      url: '../qsqyResult/qsqyResult'
+    })
   },
 
   onReady: function () {
