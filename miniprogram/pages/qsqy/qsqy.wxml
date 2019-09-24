@@ -1,4 +1,4 @@
-<view class="qsqyPage"> 
+<view class="qsqyPage" style="background:url('../../public/image/mid_img.jpg') no-repeat;">
   <view class="title">
     前世情缘
   </view>

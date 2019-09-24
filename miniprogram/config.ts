@@ -5,7 +5,7 @@ var host = "14592619.qcloud.la"
 // var socket = "https://www.peajs.top"
 var hostUrl = "http://localhost:8009"
 
-// var hostUrl = "https://www.peajs.top/testqcxd"
+// var hostUrl = "https://www.peajs.top/testhls"
 let ak = 'xsiYQN0VwrBHvxmf42BGdxFiTQgqBC4w';
 var fileHost = "https://test-buycarshop.oss-cn-beijing.aliyuncs.com"
 
