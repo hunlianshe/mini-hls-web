@@ -34,10 +34,8 @@ Page({
             if (result) {
                 const listLikes = result.data;
                 listLikes.forEach(like => {
-                  console.log('111',like.photos)
                     if (like.photos && like.photos.length) {
                         like.avatarUrl = like.photos[0];
-                      console.log('like.avatarUrl ', like.avatarUrl )
                     }
                 });
                 this.setData({
