@@ -4,10 +4,10 @@
 
 .xlcsResult .result-box {
   position: absolute; 
-  height: calc(100% - 100px);
-  margin: 40rpx;
-  width: calc(100% - 80rpx);
+  height: 100%;
+  width: 100%;
   border: 2rpx solid #ebe9ec;
+  background: #FEFAEF;
 }
 
 .xlcsResult .title {
@@ -27,8 +27,9 @@
 }
 
 .xlcsResult .result-img image {
-  width: 100%;
+  width: calc(100% - 160rpx);
   height: 300rpx;
+  padding: 0 80rpx;
 }
 
 .xlcsResult .feature {
@@ -42,11 +43,13 @@
   align-items: center;
   font-size: 28rpx;
   padding: 30rpx;
+  padding-left: 80rpx;
+  line-height: 20rpx;
 }
 
 .xlcsResult .code image {
-  width: 90rpx;
-  height: 90rpx;
+  width: 80rpx;
+  height: 80rpx;
   padding-right: 20rpx;
 }
 
