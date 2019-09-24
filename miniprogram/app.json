@@ -29,7 +29,6 @@
     "pages/fateList/fateList",
     "pages/createShop/createShop",
     "pages/wherehouse/wherehouse",
-    "pages/logs/logs",
     "pages/fate/fate",
     "pages/xlcsList/xlcsList",
     "pages/xlcsDetail/xlcsDetail"

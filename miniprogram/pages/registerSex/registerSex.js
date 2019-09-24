@@ -8,11 +8,6 @@ Page({
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
     },
-    bindViewTap() {
-        wx.navigateTo({
-            url: '../logs/logs'
-        });
-    },
     goRegister() {
         wx.navigateTo({
             url: '../registerphone/registerphone'
