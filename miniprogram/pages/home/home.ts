@@ -36,12 +36,9 @@ Page({
           userInfo: res.data,
         });
         _this.getUserInfo();
+        _this.getPsyList();
       },
     });
-    this.setData!({
-      pageLoaded: true,
-    })
-    this.getPsyList();
   },
   
   
@@ -64,7 +61,7 @@ Page({
     const {
       id,
       type,
-    } = e.currentTarget.dataset.id;
+    } = e.currentTarget.dataset;
     if (type === '3') {
       wx.navigateTo({
         url: `../qsqy/qsqy?id=${id}`,
@@ -108,8 +105,14 @@ Page({
       if (result) {
         const userInfo = result.data;
         app.globalData.userInfo = result.data;
+        console.log('Object.assign({openid}, result.data)', Object.assign({openid}, result.data));
+        wx.setStorage({
+          key: 'userInfo',
+          data: Object.assign({openid}, result.data),
+        });
         this.setData!({
           userInfo,
+          pageLoaded: true,
         });
       }
     });
@@ -128,7 +131,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getUserInfo();
+    if (this.data.pageLoaded === true) {
+      this.getUserInfo();
+    }
   },
 
   /**

@@ -19,6 +19,20 @@ Page({
     Api.getUserInfo(openid).then((result: any) => {
       if (result.code == 200) {
         const userInfo = result.data;
+        userInfo.intro  = [];
+          if (userInfo.age){
+            userInfo.intro.push(userInfo.age)
+          }
+          if (userInfo.jobGeneral) {
+            userInfo.intro.push(userInfo.jobGeneral)
+          }
+          if (userInfo.jobDetail) {
+            userInfo.intro.push(userInfo.jobDetail)
+          }
+          if (userInfo.education) {
+            userInfo.intro.push(userInfo.education)
+          }
+          userInfo.intro = userInfo.intro.join(' | ')
         this.setData!({
           userInfo,
         });
@@ -38,6 +52,12 @@ Page({
         });
       }
     });
+  },
+
+  matchMaker() {
+    wx.navigateTo({
+      url: '../matchmaker/matchmaker',
+    })
   },
 
   onReady: function () {

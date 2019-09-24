@@ -12,3 +12,16 @@
   font-size: 40rpx;
   color: rgb(91, 30, 102);
 }
+
+.xlcsListPage .block-cell image {
+  position: absolute;
+  height: 300rpx;
+  border-radius: 8rpx;
+  width: calc(100% - 80rpx);
+}
+
+.xlcsListPage .block-cell .text {
+  position: absolute;
+  z-index: 1;
+  padding-left: 30rpx;
+}

@@ -1,35 +1,37 @@
 <view class="xlcsResult">
-  <view class="result-box" style="background: #efefef;">
+  <view class="result-box">
     <view class="title display-flex"> 
       <view>=</view>
       {{name}}
       <view>=</view>
     </view>
     <view class="result-img">
-      <image src="{{catDogResult[0].imageUrl}}" mode="aspectFit" />
+      <image src="{{catDogResult[0].imageUrl}}" mode="aspectFill" />
     </view>
     <view class="feature" >
-      <view style="padding-bottom: 30rpx;font-weight: 600;">
+      <view style="font-weight: 600;">
         {{catDogResult.length === 1 ? catDogResult[0].title : '50%' + catDogResult[0].title + ' + 50%'+ catDogResult[1].title}}
       </view>
-      <view wx:for="{{catDogResult}}" wx:key="{{index}}">
+      <view wx:for="{{catDogResult}}" wx:key="{{index}}" style="font-size: 30rpx;padding-top: 30rpx;">
         {{item.feature}}
       </view>
     </view>
 
     <view class="code">
-      <image src="../../public/image/wechat.png" mode="aspectFit" />
       <view>
-        <view>
-          测试资料获取人：微信名
+        <image src="../../public/image/qrcode.jpg" mode="aspectFit" />
+        <text style="font-size: 20rpx;color:#999999">
+          长按识别
+        </text>
+      </view>
+      <view>
+        <view style="color: #999999; font-weight: 300; font-size: 24rpx;">
+          好玩的话截图分享让更多的小伙伴来玩吧～
         </view> 
-        <view>
-          长按识别了解你是什么样的情人
-        </view>
       </view>
     </view>
   </view>
-  <view class="footer">
+  <!-- <view class="footer">
     手机截图保存
-  </view>
+  </view> -->
 </view>

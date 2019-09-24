@@ -11,9 +11,20 @@ Page({
   },
 
   doTest(e: any) {
-    wx.navigateTo({
-      url: `../xlcsDetail/xlcsDetail?id=${e.currentTarget.dataset.id}`,
-    })
+    const {
+      id,
+      type,
+    } = e.currentTarget.dataset;
+    console.log('type...', type)
+    if (type === '3') {
+      wx.navigateTo({
+        url: `../qsqy/qsqy?id=${id}`,
+      });
+    } else {
+      wx.navigateTo({
+        url: `../xlcsDetail/xlcsDetail?id=${id}`,
+      })
+    }
   },
 
   /** 获取心理测试题目 */
@@ -21,7 +32,7 @@ Page({
     Api.getPsyList().then((result: any) => {
       let psyTest = result.data;
       psyTest.forEach((e: any) => {
-        e.image = `../../public/image/xlcs_${e.type}.png`;
+        e.image = `../../public/image/xlcs_${e.type}.jpg`;
       });
       this.setData!({
         psyTest,

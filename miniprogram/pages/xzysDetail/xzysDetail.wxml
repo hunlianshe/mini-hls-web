@@ -25,7 +25,7 @@
   <rich-text nodes="{{fortuneData.desc}}"></rich-text>
   </view>
 </view>
-<view class="footer">
+  <!--view class="footer">
     <button class="common-btn">分享</button>
-  </view>
+  </view-->
 </view>

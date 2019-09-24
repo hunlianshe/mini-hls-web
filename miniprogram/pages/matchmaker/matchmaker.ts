@@ -15,6 +15,12 @@ Page({
       active: e.currentTarget.dataset.active,
     });
   },
+  phoneCall() {
+    const phone = '18883381**9'
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

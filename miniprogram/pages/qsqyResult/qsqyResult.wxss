@@ -1,1 +1,67 @@
-/* pages/qsqyResult/qsqyResult.wxss */
+.qsqyResult {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  font-size: 30rpx;
+}
+
+.qsqyResult .bg-image {
+  width: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.qsqyResult .title {
+  font-size: 46rpx;
+  padding-top: 30rpx;
+  text-align: center;
+}
+
+.qsqyResult .head {
+  position: absolute;
+  top: 130rpx;
+  width: 100rpx;
+  height: 100rpx;
+  right: 100rpx;
+  border: 2rpx solid #adadad;
+}
+
+.qsqyResult .head image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.qsqyResult .chart-container {
+  height: 300rpx;
+  /* margin-top: 20rpx;
+  margin-left: 80rpx; */
+}
+
+.ec-canvas {
+  width: 70% !important;
+  height: 70% !important;
+}
+
+.qsqyResult .content {
+  padding: 30rpx 80rpx;
+  color: #333;
+  line-height: 50rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'FangSong';
+}
+
+.qsqyResult .code{
+  position: absolute;
+  bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 40rpx;
+  line-height: 12rpx;
+}
+
+.qsqyResult .code image {
+  width: 80rpx;
+  height: 80rpx;
+  padding-right: 20rpx;
+}

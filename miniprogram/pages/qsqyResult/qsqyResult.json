@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#F9F2E4",
+  "navigationBarTitleText": "婚恋社",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#F9F2E4",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
 }

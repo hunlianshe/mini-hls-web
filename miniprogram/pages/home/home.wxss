@@ -11,6 +11,13 @@
   background-size:100%;
 }
 
+.home-page .head image {
+  height: 260rpx;
+  border-radius: 8rpx;
+  width: calc(100% - 80rpx);
+  position: absolute;
+}
+
 .home-page .head .intro {
   height: 220rpx;
   display: flex;
@@ -18,6 +25,7 @@
   padding: 0 60rpx;
   color: #ffffff;
   text-shadow: 4rpx 4rpx 8rpx #00000063;
+  position: absolute;
 }
 
 .home-page .head .address {
@@ -25,6 +33,9 @@
   padding-right: 60rpx;
   font-size: 24rpx;
   color: #ffffff;
+  position: absolute;
+  right: 0;
+  top: 260rpx;
 }
 
 .home-page .list {

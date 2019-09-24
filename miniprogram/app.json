@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/qsqy/qsqy",
     "pages/index/index",
+    "pages/qsqy/qsqy",
     "pages/qsqyResult/qsqyResult",
     "pages/matchResult/matchResult",
     "pages/registerPhone/registerPhone",
@@ -27,9 +27,6 @@
     "pages/registerXz/registerXz",
     "pages/myHome/myHome",
     "pages/fateList/fateList",
-    "pages/createShop/createShop",
-    "pages/wherehouse/wherehouse",
-    "pages/logs/logs",
     "pages/fate/fate",
     "pages/xlcsList/xlcsList",
     "pages/xlcsDetail/xlcsDetail"
@@ -69,17 +66,9 @@
     "mini-prograss": "/components/miniPrograss/miniPrograss",
     "page-container": "/components/pageContainer/pageContainer",
     "icon": "/components/icon/icon",
-    "shopHead": "/components/shopHead/shopHead",
-    "shopCar": "/components/shopCar/shopCar",
     "footer": "/components/footer/footer",
-    "carCard": "/components/carCard/carCard",
-    "pickCity": "/components/pickCity/pickCity",
-    "pickBrand": "/components/pickBrand/pickBrand",
-    "carSwiper": "/components/carSwiper/carSwiper",
     "noData": "/components/noData/noData",
-    "fixedFooter": "/components/fixedFooter/fixedFooter",
-    "wechatDialog": "/components/wechatDialog/wechatDialog",
-    "phoneCall": "/components/phoneCall/phoneCall"
+    "wechatDialog": "/components/wechatDialog/wechatDialog"
   },
   "permission": {
     "scope.userLocation": {

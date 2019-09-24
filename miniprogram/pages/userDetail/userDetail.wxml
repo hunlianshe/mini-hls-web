@@ -1,17 +1,16 @@
 <view class="userDetail">
   <view style="background: #ffffff; padding-bottom: 30rpx;">
     <view class="head">
-      <image src="../../public/image/xzpd.png" />
+      <image src="{{userInfo.avatarUrl}}" />
     </view>
     <view class="outline">
       <view class="display-flex" style="justify-content: center;padding-bottom: 30rpx;">
         <text>{{userInfo.nickName}}</text>
-        <image src="../../public/image/male01.png" />
+        <image  wx:if="{{userInfo.gender == '1'}}" src="../../public/image/male01.png" />
+        <image wx:if="{{userInfo.gender == '2'}}" src="../../public/image/female01.png" />
       </view>
       <view class="small">
-        <text>{{userInfo.age}}岁</text> |
-        <text>{{userInfo.jobGeneral}} {{userInfo.jobDetail}}</text> |
-        <text>{{userInfo.education}}</text>
+          {{userInfo.intro}}
       </view>
     </view>
 
@@ -86,7 +85,7 @@
   </view>
   
   <view class="footer">
-    <button class="common-btn">红娘牵线</button>
+    <button class="common-btn" bindtap="matchMaker">红娘牵线</button>
     <button class="common-btn" bindtap="putUsersLike">喜欢ta</button>
   </view>
 </view>
