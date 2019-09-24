@@ -38,7 +38,7 @@ Page({
     Api.getUsersListLikes(params).then((result: any) => {
       if (result) {
         const listLikes:any = result.data;
-        listLikes.forEach(like => {
+        listLikes.forEach((like: any) => {
           if (like.photos && like.photos.length) {
             like.avatarUrl = like.photos[0]
           }
