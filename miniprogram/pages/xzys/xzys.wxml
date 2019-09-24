@@ -11,13 +11,17 @@
     </view>
   </view>
   
-  <view class="card" bindtap="getCharacter"
-    style='background-image: url("../../public/image/card1.jpg");background-repeat:no-repeat;background-size:100%;'>
-    十二星座运势
+  <view class="card" bindtap="getCharacter">
+    <image src="../../public/image/card1.jpg" />
+    <view class="text">
+      十二星座运势
+    </view>
   </view>
 
-   <view class="card" bindtap="goStoryDetail"
-    style='background-image: url("../../public/image/card2.jpg");background-repeat:no-repeat;background-size:100%;'>
-    十二星座故事
+   <view class="card" bindtap="goStoryDetail">
+    <image src="../../public/image/card2.jpg" />
+    <view class="text">
+      十二星座故事
+    </view>
   </view>
 </view>
