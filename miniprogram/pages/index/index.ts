@@ -177,24 +177,6 @@ Page({
     });
   },
 
-  /** 选择城市 */
-  doSelect(e: any) {
-    if (e.detail.name) {
-      this.setData!({
-        popHidden: true,
-        currentCity: e.detail.name,
-      })
-      wx.setStorage({
-        key: 'currentCity',
-        data: e.detail.name,
-      });
-    } else {  // 取消按钮
-      this.setData!({
-        popHidden: true,
-      })
-    }
-  },
-
   onReady: function () {
   },
 })
