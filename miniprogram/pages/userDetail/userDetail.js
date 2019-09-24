@@ -30,6 +30,9 @@ Page({
                     userInfo.intro.push(userInfo.education);
                 }
                 userInfo.intro = userInfo.intro.join(' | ');
+                if(userInfo.photos && userInfo.photos.length){
+                    userInfo.avatarUrl = userInfo.photos[0]
+                }
                 this.setData({
                     userInfo,
                 });
