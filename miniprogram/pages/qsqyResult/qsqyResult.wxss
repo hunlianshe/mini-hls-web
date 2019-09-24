@@ -4,6 +4,13 @@
   top: 0;
   font-size: 30rpx;
 }
+
+.qsqyResult .bg-image {
+  width: 100%;
+  width: 100%;
+  position: absolute;
+}
+
 .qsqyResult .title {
   font-size: 46rpx;
   padding-top: 30rpx;

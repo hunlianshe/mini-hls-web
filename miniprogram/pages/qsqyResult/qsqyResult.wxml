@@ -1,5 +1,5 @@
-<view class="qsqyResult" 
-  style="background-image:url('../../public/image/qsqy.jpg');background-repeat:no-repeat;background-size:100%;">
+<view class="qsqyResult">
+  <image class="bg-image" src="../../public/image/qsqy.jpg" />
   <view class="title">
     前世情缘
   </view>

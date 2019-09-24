@@ -66,17 +66,9 @@
     "mini-prograss": "/components/miniPrograss/miniPrograss",
     "page-container": "/components/pageContainer/pageContainer",
     "icon": "/components/icon/icon",
-    "shopHead": "/components/shopHead/shopHead",
-    "shopCar": "/components/shopCar/shopCar",
     "footer": "/components/footer/footer",
-    "carCard": "/components/carCard/carCard",
-    "pickCity": "/components/pickCity/pickCity",
-    "pickBrand": "/components/pickBrand/pickBrand",
-    "carSwiper": "/components/carSwiper/carSwiper",
     "noData": "/components/noData/noData",
-    "fixedFooter": "/components/fixedFooter/fixedFooter",
-    "wechatDialog": "/components/wechatDialog/wechatDialog",
-    "phoneCall": "/components/phoneCall/phoneCall"
+    "wechatDialog": "/components/wechatDialog/wechatDialog"
   },
   "permission": {
     "scope.userLocation": {
