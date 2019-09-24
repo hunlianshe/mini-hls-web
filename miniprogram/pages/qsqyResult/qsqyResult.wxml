@@ -1,5 +1,7 @@
 <view class="qsqyResult">
-  <image class="bg-image" src="../../public/image/qsqy.jpg" />
+  <view class="bgImg">
+    <image src="../../public/image/qsqy.jpg" />
+  </view>
   <view class="title">
     前世情缘
   </view>
@@ -28,7 +30,7 @@
       <view>婚姻分析: <text style="color:#666666">{{pastLoveData.marryState}}</text></view>
     </view>
   </view>
-  <view  class="chart-container" >
+  <view class="chart-container" >
     <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
   </view>
   <canvas style="width: 286px;height: 415px;background:red;position: fixed;top: -10000px;" canvas-id="qsqy"></canvas>

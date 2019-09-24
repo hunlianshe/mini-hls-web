@@ -26,7 +26,7 @@ function setOption(chart, chartData) {
         { name: `吵架 ${chartData[4]}`, max: 10 },
       ],
       radius: 50,
-      center: ['75%', '60%'],
+      center: ['50%', '60%'],
     },
     series: [{
       name: '',
