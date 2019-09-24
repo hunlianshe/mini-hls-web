@@ -22,7 +22,7 @@ Page({
         questionList: result.data.content,
       });
       const question = this.data.questionList[this.data.questionIndex];
-      const bgImg = `../../public/image/xlcs_${result.data.type}.png`;
+      const bgImg = `../../public/image/xlcs_${result.data.type}.jpg`;
       this.setData!({
         question,
         bgImg,

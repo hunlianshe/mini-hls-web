@@ -48,6 +48,7 @@
 .xzysDetail .outline {
   margin: 0 50rpx;
   padding-bottom: 200rpx;
+  margin-top: -120rpx;
 }
 
 .xzysDetail .outline image {
