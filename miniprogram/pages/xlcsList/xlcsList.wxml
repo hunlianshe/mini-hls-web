@@ -3,9 +3,11 @@
     心理测试列表
   </view>
   <block wx:for="{{psyTest}}" wx:key="{{item._id}}">
-    <view class="block-cell display-flex" bindtap="doTest"  data-type="{{item.type}}" data-id="{{item._id}}"
-    style='background: url({{item.image}}) no-repeat; background-size:100%;'>
-      {{item.name}}
+    <view class="block-cell display-flex" bindtap="doTest"  data-type="{{item.type}}" data-id="{{item._id}}">
+      <image src="{{item.image}}" />
+      <view class="text">
+        {{item.name}}
+      </view>
     </view>
   </block>
 </view>
