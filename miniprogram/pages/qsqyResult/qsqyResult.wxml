@@ -1,5 +1,5 @@
 <view class="qsqyResult" 
-  style="background-image:url('../../public/image/qsqy.png');background-repeat:no-repeat;background-size:100%;">
+  style="background-image:url('../../public/image/xlcs_3.jpg');background-repeat:no-repeat;background-size:100%;">
   <view class="title">
     前世情缘
   </view>
@@ -34,7 +34,7 @@
   <canvas style="width: 286px;height: 415px;background:red;position: fixed;top: -10000px;" canvas-id="qsqy"></canvas>
   <view class="code">
     <view>
-      <image src="../../public/image/wechat.png" mode="aspectFit" />
+      <image src="../../public/image/qrcode.jpg" mode="aspectFit" />
       <text style="font-size: 20rpx;color:#999999">
         长按识别
       </text>

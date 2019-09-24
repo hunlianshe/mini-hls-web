@@ -19,11 +19,11 @@ function setOption(chart, chartData) {
         }
       },
       indicator: [
-        { name: '体贴指数', max: 10 },
-        { name: '异性指数', max: 10 },
-        { name: '温柔指数', max: 10 },
-        { name: '家务指数', max: 10 },
-        { name: '吵架指数', max: 10 },
+        { name: `体贴${chartData[0]}`, max: 10 },
+        { name: `异性${chartData[0]}`, max: 10 },
+        { name: `温柔${chartData[0]}`, max: 10 },
+        { name: `家务${chartData[0]}`, max: 10 },
+        { name: `吵架${chartData[0]}`, max: 10 },
       ]
     },
     series: [{

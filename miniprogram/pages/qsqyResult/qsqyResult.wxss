@@ -1,15 +1,17 @@
 .qsqyResult {
-
+  position: absolute;
+  bottom: 0;
+  top: 0;
 }
 .qsqyResult .title {
   font-size: 46rpx;
-  padding-top: 100rpx;
+  padding-top: 30rpx;
   text-align: center;
 }
 
 .qsqyResult .head {
   position: absolute;
-  top: 200rpx;
+  top: 130rpx;
   width: 100rpx;
   height: 100rpx;
   right: 100rpx;
@@ -22,9 +24,9 @@
 }
 
 .qsqyResult .chart-container {
-  height: 340rpx;
-  padding-top: 30rpx;
-  padding: 80rpx 80rpx;
+  height: 400rpx;
+  /* margin-top: 20rpx;
+  margin-left: 80rpx; */
 }
 
 .ec-canvas {
@@ -47,11 +49,11 @@
   align-items: center;
   font-size: 28rpx;
   padding: 40rpx;
-  line-height: 5rpx;
+  line-height: 12rpx;
 }
 
 .qsqyResult .code image {
-  width: 90rpx;
-  height: 90rpx;
+  width: 80rpx;
+  height: 80rpx;
   padding-right: 20rpx;
 }
