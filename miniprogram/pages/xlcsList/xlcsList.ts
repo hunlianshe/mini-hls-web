@@ -21,7 +21,7 @@ Page({
     Api.getPsyList().then((result: any) => {
       let psyTest = result.data;
       psyTest.forEach((e: any) => {
-        e.image = `../../public/image/xlcs_${e.type}.png`;
+        e.image = `../../public/image/xlcs_${e.type}.jpg`;
       });
       this.setData!({
         psyTest,
