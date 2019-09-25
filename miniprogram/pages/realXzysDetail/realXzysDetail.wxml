@@ -1,12 +1,16 @@
 <view class="xzysDetail">
-  <view class="top"
-  style="background: url('../../public/image/stars.png') no-repeat;background-size:100%;">
-     <view>{{dateType}}运势</view>
-     <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}" range-key="{{'ch'}}">
-      <view class='{{fortuneName ? "picker" : "picker-place"}}'>
-        {{fortuneName ? fortuneName : "选择星座"}}
-      </view>
-    </picker>
+  <view class="top">
+    <view>
+      <image src="../../public/image/stars.png" />
+    </view>
+    <view class="picker-cell">
+      <view>{{dateType}}运势</view>
+      <picker class="flex-full" bindchange="otherPick" value="{{dataIndex}}" range="{{xzList}}" range-key="{{'ch'}}">
+        <view class='{{fortuneName ? "picker" : "picker-place"}}'>
+          {{fortuneName ? fortuneName : "选择星座"}}
+        </view>
+      </picker>
+    </view>
   </view>
   <view class="outline">
     <view class="display-flex">

@@ -19,11 +19,11 @@ function setOption(chart, chartData) {
         }
       },
       indicator: [
-        { name: `体贴 ${chartData[0]}`, max: 10 },
-        { name: `异性 ${chartData[1]}`, max: 10 },
-        { name: `温柔 ${chartData[2]}`, max: 10 },
-        { name: `家务 ${chartData[3]}`, max: 10 },
-        { name: `吵架 ${chartData[4]}`, max: 10 },
+        { name: `体贴指数 ${chartData[0]}`, max: 10 },
+        { name: `异性指数 ${chartData[1]}`, max: 10 },
+        { name: `温柔指数 ${chartData[2]}`, max: 10 },
+        { name: `家务指数 ${chartData[3]}`, max: 10 },
+        { name: `吵架指数 ${chartData[4]}`, max: 10 },
       ],
       radius: 50,
       center: ['50%', '60%'],
@@ -57,7 +57,7 @@ Page({
     pastLoveData: {},
     isLoaded: false,
     isDisposed: false,
-    chartData: [],
+    chartData: [5, 5, 5, 5, 5],
     userInfo: {}, 
   },
 
@@ -105,11 +105,11 @@ Page({
     Api.getPastLove().then((result) => {
       let pastLoveData = result.data;
       let chartData = [];
-      chartData.push(pastLoveData.considerStandard);
-      chartData.push(pastLoveData.hsexualStandard);
-      chartData.push(pastLoveData.gentleStandard);
-      chartData.push(pastLoveData.hworkStandard);
-      chartData.push(pastLoveData.quarrelStandard);
+      chartData.push(pastLoveData.considerStandard ? pastLoveData.considerStandard : 5);
+      chartData.push(pastLoveData.hsexualStandard ? pastLoveData.hsexualStandard : 5);
+      chartData.push(pastLoveData.gentleStandard ? pastLoveData.gentleStandard : 5);
+      chartData.push(pastLoveData.hworkStandard ? pastLoveData.hworkStandard : 5);
+      chartData.push(pastLoveData.quarrelStandard ? pastLoveData.quarrelStandard : 5);
       this.init(chartData);   // 图表
       this.setData({
         pastLoveData,

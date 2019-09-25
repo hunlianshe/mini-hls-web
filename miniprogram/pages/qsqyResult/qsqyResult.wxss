@@ -35,7 +35,7 @@
 }
 
 .qsqyResult .chart-container {
-  height: 300rpx;
+  height: 380rpx;
   /* margin-top: 20rpx;
   margin-left: 80rpx; */
   padding-top: 500rpx;

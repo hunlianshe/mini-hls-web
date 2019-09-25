@@ -22,7 +22,7 @@ style="background-image: url('../../public/image/matching.jpg');background-repea
       <view>
         线下门门店有更多红娘提供更贴心的服务
       </view>
-      <view>门店地址：xxxxxx</view>
+      <!-- <view>门店地址：xxxxxx</view> -->
     </view>
   </view>
 </view>
