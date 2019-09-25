@@ -65,7 +65,10 @@ Page({
         dataList = dataList.concat(result.data);
         dataList.map(data => { if (data.age && !data.age.toString().includes('岁') ) { data.age = data.age + "岁"}})
         dataList.map(item => { 
-           item.intro  = [];
+          if (item.photos && item.photos.length === 0) {
+            item.photos.push('https://zukuan.oss-cn-shanghai.aliyuncs.com/tim/matchmaker.jpg');
+          }
+          item.intro  = [];
           if (item.age){
             item.intro.push(item.age)
           }
