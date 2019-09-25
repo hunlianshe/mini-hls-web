@@ -105,11 +105,11 @@ Page({
     Api.getPastLove().then((result) => {
       let pastLoveData = result.data;
       let chartData = [];
-      chartData.push(pastLoveData.considerStandard || 5);
-      chartData.push(pastLoveData.hsexualStandard || 5);
-      chartData.push(pastLoveData.gentleStandard || 5);
-      chartData.push(pastLoveData.hworkStandard || 5);
-      chartData.push(pastLoveData.quarrelStandard || 5);
+      chartData.push(pastLoveData.considerStandard ? pastLoveData.considerStandard : 5);
+      chartData.push(pastLoveData.hsexualStandard ? pastLoveData.hsexualStandard : 5);
+      chartData.push(pastLoveData.gentleStandard ? pastLoveData.gentleStandard : 5);
+      chartData.push(pastLoveData.hworkStandard ? pastLoveData.hworkStandard : 5);
+      chartData.push(pastLoveData.quarrelStandard ? pastLoveData.quarrelStandard : 5);
       this.init(chartData);   // 图表
       this.setData({
         pastLoveData,
