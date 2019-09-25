@@ -62,9 +62,8 @@ Page({
     Api.getUserList(params).then((result: any) => {
       if (result.code === 200) {
         let dataList = this.data.userList;
-        dataList = dataList.concat(result.data);
-        dataList.map(data => { if (data.age) { data.age = data.age + "岁" } })
-        dataList.map(item => { 
+        result.data.map(data => { if (data.age) { data.age = data.age + "岁" } })
+        result.data.map(item => { 
            item.intro  = [];
           if (item.age){
             item.intro.push(item.age)
@@ -80,7 +79,7 @@ Page({
           }
           item.intro = item.intro.join(' | ')
         })
-
+        dataList = dataList.concat(result.data);
         this.setData!({
           userList: dataList,
         });
