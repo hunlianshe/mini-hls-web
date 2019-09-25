@@ -16,7 +16,7 @@ Page({
     });
   },
   phoneCall() {
-    const phone = '18883381**9'
+    const phone = '18057313715'
     wx.makePhoneCall({
       phoneNumber: phone,
     })
