@@ -14,7 +14,7 @@ style="background-image: url('../../public/image/matching.jpg');background-repea
       </view>
       <view class="contract-info" wx:else>
         <view>扫二维码添加红娘微信</view>
-        <image src="../../public/image/xzpd.png" mode="aspectFit" />
+        <image src="../../public/image/xzpd.jpg" mode="aspectFit" />
       </view>
       
     </view>
