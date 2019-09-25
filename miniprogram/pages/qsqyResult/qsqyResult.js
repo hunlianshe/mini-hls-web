@@ -57,7 +57,7 @@ Page({
     pastLoveData: {},
     isLoaded: false,
     isDisposed: false,
-    chartData: [],
+    chartData: [5, 5, 5, 5, 5],
     userInfo: {}, 
   },
 
@@ -105,11 +105,11 @@ Page({
     Api.getPastLove().then((result) => {
       let pastLoveData = result.data;
       let chartData = [];
-      chartData.push(pastLoveData.considerStandard);
-      chartData.push(pastLoveData.hsexualStandard);
-      chartData.push(pastLoveData.gentleStandard);
-      chartData.push(pastLoveData.hworkStandard);
-      chartData.push(pastLoveData.quarrelStandard);
+      chartData.push(pastLoveData.considerStandard || 5);
+      chartData.push(pastLoveData.hsexualStandard || 5);
+      chartData.push(pastLoveData.gentleStandard || 5);
+      chartData.push(pastLoveData.hworkStandard || 5);
+      chartData.push(pastLoveData.quarrelStandard || 5);
       this.init(chartData);   // 图表
       this.setData({
         pastLoveData,
