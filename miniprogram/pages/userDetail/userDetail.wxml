@@ -9,6 +9,11 @@
         <image  wx:if="{{userInfo.gender == '1'}}" src="../../public/image/male01.png" />
         <image wx:if="{{userInfo.gender == '2'}}" src="../../public/image/female01.png" />
       </view>
+      <block wx:if="{{userInfo.weChatId}}">
+        <view class="small" style="padding-bottom: 5px;">
+          微信号：{{userInfo.weChatId}}
+        </view>
+      </block>
       <view class="small">
           {{userInfo.intro}}
       </view>

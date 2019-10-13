@@ -8,6 +8,12 @@
       </view>
 
       <view class='info-cell display-flex'>
+        <text>微信号</text>
+        <input type="digit" class="align-right" name="weChatId" value="{{weChatId}}"
+          maxlength="7" placeholder="请填写微信号" placeholder-class="placeholder"/>
+      </view>
+
+      <view class='info-cell display-flex'>
         <text>性别</text>
         <view class="{{ gender ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
           <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{genderArray}}">

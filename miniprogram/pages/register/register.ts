@@ -9,9 +9,10 @@ Page({
   data: {
     userInfo: { openid: '' },
     nickName: '',
+    weChatId: '', // 微信号
     gender: '', 
-    birth: '',            // 生日
-    height: '',           // 身高
+    birth: '',    // 生日
+    height: '',   // 身高
     salary: '', 
     region: [],
     workCity: '',
@@ -68,6 +69,7 @@ Page({
         this.setData!({
           userInfo: result.data,
           nickName: result.data.nickName,
+          weChatId: result.data.weChatId,
           gender: result.data.gender,
           birth: result.data.birth?this.getYMD(result.data.birth):'',        // 生日
           height: result.data.height,                   // 身高
@@ -104,6 +106,7 @@ Page({
     const value = e.detail.value;
 
     if (!utils.validateEmpty(value.nickName, '请输入昵称') ||
+      (!utils.validateEmpty(value.weChatId, '请输入微信号') ||
       !utils.validateEmpty(value.gender, '请选择性别') ||
       !utils.validateEmpty(value.birth, '请选择生日') ||
       !utils.validateEmpty(value.height, '请输入身高') ||
