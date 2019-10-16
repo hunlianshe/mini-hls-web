@@ -117,7 +117,7 @@ Page({
       !utils.validateEmpty(this.data.hasChild, '请选择是否有孩子') ||
       !utils.validateEmpty(this.data.wantChild, '请选择是否想要孩子') ||
       // !utils.validateEmpty(this.data.jobGeneral, '请选择职业') ||
-      !utils.validateEmpty(this.data.haveHouse, '请选择买房情况')) {
+      !utils.validateEmpty(this.data.haveHouse, '请选择买房情况'))) {
 
       return false;
     }
