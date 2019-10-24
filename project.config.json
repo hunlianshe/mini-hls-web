@@ -13,7 +13,7 @@
 		"beforeUpload": "npm run tsc"
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -29,7 +29,7 @@
 			"outputPath": ""
 		}
 	},
-	"appid": "wxd69c8ff630f18b95",
+	"appid": "wx962723a0268b268e",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {}
