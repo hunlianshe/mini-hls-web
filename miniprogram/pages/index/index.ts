@@ -41,19 +41,19 @@ Page({
           }, 1500);
         } else {
           _this.getOpenid();
-          if (app.globalData.userLocation) {
-            wx.showLoading({
-              title: '定位中',
-            })
-            wx.getLocation({
-              type: 'wgs84',
-              success(res) {
-                _this.getLocalCity(res.latitude, res.longitude);
-              }
-            })
-          } else {
-            _this.getWeChatCity();
-          }
+          // if (app.globalData.userLocation) {
+          //   wx.showLoading({
+          //     title: '定位中',
+          //   })
+          //   wx.getLocation({
+          //     type: 'wgs84',
+          //     success(res) {
+          //       _this.getLocalCity(res.latitude, res.longitude);
+          //     }
+          //   })
+          // } else {
+          //   _this.getWeChatCity();
+          // }
         }
       }
     })

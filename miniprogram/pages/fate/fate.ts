@@ -61,7 +61,7 @@ Page({
     const params = { objectId }
     Api.getUserList(params).then((result: any) => {
       if (result.code === 200) {
-        let dataList = this.data.userList;
+        let dataList = objectId ? this.data.userList : [];
         dataList = dataList.concat(result.data);
         dataList.map(data => { if (data.age && !data.age.toString().includes('岁') ) { data.age = data.age + "岁"}})
         dataList.map(item => { 
@@ -112,11 +112,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // const { pageLoaded } = this.data;
-    // if (pageLoaded) {
-    //   this.getuserList({}, '0');
-    // }
-    this.getUserList('');
+    const { pageLoaded } = this.data;
+    if (pageLoaded) {
+      this.getUserList('');
+    }
   },
 
   /**
