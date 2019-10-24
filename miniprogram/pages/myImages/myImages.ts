@@ -158,6 +158,12 @@ Page({
     console.log('images', images)
     Api.updateUser({ openid: user.openid, photos: images}).then((result) => {
       console.log("result",result)
+      wx.showToast({
+        title: '保存成功',
+        icon: 'success',
+        duration: 1000,
+        mask: true
+      })
     })
   },
 

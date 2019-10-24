@@ -47,7 +47,12 @@
         </block>
         <block wx:if="{{userInfo.haveHouse}}">
           <view class="block">
-           是否买房: {{userInfo.haveHouse}}
+           是否买房：{{userInfo.haveHouse}}
+          </view>
+        </block>
+        <block wx:if="{{userInfo.salary}}">
+          <view class="block">
+           收入：{{userInfo.salary}}
           </view>
         </block>
       </view>

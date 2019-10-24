@@ -116,6 +116,7 @@ Page({
     // if (pageLoaded) {
     //   this.getuserList({}, '0');
     // }
+    this.getUserList('');
   },
 
   /**
