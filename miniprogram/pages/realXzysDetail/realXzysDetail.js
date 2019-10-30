@@ -129,7 +129,7 @@ Page({
         chartData.push(fortuneData.work.replace(/%/, ""));
         this.init(chartData); // 图表
       } else {
-        fortuneData.month = fortuneData.month.replace(/0/, "");
+        // fortuneData.month = fortuneData.month.replace(/0/, "");
       }
       fortuneData.summary = fortuneData.summary || result.data.love
       this.setData({

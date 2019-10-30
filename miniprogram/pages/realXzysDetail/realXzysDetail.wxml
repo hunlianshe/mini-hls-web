@@ -50,10 +50,10 @@
         <view>
           {{fortuneData.love}}        
         </view>
-        <view class="category">健康</view>
+        <!--view class="category">健康</view>
         <view>
           {{fortuneData.health}}        
-        </view>
+        </view-->
         <view class="category">财运</view>
         <view>
           {{fortuneData.money}}        
