@@ -4,10 +4,10 @@
   <view class="cover-page">
     <view class='text'>
       <view style="margin-left: 200rpx;">
-        <text>开启你的缘分</text>
+        <text>有趣好玩</text>
       </view> 
-      <view style="margin-left: 400rpx;margin-top: 40rpx;">
-        <text>找到你的幸福</text>
+      <view style="margin-left: 300rpx;margin-top: 40rpx;">
+        <text>严肃真实婚恋平台</text>
       </view> 
       <view style="text-align: center; margin-top: 40rpx;">
         <image mode="widthFix" src='../../public/image/hearts.png' />
