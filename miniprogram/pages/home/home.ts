@@ -145,6 +145,7 @@ Page({
             _this.getPsyList();
         },
     });
+    _this.getPsyList();
   },
 
   /**
