@@ -18,7 +18,8 @@
         <button>即将开启缘分</button>
       </block>
       <block wx:else>
-        <button open-type="getUserInfo" bindgetuserinfo="getUser">开启缘分</button>
+        <!-- <button open-type="getUserInfo" bindgetuserinfo="getUser">开启缘分</button> -->
+        <button bindtap="navigateToHome">开启缘分</button>
       </block>
     </view>
   </view>

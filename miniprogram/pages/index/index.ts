@@ -177,6 +177,12 @@ Page({
     });
   },
 
+  navigateToHome() {
+    wx.switchTab({
+      url: `../home/home`,
+    });
+  },
+
   onReady: function () {
   },
 })

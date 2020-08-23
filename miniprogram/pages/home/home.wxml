@@ -3,7 +3,7 @@
     <image src="../../public/image/home-ad.jpg" />
     <view class="intro">
       <view style="width: 100%;">
-        <view style="font-size: 52rpx;">婚恋社</view>
+        <view style="font-size: 52rpx;">相悦姻缘坊</view>
         <view style="text-align: center;font-size: 42rpx;">认真又好玩的婚配网站</view>
       </view>
     </view>
