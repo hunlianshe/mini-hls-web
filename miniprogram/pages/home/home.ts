@@ -131,9 +131,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (this.data.pageLoaded === true) {
-      this.getUserInfo();
-    }
+    // if (this.data.pageLoaded === true) {
+    //   this.getUserInfo();
+    // }
+    const _this = this;
+    wx.getStorage({
+        key: 'user',
+        success: function (res) {
+            _this.setData({
+                userInfo: res.data,
+            });
+            _this.getUserInfo();
+            _this.getPsyList();
+        },
+    });
   },
 
   /**

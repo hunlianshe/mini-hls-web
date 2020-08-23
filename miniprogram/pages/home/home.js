@@ -104,9 +104,20 @@ Page({
     onReady: function () {
     },
     onShow: function () {
-        if (this.data.pageLoaded === true) {
-            this.getUserInfo();
-        }
+        // if (this.data.pageLoaded === true) {
+        //     this.getUserInfo();
+        // }
+        const _this = this;
+        wx.getStorage({
+            key: 'user',
+            success: function (res) {
+                _this.setData({
+                    userInfo: res.data,
+                });
+                _this.getUserInfo();
+                _this.getPsyList();
+            },
+        });
     },
     onHide: function () {
     },

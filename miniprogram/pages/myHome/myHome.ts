@@ -126,10 +126,21 @@ Page({
   },
 
   onShow: function () {
-    const { pageLoaded } = this.data;
-    if (pageLoaded) {
-      this.getUserInfo();
-    }
+    // const { pageLoaded } = this.data;
+    // if (pageLoaded) {
+    //   this.getUserInfo();
+    // }
+    let _this = this;
+    wx.getStorage({
+        key: 'user',
+        success: function (res) {
+            _this.setData({
+                user: res.data
+            });
+        },
+    });
+    this.getUserInfo();
+    this.getUsersLikeCount();
   },
 
   onHide: function () {
