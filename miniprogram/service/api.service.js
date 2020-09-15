@@ -22,7 +22,7 @@ const getUsersListLikes = (data) => httpServer_1.default.post({ url: `/users/lis
 exports.getUsersListLikes = getUsersListLikes;
 const getUserList = (data) => httpServer_1.default.post({ url: `/users/listUsers`, data, });
 exports.getUserList = getUserList;
-const getPsyList = () => httpServer_1.default.get({ url: `/psychological-test/list` });
+const getPsyList = () => httpServer_1.default.get({ url: `/psychological-test/plist` });
 exports.getPsyList = getPsyList;
 const getPsyTest = (id) => httpServer_1.default.get({ url: `/psychological-test/${id}` });
 exports.getPsyTest = getPsyTest;

@@ -1,11 +1,12 @@
 <view class="loadingPage">
   <view class="cover-page">
-    <view class='begin'>
+    <view class="begin">
       <block wx:if="{{hasStorage}}">
-        <button>即将进入VR试衣</button>
+        <button>即将进入相悦姻缘坊</button>
       </block>
       <block wx:else>
         <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUser">微信用户授权登录</button>
+        <button type="" class="cancel-btn" bindtap="navigateToHome">取消</button>
       </block>
     </view>
     <view class="tips">

@@ -24,9 +24,7 @@
 }
 
 .loadingPage .begin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 45%;
 }
 
 .loadingPage image {
@@ -37,12 +35,15 @@
 .loadingPage button { 
    line-height: 80rpx;
    font-size: 32rpx;
-   margin-top: 45%;
    width: 80%;
 }
 
 .loadingPage button::after{ 
   border: none; 
+}
+
+.loadingPage .cancel-btn {
+  margin-top:20px;
 }
 
 .loadingPage .tips {

@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var host = "14592619.qcloud.la";
 var hostUrl = "https://www.scrumplanning.cn/prohls";
+// var hostUrl = "http://localhost:8009"
+
 let ak = 'xsiYQN0VwrBHvxmf42BGdxFiTQgqBC4w';
 var fileHost = "https://test-buycarshop.oss-cn-beijing.aliyuncs.com";
 var config = {
