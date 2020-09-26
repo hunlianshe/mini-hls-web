@@ -65,7 +65,7 @@ const getUserList = (data: any) => httpServer.post({ url: `/users/listUsers`, da
 /**
  * 获取心里测试的题目列表
  */
-const getPsyList = () => httpServer.get({ url: `/psychological-test/list` });
+const getPsyList = () => httpServer.get({ url: `/psychological-test/plist` });
 
 /**
  * 获取心里测试的题目列表
