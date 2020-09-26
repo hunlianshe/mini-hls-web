@@ -9,7 +9,7 @@
       <view style="padding: 20rpx;">
         <view class="display-flex">
           <text class="flex-full">{{item.nickName}}</text>
-          <text class="label">{{item.constellation}}</text>
+          <block wx:if="{{item.constellation}}"><text class="label">{{item.constellation}}</text></block>
         </view>
         <view class="info">
           {{item.intro}}
