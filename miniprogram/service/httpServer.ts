@@ -5,7 +5,8 @@ import loading from './loading';
 const _handleResponse = (res: any, { resolve, reject }: any) => {
   if (res.code == 401) {
     wx.navigateTo({
-      url: '../index/index?auth=true',
+      // url: '../index/index?auth=true',
+      url: '../login/login',
     })
     return
   }
