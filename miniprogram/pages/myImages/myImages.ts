@@ -149,7 +149,7 @@ Page({
   },
 
   updateUserImage(images:Array<any>) {
-    Api.updateUser({ openid: user.openid, photos: images}).then((result) => {
+    Api.updateUser({ openid: user.openid, photos: images}).then(() => {
       wx.showToast({
         title: '保存成功',
         icon: 'success',
