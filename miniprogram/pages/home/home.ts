@@ -105,7 +105,6 @@ Page({
       if (result) {
         const userInfo = result.data;
         app.globalData.userInfo = result.data;
-        console.log('Object.assign({openid}, result.data)', Object.assign({openid}, result.data));
         wx.setStorage({
           key: 'userInfo',
           data: Object.assign({openid}, result.data),
@@ -138,7 +137,7 @@ Page({
     wx.getStorage({
         key: 'user',
         success: function (res) {
-            _this.setData({
+            _this.setData!({
                 userInfo: res.data,
             });
             _this.getUserInfo();

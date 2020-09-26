@@ -29,7 +29,7 @@
       <view class='info-cell display-flex'>
         <text>生日</text>
         <view class="{{ birth ? 'flex-full align-right' : 'flex-full align-right placeholder'}}">
-          <picker mode="date" value="{{birth}}" start="1980-01-01" 
+          <picker mode="date" value="{{birth}}" start="1900-01-01" 
                   end="{{dateNow}}" bindchange="bindBirthChange">
             <view class="picker">
               {{birth ? birth : '请选择'}}

@@ -57,12 +57,9 @@ Page({
     wx.getStorage({
       key: 'user',
       success: function (res) {
-        console.log('res', res)
         Api.getUserInfo(res.data.openid).then((result: any) => {
-          console.log('1212', result)
           if (result) {
             user = result.data
-            console.log(' result', result.data.photos)
             self.setData!({
               oldImages: result.data.photos,
             });
@@ -95,12 +92,10 @@ Page({
     let indexImage = this.data.indexImage;
     let uploadIndexPath = this.data.uploadIndexPath;
     if (uploadIndexPath !== '') {
-      console.log('are you ok...')
       uploadImage({
         filePath: indexImage,
         dir: `images/shop/${openid}/` + indexImage.replace('http://tmp/', ''),
         success: function (res: any) {
-          console.log('indexImage', indexImage)
           indexImage = `${aliyunServerURL}/${res}`;
           that.uploadAndSubmit();
         },
@@ -132,7 +127,6 @@ Page({
           success: function (res: any) {
             count++;
             images.push(`${aliyunServerURL}/${res}`);
-            console.log("images", images);
             wx.hideLoading();
             
             if (count === uploadImgs.length) {
@@ -155,7 +149,6 @@ Page({
   },
 
   updateUserImage(images:Array<any>) {
-    console.log('images', images)
     Api.updateUser({ openid: user.openid, photos: images}).then((result) => {
       console.log("result",result)
       wx.showToast({

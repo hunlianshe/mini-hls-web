@@ -53,7 +53,6 @@ Page({
     jobJson.data[0].data.forEach((item: any) => {
       multiArray[1].push(item.name);
     });
-    console.log(multiArray);
     this.setData!({
       multiArray,
       dateNow: this.getYMD(new Date())
@@ -85,7 +84,6 @@ Page({
           jobDetail: result.data.jobDetail,
           haveHouse: result.data.haveHouse,
         });
-        console.log('data', this.data);
       }
     })
   },
@@ -128,7 +126,6 @@ Page({
   /** update */
   doSubmit(e: any) {
     const params = e.detail.value;
-    console.log(e.detail.value);
     const { userInfo } = this.data;
     const dataParams = {
       workProvince: this.data.workProvince,
@@ -140,7 +137,6 @@ Page({
     this.setData!({
       submitDisable: true
     });
-    console.log(Object.assign(userInfo, params, dataParams));
     Api.updateUser(Object.assign(userInfo, params, dataParams)).then((result: any) => {
       wx.hideLoading(); 
       this.setData!({
@@ -210,11 +206,9 @@ Page({
 
   /** 性别 */
   bindGenderChange(e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       gender: parseInt(e.detail.value) + 1
     });
-    console.log('parseInt(e.detail.value)', (parseInt(e.detail.value) + 1))
   },
 
   /** 月收入 */
@@ -227,7 +221,6 @@ Page({
 
   /** 工作地区 */
   bindRegionChange: function (e:any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     let region = e.detail.value;
     this.setData!({
       region,
@@ -238,7 +231,6 @@ Page({
   },
 
   bindMultiPickerChange: function (e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value);
     const { multiArray } = this.data;
     let multiIndex = e.detail.value;
     this.setData!({
@@ -249,12 +241,10 @@ Page({
   },
 
   bindMultiPickerColumnChange: function (e: any) {
-    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
     const { multiArray, multiIndex } = this.data;
     multiIndex[e.detail.column] = e.detail.value;
     if (e.detail.column === 0) {
       multiArray[1] = [];
-      console.log(jobJson.data[multiIndex[0] || 0].data);
       jobJson.data[multiIndex[0] || 0].data.forEach((item: any) => {
         multiArray[1].push(item.name);
       });
@@ -265,7 +255,6 @@ Page({
     });
   },
   bindDateChange: function (e:any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       date: e.detail.value
     })
