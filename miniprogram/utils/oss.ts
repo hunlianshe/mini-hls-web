@@ -7,7 +7,6 @@ import * as utils from '../utils/utils';
 // require('./sha1.js');
 import Crypto from './crypto';
 
-console.log(env);
 const uploadFile = function (params:any) {
   if (!params.filePath || params.filePath.length < 9) {
     wx.showModal({
@@ -17,7 +16,6 @@ const uploadFile = function (params:any) {
     })
     return;
   }
-  console.log("params.filePath", params.filePath)
   const aliyunFileKey = params.dir;
   const aliyunServerURL = env.uploadImageUrl;
   const accessid = env.OSSAccessKeyId;
@@ -37,8 +35,6 @@ const uploadFile = function (params:any) {
       'success_action_status': '200',
     },
     success: function (res) {
-      console.log('uploadFile params', params);
-      console.log('uploadFile sucess', res);
       if (res.statusCode != 200) {
         if (params.fail) {
           params.fail(res)
@@ -46,12 +42,10 @@ const uploadFile = function (params:any) {
         return;
       }
       if (params.success) {
-        console.log('are you coming...')
         params.success(aliyunFileKey);
       }
     },
     fail: function (err: any) {
-      console.log('uploadFile file', err);
       utils.showModal();
       err.wxaddinfo = aliyunServerURL;
       if (params.fail) {
@@ -78,7 +72,6 @@ const getPolicyBase64 = function () {
 
 const getSignature = function (policyBase64:any) {
   const accesskey = env.AccessKeySecret;
-  console.log('Crypto.SHA1', Crypto.SHA1)
   const bytes = Crypto.HMAC(Crypto.SHA1, policyBase64, accesskey, {
     asBytes: true
   });

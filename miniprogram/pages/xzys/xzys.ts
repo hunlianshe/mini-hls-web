@@ -13,7 +13,6 @@ Page({
 
   /** 星座运势 */
   goXzysDetail(e:any) {
-    console.log('goXzysDetail e', e)
     let fortuneName = e.currentTarget.dataset.fortunename;
     wx.navigateTo({
       url: `../xzysDetail/xzysDetail?fortuneName=${fortuneName}`,

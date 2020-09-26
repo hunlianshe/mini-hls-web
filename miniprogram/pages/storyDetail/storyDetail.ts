@@ -11,7 +11,6 @@ Page({
   },
 
   onLoad: function (options: any) {
-    console.log(options);
     this.setData!({
       fortuneName: options.fortuneName,
     })
@@ -19,7 +18,6 @@ Page({
   },
 
   otherPick: function (e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       fortuneName: xzList.data[e.detail.value].ch,
       fortuneNameEn: xzList.data[e.detail.value].en,

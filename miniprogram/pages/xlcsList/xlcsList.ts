@@ -15,7 +15,6 @@ Page({
       id,
       type,
     } = e.currentTarget.dataset;
-    console.log('type...', type)
     if (type === '3') {
       wx.navigateTo({
         url: `../qsqy/qsqy?id=${id}`,

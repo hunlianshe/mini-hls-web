@@ -32,7 +32,6 @@ function error(content: any) {
     try {
       content = JSON.stringify(content)
     } catch (e) {
-      console.log(e)
       content = typeof (content)
     }
   }

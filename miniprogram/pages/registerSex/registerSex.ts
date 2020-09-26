@@ -18,10 +18,6 @@ Page({
   },
 
   goHome(): void {
-    console.log('goHome');
-    // wx.switchTab({
-    //   url: '../home/home'
-    // })
     wx.navigateTo({
       url: '../home/home'
     })
@@ -65,7 +61,6 @@ Page({
    * （未授权）手动唤起授权
    */
   getUserInfo(e: any) {
-    console.log('getUserInfo:', e);
     app.globalData.userInfo = e.detail.userInfo
     this.setData!({
       userInfo: e.detail.userInfo,
@@ -86,7 +81,6 @@ Page({
   },
 
   next(): void {
-    console.log('next');
     wx.navigateTo({
       url: '../registerXz/registerXz',
     })

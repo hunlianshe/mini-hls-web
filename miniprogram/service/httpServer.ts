@@ -20,7 +20,6 @@ const _request = (...argus: any[]) => {
   let user: User;
   try {
     user = wx.getStorageSync('user');
-    console.log('user', user)
     const header_pre = {
       'authorization': 'Bearer ' + user.token,
       'content-type': 'application/json'
