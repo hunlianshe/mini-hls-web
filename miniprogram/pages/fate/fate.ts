@@ -92,7 +92,8 @@ Page({
     })
   },
 
-  goMatch() {
+  goMatch(e: any) {
+    e.stopPropagation();
     let userInfo = app.globalData.userInfo;
     if (userInfo && userInfo.phone) {
       wx.navigateTo({
