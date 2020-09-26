@@ -37,8 +37,6 @@ Page({
       questionList,
       answerList,
     } = this.data;
-    console.log(questionList[questionIndex]);
-    console.log(questionList[questionIndex].answerOptions[index]);
     questionList[questionIndex].answerOptions[index].isSelect = true;
     answerList.push({
       question: questionList[questionIndex].question, // 题目
