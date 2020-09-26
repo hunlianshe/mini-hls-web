@@ -25,7 +25,6 @@ Page({
   },
 
   select(e: any) {
-    console.log(e);
     const { constellation } = e.currentTarget.dataset;
     this.setData!({
       constellation,
@@ -33,12 +32,10 @@ Page({
   },
 
   updateUser() {
-    console.log('--->', this.data.constellation);
     Api.updateUser({
       openid: app.globalData.userInfo.openid,
       constellation: this.data.constellation
     }).then((result: any) => {
-      console.log('esult.code', result.code)
       if (result.code === 200) {
         if (this.data.scene === 'home') {
           wx.switchTab({

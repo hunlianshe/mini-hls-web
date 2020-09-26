@@ -50,7 +50,6 @@ Page({
   },
 
   next(): void {
-    console.log('next');
     wx.navigateTo({
       url: '../registerPhone/registerPhone',
     })

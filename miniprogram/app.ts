@@ -11,7 +11,6 @@ export interface IMyApp {
 App<IMyApp>({
   /** onLaunch 小程序初始化完成时触发，全局只触发一次 */
   onLaunch() {
-    console.log('onLaunch')
     // 展示本地存储能力
     var logs: number[] = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -33,7 +32,6 @@ App<IMyApp>({
     // 获取用户信息
     wx.getSetting({
       success: (res) => {
-        console.log('getSetting: ', res)
         if (res.authSetting['scope.userInfo']) {
           // 【已经授权】，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           // 返回结果不知道在index页面加载完成之前还是之后完成

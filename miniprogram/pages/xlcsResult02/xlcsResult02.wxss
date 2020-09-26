@@ -48,8 +48,8 @@
 }
 
 .xlcsResult .code image {
-  width: 80rpx;
-  height: 80rpx;
+  width: 140rpx;
+  height: 140rpx;
   padding-right: 20rpx;
 }
 

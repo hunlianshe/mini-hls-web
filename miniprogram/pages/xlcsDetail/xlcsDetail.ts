@@ -37,14 +37,11 @@ Page({
       questionList,
       answerList,
     } = this.data;
-    console.log(questionList[questionIndex]);
-    console.log(questionList[questionIndex].answerOptions[index]);
     questionList[questionIndex].answerOptions[index].isSelect = true;
     answerList.push({
       question: questionList[questionIndex].question, // 题目
       answer: option,  // 答案
     });
-    console.log(answerList);
     if ((questionIndex + 1) === questionList.length) { // last question
       const id = this.data.psyTest._id;  // 题目id
       const params = {
@@ -66,7 +63,6 @@ Page({
           }
         })
       } else {
-        console.log('非猫狗测试');
         wx.navigateTo({
           url: '../xlcsResult/xlcsResult',
         })

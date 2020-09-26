@@ -13,14 +13,12 @@ Page({
   },
 
   myPick: function (e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       myFortuneName: xzList.data[e.detail.value].ch,
     });
   },
 
   otherPick: function (e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       otherFortuneName: xzList.data[e.detail.value].ch,
     });

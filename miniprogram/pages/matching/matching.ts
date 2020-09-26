@@ -38,7 +38,6 @@ Page({
       const windowWidth = wx.getSystemInfoSync().windowWidth
       let left = 80 + Math.random() * (windowWidth - 160);
       let width = 60 + Math.random() * 40;
-      console.log('left', left);
       headList.push({
         'src': '../../public/image/xzpd.png',
         'left': left.toString(),

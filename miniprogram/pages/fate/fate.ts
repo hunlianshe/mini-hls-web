@@ -66,7 +66,8 @@ Page({
         dataList.map(data => { if (data.age && !data.age.toString().includes('岁') ) { data.age = data.age + "岁"}})
         dataList.map(item => { 
           if (item.photos && item.photos.length === 0) {
-            item.photos.push('https://zukuan.oss-cn-shanghai.aliyuncs.com/tim/matchmaker.jpg');
+            item.photos.push(item.avatarUrl);
+            // item.photos.push('https://zukuan.oss-cn-shanghai.aliyuncs.com/tim/matchmaker.jpg');
           }
           item.intro  = [];
           if (item.age){
@@ -92,7 +93,8 @@ Page({
     })
   },
 
-  goMatch() {
+  goMatch(e: any) {
+    e.stopPropagation();
     let userInfo = app.globalData.userInfo;
     if (userInfo && userInfo.phone) {
       wx.navigateTo({

@@ -134,7 +134,7 @@ Page({
     wx.getStorage({
         key: 'user',
         success: function (res) {
-            _this.setData({
+            _this.setData!({
                 user: res.data
             });
         },

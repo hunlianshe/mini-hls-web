@@ -42,7 +42,6 @@ Page({
         let smsTime = 59;
         const smsInterval = setInterval(() => {
           if (smsTime === 0) {
-            console.log('smsTime', smsTime);
             this.setData!({
               smsDisable: false,
             })
@@ -65,10 +64,6 @@ Page({
   },
 
   goHome(): void {
-    console.log('goHome');
-    // wx.switchTab({
-    //   url: '../home/home'
-    // })
     wx.navigateTo({
       url: '../home/home'
     })
@@ -78,7 +73,6 @@ Page({
    * （未授权）手动唤起授权
    */
   getUserInfo(e: any) {
-    console.log('getUserInfo:', e);
     app.globalData.userInfo = e.detail.userInfo
     this.setData!({
       userInfo: e.detail.userInfo,
@@ -131,7 +125,6 @@ Page({
   },
 
   formReset(): void {
-    console.log('form发生了reset事件')
   }
   
 })

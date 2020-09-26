@@ -16,7 +16,6 @@ Page({
         _this.setData!({
           catDogResult: res.data
         })
-        console.log('res.data', res.data)
       },
       fail: function () {
         console.log('res.data', 'fail')

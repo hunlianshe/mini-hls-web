@@ -28,14 +28,12 @@ Page({
   },
 
   myPick: function (e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       me: xzList.data[e.detail.value].ch,
     });
   },
 
   otherPick: function (e: any) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData!({
       he: xzList.data[e.detail.value].ch,
     });
@@ -48,7 +46,6 @@ Page({
     Api.getConstellationMmatchingDetail(me, he).then((result: any) => {
       let fortuneData = result.data;
       let gradeData = fortuneData.grade.match(/\★{1,5}/g);
-      console.log(gradeData);
       this.setData!({
         fortuneData,
         gradeData,

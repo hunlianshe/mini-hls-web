@@ -45,14 +45,12 @@ Page({
   onLoad: function (options: any) {
     if(options.type === 'usercenter'){
       /** 获取用户信息 */
-      console.log('app',app.globalData)
       Api.getUserInfo(app.globalData.userInfo.openid).then((result: any) => {
         if (result) {
           this.setData!({
             title: "更新"
           });
           const userInfo = result.data;
-          console.log(' ageObject[userInfo.objectInfo.age]', ageObject[userInfo.objectInfo.age])
           if (userInfo.objectInfo && userInfo.objectInfo.age ){
             this.setData!({
               age: userInfo.objectInfo.age,
@@ -76,7 +74,6 @@ Page({
       });
 
     }
-    console.log(options);
   },
 
   jumpOver(): void {
@@ -116,8 +113,6 @@ Page({
       default:
         break;
     }
-    console.log('type:', type);
-    console.log('value:', value);
   },
 
   updateUser(): any {
@@ -127,7 +122,6 @@ Page({
       salary,
       title
     } = this.data;
-    console.log(this.data);
     if (!utils.validateEmpty(age, '请选择年龄标准') ||
       !utils.validateEmpty(height, '请选择身高标准') ||
       !utils.validateEmpty(salary, '请选择收入标准')) {
@@ -141,7 +135,6 @@ Page({
         salary,
       }
     }).then((result: any) => {
-      console.log('esult.code', result.code)
       if (result.code === 200 && title !=='更新') {
         wx.navigateTo({
           url: '../registerPhone/registerPhone',

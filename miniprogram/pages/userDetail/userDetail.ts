@@ -42,7 +42,6 @@ Page({
 
   /** 关注(收藏)接口 */
   putUsersLike() {
-    console.log('putUsersLike');
     const { openid } = this.data;
     Api.putUsersLike(openid).then((result: any) => {
       if (result.code == 200) {
