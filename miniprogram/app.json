@@ -1,4 +1,5 @@
 {
+  "entryPagePath": "pages/index/index",
   "pages": [
     "pages/index/index",
     "pages/qsqy/qsqy",
@@ -30,7 +31,8 @@
     "pages/fate/fate",
     "pages/xlcsList/xlcsList",
     "pages/xlcsDetail/xlcsDetail",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/chat/chat"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -56,6 +58,12 @@
         "selectedIconPath": "public/image/menu_2_active.png"
       },
       {
+        "pagePath": "pages/chat/chat",
+        "text": "消息",
+        "iconPath": "public/image/menu_2.png",
+        "selectedIconPath": "public/image/menu_2_active.png"
+      },
+      {
         "pagePath": "pages/myHome/myHome",
         "text": "我的",
         "iconPath": "public/image/menu_3.png",
@@ -66,7 +74,7 @@
   "usingComponents": {
     "mini-prograss": "/components/miniPrograss/miniPrograss",
     "page-container": "/components/pageContainer/pageContainer",
-    "icon": "/components/icon/icon",
+    "hls-icon": "/components/icon/icon",
     "footer": "/components/footer/footer",
     "noData": "/components/noData/noData",
     "wechatDialog": "/components/wechatDialog/wechatDialog"

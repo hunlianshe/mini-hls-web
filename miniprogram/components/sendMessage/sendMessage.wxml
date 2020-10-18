@@ -1,0 +1,5 @@
+<view class="sendMessage">
+  <input type="text" placeholder="" bindinput="inputTap" auto-focus />
+  <view style="margin: 0rpx 20rpx;"><hls-icon iconName="image" width="54rpx" height="54rpx" /></view>
+  <button type="default" size="mini" bindtap="sendTap">发送</button>
+</view>

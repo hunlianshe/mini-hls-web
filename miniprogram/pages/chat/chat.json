@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "user-info-card": "/components/userInfoCard/userInfoCard",
+    "send-message": "/components/sendMessage/sendMessage"
+  }
+}
