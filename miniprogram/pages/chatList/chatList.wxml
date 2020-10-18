@@ -11,7 +11,7 @@
         <view class="flex-full">
           <view class="display-flex">
             <view class="flex-full">{{item.lastMessage.fromName}}</view>
-            <view style="font-size: 22rpx; color: #9092A5;">2020年08月09日</view>
+            <view style="font-size: 22rpx; color: #9092A5;">{{item.date}}</view>
           </view>
           <view class="messge">{{item.lastMessage.msg}}</view>
         </view>
