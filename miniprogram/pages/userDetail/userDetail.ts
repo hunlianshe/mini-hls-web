@@ -53,9 +53,10 @@ Page({
     });
   },
 
-  matchMaker() {
+  /** 去聊天 */
+  goChat() {
     wx.navigateTo({
-      url: '../matchmaker/matchmaker',
+      url: `../chat/chat?openid=${this.data.openid}`,
     })
   },
 
