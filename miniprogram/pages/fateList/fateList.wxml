@@ -13,7 +13,7 @@
   </view>
 
   <block wx:if="{{listLikes.length > 0}}">
-    <view class="display-flex item-cell" wx:for="{{listLikes}}" bindtap="userDetail" data-openid="{{item.openid}}" wx:key="{{item.id}}">
+    <view class="item-cell" wx:for="{{listLikes}}" bindtap="userDetail" data-openid="{{item.openid}}" wx:key="{{item.id}}">
       <view class="head">
         <image src="{{item.avatarUrl}}" />
       </view>
