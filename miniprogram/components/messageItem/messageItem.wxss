@@ -18,5 +18,6 @@
   float: right;
   background: #FFF0F3;
   border: none;
+  border-bottom-left-radius: 8rpx;
   border-bottom-right-radius: 0rpx;
 }
