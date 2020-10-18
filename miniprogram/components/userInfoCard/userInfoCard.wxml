@@ -1,0 +1,11 @@
+<!--components/userInfoCard.wxml-->
+<view class="userInfoCard">
+  <view class="avatarUrl">
+    <image src="{{userInfo.avatarUrl}}" mode="aspectFit" />
+  </view>
+  <view style="padding: 0 20rpx; flex: 1;">
+    <view style="font-size: 36rpx; color: #030303;">刘祖宽</view>
+    <view style="font-size: 24rpx; color: #9092A5">24岁</view>
+  </view>
+  <view>>Icon</view>
+</view>

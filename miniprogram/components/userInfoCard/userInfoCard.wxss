@@ -1,0 +1,15 @@
+/* components/userInfoCard.wxss */
+.userInfoCard {
+  display: flex;
+  box-shadow: #00000050 0 4rpx 8rpx;
+  padding: 32rpx;
+  border-top-color: #efefef;
+  border-top-style: solid;
+  border-top-width: 2rpx;
+}
+.userInfoCard .avatarUrl image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
+
