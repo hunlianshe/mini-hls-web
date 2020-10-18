@@ -60,14 +60,14 @@
       {
         "pagePath": "pages/chat/chat",
         "text": "消息",
-        "iconPath": "public/image/menu_2.png",
-        "selectedIconPath": "public/image/menu_2_active.png"
+        "iconPath": "public/image/menu_3.png",
+        "selectedIconPath": "public/image/menu_3_active.png"
       },
       {
         "pagePath": "pages/myHome/myHome",
         "text": "我的",
-        "iconPath": "public/image/menu_3.png",
-        "selectedIconPath": "public/image/menu_3_active.png"
+        "iconPath": "public/image/menu_4.png",
+        "selectedIconPath": "public/image/menu_4_active.png"
       }
     ]
   },
