@@ -2,18 +2,21 @@
     <view class="recharge">
       <view class="top-cell">
         <hls-icon iconName="monryRecharge" width="100rpx" height="100rpx"/>
-        <view class="flex-full">
+        <view class="flex-full" style="padding-left: 32rpx;">
           <view style="font-size: 60rpx; color: #333333">{{totalMoney}}</view>
           <view>缘分币余额</view>
         </view>
       </view>
       <form bindsubmit="formSubmit" bindreset="formReset">
-        <view class="display-flex form-cell">
-          <input name="phone" bindinput="bindPhoneInput" placeholder="请输入充值金额" />
+        <view style="background: #fff;">
+          <text>充值金额</text>
+          <view class="display-flex form-cell">
+            <input name="phone" bindinput="bindPhoneInput" placeholder="请输入充值金额" />
+          </view>
+          <button style="margin-top: 90rpx;" class="common-btn" form-type="submit" disabled="{{submitDisable}}">
+            立即充值
+          </button>
         </view>
-        <button style="margin-top: 90rpx;" class="common-btn" form-type="submit" disabled="{{submitDisable}}">
-          立即充值
-        </button>
       </form>
     </view>
 </view>

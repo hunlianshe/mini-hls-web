@@ -16,10 +16,6 @@
   padding: 20rpx 60rpx;
 }
 
-.recharge form {
-  margin: 30rpx;
-}
-
 .recharge .form-cell {
   background: #fff;
   padding: 60rpx;
@@ -30,13 +26,14 @@
   border-bottom: 1px solid #dedede;
   width: 100%;
   padding-bottom: 10rpx;
+  font-size: 48rpx;
 }
 
 .recharge button {
   color: #ffffff;
   font-size: 32rpx;
   background: #FB5572;
-  border-radius: 32rpx;
+  border-radius: 64rpx;
   margin: 32rpx;
 }
 
