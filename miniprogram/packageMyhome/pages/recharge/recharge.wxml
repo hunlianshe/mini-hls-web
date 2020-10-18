@@ -8,15 +8,14 @@
         </view>
       </view>
       <form bindsubmit="formSubmit" bindreset="formReset">
-        <view style="background: #fff;">
-          <text>充值金额</text>
+          
           <view class="display-flex form-cell">
+          <text>充值金额</text>
             <input name="phone" bindinput="bindPhoneInput" placeholder="请输入充值金额" />
+            <button style="margin-top: 90rpx;" class="common-btn" form-type="submit" disabled="{{submitDisable}}">
+              立即充值
+            </button>
           </view>
-          <button style="margin-top: 90rpx;" class="common-btn" form-type="submit" disabled="{{submitDisable}}">
-            立即充值
-          </button>
-        </view>
       </form>
     </view>
 </view>
