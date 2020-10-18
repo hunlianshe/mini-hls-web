@@ -1,0 +1,45 @@
+
+.recharge {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #F8F9FA;
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.recharge .top-cell {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  background: #fff;
+  padding: 20rpx 60rpx;
+}
+
+.recharge form {
+  margin: 30rpx;
+}
+
+.recharge .form-cell {
+  background: #fff;
+  padding: 60rpx;
+  align-items: flex-end !important;
+}
+
+.recharge .form-cell input {
+  border-bottom: 1px solid #dedede;
+  width: 100%;
+  padding-bottom: 10rpx;
+}
+
+.recharge button {
+  color: #ffffff;
+  font-size: 32rpx;
+  background: #FB5572;
+  border-radius: 32rpx;
+  margin: 32rpx;
+}
+
+.recharge .form-cell button::after{ 
+  border: none; 
+}
