@@ -146,6 +146,14 @@ const createShop = (params: any) => httpServer.post({ url: `/shop/createShop`, d
  */
 const updateShop = (params: any) => httpServer.post({ url: `/shop/updateShop`, data: params });
 
+/**
+ * 获取聊天列表
+ * @param {}
+ */
+const getChatList = () => httpServer.get({url: `/group/list`});
+
+
+
 
 export {
   getOpenid,
@@ -174,6 +182,7 @@ export {
   updateShop,
   getUserDetail,
   getConstellationMmatchingDetailComplex,
+  getChatList,
   // register,
 }
 
