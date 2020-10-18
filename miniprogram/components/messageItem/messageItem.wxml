@@ -1,0 +1,9 @@
+<view class="messageItem">
+  <view class="avatarUrl">
+    <image src="{{userInfo.avatarUrl}}" mode="aspectFit" />
+  </view>
+  <view>
+    <view>{{messageItem.msg}}</view>
+    <view>07:32</view>
+  </view>
+</view>
