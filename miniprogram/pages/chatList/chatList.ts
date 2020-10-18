@@ -39,6 +39,13 @@ Page({
     })
   },
 
+  /** 红娘 */
+  goMatchmaker() {
+    wx.navigateTo({
+      url: `../matchmaker/matchmaker`,
+    })
+  },
+
   onReady: function () {
   },
 
