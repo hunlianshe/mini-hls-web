@@ -82,10 +82,10 @@ Page({
       submitDisable: true
     }); 
     const params = e.detail.value
-    if (!utils.validateEmpty(params.phone, '请输入手机号') ||
-      !utils.validateEmpty(params.code, '请输入验证码')) {
+    if (!utils.validateEmpty(params.money, '请输入充值金额')) {
       return false;
     }
+    // TODO
     Api.addPhone(params).then((result: any) => {
       this.setData!({
         submitDisable: true

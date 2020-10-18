@@ -25,9 +25,10 @@
 .recharge .form-cell input {
   border-bottom: 1px solid #dedede;
   width: 100%;
-  padding-bottom: 10rpx;
+  padding-bottom: 32rpx;
   font-size: 48rpx;
   color: #333;
+  font-weight: 600;
 }
 
 .recharge button {
