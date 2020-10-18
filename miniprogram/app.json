@@ -32,7 +32,8 @@
     "pages/xlcsList/xlcsList",
     "pages/xlcsDetail/xlcsDetail",
     "pages/login/login",
-    "pages/chat/chat"
+    "pages/chat/chat",
+    "pages/chatList/chatList"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -58,7 +59,7 @@
         "selectedIconPath": "public/image/menu_2_active.png"
       },
       {
-        "pagePath": "pages/chat/chat",
+        "pagePath": "pages/chatList/chatList",
         "text": "消息",
         "iconPath": "public/image/menu_3.png",
         "selectedIconPath": "public/image/menu_3_active.png"

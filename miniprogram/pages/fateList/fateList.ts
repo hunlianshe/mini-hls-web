@@ -13,8 +13,6 @@ Page({
     this.getUsersListLikes(this.data._active);
   },
 
-  
-
   onReady: function () {
   },
 
@@ -66,22 +64,20 @@ Page({
     wx.navigateTo({
       url: `../userDetail/userDetail?openid=${openid}`,
     })
-    // wx.navigateTo({
-    //   url: '../registerPhone/registerPhone',
-    // })
   },
 
+  /** 去聊天 */
+  goChat(e: any) {
+    const { openid } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `../chat/chat?openid=${openid}`,
+    })
+  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },

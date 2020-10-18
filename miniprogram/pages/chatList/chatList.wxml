@@ -1,0 +1,10 @@
+<view class="chatList">
+  <view>
+    <image src="{{matcherImage}}" mode="aspectFit" />
+  </view>
+  <view>
+    <view>
+      
+    </view>
+  </view>
+</view>

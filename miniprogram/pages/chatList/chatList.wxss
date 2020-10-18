@@ -1,0 +1,12 @@
+.chatList {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #F8F9FA;
+  color: #4A4A4A;
+}
+
+.chatList image {
+  width: 100%;
+  height: 120rpx;
+}

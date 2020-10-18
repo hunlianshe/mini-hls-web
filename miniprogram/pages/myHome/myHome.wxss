@@ -38,6 +38,11 @@
   padding-left: 20rpx;
 }
 
+.myHome .fate-text {
+  font-size: 24rpx;
+  color: #92949A;
+}
+
 .myHome .home-cell {
   margin-top: 20rpx;
   padding: 20rpx 30rpx;
@@ -63,8 +68,8 @@
 }
 
 .myHome .info-percent .number {
-  font-size: 32rpx;
-  color: #BD10E0;
+  font-size: 40rpx;
+  color: #262628;
   padding: 0 30rpx;
 }
 
