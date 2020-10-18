@@ -27,8 +27,7 @@ Page({
   },
 
   onLoad: function () {
-    //获取聊天列表
-    this.getChatList();
+    
   },
 
   /** 去聊天 */
@@ -50,6 +49,8 @@ Page({
   },
 
   onShow: function () {
+    //获取聊天列表
+    this.getChatList();
   },
 
   onHide: function () {

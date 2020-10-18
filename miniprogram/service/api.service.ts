@@ -168,6 +168,38 @@ const getChatMessageList = (sessionId: string, pageSize: number, prePage: number
 
 
 
+/**
+ * 获取会员的详细信息
+ * @param {}
+ */
+const vipListInfo = () => httpServer.get({url: `/orderPay/vipInfo`})
+
+/**
+ * 充值
+ * @param {}
+ */
+const rechargeMoney = (params: any) => httpServer.post({url: `/orderPay/recharge`, data: params});
+
+
+/**
+ * 使用缘分币购买vip
+ * @param {}
+ */
+const buyVipByCoin = (params: any) => httpServer.post({url: `/orderPay/buyVipByCoin`, data: params});
+
+/**
+ * 使用微信支付购买vip
+ * @param {}
+ */
+const buyVipByWechat = (params: any) => httpServer.post({url: `/orderPay/buyVipByWechat`, data: params});
+
+/**
+ * 检查订单状态
+ * @param {}
+ */
+const checkOrderStatus = (orderNum: string) => httpServer.get({url: `/orderPay/checkOrderStatus/${orderNum}`});
+
+
 export {
   getOpenid,
   register,
@@ -197,7 +229,12 @@ export {
   getConstellationMmatchingDetailComplex,
   getChatList,
   startChatSession,
-  getChatMessageList
+  getChatMessageList,
+  vipListInfo,
+  rechargeMoney,
+  buyVipByCoin,
+  buyVipByWechat,
+  checkOrderStatus,
   // register,
 }
 
