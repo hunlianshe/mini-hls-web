@@ -1,4 +1,4 @@
-<!--pages/chat.wxml-->
+
 <view>
   <user-info-card userInfo="{{userInfo}}" />
   <view style="padding: 32rpx;">
