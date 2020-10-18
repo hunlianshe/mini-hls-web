@@ -14,7 +14,7 @@
 .chatList .item-cell {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #efefef;
+  border-bottom: 1px solid #efefef;
   color: #030303;
   font-size: 32rpx;
   padding: 32rpx;

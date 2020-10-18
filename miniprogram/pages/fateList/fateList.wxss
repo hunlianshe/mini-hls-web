@@ -20,7 +20,7 @@
 .fateListpage .item-cell {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #efefef;
+  border-bottom: 1px solid #efefef;
   color: #7F8389;
   font-size: 28rpx;
   padding: 32rpx;

@@ -14,7 +14,7 @@
             <input name="money" 
               bindinput="bindPhoneInput" 
               placeholder="请输入充值金额" 
-              placeholder-style="color: #cccccc;"/>
+              placeholder-style="color: #cccccc;font-weight: 400;"/>
           </view>
           <button class="common-btn" form-type="submit" disabled="{{submitDisable}}">
             立即充值
