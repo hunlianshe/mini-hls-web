@@ -10,6 +10,7 @@ Page({
     meLike: 0,
     likeMe: 0,
     likeEachOther: 0,
+    openVipImage: '../../public/image/openVip.png',
   },
 
   onLoad: function () {
@@ -119,6 +120,11 @@ Page({
     wx.navigateTo({
       url: `../fateList/fateList?type=${type}`,
     })
+  },
+
+  /** 开动会员 */
+  openVip() {
+    console.log('openVip');
   },
 
   onReady: function () {

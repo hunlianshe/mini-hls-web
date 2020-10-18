@@ -27,37 +27,29 @@
       </view>
     </view>
 
-    <view class="info-percent">
-      <view class="display-flex">
-        <view>信息完成度</view>
-        <view class="number">
-          {{userInfo.finishRate}}%
-        </view>
-        <view class="flex-full">
-          <progress percent='{{userInfo.finishRate}}' activeColor="#E39BF0" border-radius="4" stroke-width="8" />      
-        </view>
-      </view>
+    <view class="vip-cell" bindtap="openVip">
+      <image src="{{openVipImage}}" mode="aspectFit" />
     </view>
 
-    <view style="padding: 0 30rpx; background:#ffffff;">
+    <view style="padding: 0 30rpx; background:#ffffff; border-radius: 8rpx;">
       <view class='display-flex home-cell-list' bindtap='myImages'>
-        <!--<icon iconName="car" width='40rpx' height='24rpx' />-->
+        <hls-icon iconName="photo" width='44rpx' height='44rpx' />
         <text class='small-text flex-full'>我的相册</text>
         <hls-icon iconName="arrowRight" width='16rpx' height='24rpx' />
       </view>
       <view class='display-flex home-cell-list' bindtap='register'>
-        <!--<icon iconName="shop" width='40rpx' height='40rpx' />-->
+        <hls-icon iconName="info" width='44rpx' height='44rpx' />
         <text class='small-text flex-full'>基本资料</text>
         <hls-icon iconName="arrowRight" width='16rpx' height='24rpx' />
       </view>
     
       <view class='display-flex home-cell-list' bindtap='goMatchStandard'>
-        <!--<icon iconName="qrcode" width='32rpx' height='32rpx' style="padding:4rpx;"/>-->
+        <hls-icon iconName="match" width='44rpx' height='44rpx'/>
         <text class='small-text flex-full'>择偶条件</text>
         <hls-icon iconName="arrowRight" width='16rpx' height='24rpx' />
       </view>
       <view class='display-flex home-cell-list' bindtap='goMatchmaker'>
-        <!--<icon iconName="qrcode" width='32rpx' height='32rpx' style="padding:4rpx;"/>-->
+        <hls-icon iconName="money" width='44rpx' height='44rpx'/>
         <text class='small-text flex-full'>红娘</text>
         <hls-icon iconName="arrowRight" width='16rpx' height='24rpx' />
       </view>
