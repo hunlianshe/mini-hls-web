@@ -106,10 +106,10 @@ Page({
     })
   },
 
-  /** 红娘 */
-  goMatchmaker(): any {
+  /** 充值 */
+  goRecharge(): any {
     wx.navigateTo({
-      url: `../matchmaker/matchmaker`,
+      url: `../../packageMyhome/pages/recharge/recharge`,
     })
   },
 

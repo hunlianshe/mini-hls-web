@@ -35,6 +35,14 @@
     "pages/chat/chat",
     "pages/chatList/chatList"
   ],
+  "subpackages": [
+    {
+      "root": "packageMyhome",
+      "pages": [
+        "pages/recharge/recharge"
+      ]
+    }
+  ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
