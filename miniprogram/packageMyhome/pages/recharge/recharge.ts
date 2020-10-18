@@ -13,6 +13,7 @@ Page({
     smsTime: 59,
     phone: '',
     submitDisable: false,
+    totalMoney: 0,
   },
   
   onLoad() {
