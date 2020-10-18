@@ -1,10 +1,26 @@
 <view class="chatList">
-  <view>
-    <image src="{{matcherImage}}" mode="aspectFit" />
-  </view>
-  <view>
-    <view>
-      
+  <view style="background: #fff;">
+    <view style="padding-top: 32rpx;">
+      <image src="{{matcherImage}}" mode="aspectFit" />
     </view>
+    <block wx:if="{{userList.length > 0}}">
+      <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-openid="{{item.openid}}" wx:key="{{item.id}}">
+        <view class="head">
+          <image src="{{item.avatarUrl}}" />
+        </view>
+        <view class="flex-full">
+          <view class="display-flex">
+            <view class="flex-full">{{item.nickName}}</view>
+            <view style="font-size: 22rpx; color: #9092A5;">2020年08月09日</view>
+          </view>
+          <view class="messge">这里是最后一条消息</view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+    <view class="no-data">
+      你还没开始聊天哦～
+    </view>
+  </block>
   </view>
 </view>

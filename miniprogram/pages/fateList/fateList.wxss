@@ -34,7 +34,7 @@
 }
 .fateListpage .theme-text {
   font-size: 32rpx;
-  color: #333333;
+  color: #030303;
 }
 
 .fateListpage .head image {
