@@ -12,6 +12,7 @@ Page({
 
   onLoad: function () {
     this.getUserInfo();
+    this.getMessageList();
   },
 
   getOpenid() {
@@ -98,13 +99,18 @@ Page({
     const dateAry: any[] = [];
     messageList.map((item: any) => {
       const date = getDate(item.createdAt);
-      item.date = dateAry.indexOf(date) == -1 ? date : '';
+      if (dateAry.indexOf(date) == -1) {
+        item.date = date;
+        dateAry.push(date);
+      } else {
+        item.date = '';
+      }
       item.time = getTime(item.createdAt);
       return item;
     });
     this.setData!({
       messageList,
-    })
+    });
   },
   
   /**

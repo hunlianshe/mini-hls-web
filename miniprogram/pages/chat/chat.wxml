@@ -1,9 +1,11 @@
 <!--pages/chat.wxml-->
 <view>
   <user-info-card userInfo="{{userInfo}}" />
-  <view wx:for="{{messageList}}" style="padding: 32rpx;">
-    <view class="chatDate">{{item.date}}</view>
-    <message-item messageItem="{{item}}" userInfo="{{userInfo}}" isRight="{{item.from == userInfo.openid}}"/>
+  <view style="padding: 32rpx;">
+    <block wx:for="{{messageList}}">
+      <view wx:if="{{item.date !== ''}}" class="chatDate">{{item.date}}</view>
+      <message-item messageItem="{{item}}" userInfo="{{userInfo}}" isRight="{{item.from == userInfo.openid}}"/>
+    </block>
   </view>
   <view style="position: fixed; bottom: 0; width: 100%;">
     <send-message bind:sendTap="sendTap" bind:inputTap="inputTap"  />

@@ -1,5 +1,6 @@
-.chat .chatDate {
+.chatDate {
   text-align: center;
   font-size: 24rpx;
-  padding: 32rpx 0;
+  padding-top: 32rpx;
+  color: #9092A5;
 }
