@@ -1,5 +1,5 @@
 import * as Api from '../../service/api.service';
-
+import { getDate } from '../../utils/utils';
 
 Page({
   data: {
@@ -12,6 +12,10 @@ Page({
     Api.getChatList().then((result: any) => {
       if (result) {
         const userList = result.data;
+        userList.map((item: any) => {
+          item.date = getDate(item.createdAt);
+          return item;
+        });
         console.log('userList:', userList)
         this.setData!({
           userList

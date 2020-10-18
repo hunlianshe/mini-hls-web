@@ -20,10 +20,14 @@
   padding: 32rpx;
 }
 
+.chatList .head {
+  border-radius: 50%;
+  margin-right: 32rpx;
+}
+
 .chatList .head image {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 100rpx;
+  width: 94rpx;
+  height: 94rpx;
 }
 
 .chatList .messge {
