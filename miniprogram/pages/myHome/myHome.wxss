@@ -56,21 +56,9 @@
 }
 
 .myHome .number {
-  color: #E39BF0;
-  font-size: 42rpx;
-  padding: 10rpx;  
-}
-
-.myHome .info-percent {
-  margin: 30rpx;
-  font-size: 28rpx;
-  color: #333333;
-}
-
-.myHome .info-percent .number {
   font-size: 40rpx;
   color: #262628;
-  padding: 0 30rpx;
+  padding: 10rpx;  
 }
 
 .myHome .vip-cell {

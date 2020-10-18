@@ -50,7 +50,8 @@
       </view>
       <view class='display-flex home-cell-list' bindtap='goMatchmaker'>
         <hls-icon iconName="money" width='44rpx' height='44rpx'/>
-        <text class='small-text flex-full'>红娘</text>
+        <text class='small-text flex-full'>缘分币</text>
+        <text style="color: #666666; font-size: 28rpx; padding-right: 20rpx;">余额9999</text>
         <hls-icon iconName="arrowRight" width='16rpx' height='24rpx' />
       </view>
     </view>
