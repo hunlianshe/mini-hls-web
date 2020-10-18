@@ -57,11 +57,51 @@ const phoneCall = (e: any) => {
   })
 }
 
+/** 2020年03月09日 */
+const getDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  const year = date.getFullYear();
+  let month: number | string = date.getMonth() + 1;
+  month = month <= 9 ? `0${month}` : month;
+  let day: number | string = date.getDate();
+  day = day <= 9 ? `0${day}` : day;
+  return `${year}年${month}月${day}日`;
+};
+
+/** 09:23 */
+const getTime = (dateStr: string) => {
+  const date = new Date(dateStr);
+  let hours: number | string = date.getHours();
+  hours = hours <= 9 ? `0${hours}` : hours;
+  let minutes: number | string = date.getMinutes();
+  minutes = minutes <= 9 ? `0${minutes}` : minutes;
+  return `${minutes}:${minutes}`;
+}
+
+function formatTime(date: Date): string {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+
+const formatNumber = (n: number) => {
+  const str = n.toString()
+  return str[1] ? str : '0' + str
+}
+
 export {
   showModal,
   cityReplace,
   validateEmpty,
   validateImages,
   validatePhone,
-  phoneCall
+  phoneCall,
+  getDate,
+  getTime,
+  formatTime,
 }

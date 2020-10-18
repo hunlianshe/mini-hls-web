@@ -1,33 +1,13 @@
 import * as Api from '../../service/api.service';
+import { getDate, getTime } from '../../utils/utils';
 
 Page({
 
   data: {
+    openid: '',
     userInfo: {}, // 用户信息
     message: '',  // 用户输入的消息
-    messageList: [
-      {
-        "_id": "5f66e2f82735248c31b97bd8",
-        "type": 1,
-        "cid": "5f66e025bb97350949c52a97",
-        "msg": "hello lisa",
-        "status": [
-          {
-            "msgUnRead": false,
-            "_id": "5f66e2f82735248c31b97bda",
-            "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
-          },
-          {
-            "msgUnRead": true,
-            "_id": "5f66e2f82735248c31b97bd9",
-            "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
-          }
-        ],
-        "from": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A",
-        "updatedAt": "2020-09-20T05:04:56.688Z",
-        "createdAt": "2020-09-20T05:04:56.688Z"
-      },
-    ],
+    messageList: [],
   },
 
   onLoad: function () {
@@ -67,6 +47,63 @@ Page({
     console.log('input message:', e);
     this.setData!({
       message: e.detail.detail.value // 获取输入的值
+    })
+  },
+
+  getMessageList() {
+    const messageList: any = [
+      {
+        "_id": "5f66e2f82735248c31b97bd8",
+        "type": 1,
+        "cid": "5f66e025bb97350949c52a97",
+        "msg": "hello lisa",
+        "status": [
+          {
+            "msgUnRead": false,
+            "_id": "5f66e2f82735248c31b97bda",
+            "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
+          },
+          {
+            "msgUnRead": true,
+            "_id": "5f66e2f82735248c31b97bd9",
+            "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
+          }
+        ],
+        "from": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A",
+        "updatedAt": "2020-09-20T05:04:56.688Z",
+        "createdAt": "2020-09-20T05:04:56.688Z"
+      },
+      {
+        "_id": "5f66e2f82735248c31b97bd8",
+        "type": 1,
+        "cid": "5f66e025bb97350949c52a97",
+        "msg": "吃饭了吗",
+        "status": [
+          {
+            "msgUnRead": false,
+            "_id": "5f66e2f82735248c31b97bda",
+            "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
+          },
+          {
+            "msgUnRead": true,
+            "_id": "5f66e2f82735248c31b97bd9",
+            "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
+          }
+        ],
+        "from": "oHgB55AlhKqR7azr85YYBwfIE9EQ",
+        "updatedAt": "2020-09-20T05:04:56.688Z",
+        "createdAt": "2020-09-20T05:04:56.688Z"
+      },
+    ];
+    const dateAry: any[] = [];
+    messageList.map((item: any) => {
+      const date = getDate(item.createdAt);
+      item.date = dateAry.indexOf(date) == -1 ? date : '';
+      item.time = getTime(item.createdAt);
+      return item;
+    });
+    this.setData!({
+      messageList,
     })
   },
   

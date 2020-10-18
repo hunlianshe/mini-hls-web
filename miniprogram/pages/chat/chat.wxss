@@ -1,1 +1,5 @@
-/* pages/chat.wxss */
+.chat .chatDate {
+  text-align: center;
+  font-size: 24rpx;
+  padding: 32rpx 0;
+}

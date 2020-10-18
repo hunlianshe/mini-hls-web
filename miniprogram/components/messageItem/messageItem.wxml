@@ -1,9 +1,9 @@
-<view class="messageItem">
-  <view class="avatarUrl">
+<view class="{{isRight === true ? 'messageItem right' : 'messageItem'}}">
+  <view wx:if="{{isRight === false}}" class="avatarUrl">
     <image src="{{userInfo.avatarUrl}}" mode="aspectFit" />
   </view>
   <view>
     <view>{{messageItem.msg}}</view>
-    <view>07:32</view>
+    <view style="font-size: 20rpx; color: #9092A5;">{{messageItem.time}}</view>
   </view>
 </view>
