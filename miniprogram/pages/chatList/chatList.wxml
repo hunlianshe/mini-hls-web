@@ -1,6 +1,6 @@
 <view class="chatList">
   <view style="background: #fff;">
-    <view style="padding-top: 32rpx;">
+    <view style="padding: 32rpx 0;">
       <image src="{{matcherImage}}" mode="aspectFit" />
     </view>
     <block wx:if="{{userList.length > 0}}">
