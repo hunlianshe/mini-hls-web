@@ -152,6 +152,19 @@ const updateShop = (params: any) => httpServer.post({ url: `/shop/updateShop`, d
  */
 const getChatList = () => httpServer.get({url: `/group/list`});
 
+/**
+ * 发起聊天
+ * @param {}
+ */
+const startChatSession = (params: any) => httpServer.post({url: `/group/create`, data: params});
+
+
+
+/**
+ * 获取消息列表
+ * @param {}
+ */
+const getChatMessageList = (sessionId: string, pageSize: number, prePage: number) => httpServer.get({url: `/group/message/list/${sessionId}?pageSize=${pageSize || 1}&pageToken=${prePage || ''}`})
 
 
 
@@ -183,6 +196,8 @@ export {
   getUserDetail,
   getConstellationMmatchingDetailComplex,
   getChatList,
+  startChatSession,
+  getChatMessageList
   // register,
 }
 
