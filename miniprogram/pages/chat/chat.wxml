@@ -1,6 +1,9 @@
 <!--pages/chat.wxml-->
 <view>
   <user-info-card userInfo="{{userInfo}}" />
+  <view wx:for="{{messageList}}">
+    <message-item messageItem="{{item}}" />
+  </view>
   <view style="position: fixed; bottom: 0; width: 100%;">
     <send-message bind:sendTap="sendTap" bind:inputTap="inputTap"  />
   </view>

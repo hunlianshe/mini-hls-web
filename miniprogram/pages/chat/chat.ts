@@ -4,7 +4,30 @@ Page({
 
   data: {
     userInfo: {}, // 用户信息
-    message: '', // 用户输入的消息
+    message: '',  // 用户输入的消息
+    messageList: [
+      {
+        "_id": "5f66e2f82735248c31b97bd8",
+        "type": 1,
+        "cid": "5f66e025bb97350949c52a97",
+        "msg": "hello lisa",
+        "status": [
+          {
+            "msgUnRead": false,
+            "_id": "5f66e2f82735248c31b97bda",
+            "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
+          },
+          {
+            "msgUnRead": true,
+            "_id": "5f66e2f82735248c31b97bd9",
+            "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
+          }
+        ],
+        "from": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A",
+        "updatedAt": "2020-09-20T05:04:56.688Z",
+        "createdAt": "2020-09-20T05:04:56.688Z"
+      },
+    ],
   },
 
   onLoad: function () {
@@ -14,9 +37,7 @@ Page({
   getOpenid() {
     let openid: string = '';
     const user = wx.getStorageSync('user');
-    console.log('user:', user)
     openid = user.openid || '';
-    console.log('openid:', openid)
     return openid;
   },
 
@@ -29,6 +50,8 @@ Page({
         this.setData!({
           userInfo
         });
+      } else {
+        throw new Error("获取用户信息失败");
       }
     });
   },
@@ -88,11 +111,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  // onShareAppMessage: function () {
-
-  // }
 })

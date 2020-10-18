@@ -1,0 +1,13 @@
+.messageItem {
+  display: flex;
+  width: 70%;
+  border: 2rpx solid #EFEFF4;
+  border-radius: 8rpx;
+  background: #fff;
+}
+
+.messageItem .avatarUrl image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
