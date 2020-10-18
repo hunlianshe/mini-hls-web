@@ -3,7 +3,7 @@
   <view class="home-head"></view>
   <view style="margin: 0rpx 32rpx; margin-top: -224rpx;">
   
-    <view style="border-radius: 8rpx; background: #fff;">
+    <view style="border-radius: 16rpx; background: #fff;">
       <view class='display-flex' style="padding: 32rpx;">
         <image class='head-img' src='{{user.avatarUrl}}' />
         <view class='flex-full'>
@@ -31,7 +31,7 @@
       <image src="{{openVipImage}}" mode="aspectFit" />
     </view>
 
-    <view style="padding: 0 30rpx; background:#ffffff; border-radius: 8rpx;">
+    <view style="padding: 0 30rpx; background:#ffffff; border-radius: 16rpx;">
       <view class='display-flex home-cell-list' bindtap='myImages'>
         <hls-icon iconName="photo" width='44rpx' height='44rpx' />
         <text class='small-text flex-full'>我的相册</text>
