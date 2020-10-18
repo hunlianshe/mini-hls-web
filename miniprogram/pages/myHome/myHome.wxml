@@ -51,7 +51,7 @@
       <view class='display-flex home-cell-list' bindtap='goRecharge'>
         <hls-icon iconName="money" width='44rpx' height='44rpx'/>
         <text class='small-text flex-full'>缘分币</text>
-        <text style="color: #666666; font-size: 28rpx; padding-right: 20rpx;">{{userInfo.coin}}</text>
+        <text style="color: #666666; font-size: 28rpx; padding-right: 20rpx;">余额{{userInfo.coin}}</text>
         <hls-icon iconName="arrowRight" width='16rpx' height='24rpx' />
       </view>
     </view>
