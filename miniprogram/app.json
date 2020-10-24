@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/index/index",
+  "entryPagePath": "pages/matchmaker/matchmaker",
   "pages": [
     "pages/index/index",
     "pages/qsqy/qsqy",

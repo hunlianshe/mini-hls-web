@@ -1,27 +1,35 @@
 
-<view class="matchmakerPage" 
-style="background-image: url('../../public/image/matching.jpg');background-repeat:repeat;background-size:130%;">
-  <view class="cover-page">
-    
-    <view class="contract">
-      <view class="display-flex title">
-        <view class="{{active === '1' ? 'title-cell active' : 'title-cell'}}" bindtap="switchTab" data-active="1">电话联系</view>
-        <view class="{{active === '2' ? 'title-cell active' : 'title-cell'}}" bindtap="switchTab" data-active="2">微信联系</view>
+<view class="matchmakerPage">
+  <view class="matcherCard">
+    <view class="flex-full">
+      <view class="left-info">
+        <hls-icon iconName="matcher" width="66rpx" height="66rpx" />
+        <view style="padding-left: 20rpx;">红娘服务</view>
       </view>
-      <view class="contract-info" wx:if="{{active === '1'}}">
-        <view class="label">电话联系红娘</view>
-        <button class="common-btn" bindtap="phoneCall">拨打电话</button>
+      <view style="font-size: 28rpx; color: #BC635B;margin-top: 10rpx;">联系方式：18057313715</view>
+    </view>
+    <image style="width: 150rpx; height: 150rpx;" src="../../public/image/qrcode2.jpg" mode="aspectFit" />
+  </view>
+
+  <view class="service-title">
+    <image src="../../public/image/matcher_title.png" mode="aspectFill" />
+  </view>
+  
+  <view wx:for="{{serviceConfig}}"  wx:key="{{index}}" class="service-item">
+    <hls-icon iconName="{{item.iconName}}" width="88rpx" height="88rpx" />
+    <view style="margin-left: 20rpx;">
+      <view class="service-item-name">
+        {{item.name}}
       </view>
-      <view class="contract-info" wx:else>
-        <view>扫二维码添加红娘微信</view>
-        <image src="../../public/image/qrcode2.jpg" mode="aspectFit" />
+      <view class="service-item-desc">
+        {{item.desc}}
       </view>
     </view>
-    <view class="footer">
-      <!-- <view>
-        线下门门店有更多红娘提供更贴心的服务
-      </view> -->
-      <!-- <view>门店地址：xxxxxx</view> -->
-    </view>
+  </view>
+  <view class="footer">
+    <!-- <view>
+      线下门门店有更多红娘提供更贴心的服务
+    </view> -->
+    <!-- <view>门店地址：xxxxxx</view> -->
   </view>
 </view>
