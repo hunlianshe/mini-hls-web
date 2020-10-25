@@ -19,6 +19,7 @@ Page({
   onLoad() {
     this.setData!({
       userInfo: app.globalData.userInfo,
+      totalMoney: app.globalData.userInfo.coin,
       hasUserInfo: true,
     });
   },
@@ -86,19 +87,68 @@ Page({
       return false;
     }
     // TODO
-    Api.addPhone(params).then((result: any) => {
+    Api.rechargeMoney({
+      ...params,
+      money: +params.money
+    }).then((result: any) => {
+      console.log(`recharge money request:`, result);
       this.setData!({
         submitDisable: true
       });  
-      if (result.code === 200) {
-        wx.navigateTo({
-          url: '../matching/matching',
-        });
-      } else {
-        this.setData!({
-          submitDisable: false
-        }); 
-        utils.showModal(result.message);
+      this.callWxForPay(result.data)
+      // if (result.code === 200) {
+      //   wx.navigateTo({
+      //     url: '../matching/matching',
+      //   });
+      // } else {
+      //   this.setData!({
+      //     submitDisable: false
+      //   }); 
+      //   utils.showModal(result.message);
+      // }
+    })
+  },
+
+  callWxForPay(data: any){
+    const _this = this;
+    wx.requestPayment({
+      timeStamp: data.timeStamp,
+      nonceStr: data.nonceStr,
+      // package: data.package,
+      package: 'prepay_id=' + data.prepayId,
+      signType: 'MD5',
+      paySign: data.paySign,
+      success(res) {
+        console.log(`付款成功: `, res)
+      },
+      fail(res) {
+        console.log(`付款失败: `, res)
+      },
+      complete (res) {
+        console.log(`付款结束complete: `, res)
+        // 付款成功直接更新 
+        Api.checkOrderStatus(data.orderNum).then((result: any) => {
+          if (result && result.code === 200) {
+            console.log(`check order result`)
+            // 跳转订单详情
+            // wx.navigateTo({
+            //   url: `../../../pages/myHome/myHome`,
+            // })
+            utils.showModelAction('支付成功',() => {
+              wx.navigateBack({
+                delta: 1
+              })
+            });
+            _this.setData!({
+              submitDisable: false
+            }); 
+          }else{
+            _this.setData!({
+              submitDisable: false
+            }); 
+            utils.showModal('支付失败', result.message);
+          }
+        })
       }
     })
   },
