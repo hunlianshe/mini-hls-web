@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/matchmaker/matchmaker",
+  "entryPagePath": "pages/myHome/myHome",
   "pages": [
     "pages/index/index",
     "pages/qsqy/qsqy",
@@ -39,7 +39,8 @@
     {
       "root": "packageMyhome",
       "pages": [
-        "pages/recharge/recharge"
+        "pages/recharge/recharge",
+        "pages/vipCenter/vipCenter"
       ]
     }
   ],

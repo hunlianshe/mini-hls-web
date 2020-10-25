@@ -124,7 +124,9 @@ Page({
 
   /** 开动会员 */
   openVip() {
-    console.log('openVip');
+    wx.navigateTo({
+      url: `../../packageMyhome/pages/vipCenter/vipCenter`,
+    });
   },
 
   onReady: function () {
