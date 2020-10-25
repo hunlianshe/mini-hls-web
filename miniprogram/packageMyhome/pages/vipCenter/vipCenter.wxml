@@ -1,3 +1,20 @@
 <view class="vipCenter">
-  vip center
+
+  <view class="price-cell">
+    <view wx:for="{{BJ.priceList}}" wx:key="{{item.name}}" class="cell-item">
+      <view style="font-size: 32rpx; color: #333333;">{{item.nameStr}}</view>
+      <view style="padding: 20rpx 0; color: #F55B5C;">
+        <text style="font-size: 28rpx;">¥</text>
+        <text style="font-size: 60rpx;">{{item.value}}</text></view>
+      <view style="font-size: 24rpx; color: #9D9E9F;">¥{{item.avgStr}}</view>
+    </view>
+  </view>
+   <view class="footer-btn">
+     <view style="padding-left: 32rpx; flex: 1;">
+       <text>合计：</text>
+       <text style="font-size: 28rpx; color: #F4C7AF;">¥</text>
+       <text style="font-size: 48rpx; color: #F4C7AF;">120</text>
+     </view>
+     <button class="pay-btn" bindtap="goRecharge">立即支付</button>
+   </view>
 </view>

@@ -1,3 +1,37 @@
 .vipCenter {
-  
+  padding: 32rpx;
+}
+
+.vipCenter .price-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vipCenter .cell-item {
+  border: 2rpx solid #EFF0F1;
+  border-radius: 4rpx;
+  padding: 40rpx 20rpx;
+  text-align: center;
+  flex: 0.3;
+}
+
+.vipCenter .footer-btn {
+  background: #1C202A;
+  border-radius: 58rpx;
+  height: 116rpx;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  padding: 0 16rpx;
+  margin: 50rpx 0;
+}
+.vipCenter .pay-btn {
+  color: #70300A;
+  width: 216rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  border-radius: 42rpx;
+  height: 84rpx;
+  text-align: center;
 }

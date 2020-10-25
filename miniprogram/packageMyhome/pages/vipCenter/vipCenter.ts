@@ -1,11 +1,21 @@
+import { BAIJIN, HUANGTONG, RIGHTLIST } from './config/vipService';
+
 Page({
-
   data: {
-
+    BJ: BAIJIN,
+    HT: HUANGTONG,
+    rightList: RIGHTLIST
   },
 
   onLoad: function () {
 
+  },
+
+  /** 充值 */
+  goRecharge(): any {
+    wx.navigateTo({
+      url: `../../../packageMyhome/pages/recharge/recharge`,
+    })
   },
 
   /**
