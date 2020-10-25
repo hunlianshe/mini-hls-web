@@ -1,9 +1,22 @@
 
 const showModal = (title?: any, content?: any) => {
-  wx.showModal({
+  const model: any = {
     title: title ? title : '网络异常',
-    content: content ? content : '网络异常，请稍后再试',
-  })
+  }
+  if (content) {
+    model.content = content
+  }
+  wx.showModal(model)
+}
+
+const showModelAction = (title: any, success: Function) => {
+  const model: any = {
+    title: title ? title : '网络异常',
+    success: function(_: any) {
+      success()
+    }
+  }
+  wx.showModal(model)
 }
 
 const cityReplace = (val: any) => {
@@ -96,6 +109,7 @@ const formatNumber = (n: number) => {
 
 export {
   showModal,
+  showModelAction,
   cityReplace,
   validateEmpty,
   validateImages,
