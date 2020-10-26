@@ -9,6 +9,30 @@
       <view style="font-size: 24rpx; color: #9D9E9F;">¥{{item.avgStr}}</view>
     </view>
   </view>
+  <view>
+    <view class="right-title">会员权益</view>
+    <view class="right-cell">
+      <view class="item-1"></view>
+      <view class="item-2">无会员</view>
+      <view class="item-3">黄铜会员</view>
+      <view class="item-4">白金会员</view>
+    </view>
+    <view class="right-cell" wx:for="{{rightList}}" wx:key="{{item.name}}">
+      <view class="item-1">{{item.name}}</view>
+      <view class="item-2">
+        <block wx:if="{{item.type == 'string'}}">{{item.ordinary}}</block>
+        <block wx:else><icon class="icon-small" type="{{item.ordinary ? 'success' : 'cancel'}}" size="18"></icon></block>
+      </view>
+      <view class="item-3">
+        <block wx:if="{{item.type == 'string'}}">{{item.huangTong}}</block>
+        <block wx:else><icon class="icon-small" type="{{item.huangTong ? 'success' : 'cancel'}}" size="18"></icon></block>
+      </view>
+      <view class="item-4">
+        <block wx:if="{{item.type == 'string'}}">{{item.baiJin}}</block>
+        <block wx:else><icon class="icon-small" type="{{item.baiJin ? 'success' : 'cancel'}}" size="18"></icon></block>
+      </view>
+    </view>
+  </view>
    <view class="footer-btn">
      <view style="padding-left: 32rpx; flex: 1;">
        <text>合计：</text>
