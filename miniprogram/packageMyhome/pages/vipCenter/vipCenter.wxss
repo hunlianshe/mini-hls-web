@@ -2,6 +2,16 @@
   padding: 50rpx;
 }
 
+.swiper-card {
+  font-size: 36rpx;
+  color: #B46632;
+  font-weight: 600;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+  padding: 60rpx 60rpx 90rpx 60rpx;
+}
+
 .vipCenter .price-cell {
   display: flex;
   align-items: center;
@@ -22,6 +32,8 @@
   background: linear-gradient(to right bottom, #3C4862, #000E26);
   color: #ffffff;
   font-size: 28rpx;
+  border-radius: 8rpx 8rpx 0 0;
+  margin-top: 50rpx;
 }
 
 .vipCenter .right-cell {

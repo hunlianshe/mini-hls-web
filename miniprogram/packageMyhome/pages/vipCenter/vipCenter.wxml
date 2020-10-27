@@ -1,4 +1,27 @@
 <view class="vipCenter">
+  <view>
+    <swiper indicator-dots="{{swiper.indicatorDots}}"
+        autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+          <swiper-item>
+            <view class="swiper-card" style="background-image: url('/public/image/huangtong-card.png')">
+              <view class="display-flex">
+                <hls-icon iconName="huangtong" width="36rpx" heigth="34rpx" />
+                <view style="padding-left: 20rpx;color: #914A1B;">黄铜会员</view>
+              </view>
+              <view style="font-size: 28rpx;font-weight: 300;padding-top: 10rpx;">您还未加入黄铜会员</view>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class="swiper-card" style="background-image: url('/public/image/baijin-card.png')">
+              <view class="display-flex">
+                <hls-icon iconName="baijin" width="36rpx" heigth="34rpx" />
+                <view style="padding-left: 20rpx;color: #4F4C9E;">白金会员</view>
+              </view>
+              <view style="font-size: 28rpx;font-weight: 300; color: #7976C7;padding-top: 10rpx;">您还未加入白金会员</view>
+            </view>
+          </swiper-item>
+      </swiper>
+  </view>
 
   <view class="price-cell">
     <view wx:for="{{BJ.priceList}}" wx:key="{{item.name}}" class="cell-item">

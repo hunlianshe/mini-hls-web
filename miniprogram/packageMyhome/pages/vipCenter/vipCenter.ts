@@ -4,7 +4,14 @@ Page({
   data: {
     BJ: BAIJIN,
     HT: HUANGTONG,
-    rightList: RIGHTLIST
+    rightList: RIGHTLIST,
+    swiper: {
+      indicatorDots: true,
+      vertical: false,
+      autoplay: false,
+      interval: 2000,
+      duration: 500
+    }
   },
 
   onLoad: function () {

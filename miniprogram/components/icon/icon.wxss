@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
 }
-.icon image{
+.icon image {
     width: 90%;
     height: 90%;
 }
