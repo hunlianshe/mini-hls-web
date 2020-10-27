@@ -11,7 +11,8 @@ Page({
       autoplay: false,
       interval: 2000,
       duration: 500
-    }
+    },
+    currentRight: 0, // 0-huangtong 1-baijin
   },
 
   onLoad: function () {
@@ -23,6 +24,13 @@ Page({
     wx.navigateTo({
       url: `../../../packageMyhome/pages/recharge/recharge`,
     })
+  },
+
+  swiperChange(e: any) {
+    console.log(e.detail.current);
+    this.setData!({
+      currentRight: e.detail.current, 
+    });
   },
 
   /**
