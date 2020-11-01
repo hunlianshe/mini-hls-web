@@ -5,19 +5,19 @@ export const  BAIJIN= {
       select: false,
       name: "year", // 年
       nameStr: "年付",
-      value: "240",
+      value: 240,
       avgStr: "20元/月",
     }, {
       select: false,
       name: "quarter", // 季
       nameStr: "季付",
-      value: "60",
+      value: 60,
       avgStr: "20元/月"
     }, {
       select: false,
       name: "month", // 月
       nameStr: "月付",
-      value: "20",
+      value: 20,
       avgStr: "20元/月"
     }
   ]
@@ -30,19 +30,19 @@ export const HUANGTONG = {
       select: false,
       name: "year", // 年
       nameStr: "年付",
-      value: "120",
+      value: 120,
       avgStr: "10元/月"
     }, {
       select: false,
       name: "quarter", // 季
       nameStr: "季付",
-      value: "30",
+      value: 30,
       avgStr: "10元/月"
     }, {
       select: false,
       name: "month", // 月
       nameStr: "月付",
-      value: "30",
+      value: 10,
       avgStr: "10元/月"
     }
   ]

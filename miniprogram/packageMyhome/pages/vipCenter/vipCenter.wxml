@@ -66,7 +66,7 @@
      <view style="padding-left: 32rpx; flex: 1;">
        <text>合计：</text>
        <text style="font-size: 28rpx; color: #F4C7AF;">¥</text>
-       <text style="font-size: 48rpx; color: #F4C7AF;">120</text>
+       <text style="font-size: 48rpx; color: #F4C7AF;">{{currentPrice}}</text>
      </view>
      <button class="pay-btn" bindtap="goRecharge">立即支付</button>
    </view>
