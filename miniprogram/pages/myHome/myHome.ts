@@ -116,7 +116,6 @@ Page({
    */
   goFateList(e: any) {
     const { type } = e.currentTarget.dataset;
-    const { vipType = '' } = this.data.userInfo;
     let rightType = '';
     if (type == 2) { // 喜欢我
       rightType = 'whoLikeMe';
@@ -124,7 +123,7 @@ Page({
       rightType = 'likeEach';
     }
     // 处理拦截并返回是否需要被拦截
-    if (dealRightIntercept(vipType, rightType)) {
+    if (dealRightIntercept(rightType)) {
       this.setData!({
         showDialog: true,
       })

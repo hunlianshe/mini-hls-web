@@ -1,9 +1,11 @@
 import * as Api from '../../service/api.service';
+import { dealRightIntercept, setRightStorage } from '../../utils/utils';
 
 Page({
   data: {
     _active: '1',
     listLikes: [] as any[],
+    showDialog: false,
   },
 
   onLoad: function (options: any) {
@@ -21,10 +23,10 @@ Page({
     let type = 'likeMe';
     switch (active) {
       case '1':
-        type = 'likeMe';
+        type = 'meLike';
         break;
       case '2':
-        type = 'meLike';
+        type = 'likeMe';
         break;
       case '3':
         type = 'likeEachOther';
@@ -55,7 +57,27 @@ Page({
     this.setData!({
       _active: index,
     });
+    let rightType = '';
+    if (index == 2) { // 喜欢我
+      rightType = 'whoLikeMe';
+    } else if (index == 3) { // 相互喜欢
+      rightType = 'likeEach';
+    }
+    // 处理拦截并返回是否需要被拦截
+    if (dealRightIntercept(rightType)) {
+      this.setData!({
+        showDialog: true,
+      })
+      return;
+    }
+    setRightStorage(rightType);
     this.getUsersListLikes(this.data._active);
+  },
+
+  closeDialog() {
+    this.setData!({
+      showDialog: false,
+    });
   },
 
   /** 详情 */

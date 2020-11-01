@@ -1,3 +1,5 @@
+import * as Api from '../service/api.service';
+
 
 const showModal = (title?: any, content?: any) => {
   const model: any = {
@@ -107,8 +109,28 @@ const formatNumber = (n: number) => {
   return str[1] ? str : '0' + str
 }
 
+/** 获取用户信息 */
+const getUserInfo = () => {
+  let userInfo: any = {};
+  wx.getStorage({
+    key: 'user', // 用户头像信息
+    success: function (res) {
+      const { openid } = res.data;
+      userInfo = Api.getUserInfo(openid).then((result: any) => {
+        if (result) {
+          return result.data || {};
+        }
+      });
+    },
+  });
+  return userInfo;
+};
+
+
 /** 处理权益拦截 */
-const dealRightIntercept = (vipType: string, rightType: string ) => {
+const dealRightIntercept = (rightType: string ) => {
+  let userInfo = getUserInfo();
+  const { vipType = '' } = userInfo;
   let needIntercept = false; // 是否需要拦截
   let times = 0;
   let rightTypeData = wx.getStorageSync(rightType); // 从缓存中获取权益使用情况

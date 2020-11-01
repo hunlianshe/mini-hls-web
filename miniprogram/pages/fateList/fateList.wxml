@@ -2,10 +2,10 @@
 
   <view class="display-flex tab">
     <view class="subtab" bindtap="switchTab" data-index="1">
-      <text class='{{_active === "1" ? "active" : ""}}'>喜欢我</text>
+      <text class='{{_active === "1" ? "active" : ""}}'>我喜欢</text>
     </view>
     <view class="subtab" bindtap="switchTab" data-index="2">
-      <text class='{{_active === "2" ? "active" : ""}}'>我喜欢</text>
+      <text class='{{_active === "2" ? "active" : ""}}'>喜欢我</text>
     </view>
     <view class="subtab" bindtap="switchTab" data-index="3">
       <text class='{{_active === "3" ? "active" : ""}}'>相互喜欢</text>
@@ -32,4 +32,5 @@
     </view>
   </block>
 
+  <base-dialog showDialog="{{showDialog}}" bind:closeDialog="closeDialog" />
 </view>
