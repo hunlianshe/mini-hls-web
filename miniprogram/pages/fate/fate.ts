@@ -80,7 +80,7 @@ Page({
             item.intro.push(item.education)
           }
           item.intro = item.intro.join(' | ')
-        })
+        });
         const { currentPage } = this.data;
         this.setData!({
           userList: dataList,
@@ -112,18 +112,7 @@ Page({
     }
   },
 
-
-  /**
-   * 下拉刷新
-   */
-  onPullDownRefresh: function () {
-    // this.setData!({
-    //   pullDown: true,
-    //   pullUp: false
-    // });
-    // this.getUserList('');
-    // wx.stopPullDownRefresh();
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数

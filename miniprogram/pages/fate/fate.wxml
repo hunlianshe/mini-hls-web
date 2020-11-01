@@ -26,6 +26,9 @@
     <noData type='{{keyword ? 1 : 0}}' />
   </block>
 
-  <base-dialog showDialog="{{showDialog}}" bind:closeDialog="closeDialog" />
+  <base-dialog showDialog="{{showDialog}}"
+    title="查看缘分已达上限"
+    descText="您还不是会员，匹配缘分已达查看20人上限，开通会员后查看更多匹配缘分"
+    bind:closeDialog="closeDialog" />
 </view>
 
