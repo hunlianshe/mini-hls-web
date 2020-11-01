@@ -71,15 +71,15 @@ Page({
         name: '黄铜会员',
         yearPrice: 120,
         seasonPrice: 30,
-        monthPrice: 10,
-        horoscope: 99999,
-        psychologicalTest: 99999,
-        constellationMatching: 99999,
+        monthPrice: 10, 
+        horoscope: 99999, // 星座运势
+        psychologicalTest: 99999, // 心理测试
+        constellationMatching: 99999, // 星座匹配
         fateMatch: 99999, // 缘分匹配
-        fateWatch: 99999,
-        fateChat: 20,
-        whoLikeMe: 99999,
-        likeEach: 99999,
+        fateWatch: 99999, // 缘分下滑查看
+        fateChat: 20, // 缘分聊天
+        whoLikeMe: 99999, // 谁喜欢我
+        likeEach: 99999, // 互相喜欢
       },
       {
         name: '白金会员',
