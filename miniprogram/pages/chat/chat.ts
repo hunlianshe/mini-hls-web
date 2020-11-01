@@ -1,4 +1,4 @@
-import {sendMessage } from '../../service/socket.service2';
+import {getSocket, sendMessage } from '../../service/socket.service2';
 import { getDate, getTime } from '../../utils/utils';
 
 Page({
@@ -12,6 +12,9 @@ Page({
   onLoad: function () {
     // this.getUserInfo();
     this.getMessageList();
+    this.receiveMessage();
+    
+
   },
 
   getOpenid() {
@@ -19,6 +22,15 @@ Page({
     const user = wx.getStorageSync('user');
     openid = user.openid || '';
     return openid;
+  },
+
+  receiveMessage() {
+    console.log("准备接收消息")
+   let socket = getSocket()
+   socket.on("privateChat", (msg:any) => {
+     console.log("接收到的消息是",msg)
+   })
+
   },
 
   getUserInfo() {
