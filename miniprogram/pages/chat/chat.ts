@@ -1,16 +1,40 @@
 import {getSocket, sendMessage } from '../../service/socket.service2';
 import { getDate, getTime } from '../../utils/utils';
+import * as Api from '../../service/api.service';
 
 Page({
   data: {
     openid: '',
+    cid: '',
+    me: {}, //我的用户信息
+    host: '', //我的用户信息
+    toUser: {}, //接收人的用户信息
     userInfo: {}, // 用户信息
     message: '',  // 用户输入的消息
+    pagination: {pageSize : 50, pageToken: ''},
     messageList: [],
   },
 
-  onLoad: function () {
+  onLoad: function (options:any) {
     // this.getUserInfo();
+    console.log("okkkk")
+    let openid = options.openid;
+    let cid = options.cid;
+    this.setData!({
+      cid: cid
+    });
+    console.log("openid",openid)
+    console.log("cid",cid)
+
+    const user = wx.getStorageSync('user');
+    console.log("user",user)
+    // openid = user.openid || '';
+    // return openid;
+    this.setData!({
+      me: user
+    });
+
+    this.getToUserInfo();
     this.getMessageList();
     this.receiveMessage();
     
@@ -33,26 +57,26 @@ Page({
 
   },
 
-  getUserInfo() {
-    // const openid = this.getOpenid();
-    // Api.getUserInfo(openid).then((result: any) => {
-    //   if (result) {
-    //     const userInfo = result.data;
-    //     console.log('userInfo:', userInfo)
-    //     this.setData!({
-    //       userInfo
-    //     });
-    //   } else {
-    //     throw new Error("获取用户信息失败");
-    //   }
-    // });
+  getToUserInfo() {
+    const openid = this.getOpenid();
+    Api.getUserInfo(openid).then((result: any) => {
+      if (result) {
+        const userInfo = result.data;
+        console.log('userInfo:', userInfo)
+        this.setData!({
+          toUser: userInfo
+        });
+      } else {
+        throw new Error("获取用户信息失败");
+      }
+    });
   },
 
   /** 发送消息事件 */
   sendTap() {
     // TODO
     // to do
-    sendMessage({cid: "oHgB55AlhKqR7azr85YYBwfIE9EQ",msg: this.data.message, type: 1})
+    sendMessage({cid: this.data.cid, msg: this.data.message, type: 1})
     console.log('send message:', this.data.message);
   },
 
@@ -65,65 +89,75 @@ Page({
   },
 
   getMessageList() {
-    const messageList: any = [
-      {
-        "_id": "5f66e2f82735248c31b97bd8",
-        "type": 1,
-        "cid": "5f66e025bb97350949c52a97",
-        "msg": "hello lisa",
-        "status": [
-          {
-            "msgUnRead": false,
-            "_id": "5f66e2f82735248c31b97bda",
-            "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
-          },
-          {
-            "msgUnRead": true,
-            "_id": "5f66e2f82735248c31b97bd9",
-            "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
-          }
-        ],
-        "from": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A",
-        "updatedAt": "2020-09-20T05:04:56.688Z",
-        "createdAt": "2020-09-20T05:04:56.688Z"
-      },
-      {
-        "_id": "5f66e2f82735248c31b97bd8",
-        "type": 1,
-        "cid": "5f66e025bb97350949c52a97",
-        "msg": "吃饭了吗",
-        "status": [
-          {
-            "msgUnRead": false,
-            "_id": "5f66e2f82735248c31b97bda",
-            "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
-          },
-          {
-            "msgUnRead": true,
-            "_id": "5f66e2f82735248c31b97bd9",
-            "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
-          }
-        ],
-        "from": "oHgB55AlhKqR7azr85YYBwfIE9EQ",
-        "updatedAt": "2020-09-20T05:04:56.688Z",
-        "createdAt": "2020-09-20T05:04:56.688Z"
-      },
-    ];
-    const dateAry: any[] = [];
-    messageList.map((item: any) => {
-      const date = getDate(item.createdAt);
-      if (dateAry.indexOf(date) == -1) {
-        item.date = date;
-        dateAry.push(date);
-      } else {
-        item.date = '';
-      }
-      item.time = getTime(item.createdAt);
-      return item;
-    });
-    this.setData!({
-      messageList,
-    });
+    // const messageList: any = [
+    //   {
+    //     "_id": "5f66e2f82735248c31b97bd8",
+    //     "type": 1,
+    //     "cid": "5f66e025bb97350949c52a97",
+    //     "msg": "hello lisa",
+    //     "status": [
+    //       {
+    //         "msgUnRead": false,
+    //         "_id": "5f66e2f82735248c31b97bda",
+    //         "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
+    //       },
+    //       {
+    //         "msgUnRead": true,
+    //         "_id": "5f66e2f82735248c31b97bd9",
+    //         "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
+    //       }
+    //     ],
+    //     "from": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A",
+    //     "updatedAt": "2020-09-20T05:04:56.688Z",
+    //     "createdAt": "2020-09-20T05:04:56.688Z"
+    //   },
+    //   {
+    //     "_id": "5f66e2f82735248c31b97bd8",
+    //     "type": 1,
+    //     "cid": "5f66e025bb97350949c52a97",
+    //     "msg": "吃饭了吗",
+    //     "status": [
+    //       {
+    //         "msgUnRead": false,
+    //         "_id": "5f66e2f82735248c31b97bda",
+    //         "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
+    //       },
+    //       {
+    //         "msgUnRead": true,
+    //         "_id": "5f66e2f82735248c31b97bd9",
+    //         "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
+    //       }
+    //     ],
+    //     "from": "oHgB55AlhKqR7azr85YYBwfIE9EQ",
+    //     "updatedAt": "2020-09-20T05:04:56.688Z",
+    //     "createdAt": "2020-09-20T05:04:56.688Z"
+    //   },
+    // ];
+    Api.getMessageByCid(this.data.cid, this.data.pagination.pageSize, this.data.pagination.pageToken).then((result:any) => {
+      console.log("result.data",result.data)
+      this.setData!({
+        pagination: {
+          pageToken: result.data.pageToken
+        }// 获取输入的值
+      })
+     let  messageList = result.data.result
+      const dateAry: any[] = [];
+      messageList.map((item: any) => {
+        const date = getDate(item.createdAt);
+        if (dateAry.indexOf(date) == -1) {
+          item.date = date;
+          dateAry.push(date);
+        } else {
+          item.date = '';
+        }
+        item.time = getTime(item.createdAt);
+        return item;
+      });
+      this.setData!({
+        messageList,
+      });
+    })
+  
   },
   
   /**

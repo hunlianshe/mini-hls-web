@@ -1,9 +1,12 @@
 import * as Api from '../../service/api.service';
 import { getDate } from '../../utils/utils';
+import config from '../../config';
 
 Page({
   data: {
+    host:'',
     userList: [], // 用户列表
+    me: {}, // 用户列表
     matcherImage: '../../public/image/matcher.png',
   },
 
@@ -27,14 +30,21 @@ Page({
   },
 
   onLoad: function () {
-    
+    const user = wx.getStorageSync('user');
+    console.log("user",user)
+    console.log("hostUrl",config.hostUrl)
+    this.setData!({
+      me: user,
+      host: config.hostUrl,
+    });
   },
 
   /** 去聊天 */
   goChat(e: any) {
-    const { openid } = e.currentTarget.dataset;
+    console.log("e3wew",e.currentTarget.dataset)
+    const { openid, cid } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `../chat/chat?openid=${openid}`,
+      url: `../chat/chat?openid=${openid}&cid=${cid}`,
     })
   },
 

@@ -200,6 +200,13 @@ const buyVipByWechat = (params: any) => httpServer.post({url: `/orderPay/buyVipB
 const checkOrderStatus = (orderNum: string) => httpServer.get({url: `/orderPay/checkOrderStatus/${orderNum}`});
 
 
+/**
+ * 获取消息
+ * @param {}
+ */
+const getMessageByCid = (cid: string, pageSize: number, pageToken?: string) => httpServer.get({url: `/group/message/list/${cid}?pageSize=${pageSize}&pageToken=${pageToken}`});
+
+
 export {
   getOpenid,
   register,
@@ -235,6 +242,7 @@ export {
   buyVipByCoin,
   buyVipByWechat,
   checkOrderStatus,
+  getMessageByCid
   // register,
 }
 
