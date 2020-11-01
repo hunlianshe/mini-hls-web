@@ -1,4 +1,4 @@
-<!--components/noData/noData.wxml-->
+
 <view class='noDataPage'>
   <block wx:if="{{type === 1}}">
     <text>没有相关结果</text>
