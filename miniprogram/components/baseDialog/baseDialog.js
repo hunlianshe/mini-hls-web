@@ -52,11 +52,11 @@ Component({
     // 点击确定
     ensureTap() {
       wx.navigateTo({
-        url: clickUrl,
+        url: this.properties.clickUrl,
       });
     },
-    cancelTap() {
-      this.data.showDialog = false;
-    }
+    closeDialog() {
+      this.triggerEvent('closeDialog', {}, {})
+    },
   }
 })
