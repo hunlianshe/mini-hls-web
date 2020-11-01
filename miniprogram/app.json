@@ -87,7 +87,8 @@
     "hls-icon": "/components/icon/icon",
     "footer": "/components/footer/footer",
     "noData": "/components/noData/noData",
-    "wechatDialog": "/components/wechatDialog/wechatDialog"
+    "wechatDialog": "/components/wechatDialog/wechatDialog",
+    "base-dialog": "/components/baseDialog/baseDialog"
   },
   "permission": {
     "scope.userLocation": {

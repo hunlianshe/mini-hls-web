@@ -13,8 +13,8 @@ Page({
       duration: 500
     },
     currentRight: 0, // 0-huangtong 1-baijin
+    currentPrice: 0, // 0-huangtong 1-baijin
   },
-
   onLoad: function () {},
 
   /** 充值 */
@@ -34,15 +34,23 @@ Page({
   selectPrice(e: any) {
     console.log(e.currentTarget.dataset)
     const { BJ, HT} = this.data;
+    let currentPrice = 0;
     const { selectIndex, currentRight } = e.currentTarget.dataset;
     const priceList = currentRight === 0 ? HT.priceList : BJ.priceList;
     priceList.forEach((item, index) => { 
       if (index === selectIndex) { item.select = true } else { item.select = false};
     });
-    if (currentRight === 0) { HT.priceList = priceList; } else { BJ.priceList = priceList};
+    if (currentRight === 0) {
+      HT.priceList = priceList; 
+      currentPrice = HT.priceList[selectIndex].value;
+    } else { 
+      currentPrice = BJ.priceList[selectIndex].value;
+      BJ.priceList = priceList
+    };
     this.setData!({
       BJ,
-      HT
+      HT,
+      currentPrice
     });
 
     console.log(this.data.HT.priceList)
