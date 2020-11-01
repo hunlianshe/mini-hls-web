@@ -34,7 +34,7 @@ Page({
       me: user
     });
 
-    this.getToUserInfo();
+    this.getToUserInfo(openid);
     this.getMessageList();
     this.receiveMessage();
   
@@ -58,8 +58,7 @@ Page({
 
   },
 
-  getToUserInfo() {
-    const openid = this.getOpenid();
+  getToUserInfo(openid: string) {
     Api.getUserInfo(openid).then((result: any) => {
       if (result) {
         const userInfo = result.data;

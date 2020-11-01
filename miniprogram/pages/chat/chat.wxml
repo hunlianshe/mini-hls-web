@@ -1,6 +1,6 @@
 
 <view>
-  <user-info-card toUser="{{toUser}}" />
+  <user-info-card userInfo="{{toUser}}" />
   <view style="padding: 32rpx;">
     <block wx:for="{{messageList}}">
       <view wx:if="{{item.date !== ''}}" class="chatDate">{{item.date}}</view>
