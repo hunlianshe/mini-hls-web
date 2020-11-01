@@ -26,6 +26,7 @@
   line-height: 90rpx;
   border-radius: 45rpx;
   margin-top: 60rpx;
+  margin-bottom: 10rpx;
 }
 .baseDialog .cancel-btn {
   color: #979899;
