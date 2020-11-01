@@ -16,11 +16,11 @@
           <view class='fate-text'>喜欢我</view>
           <view class='number'>{{likeMe}}</view>
         </view>
-        <view bindtap="goFateList"  data-type="2">
+        <view bindtap="goFateList" data-type="2">
           <view class='fate-text'>我喜欢</view>
           <view class='number'>{{meLike}}</view>
         </view>
-        <view bindtap="goFateList"  data-type="3">
+        <view bindtap="goFateList" data-type="3">
           <view class='fate-text'>相互喜欢</view>
           <view class='number'>{{likeEachOther}}</view>
         </view>
@@ -57,4 +57,6 @@
     </view>
 
   </view>
+
+  <base-dialog showDialog="{{showDialog}}" bind:closeDialog="closeDialog" />
 </view>

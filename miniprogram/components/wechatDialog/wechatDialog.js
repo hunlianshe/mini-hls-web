@@ -2,12 +2,8 @@
 const {
   showModal,
 } = require('../../utils/utils');
-const env = require('../../config.js');
 
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     qrcode: {
       type: String,

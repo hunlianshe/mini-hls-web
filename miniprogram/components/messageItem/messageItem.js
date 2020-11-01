@@ -5,7 +5,12 @@ Component({
       type: Object,
       value: {},
     },
-    userInfo: {
+   
+    toUser: {
+      type: Object,
+      value: {},
+    },
+    me: {
       type: Object,
       value: {},
     },
@@ -13,6 +18,7 @@ Component({
       type: Boolean,
       value: true,
     }
+    
   },
 
   methods: {

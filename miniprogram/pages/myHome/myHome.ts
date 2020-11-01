@@ -4,13 +4,14 @@ import * as Api from '../../service/api.service';
 Page({
   data: {
     user: { openid: '' },
-    userInfo: {},
+    userInfo: null,
     userStatistics: {},
     pageLoaded: false,
     meLike: 0,
     likeMe: 0,
     likeEachOther: 0,
     openVipImage: '../../public/image/openVip.png',
+    showDialog: false,
   },
 
   onLoad: function () {
@@ -47,12 +48,7 @@ Page({
         const userInfo = result.data;
         this.setData!({
           userInfo,
-          // userStatistics: userInfo.statistics,
         });
-        //   wx.setStorage({
-        //     key: 'userShopInfo',
-        //     data: userInfo,
-        //   });
       }
     });
   },
@@ -113,13 +109,29 @@ Page({
     })
   },
 
-  /** 喜欢人列表 */
+  /** 
+   * 喜欢我列表
+   * 我喜欢
+   * 相互喜欢
+   */
   goFateList(e: any) {
-    // const id = this.data.userInfo.Shop.id;
     const { type } = e.currentTarget.dataset;
+    // const { vipType = '', } = this.data.userInfo;
+    if (type == 2 || type == 3) {
+      this.setData!({
+        showDialog: true,
+      });
+      return;
+    }
     wx.navigateTo({
       url: `../fateList/fateList?type=${type}`,
     })
+  },
+
+  closeDialog() {
+    this.setData!({
+      showDialog: false,
+    });
   },
 
   /** 开动会员 */

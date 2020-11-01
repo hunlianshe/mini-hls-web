@@ -4,9 +4,9 @@
       <image src="{{matcherImage}}" mode="aspectFit" />
     </view>
     <block wx:if="{{userList.length > 0}}">
-      <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-openid="{{item.lastMessage.from}}" wx:key="{{item.id}}">
-        <view class="head">
-          <image src="{{item.lastMessage.fromAvatarUrl}}" />
+      <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-cid="{{item._id}}" data-openid="{{item.lastMessage.from}}" wx:key="{{item.id}}">
+        <view class="head" wx:for="{{item.userIds}}" wx:for-item="userid">
+          <image  wx:if="{{userid != me.openid}}" src="{{host}}/users/avatorUrl/{{userid}}" />
         </view>
         <view class="flex-full">
           <view class="display-flex">
