@@ -1,5 +1,5 @@
 import * as Api from '../../service/api.service';
-import { getDate } from '../../utils/utils';
+import { getDate, dealRightIntercept } from '../../utils/utils';
 import config from '../../config';
 
 Page({
@@ -9,8 +9,8 @@ Page({
     userList: [], // 用户列表
     me: {}, // 用户列表
     matcherImage: '../../public/image/matcher.png',
+    showDialog: false,
   },
-
 
   getChatList() {
     Api.getChatList().then((result: any) => {
@@ -48,9 +48,24 @@ Page({
     this.getToUserByOpenids(openids)
     console.log("this.data.toOpenid",this.data.toOpenid)
     console.log("that.data.me.openid",this.data.me.openid)
+
+    let rightType = 'fateChat';
+    if (dealRightIntercept(rightType)) {
+      this.setData!({
+        showDialog: true,
+      });
+      return;
+    }
+
     wx.navigateTo({
       url: `../chat/chat?openid=${this.data.toOpenid}&cid=${cid}`,
     })
+  },
+
+  closeDialog() {
+    this.setData!({
+      showDialog: false,
+    });
   },
 
   /** 红娘 */

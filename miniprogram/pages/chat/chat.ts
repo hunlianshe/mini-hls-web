@@ -1,10 +1,10 @@
 import {getSocket, sendMessage } from '../../service/socket.service2';
-import { getDate, getTime } from '../../utils/utils';
+import { getDate, getTime, setRightStorage } from '../../utils/utils';
 import * as Api from '../../service/api.service';
 
 Page({
   data: {
-    openid: '',
+    openid: '', // 收信人的openid
     cid: '',
     me: {}, //我的用户信息
     host: '', //我的用户信息
@@ -58,6 +58,7 @@ Page({
 
   },
 
+  // 消息对方的信息
   getToUserInfo(openid: string) {
     Api.getUserInfo(openid).then((result: any) => {
       if (result) {
@@ -76,8 +77,37 @@ Page({
   sendTap() {
     // TODO
     // to do
-    sendMessage({cid: this.data.cid, msg: this.data.message, type: 1})
+    sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
     console.log('send message:', this.data.message);
+    this.setChatSession();
+  },
+
+  setChatSession() {
+    let chatSession = wx.getStorageSync('chatSession');
+    let dateNow = new Date();
+    // 判断是否是同一天
+    if (chatSession.updateTime && chatSession.updateTime.toDateString() == dateNow.toDateString()) {
+      // 去重后存入聊天人列表
+      if (chatSession.openidList) {
+        const index = chatSession.openidList.findIndex((openid: any) => openid === this.data.openid)
+        if (index) {
+          return;
+        } else {
+          chatSession = {
+            updateTime: dateNow,
+            openidList: chatSession.openidList.push(this.data.openid)
+          }
+        }
+      }
+    } else {
+      chatSession = {
+        updateTime: dateNow,
+        openidList: [this.data.openid]
+      }
+    }
+    console.log('chatSession:', chatSession)
+    wx.setStorageSync("chatSession", chatSession);
+    setRightStorage('fateChat');
   },
 
   /** 输入消息内容 */

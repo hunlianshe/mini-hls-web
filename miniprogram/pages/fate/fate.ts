@@ -22,6 +22,7 @@ Page({
     totalCount: 0,
     pullDown: false,
     pullUp: false,
+    showDialog: false,
   },
 
   onLoad() {
