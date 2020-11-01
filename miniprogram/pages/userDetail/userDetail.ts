@@ -62,7 +62,7 @@ Page({
       if (result.code == 200) {
         console.log(`start chat session result`, result.data);
         wx.navigateTo({
-          url: `../chat/chat?openid=${this.data.openid}`,
+          url: `../chat/chat?openid=${this.data.openid}&cid=${result.data._id}`,
         })
       }
     })
