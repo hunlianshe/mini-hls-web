@@ -5,6 +5,7 @@ import config from '../../config';
 Page({
   data: {
     host:'',
+    toOpenid:'',
     userList: [], // 用户列表
     me: {}, // 用户列表
     matcherImage: '../../public/image/matcher.png',
@@ -42,9 +43,13 @@ Page({
   /** 去聊天 */
   goChat(e: any) {
     console.log("e3wew",e.currentTarget.dataset)
-    const { openid, cid } = e.currentTarget.dataset;
+    const { openids, cid } = e.currentTarget.dataset;
+    console.log("openids",openids)
+    this.getToUserByOpenids(openids)
+    console.log("this.data.toOpenid",this.data.toOpenid)
+    console.log("that.data.me.openid",this.data.me.openid)
     wx.navigateTo({
-      url: `../chat/chat?openid=${openid}&cid=${cid}`,
+      url: `../chat/chat?openid=${this.data.toOpenid}&cid=${cid}`,
     })
   },
 
@@ -53,6 +58,16 @@ Page({
     wx.navigateTo({
       url: `../matchmaker/matchmaker`,
     })
+  },
+
+  getToUserByOpenids(userIds){
+    var that = this;
+    userIds.forEach(userId => {
+      if(that.data.me.openid !== userId){
+        that.setData({toOpenid: userId})
+      }
+    })
+
   },
 
   onReady: function () {

@@ -1,6 +1,6 @@
 
 <view>
-  <user-info-card toUser="{{toUser}}" />
+  <user-info-card userInfo="{{toUser}}" />
   <view style="padding: 32rpx;">
     <block wx:for="{{messageList}}">
       <view wx:if="{{item.date !== ''}}" class="chatDate">{{item.date}}</view>
@@ -8,6 +8,6 @@
     </block>
   </view>
   <view style="position: fixed; bottom: 0; width: 100%;">
-    <send-message bind:sendTap="sendTap" bind:inputTap="inputTap"  />
+    <send-message bind:sendTap="sendTap" bind:inputTap="inputTap" bind:uploadImage="uploadImage"  />
   </view>
 </view>

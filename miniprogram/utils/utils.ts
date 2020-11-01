@@ -111,19 +111,23 @@ const formatNumber = (n: number) => {
 const dealRightIntercept = (vipType: string, rightType: string ) => {
   let needIntercept = false; // 是否需要拦截
   let times = 0;
-  let timesNow = wx.getStorageSync(rightType); // 从缓存中获取权益使用情况
+  let rightTypeData = wx.getStorageSync(rightType); // 从缓存中获取权益使用情况
+  let timesNow = rightTypeData.times || 0;
   let rightConfig: any = wx.getStorageSync('rightConfig'); // 从缓存中读取首页中set的权益配置
   switch (vipType) {
     case '': // 普通
-      times = rightConfig[0][rightType] || 99;
+      times = rightConfig[0][rightType];
+      console.log('读取拦截times：', times);
       needIntercept = timesNow >= times;
       break;
     case 'bronze': // 黄铜
-      times = rightConfig[1][rightType] || 99;
+      times = rightConfig[1][rightType];
+      console.log('读取拦截times：', times);
       needIntercept = timesNow >= times;
       break;
     case 'platinum': // 白金
-      times = rightConfig[2][rightType] || 99;
+      times = rightConfig[2][rightType];
+      console.log('读取拦截times：', times);
       needIntercept = timesNow >= times;
       break;
     default:
@@ -141,6 +145,7 @@ const setRightStorage = (rightType: string) => {
   if (rightData.updateTime && rightData.updateTime.toDateString() == dateNow.toDateString()) {
     times = rightData.times + 1;
   }
+  console.log('设置times：', times);
   wx.setStorage({
     key: rightType,
     data: {

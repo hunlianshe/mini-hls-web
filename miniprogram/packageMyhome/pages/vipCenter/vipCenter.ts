@@ -23,7 +23,12 @@ Page({
       const priceList = dealWithVipPriceInfo(res.data);
       const vipRightInfo = dealWithVipRightList(res.data);
       console.log(priceList);
-      console.log(vipRightInfo);
+      this.setData!({
+        BJ: priceList.BAIJIN,
+        HT: priceList.HUANGTONG,
+        rightList: vipRightInfo,
+      });
+      console.log(`=====vipRightInfo=====`, vipRightInfo);
     });
   },
 
@@ -32,7 +37,7 @@ Page({
   /** 充值 */
   goRecharge(): any {
     wx.navigateTo({
-      url: `../../../packageMyhome/pages/recharge/recharge`,
+      url: `../../../packageMyhome/pages/choosePay/choosePay?price=${this.data.currentPrice}`,
     });
   },
 
