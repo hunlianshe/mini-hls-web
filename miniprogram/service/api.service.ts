@@ -200,6 +200,15 @@ const buyVipByWechat = (params: any) => httpServer.post({url: `/orderPay/buyVipB
 const checkOrderStatus = (orderNum: string) => httpServer.get({url: `/orderPay/checkOrderStatus/${orderNum}`});
 
 
+/**
+ * 获取会员权益
+ * @param {}
+ */
+
+const getVipInfo = () => httpServer.get({url: `/users/vip/info`});
+
+
+
 export {
   getOpenid,
   register,
@@ -235,6 +244,7 @@ export {
   buyVipByCoin,
   buyVipByWechat,
   checkOrderStatus,
+  getVipInfo,
   // register,
 }
 
