@@ -1,8 +1,7 @@
-import * as Api from '../../service/api.service';
+import {sendMessage } from '../../service/socket.service2';
 import { getDate, getTime } from '../../utils/utils';
 
 Page({
-
   data: {
     openid: '',
     userInfo: {}, // 用户信息
@@ -11,7 +10,7 @@ Page({
   },
 
   onLoad: function () {
-    this.getUserInfo();
+    // this.getUserInfo();
     this.getMessageList();
   },
 
@@ -23,23 +22,25 @@ Page({
   },
 
   getUserInfo() {
-    const openid = this.getOpenid();
-    Api.getUserInfo(openid).then((result: any) => {
-      if (result) {
-        const userInfo = result.data;
-        console.log('userInfo:', userInfo)
-        this.setData!({
-          userInfo
-        });
-      } else {
-        throw new Error("获取用户信息失败");
-      }
-    });
+    // const openid = this.getOpenid();
+    // Api.getUserInfo(openid).then((result: any) => {
+    //   if (result) {
+    //     const userInfo = result.data;
+    //     console.log('userInfo:', userInfo)
+    //     this.setData!({
+    //       userInfo
+    //     });
+    //   } else {
+    //     throw new Error("获取用户信息失败");
+    //   }
+    // });
   },
 
   /** 发送消息事件 */
   sendTap() {
     // TODO
+    // to do
+    sendMessage({cid: "oHgB55AlhKqR7azr85YYBwfIE9EQ",msg: this.data.message, type: 1})
     console.log('send message:', this.data.message);
   },
 

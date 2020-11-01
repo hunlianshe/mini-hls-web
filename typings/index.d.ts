@@ -10,3 +10,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 /// <reference path="./lib.wa.es6.d.ts" />
 /// <reference path="./wx/index.d.ts" />
+/// <reference path="../miniprogram/lib/weapp.socket.io.d.ts" />
+

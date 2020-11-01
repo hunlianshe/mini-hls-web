@@ -1,13 +1,12 @@
 let socket
 const host = require('../config').socket
-const io = require('../lib/weapp.socket.io.js');
+// import config from '../config';
+const  io = require('../lib/weapp.socket.io.js');
 let token = wx.getStorageSync('user').token;
-console.log('token...', token);
 socket = io(host, {
-    path:'/notification',
+  path:'',
   query: {
     token,
-    // fromSource: "mini"
   }
 })
 socket.on('connect', function() {
