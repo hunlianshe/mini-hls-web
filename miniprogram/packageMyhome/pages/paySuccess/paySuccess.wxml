@@ -1,0 +1,3 @@
+<!-- packageMyhome/pages/paySuccess.wxml -->
+<text>Success</text>
+<button bindtap="backToMyHome">我知道了</button>
