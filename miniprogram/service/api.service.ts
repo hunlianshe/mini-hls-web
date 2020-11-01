@@ -238,6 +238,8 @@ const getMessageByCid = (cid: string, pageSize: number, pageToken?: string) =>
     url: `/group/message/list/${cid}?pageSize=${pageSize}&pageToken=${pageToken}`,
   });
 
+const getVipInfo = () => httpServer.get({ url: `/users/vip/info` });
+
 export {
   getOpenid,
   register,
@@ -273,5 +275,6 @@ export {
   buyVipByWechat,
   checkOrderStatus,
   getMessageByCid,
+  getVipInfo,
   // register,
 };
