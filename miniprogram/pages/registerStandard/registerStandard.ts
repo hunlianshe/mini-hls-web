@@ -39,7 +39,7 @@ Page({
     age: '',
     height: '',
     salary: '',
-    title:'开启缘分'
+    title:'精确匹配'
   },
 
   onLoad: function (options: any) {

@@ -26,6 +26,6 @@
 
   <base-dialog showDialog="{{showDialog}}"
     title="聊天次数已达上限"
-    descText="您还不是会员，缘分聊天次数已达上限，开通或升级会员后进行更多缘分聊天"
+    descText="缘分聊天次数已达上限，开通或升级会员后进行更多缘分聊天"
     bind:closeDialog="closeDialog" />
 </view>

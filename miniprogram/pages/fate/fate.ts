@@ -94,6 +94,15 @@ Page({
   },
 
   goMatch() {
+    let rightType = 'fateMatch'; // 缘分匹配
+    if (dealRightIntercept(rightType)) {
+      this.setData!({
+        showDialog: true,
+      });
+      return;
+    }
+    setRightStorage(rightType);
+
     let userInfo = app.globalData.userInfo;
     if (userInfo && userInfo.phone) {
       wx.navigateTo({

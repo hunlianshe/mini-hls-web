@@ -60,7 +60,7 @@ Page({
         seasonPrice: 0,
         monthPrice: 0,
         psychologicalTest: 99999,
-        constellationMatching: 99999,
+        constellationMatching: 0,
         fateMatch: 3,
         fateWatch: 20,
         fateChat: 3,

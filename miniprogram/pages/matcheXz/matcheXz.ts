@@ -1,4 +1,5 @@
 import xzList from '../../public/json/zxList';
+import { dealRightIntercept, setRightStorage } from '../../utils/utils';
 
 Page({
   data: {
@@ -6,6 +7,7 @@ Page({
     dataList: xzList.data,
     myFortuneName: '',
     otherFortuneName: '',
+    showDialog: false,
   },
 
   onLoad: function (options: any) {
@@ -25,6 +27,15 @@ Page({
   },
 
   submit() {
+    let rightType = 'constellationMatching'; // 星座匹配
+    if (dealRightIntercept(rightType)) {
+      this.setData!({
+        showDialog: true,
+      });
+      return;
+    }
+    setRightStorage(rightType);
+
     const {
       myFortuneName,
       otherFortuneName
@@ -32,6 +43,12 @@ Page({
     wx.navigateTo({
       url: `../matchXZResult/matchXZResult?me=${myFortuneName}&he=${otherFortuneName}`,
     })
+  },
+
+  closeDialog() {
+    this.setData!({
+      showDialog: false,
+    });
   },
 
   /**

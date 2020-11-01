@@ -1,34 +1,36 @@
 .fate-page {
   background: #fbf9fc;
-  padding-top: 20rpx;
+  padding: 20rpx;
 }
 
 .fate-page .match {
   position: fixed;
-  right: 30rpx;
-  bottom: 60rpx;
-  width: 65rpx;
-  height: 65rpx;
-  border-radius: 100rpx;
-  padding: 20rpx;
+  top: 0;
+  width: 100%;
+  padding: 20rpx 0;
+  background: #ffffff;
+}
+
+.fate-page .match .match-content {
+  line-height: 80rpx;
   text-align: center;
-  color: #ffffff;
-  font-size: 22rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to top, #E39BF0, rgba(227, 155, 240, 0.774))
+  color: #E39BF0;
+  font-size: 34rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  border: 2rpx solid #E39BF0;
+  margin: 0 40rpx;
 }
 
 .user-box {
-  width: 48%;
+  width: 44%;
   font-size: 14px;
   color: #797979;  
   display: inline-block;
   background-color: #ffffff;
-  border-radius: 4px;
   margin: 0px 1%;
-  margin-bottom:20px;
+  margin-bottom: 20px;
+  padding: 2%;
   border-radius: 8rpx 8rpx 0 0;
   background: #ffffff;
   color: #333333;

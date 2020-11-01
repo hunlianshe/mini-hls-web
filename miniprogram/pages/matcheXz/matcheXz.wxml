@@ -32,4 +32,9 @@
       hover-class="defaultTap">
       查看匹配</button>
   </view>
+
+  <base-dialog showDialog="{{showDialog}}"
+    title="匹配次数已达上限"
+    descText="匹配次数已达上限，开通或升级会员后可进行更多星座匹配"
+    bind:closeDialog="closeDialog" />
 </view>
