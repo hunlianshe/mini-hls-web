@@ -87,8 +87,6 @@ Page({
     const openid = this.data.user.openid;
     const aliyunServerURL = env.uploadImageUrl;
 
-   
-
     let indexImage = this.data.indexImage;
     let uploadIndexPath = this.data.uploadIndexPath;
     if (uploadIndexPath !== '') {

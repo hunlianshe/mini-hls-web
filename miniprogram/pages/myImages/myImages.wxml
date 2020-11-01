@@ -4,28 +4,6 @@
   </view>
   <form bindsubmit="onSubmit" bindreset="formReset">
     <view class='info-box'>
-      <!--<view class='info-cell display-flex'>
-        <view class="flex_1">
-          <view>封面图片</view>
-          <view class='small-text'></view>
-        </view>
-        <view class="weui-uploader">
-          <view class="weui-uploader__bd">
-            <block wx:if="{{indexImage !== ''}}">
-              <view class="weui-uploader__files" id="uploaderFiles">
-                <view class="weui-uploader__file" bindtap="chooseIndexImage" id="{{item}}">
-                  <image class="weui-uploader__img" src="{{indexImage}}" mode="aspectFill" />
-                </view>
-              </view>
-            </block>
-            <block wx:else>
-              <view class="weui-uploader__input-box">
-                <view class="weui-uploader__input" bindtap="chooseIndexImage"></view>
-              </view>
-            </block>
-          </view>
-        </view>
-      </view>-->
       <view class='info-cell'>
         <view class='wechat'>
           <view>图片上传</view>

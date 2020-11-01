@@ -37,8 +37,7 @@ Page({
     this.getToUserInfo();
     this.getMessageList();
     this.receiveMessage();
-    
-
+  
   },
 
   getOpenid() {
@@ -47,6 +46,8 @@ Page({
     openid = user.openid || '';
     return openid;
   },
+
+
 
   receiveMessage() {
     console.log("准备接收消息")
@@ -87,6 +88,17 @@ Page({
       message: e.detail.detail.value // 获取输入的值
     })
   },
+
+   /** 输入消息内容 */
+   uploadImage(e: any) {
+    console.log('upload image:', e.detail);
+    sendMessage({cid: this.data.cid, msg: e.detail, type: 2})
+
+    // this.setData!({
+    //   message: e.detail.detail.value // 获取输入的值
+    // })
+  },
+
 
   getMessageList() {
     // const messageList: any = [
