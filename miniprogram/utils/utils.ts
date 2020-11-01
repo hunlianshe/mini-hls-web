@@ -107,6 +107,49 @@ const formatNumber = (n: number) => {
   return str[1] ? str : '0' + str
 }
 
+/** 处理权益拦截 */
+const dealRightIntercept = (vipType: string, rightType: string ) => {
+  let needIntercept = false; // 是否需要拦截
+  let times = 0;
+  let timesNow = wx.getStorageSync(rightType); // 从缓存中获取权益使用情况
+  let rightConfig: any = wx.getStorageSync('rightConfig'); // 从缓存中读取首页中set的权益配置
+  switch (vipType) {
+    case '': // 普通
+      times = rightConfig[0][rightType] || 99;
+      needIntercept = timesNow >= times;
+      break;
+    case 'bronze': // 黄铜
+      times = rightConfig[1][rightType] || 99;
+      needIntercept = timesNow >= times;
+      break;
+    case 'platinum': // 白金
+      times = rightConfig[2][rightType] || 99;
+      needIntercept = timesNow >= times;
+      break;
+    default:
+      needIntercept = false;
+      break;
+  }
+  return needIntercept;
+}
+
+const setRightStorage = (rightType: string) => {
+  let times = 0;
+  let rightData = wx.getStorageSync(rightType);
+  let dateNow = new Date();
+  // 判断是否是同一天
+  if (rightData.updateTime && rightData.updateTime.toDateString() == dateNow.toDateString()) {
+    times = rightData.times + 1;
+  }
+  wx.setStorage({
+    key: rightType,
+    data: {
+      times,
+      dateNow,
+    } 
+  });
+}
+
 export {
   showModal,
   showModelAction,
@@ -118,4 +161,6 @@ export {
   getDate,
   getTime,
   formatTime,
+  dealRightIntercept,
+  setRightStorage,
 }

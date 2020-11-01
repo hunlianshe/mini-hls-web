@@ -1,11 +1,11 @@
 
 import * as Api from '../../service/api.service';
+import { dealRightIntercept, setRightStorage } from '../../utils/utils';
 
 Page({
   data: {
     user: { openid: '' },
-    userInfo: null,
-    userStatistics: {},
+    userInfo: { vipType : '' },
     pageLoaded: false,
     meLike: 0,
     likeMe: 0,
@@ -17,11 +17,11 @@ Page({
   onLoad: function () {
     let _this = this
     wx.getStorage({
-      key: 'user',
+      key: 'user', // 用户头像信息
       success: function(res) {
         _this.setData!({
           user: res.data
-        })
+        });
       },
     });
     this.getUserInfo();
@@ -35,7 +35,7 @@ Page({
   getUserInfo() {
     let _this = this;
     wx.getStorage({
-      key: 'user',
+      key: 'user', // 用户头像信息
       success: function (res) {
         const { openid } = res.data;
         _this.requestForUserInfo(openid);
@@ -116,16 +116,24 @@ Page({
    */
   goFateList(e: any) {
     const { type } = e.currentTarget.dataset;
-    // const { vipType = '', } = this.data.userInfo;
-    if (type == 2 || type == 3) {
+    const { vipType = '' } = this.data.userInfo;
+    let rightType = '';
+    if (type == 2) { // 喜欢我
+      rightType = 'whoLikeMe';
+    } else if (type == 3) { // 相互喜欢
+      rightType = 'likeEach';
+    }
+    // 处理拦截并返回是否需要被拦截
+    if (dealRightIntercept(vipType, rightType)) {
       this.setData!({
         showDialog: true,
-      });
+      })
       return;
     }
+    setRightStorage(rightType);
     wx.navigateTo({
       url: `../fateList/fateList?type=${type}`,
-    })
+    });
   },
 
   closeDialog() {
@@ -146,10 +154,6 @@ Page({
   },
 
   onShow: function () {
-    // const { pageLoaded } = this.data;
-    // if (pageLoaded) {
-    //   this.getUserInfo();
-    // }
     let _this = this;
     wx.getStorage({
         key: 'user',

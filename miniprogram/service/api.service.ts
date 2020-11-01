@@ -140,20 +140,6 @@ const getUserDetail = (id: any) =>
   httpServer.get({ url: `/user/getUserInfo?id=${id}` });
 
 /**
- * 获取城市列表
- * @param {}
- */
-const getCityList = (params: any) =>
-  httpServer.post({ url: `/user/district`, data: params });
-
-/**
- * 获取城市列表
- * @param {}
- */
-const getAllDistrict = (params: any) =>
-  httpServer.post({ url: `/user/allDistrict`, data: params });
-
-/**
  * 创建店铺
  * @param {}
  */
@@ -240,6 +226,8 @@ const getMessageByCid = (cid: string, pageSize: number, pageToken?: string) =>
 
 const getVipInfo = () => httpServer.get({ url: `/users/vip/info` });
 
+const getRightConfig = () => httpServer.get({ url: `/users/vip/info` });
+
 export {
   getOpenid,
   register,
@@ -260,8 +248,6 @@ export {
   getGenerateCatOrDogResult,
   getPastLove,
   getAccessToken,
-  getCityList,
-  getAllDistrict,
   createShop,
   updateShop,
   getUserDetail,
@@ -276,5 +262,6 @@ export {
   checkOrderStatus,
   getMessageByCid,
   getVipInfo,
+  getRightConfig,
   // register,
 };
