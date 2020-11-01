@@ -19,11 +19,11 @@
     "pretty": true,
     "strictPropertyInitialization": true,
     "typeRoots": [
-      "./typings"
-    ]
+      "./typings",
+    ],
   },
   "include": [
-    "miniprogram/**/*.ts", "miniprogram/components/pageContainer/pageContainer.js", "miniprogram/components/miniPrograss/miniPrograss.js", "miniprogram/utils/sha1.js", "miniprogram/pages/qsqyResult/qsqyResult.js", "miniprogram/pages/realXzysDetail/realXzysDetail.js", "miniprogram/pages/bar/index.js", "miniprogram/pages/bar/index.js", "miniprogram/components/userInfoCard/userInfoCard.js"
+    "miniprogram/**/*.ts", "miniprogram/components/pageContainer/pageContainer.js", "miniprogram/components/miniPrograss/miniPrograss.js", "miniprogram/utils/sha1.js", "miniprogram/pages/qsqyResult/qsqyResult.js", "miniprogram/pages/realXzysDetail/realXzysDetail.js", "miniprogram/pages/bar/index.js", "miniprogram/pages/bar/index.js", "miniprogram/components/userInfoCard/userInfoCard.js", "typings/weapp.socket.io.d.ts", "miniprogram/service/socket.service.js", "miniprogram/service/socket.service.js", "miniprogram/service/socket.service.js"
   ],
   "exclude": [
     "node_modules",

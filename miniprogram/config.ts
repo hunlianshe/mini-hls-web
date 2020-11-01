@@ -2,7 +2,7 @@
 
 
 var host = "14592619.qcloud.la"
-// var socket = "https://www.peajs.top"
+var socket = "http://148.70.243.198"
 // var hostUrl = "http://localhost:8009"
 
 // var hostUrl = "https://www.scrumplanning.cn/prohls"
@@ -18,7 +18,7 @@ var config: any = {
   host,
   ak,
   hostUrl,
-
+  socket,
   loginUrl: `https://${host}/login`,
 
   requestUrl: `https://${host}/testRequest`,
@@ -34,8 +34,6 @@ var config: any = {
   uploadFileUrl: `https://${host}/upload`,
 
   downloadExampleUrl: `https://${host}/static/weapp.jpg`,
-
-  socket: '',
 
   // aliyun OSS config
   uploadImageUrl: `${fileHost}`, // 默认存在根目录，可根据需求改
