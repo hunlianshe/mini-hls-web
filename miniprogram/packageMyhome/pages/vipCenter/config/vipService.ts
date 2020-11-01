@@ -2,16 +2,19 @@ export const  BAIJIN= {
   name: "白金会员",
   priceList: [
     {
+      select: false,
       name: "year", // 年
       nameStr: "年付",
       value: "240",
-      avgStr: "20元/月"
+      avgStr: "20元/月",
     }, {
+      select: false,
       name: "quarter", // 季
       nameStr: "季付",
       value: "60",
       avgStr: "20元/月"
     }, {
+      select: false,
       name: "month", // 月
       nameStr: "月付",
       value: "20",
@@ -24,16 +27,19 @@ export const HUANGTONG = {
   name: "黄铜会员",
   priceList: [
     {
+      select: false,
       name: "year", // 年
       nameStr: "年付",
       value: "120",
       avgStr: "10元/月"
     }, {
+      select: false,
       name: "quarter", // 季
       nameStr: "季付",
       value: "30",
       avgStr: "10元/月"
     }, {
+      select: false,
       name: "month", // 月
       nameStr: "月付",
       value: "30",

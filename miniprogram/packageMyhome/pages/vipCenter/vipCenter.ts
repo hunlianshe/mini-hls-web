@@ -15,9 +15,7 @@ Page({
     currentRight: 0, // 0-huangtong 1-baijin
   },
 
-  onLoad: function () {
-
-  },
+  onLoad: function () {},
 
   /** 充值 */
   goRecharge(): any {
@@ -33,45 +31,33 @@ Page({
     });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  selectPrice(e: any) {
+    console.log(e.currentTarget.dataset)
+    const { BJ, HT} = this.data;
+    const { selectIndex, currentRight } = e.currentTarget.dataset;
+    const priceList = currentRight === 0 ? HT.priceList : BJ.priceList;
+    priceList.forEach((item, index) => { 
+      if (index === selectIndex) { item.select = true } else { item.select = false};
+    });
+    if (currentRight === 0) { HT.priceList = priceList; } else { BJ.priceList = priceList};
+    this.setData!({
+      BJ,
+      HT
+    });
 
+    console.log(this.data.HT.priceList)
+    console.log(this.data.BJ.priceList)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onReady: function () {},
 
-  },
+  onShow: function () {},
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  onHide: function () {},
 
-  },
+  onUnload: function () {},
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  onPullDownRefresh: function () {},
 
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 })
