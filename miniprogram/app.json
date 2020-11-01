@@ -1,6 +1,7 @@
 {
   "entryPagePath": "pages/myHome/myHome",
   "pages": [
+    "pages/chatList/chatList",
     "pages/index/index",
     "pages/qsqy/qsqy",
     "pages/qsqyResult/qsqyResult",
@@ -32,8 +33,7 @@
     "pages/xlcsList/xlcsList",
     "pages/xlcsDetail/xlcsDetail",
     "pages/login/login",
-    "pages/chat/chat",
-    "pages/chatList/chatList"
+    "pages/chat/chat"
   ],
   "subpackages": [
     {

@@ -8,6 +8,6 @@
     </block>
   </view>
   <view style="position: fixed; bottom: 0; width: 100%;">
-    <send-message bind:sendTap="sendTap" bind:inputTap="inputTap"  />
+    <send-message bind:sendTap="sendTap" bind:inputTap="inputTap" bind:uploadImage="uploadImage"  />
   </view>
 </view>
