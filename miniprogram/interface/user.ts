@@ -25,6 +25,7 @@ interface User {
   token?: string,
   deleteStatus?: boolean,
   constellation?: string,
+  coin?: number,
 }
 
 export default User;

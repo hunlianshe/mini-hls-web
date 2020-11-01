@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/index/index",
+  "entryPagePath": "pages/myHome/myHome",
   "pages": [
     "pages/index/index",
     "pages/qsqy/qsqy",
@@ -32,7 +32,17 @@
     "pages/xlcsList/xlcsList",
     "pages/xlcsDetail/xlcsDetail",
     "pages/login/login",
-    "pages/chat/chat"
+    "pages/chat/chat",
+    "pages/chatList/chatList"
+  ],
+  "subpackages": [
+    {
+      "root": "packageMyhome",
+      "pages": [
+        "pages/recharge/recharge",
+        "pages/vipCenter/vipCenter"
+      ]
+    }
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -58,7 +68,7 @@
         "selectedIconPath": "public/image/menu_2_active.png"
       },
       {
-        "pagePath": "pages/chat/chat",
+        "pagePath": "pages/chatList/chatList",
         "text": "消息",
         "iconPath": "public/image/menu_3.png",
         "selectedIconPath": "public/image/menu_3_active.png"

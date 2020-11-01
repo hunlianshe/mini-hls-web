@@ -18,26 +18,30 @@
 }
 
 .fateListpage .item-cell {
-  padding: 20rpx 0;
-  border-bottom: 2px solid #efefef;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
   color: #7F8389;
   font-size: 28rpx;
+  padding: 32rpx;
 }
+
 .fateListpage .head {
   width: 120rpx;
   height: 120rpx;
   border-radius: 100rpx;
-  padding: 0 20rpx;
+  padding-right: 32rpx;
 }
 .fateListpage .theme-text {
   font-size: 32rpx;
-  color: #333333;
+  color: #030303;
 }
 
 .fateListpage .head image {
   width: 120rpx;
   height: 120rpx;
   border-radius: 100rpx;
+  border-radius: 50%;
 }
 
 .fateListpage .time {

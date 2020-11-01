@@ -1,0 +1,77 @@
+import { BAIJIN, HUANGTONG, RIGHTLIST } from './config/vipService';
+
+Page({
+  data: {
+    BJ: BAIJIN,
+    HT: HUANGTONG,
+    rightList: RIGHTLIST,
+    swiper: {
+      indicatorDots: true,
+      vertical: false,
+      autoplay: false,
+      interval: 2000,
+      duration: 500
+    },
+    currentRight: 0, // 0-huangtong 1-baijin
+  },
+
+  onLoad: function () {
+
+  },
+
+  /** 充值 */
+  goRecharge(): any {
+    wx.navigateTo({
+      url: `../../../packageMyhome/pages/recharge/recharge`,
+    })
+  },
+
+  swiperChange(e: any) {
+    console.log(e.detail.current);
+    this.setData!({
+      currentRight: e.detail.current, 
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+})

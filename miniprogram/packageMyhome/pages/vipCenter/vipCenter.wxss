@@ -1,0 +1,90 @@
+.vipCenter {
+  padding: 50rpx;
+}
+
+.swiper-card {
+  font-size: 36rpx;
+  color: #B46632;
+  font-weight: 600;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+  padding: 60rpx 60rpx 90rpx 60rpx;
+}
+
+.vipCenter .price-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vipCenter .cell-item {
+  border: 2rpx solid #EFF0F1;
+  border-radius: 4rpx;
+  padding: 40rpx 20rpx;
+  text-align: center;
+  flex: 0.3;
+}
+
+.vipCenter .right-title {
+  text-align: center;
+  line-height: 88rpx;
+  background: linear-gradient(to right bottom, #3C4862, #000E26);
+  color: #ffffff;
+  font-size: 28rpx;
+  border-radius: 8rpx 8rpx 0 0;
+  margin-top: 50rpx;
+}
+
+.vipCenter .right-cell {
+  display: flex;
+  align-items: center;
+  color: #666666;
+  font-size: 24rpx;
+  font-weight: 300;
+}
+
+.vipCenter .item-1,
+.vipCenter .item-2,
+.vipCenter .item-3,
+.vipCenter .item-4 {
+  flex: 0.25;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+ justify-content: center;
+}
+
+.vipCenter .item-2 {
+  background: #F8F9FA;
+}
+
+.vipCenter .item-3 {
+  color: #B46632;
+  background: #FFFBF8;
+}
+
+.vipCenter .item-4 {
+  background: #F1F1FF;
+  color: #6966C2;
+}
+
+.vipCenter .footer-btn {
+  background: #1C202A;
+  border-radius: 58rpx;
+  height: 116rpx;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  padding: 0 16rpx;
+  margin: 50rpx 0;
+}
+.vipCenter .pay-btn {
+  color: #70300A;
+  width: 216rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  border-radius: 42rpx;
+  height: 84rpx;
+  text-align: center;
+}

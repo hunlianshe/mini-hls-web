@@ -10,6 +10,7 @@ Page({
     meLike: 0,
     likeMe: 0,
     likeEachOther: 0,
+    openVipImage: '../../public/image/openVip.png',
   },
 
   onLoad: function () {
@@ -105,10 +106,10 @@ Page({
     })
   },
 
-  /** 红娘 */
-  goMatchmaker(): any {
+  /** 充值 */
+  goRecharge(): any {
     wx.navigateTo({
-      url: `../matchmaker/matchmaker`,
+      url: `../../packageMyhome/pages/recharge/recharge`,
     })
   },
 
@@ -119,6 +120,13 @@ Page({
     wx.navigateTo({
       url: `../fateList/fateList?type=${type}`,
     })
+  },
+
+  /** 开动会员 */
+  openVip() {
+    wx.navigateTo({
+      url: `../../packageMyhome/pages/vipCenter/vipCenter`,
+    });
   },
 
   onReady: function () {

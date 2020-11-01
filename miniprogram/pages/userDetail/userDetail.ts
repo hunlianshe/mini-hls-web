@@ -53,10 +53,20 @@ Page({
     });
   },
 
-  matchMaker() {
-    wx.navigateTo({
-      url: '../matchmaker/matchmaker',
+  /** 去聊天 */
+  goChat() {
+    // 开始回话
+    Api.startChatSession({
+      userIds: [this.data.openid]
+    }).then((result: any) => {
+      if (result.code == 200) {
+        console.log(`start chat session result`, result.data);
+        wx.navigateTo({
+          url: `../chat/chat?openid=${this.data.openid}`,
+        })
+      }
     })
+   
   },
 
   onReady: function () {
