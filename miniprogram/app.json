@@ -40,7 +40,8 @@
       "root": "packageMyhome",
       "pages": [
         "pages/recharge/recharge",
-        "pages/vipCenter/vipCenter"
+        "pages/vipCenter/vipCenter",
+        "pages/choosePay/choosePay"
       ]
     }
   ],
