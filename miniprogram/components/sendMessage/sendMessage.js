@@ -6,6 +6,10 @@ import config from '../../config';
  */
 Component({
   properties: {
+    toOpenid: {
+      type: String,
+      value: '',
+    }
   },
 
   /**

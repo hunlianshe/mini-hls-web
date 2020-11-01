@@ -1,3 +1,5 @@
+import * as Api from '../service/api.service';
+
 
 const showModal = (title?: any, content?: any) => {
   const model: any = {
@@ -107,6 +109,77 @@ const formatNumber = (n: number) => {
   return str[1] ? str : '0' + str
 }
 
+/** 获取用户信息 */
+const getUserInfo = () => {
+  let userInfo: any = {};
+  wx.getStorage({
+    key: 'user', // 用户头像信息
+    success: function (res) {
+      const { openid } = res.data;
+      userInfo = Api.getUserInfo(openid).then((result: any) => {
+        if (result) {
+          return result.data || {};
+        }
+      });
+    },
+  });
+  return userInfo;
+};
+
+
+/** 处理权益拦截 */
+const dealRightIntercept = (rightType: string ) => {
+  let userInfo = getUserInfo();
+  const { vipType = '' } = userInfo;
+  let needIntercept = false; // 是否需要拦截
+  let times = 0;
+  let rightTypeData = wx.getStorageSync(rightType); // 从缓存中获取权益使用情况
+  let timesNow = rightTypeData.times || 0;
+  let rightConfig: any = wx.getStorageSync('rightConfig'); // 从缓存中读取首页中set的权益配置
+  switch (vipType) {
+    case '': // 普通
+      times = rightConfig[0][rightType];
+      console.log('读取拦截times：', times);
+      needIntercept = timesNow >= times;
+      break;
+    case 'bronze': // 黄铜
+      times = rightConfig[1][rightType];
+      console.log('读取拦截times：', times);
+      needIntercept = timesNow >= times;
+      break;
+    case 'platinum': // 白金
+      times = rightConfig[2][rightType];
+      console.log('读取拦截times：', times);
+      needIntercept = timesNow >= times;
+      break;
+    default:
+      needIntercept = false;
+      break;
+  }
+  return needIntercept;
+}
+
+const setRightStorage = (rightType: string, value = 0) => {
+  let times = 0;
+  let rightData = wx.getStorageSync(rightType);
+  let dateNow = new Date();
+  // 判断是否是同一天
+  if (rightData.updateTime && rightData.updateTime.toDateString() == dateNow.toDateString()) {
+    times = rightData.times + 1;
+  }
+  if (value) {
+    times = value;
+  }
+  console.log('设置times：', times);
+  wx.setStorage({
+    key: rightType,
+    data: {
+      times,
+      dateNow,
+    } 
+  });
+}
+
 export {
   showModal,
   showModelAction,
@@ -118,4 +191,6 @@ export {
   getDate,
   getTime,
   formatTime,
+  dealRightIntercept,
+  setRightStorage,
 }
