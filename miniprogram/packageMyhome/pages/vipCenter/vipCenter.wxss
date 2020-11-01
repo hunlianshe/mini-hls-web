@@ -18,12 +18,20 @@
   justify-content: space-between;
 }
 
-.vipCenter .cell-item {
+.vipCenter .price-cell-item {
   border: 2rpx solid #EFF0F1;
   border-radius: 4rpx;
   padding: 40rpx 20rpx;
   text-align: center;
   flex: 0.3;
+}
+.vipCenter .price-cell-item.selected-ht {
+  background: #FFF8F3;
+  border: 3rpx solid #CD7941;
+}
+.vipCenter .price-cell-item.selected-bj {
+  background: #F6F6FF;
+  border: 3rpx solid #716DCD;
 }
 
 .vipCenter .right-title {
