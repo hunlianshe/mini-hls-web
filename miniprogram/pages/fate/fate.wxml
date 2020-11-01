@@ -25,5 +25,7 @@
   <block wx:if="{{dataAlready && userList.length === 0}}">
     <noData type='{{keyword ? 1 : 0}}' />
   </block>
+
+  <base-dialog showDialog="{{showDialog}}" bind:closeDialog="closeDialog" />
 </view>
 

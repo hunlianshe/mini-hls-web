@@ -159,13 +159,16 @@ const dealRightIntercept = (rightType: string ) => {
   return needIntercept;
 }
 
-const setRightStorage = (rightType: string) => {
+const setRightStorage = (rightType: string, value = 0) => {
   let times = 0;
   let rightData = wx.getStorageSync(rightType);
   let dateNow = new Date();
   // 判断是否是同一天
   if (rightData.updateTime && rightData.updateTime.toDateString() == dateNow.toDateString()) {
     times = rightData.times + 1;
+  }
+  if (value) {
+    times = value;
   }
   console.log('设置times：', times);
   wx.setStorage({
