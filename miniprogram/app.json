@@ -41,7 +41,8 @@
       "pages": [
         "pages/recharge/recharge",
         "pages/vipCenter/vipCenter",
-        "pages/choosePay/choosePay"
+        "pages/choosePay/choosePay",
+        "pages/paySuccess/paySuccess"
       ]
     }
   ],
