@@ -58,5 +58,5 @@
 
   </view>
 
-  <base-dialog showDialog="{{showDialog}}" />
+  <base-dialog showDialog="{{showDialog}}" bind:closeDialog="closeDialog" />
 </view>

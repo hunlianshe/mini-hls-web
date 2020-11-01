@@ -4,7 +4,7 @@ import * as Api from '../../service/api.service';
 Page({
   data: {
     user: { openid: '' },
-    userInfo: {},
+    userInfo: null,
     userStatistics: {},
     pageLoaded: false,
     meLike: 0,
@@ -116,6 +116,7 @@ Page({
    */
   goFateList(e: any) {
     const { type } = e.currentTarget.dataset;
+    // const { vipType = '', } = this.data.userInfo;
     if (type == 2 || type == 3) {
       this.setData!({
         showDialog: true,
@@ -125,6 +126,12 @@ Page({
     wx.navigateTo({
       url: `../fateList/fateList?type=${type}`,
     })
+  },
+
+  closeDialog() {
+    this.setData!({
+      showDialog: false,
+    });
   },
 
   /** 开动会员 */
