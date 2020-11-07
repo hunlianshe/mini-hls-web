@@ -13,7 +13,7 @@
           <text class="label" wx:if="{{item.balance !== ''}}">余额{{item.balance}}</text>
         </view>
         <view>
-          <radio value="{{item.value}}" checked="{{item.checked}}"/>
+          <radio value="{{item.value}}" checked="{{item.checked}}" color="#FB5572"/>
         </view>
       </label>
     </radio-group>
