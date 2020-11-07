@@ -32,7 +32,13 @@
     </swiper>
   </view>
   <view class="price-cell">
-    <view wx:for="{{currentRight === 0 ? HT.priceList : BJ.priceList}}" wx:key="*this" class="{{item.select === true ? (currentRight === 0 ? 'price-cell-item selected-ht' : 'price-cell-item selected-bj') : 'price-cell-item'}}" bindtap="selectPrice" data-select-index="{{index}}" data-current-right="{{currentRight}}">
+    <view wx:for="{{currentRight === 0 ? HT.priceList : BJ.priceList}}" 
+      wx:key="*this" 
+      class="{{item.select === true ? (currentRight === 0 ? 'price-cell-item selected-ht' : 'price-cell-item selected-bj') : 'price-cell-item'}}" 
+      bindtap="selectPrice" 
+      data-select-index="{{index}}" 
+      data-current-right="{{currentRight}}"
+    >
       <view style="font-size: 32rpx; color: #333333;">{{item.nameStr}}</view>
       <view style="padding: 20rpx 0; color: #F55B5C;">
         <text style="font-size: 28rpx;">¥</text>

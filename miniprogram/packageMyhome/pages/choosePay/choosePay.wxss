@@ -1,1 +1,58 @@
-/* packageMyhome/pages/choosePay.wxss */
+.choose-pay {
+  color: #373839;
+  font-size: 30rpx;
+  padding: 32rpx;
+}
+
+.choose-pay .price {
+  color: #000000;
+  font-size: 80rpx;
+  text-align: center;
+  font-weight: 500;
+  padding: 40rpx;
+}
+
+.choose-pay .items {
+  box-shadow: 2rpx 2rpx 2prx #00000005;
+  border-radius: 4rpx;
+  padding: 40rpx 32rpx;
+}
+
+.choose-pay .item-cell {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0;
+  font-weight: 300;
+}
+
+.choose-pay .item-cell + .item-cell {
+  border-top: 1rpx solid #F0F1F2;
+}
+
+.choose-pay .item-cell .label {
+  background: #FB5572;
+  color: #ffffff;
+  font-size: 24rpx;
+  font-weight: 300;
+  line-height: 44rpx;
+  padding: 0 10rpx;
+  border-radius: 4rpx;
+}
+
+.choose-pay .pay-btn {
+  position: fixed;
+  bottom: 50rpx;
+  left: 32rpx;
+  right: 32rpx;
+  background: #FB5572;
+  color: #ffffff;
+  font-size: 32rpx;
+  border-radius: 50rpx;
+  line-height: 100rpx;
+      left: 32rpx;
+    right: 32rpx;
+}
+
+.choose-pay .pay-btn button::after{ 
+  border: none; 
+}

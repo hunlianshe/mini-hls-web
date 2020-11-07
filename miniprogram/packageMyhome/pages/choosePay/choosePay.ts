@@ -8,6 +8,11 @@ Page({
   data: {
     payInfo: {} as any,
     userInfo: {} as any,
+    payItems: [
+      { value: 'wx', name: '微信支付', iconName: 'wx', balance: '', checked: true },
+      { value: 'yfb', name: '缘分币支付', iconName: 'moneyRecharge', balance: 80, checked: false },
+    ],
+    shooseType: 'wx',
   },
 
   onLoad: function (options: any) {
@@ -26,6 +31,35 @@ Page({
         payInfo: JSON.parse(options.payInfo),
       });
     }
+  },
+
+  radioChange(e: any) {
+    console.log('radio发生change事件，选择的支付方式为：', e.detail.value)
+
+    const payItems = this.data.payItems;
+    for (let i = 0, len = payItems.length; i < len; ++i) {
+      payItems[i].checked = payItems[i].value === e.detail.value
+    }
+
+    this.setData({
+      payItems,
+      shooseType: e.detail.value,
+    })
+  },
+
+  /** 立即支付 */
+  goPay() {
+    const { payInfo, shooseType } = this.data;
+
+    // TODO 获取用户当前缘分币余额
+    if (shooseType === 'yfb' && payInfo.value > 88) {
+      wx.showToast({
+        title: '余额不足',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+    console.log("根据支付方式调用接口");
   },
 
   // 判断当前是否是开通状态

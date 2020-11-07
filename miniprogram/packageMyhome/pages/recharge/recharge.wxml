@@ -1,7 +1,7 @@
 <view>
     <view class="recharge">
       <view class="top-cell">
-        <hls-icon iconName="monryRecharge" width="100rpx" height="100rpx"/>
+        <hls-icon iconName="moneyRecharge" width="100rpx" height="100rpx"/>
         <view class="flex-full" style="padding-left: 32rpx;">
           <view style="font-size: 60rpx; color: #333333">{{totalMoney}}</view>
           <view>缘分币余额</view>

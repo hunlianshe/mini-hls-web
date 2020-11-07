@@ -21,7 +21,7 @@ Page({
     },
     userInfo: {} as any,
     currentRight: 0, // 0-huangtong 1-baijin
-    currentPrice: 0, // 0-huangtong 1-baijin
+    currentPrice: 0,
   },
   onLoad: function () {
     // 获取用户信息
@@ -55,10 +55,17 @@ Page({
 
   /** 充值 */
   goRecharge(): any {
+    const payInfo = JSON.stringify(this.data.selectValue);
+    if (payInfo === '{}') {
+      wx.showToast({
+        title: '请选择会员充值方式',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }
     wx.navigateTo({
-      url: `../../../packageMyhome/pages/choosePay/choosePay?payInfo=${JSON.stringify(
-        this.data.selectValue
-      )}`,
+      url: `../../../packageMyhome/pages/choosePay/choosePay?payInfo=${payInfo}`,
     });
   },
 
@@ -100,11 +107,11 @@ Page({
   },
 
   selectPrice(e: any) {
+    const { selectIndex, currentRight } = e.currentTarget.dataset;
     console.log(e.currentTarget.dataset);
     const { BJ, HT } = this.data;
     let currentPrice = 0;
     let selectValue: any = {};
-    const { selectIndex, currentRight } = e.currentTarget.dataset;
 
     const priceList = currentRight === 0 ? HT.priceList : BJ.priceList;
     priceList.forEach((item, index) => {
