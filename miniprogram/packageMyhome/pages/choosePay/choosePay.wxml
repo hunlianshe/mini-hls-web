@@ -1,24 +1,22 @@
 <view class="choose-pay">
   <view class="price">
-     <text style="font-size: 48rpx;">¥</text> <text>{{payInfo.value}}</text>
+    <text style="font-size: 48rpx;">¥</text>
+    <text>{{payInfo.currentPrice}}</text>
   </view>
-
   <view class="items">
     <view style="color: #373839; font-size: 28rpx;">支付方式</view>
     <radio-group bindchange="radioChange">
       <label class="item-cell" wx:for="{{payItems}}" wx:key="{{item.value}}">
-        <hls-icon iconName="{{item.iconName}}" width="48rpx" height="48rpx"/>
+        <hls-icon iconName="{{item.iconName}}" width="48rpx" height="48rpx" />
         <view class="flex-full" style="padding-left: 10rpx;">
           {{item.name}}
           <text class="label" wx:if="{{item.balance !== ''}}">余额{{item.balance}}</text>
         </view>
         <view>
-          <radio value="{{item.value}}" checked="{{item.checked}}" color="#FB5572"/>
+          <radio value="{{item.value}}" checked="{{item.checked}}" color="#FB5572" />
         </view>
       </label>
     </radio-group>
   </view>
-
   <button class="pay-btn" bindtap="goPay">立即支付</button>
 </view>
-

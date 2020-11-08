@@ -8,7 +8,7 @@ Page({
     toOpenid: "",
     userList: [], // 用户列表
     me: {} as any, // 用户列表
-    matcherImage: "../../public/image/matcher.png",
+    matcherImage: "../../public/image/matcher.jpg",
     showDialog: false,
   },
 

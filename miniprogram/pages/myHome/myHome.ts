@@ -10,7 +10,7 @@ Page({
     meLike: 0,
     likeMe: 0,
     likeEachOther: 0,
-    openVipImage: '../../public/image/openVip.png',
+    openVipImage: '../../public/image/openVip.jpg',
     showDialog: false,
   },
 

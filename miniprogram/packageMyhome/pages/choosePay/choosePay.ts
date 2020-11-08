@@ -9,21 +9,37 @@ Page({
     payInfo: {} as any,
     userInfo: {} as any,
     payItems: [
-      { value: 'wx', name: '微信支付', iconName: 'wx', balance: '', checked: true },
-      { value: 'yfb', name: '缘分币支付', iconName: 'moneyRecharge', balance: 80, checked: false },
+      {
+        value: "wx",
+        name: "微信支付",
+        iconName: "wx",
+        balance: "",
+        checked: true,
+      },
+      {
+        value: "yfb",
+        name: "缘分币支付",
+        iconName: "moneyRecharge",
+        balance: 80,
+        checked: false,
+      },
     ],
-    shooseType: 'wx',
+    shooseType: "wx",
   },
 
   onLoad: function (options: any) {
     const user = wx.getStorageSync("userInfo");
     console.log("userInfo", user);
+    let payItems = this.data.payItems;
+    payItems[1] = {
+      ...payItems[1],
+      balance: user.coin || 0,
+    };
     this.setData!({
       userInfo: {
         ...user,
-        vipType: "bronze",
-        vipExpireAt: "2020.12.31",
       },
+      payItems,
     });
     console.log(`===options===`, options);
     if (options.payInfo) {
@@ -34,32 +50,62 @@ Page({
   },
 
   radioChange(e: any) {
-    console.log('radio发生change事件，选择的支付方式为：', e.detail.value)
+    console.log("radio发生change事件，选择的支付方式为：", e.detail.value);
 
     const payItems = this.data.payItems;
     for (let i = 0, len = payItems.length; i < len; ++i) {
-      payItems[i].checked = payItems[i].value === e.detail.value
+      payItems[i].checked = payItems[i].value === e.detail.value;
     }
 
-    this.setData({
+    this.setData!({
       payItems,
       shooseType: e.detail.value,
-    })
+    });
   },
 
   /** 立即支付 */
   goPay() {
-    const { payInfo, shooseType } = this.data;
+    const { payInfo, shooseType, userInfo } = this.data;
+    const coin = userInfo.coin || 0;
+    console.log(`payInfo, shooseType`, shooseType);
 
     // TODO 获取用户当前缘分币余额
-    if (shooseType === 'yfb' && payInfo.value > 88) {
+    if (shooseType === "yfb" && coin < payInfo.value) {
       wx.showToast({
-        title: '余额不足',
-        icon: 'none',
-        duration: 2000
+        title: "余额不足",
+        icon: "none",
+        duration: 2000,
       });
     }
+
+    // 缘分币支付
+    if (shooseType === "yfb" && payInfo.currentPrice) {
+      this.coinPay();
+    } else if (shooseType === "wx" && payInfo.currentPrice) {
+      this.wxPay();
+    }
+
+    // 微信支付
+
     console.log("根据支付方式调用接口");
+  },
+
+  // 缘分币支付
+  coinPay: function () {
+    let that = this;
+    const reqParams = this.preparePayInfo();
+    console.log(`-----reqParams-----`, reqParams);
+    Api.buyVipByCoin(reqParams).then((result: any) => {
+      console.log(result);
+      if (result && result.code === 200) {
+        console.log(`coin pay付款结束complete: `, result);
+        that.requestForUserInfo();
+        // 跳转订单详情
+        wx.navigateTo({
+          url: `../paySuccess/paySuccess`,
+        });
+      }
+    });
   },
 
   // 判断当前是否是开通状态
@@ -159,10 +205,6 @@ Page({
         break;
     }
     return reqParams;
-  },
-
-  coinPay: function () {
-    console.log("coinPay");
   },
 
   onReady: function () {},

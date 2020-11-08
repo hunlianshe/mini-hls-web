@@ -1,6 +1,7 @@
 import { BAIJIN, HUANGTONG, RIGHTLIST } from "./config/vipService";
 import { dealWithVipPriceInfo, dealWithVipRightList } from "./config/utils";
-import { getVipInfo } from "../../../service/api.service";
+import { formatHLSTime } from "../../../utils/utils";
+import { getVipInfo, vipListInfo } from "../../../service/api.service";
 
 Page({
   data: {
@@ -22,6 +23,9 @@ Page({
     userInfo: {} as any,
     currentRight: 0, // 0-huangtong 1-baijin
     currentPrice: 0,
+    upgradeFlag: false,
+    tipFlag: false,
+    upgradeInfo: {} as any,
   },
   onLoad: function () {
     // 获取用户信息
@@ -30,8 +34,7 @@ Page({
     this.setData!({
       userInfo: {
         ...user,
-        vipType: "bronze",
-        vipExpireAt: "2020.12.31",
+        vipExpireAt: formatHLSTime(user.vipExpireAt),
       },
     });
 
@@ -48,6 +51,17 @@ Page({
       console.log(`=====vipRightInfo=====`, vipRightInfo);
     });
 
+    // 获取vip的更新信息
+    if (user.vipType && user.vipType !== "platinum") {
+      vipListInfo().then((res: any) => {
+        if (res.code === 200) {
+          this.setData!({
+            upgradeInfo: res.data.upgradeInfo,
+          });
+        }
+      });
+    }
+
     this.checkStatus(this.data.currentRight);
   },
 
@@ -55,12 +69,16 @@ Page({
 
   /** 充值 */
   goRecharge(): any {
-    const payInfo = JSON.stringify(this.data.selectValue);
-    if (payInfo === '{}') {
+    let payInfo: any = {
+      ...this.data.selectValue,
+      currentPrice: this.data.currentPrice,
+    };
+    payInfo = JSON.stringify(payInfo);
+    if (this.data.currentPrice === 0) {
       wx.showToast({
-        title: '请选择会员充值方式',
-        icon: 'none',
-        duration: 2000
+        title: "请选择会员充值方式",
+        icon: "none",
+        duration: 2000,
       });
       return;
     }
@@ -76,11 +94,23 @@ Page({
 
   checkStatus(currentRight: any) {
     const { userInfo } = this.data;
+    this.data.HT.priceList.forEach((el) => {
+      el.select = false;
+    });
+    this.data.BJ.priceList.forEach((el) => {
+      el.select = false;
+    });
     if (userInfo.vipType === "platinum" && currentRight === 0) {
       this.setData!({
         payBarStatus: {
           isShow: false,
         },
+        currentPrice: 0,
+        tipFlag: true,
+        selectValue: {},
+        HT: this.data.HT,
+        BJ: this.data.BJ,
+        upgradeFlag: false,
         currentRight: currentRight,
       });
       return;
@@ -93,6 +123,12 @@ Page({
           isShow: true,
           content: "立即续费",
         },
+        tipFlag: false,
+        selectValue: {},
+        currentPrice: 0,
+        HT: this.data.HT,
+        BJ: this.data.BJ,
+        upgradeFlag: false,
         currentRight: currentRight,
       });
     } else if (userInfo.vipType === "bronze" && currentRight === 1) {
@@ -101,6 +137,12 @@ Page({
           isShow: true,
           content: "立即升级",
         },
+        currentPrice: this.data.upgradeInfo.totalPrice,
+        upgradeFlag: true,
+        HT: this.data.HT,
+        BJ: this.data.BJ,
+        selectValue: {},
+        tipFlag: false,
         currentRight: currentRight,
       });
     }
@@ -143,6 +185,11 @@ Page({
     console.log(this.data.HT.priceList);
     console.log(this.data.BJ.priceList);
     console.log(`vipCenter selectValue:`, selectValue);
+  },
+
+  formatVipExpiredAtDate: function (date: any) {
+    console.log("-----come in -------");
+    return formatHLSTime(date);
   },
 
   onReady: function () {},
