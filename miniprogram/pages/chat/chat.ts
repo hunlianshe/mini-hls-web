@@ -178,7 +178,8 @@ Page({
       console.log("result.data",result.data)
       this.setData!({
         pagination: {
-          pageToken: result.data.pageToken
+          pageToken: result.data.pageToken,
+          pageSize: 10
         }// 获取输入的值
       })
      let  messageList = result.data.result

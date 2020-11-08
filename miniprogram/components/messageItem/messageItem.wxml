@@ -1,5 +1,8 @@
+
+ 
+ 
 <view class="{{isRight == true ? 'messageItem right' : 'messageItem'}}">
-  <view wx:if="{{isRight === false}}" class="avatarUrl">
+  <view wx:if="{{isRight === true}}" class="avatarUrl">
     <image src="{{toUser.avatarUrl}}" mode="aspectFit" />
   </view>
   
