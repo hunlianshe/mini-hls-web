@@ -16,7 +16,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    inputValue: null
   },
 
   /**
@@ -25,6 +25,9 @@ Component({
   methods: {
     sendTap() {
       this.triggerEvent('sendTap', {}, {})
+      this.setData({
+        'inputValue': ''
+      })
     },
     inputTap(e) {
       this.triggerEvent('inputTap', e, {})

@@ -54,6 +54,8 @@ Page({
    let socket = getSocket()
    socket.on("privateChat", (msg:any) => {
      console.log("接收到的消息是",msg)
+     var messageList: any = this.data.messageList;
+     messageList.push(msg);
    })
 
   },
