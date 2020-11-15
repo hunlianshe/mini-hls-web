@@ -11,8 +11,6 @@ Page({
     toUser: {}, // 接收人的用户信息
     userInfo: {}, // 用户信息
     message: '',  // 用户输入的消息
-    toLast: '',
-    scrollTop:0,
     pagination: {pageSize : 10, pageToken: ''},
     messageList: [],
   },
@@ -67,7 +65,6 @@ Page({
      this.setData!({messageList})
      let toLast = `item${messageList.length}`
      console.log('toLast',toLast)
-     this.setData!({toLast })
      this.setData({
       scrollTop: 1000 * messageList.length  // 这里我们的单对话区域最高1000，取了最大值，应该有方法取到精确的
     });
@@ -153,7 +150,10 @@ Page({
         }
       })
       const dateAry: any[] = [];
-      resultList.map((item: any) => {
+      resultList = resultList.reverse();
+      let { messageList } = this.data;
+      messageList = resultList.concat(messageList);
+      messageList.map((item: any) => {
         const date = getDate(item.createdAt);
         if (dateAry.indexOf(date) == -1) {
           item.date = date;
@@ -165,22 +165,16 @@ Page({
         return item;
       });
       // resultList = resultList.reverse();
-      let { messageList } = this.data;
-      messageList = resultList.concat(messageList);
-      console.log(messageList[messageList.length -1]._id)
       this.setData!({
-        messageList,
-        toLast: `item${messageList.length}`,
-        scrollTop: 1000 * messageList.length  // 这里我们的单对话区域最高1000，取了最大值，应该有方法取到精确的
+        messageList
 
       });
     })
   
   },
 
-  onPageScroll: function (res) {
+  onPageScroll: function (res: any) {
    // 页面滚动时执行
-    console.log(res);
     const { pagination } = this.data;
     if (res.scrollTop === 0 && pagination.pageToken !== '') {
       this.getMessageList(pagination.pageSize, pagination.pageToken);

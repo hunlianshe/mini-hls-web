@@ -1,5 +1,6 @@
 import * as Api from '../../service/api.service';
 import { dealRightIntercept, setRightStorage } from '../../utils/utils';
+import * as ChatService from '../../service/chat.service';
 
 Page({
   data: {
@@ -82,6 +83,7 @@ Page({
 
   /** 详情 */
   userDetail(e: any) {
+    console.log('come in..... user detail')
     const { openid } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `../userDetail/userDetail?openid=${openid}`,
@@ -90,10 +92,23 @@ Page({
 
   /** 去聊天 */
   goChat(e: any) {
+    console.log('come in..... go to chat')
     const { openid } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: `../chat/chat?openid=${openid}`,
-    })
+    console.log(`fateList openid:`, e.currentTarget);
+    ChatService.startSingleChatSession(openid);
+    // Api.startChatSession({
+    //   userIds: [this.data.openid]
+    // }).then((result: any) => {
+    //   if (result.code == 200) {
+    //     console.log(`start chat session result`, result.data);
+    //     wx.navigateTo({
+    //       url: `../chat/chat?openid=${this.data.openid}&cid=${result.data._id}`,
+    //     })
+    //   }
+    // })
+    // wx.navigateTo({
+    //   url: `../chat/chat?openid=${openid}`,
+    // })
   },
 
   onShow: function () {},

@@ -96,3 +96,39 @@
   height: 84rpx;
   text-align: center;
 }
+
+.vipCenter .vip-tips-ht {
+  border: 3rpx solid #9E6C4C;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  color: #7B482B;
+  padding: 30rpx;
+}
+
+.vipCenter .vip-tips-ht .label{
+  color: #F2D9C5;
+  font-size: 28rpx;
+  line-height: 54rpx;
+  background-image: linear-gradient( to right, #63676A, #262626);
+  border-radius: 0rpx 8rpx;
+  padding: 0 10rpx;
+}
+
+.vipCenter .vip-current {
+  color: #FFDAC6;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  background-image: linear-gradient( to right, #63676A, #262626);
+  border-radius: 24rpx;
+  padding: 0 20rpx;
+  margin-left: 20rpx;
+}
+
+.vipCenter .vip-tips-bj {
+  border: 3rpx solid #716DCD;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #676869;
+  padding: 30rpx;
+  font-weight: 300;
+}

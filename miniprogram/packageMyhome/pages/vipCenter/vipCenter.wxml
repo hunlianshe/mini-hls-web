@@ -1,17 +1,19 @@
 <view class="vipCenter">
   <view>
-    <swiper indicator-dots="{{swiper.indicatorDots}}" bindchange="swiperChange" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+    <swiper indicator-dots="{{swiper.indicatorDots}}" current="{{currentRight}}" bindchange="swiperChange" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
       <swiper-item>
         <view class="swiper-card" style="background-image: url('/public/image/huangtong-card.jpg')">
           <view class="display-flex">
             <image src="image/icon_huangtong.png" style="width:36rpx; height: 34rpx;" mode="aspectFit" />
-            <view style="padding-left: 20rpx;color: #914A1B;">黄铜会员</view>
-          </view>
-          <view wx:if="{{!userInfo.vipType}}" style="font-size: 28rpx;font-weight: 300;padding-top: 10rpx;">
-            您还未加入黄铜会员
+            <view class="display-flex" style="padding-left: 20rpx;color: #914A1B;">
+              <text>黄铜会员</text>
+              <block wx:if="{{userInfo.vipType === 'bronze'}}">
+                <text class="vip-current">当前开通</text>
+              </block>
+            </view>
           </view>
           <view wx:if="{{userInfo.vipType}}" style="font-size: 28rpx;font-weight: 300;padding-top: 10rpx;">
-            {{userInfo.vipType === "platinum" ? "白金会员" : "黄铜会员" }}{{userInfo.vipExpireAt}}到期
+            {{userInfo.vipType === "bronze" ? "黄铜会员" + userInfo.vipExpireAt + "到期" : "您还未加入白金会员" }}
           </view>
         </view>
       </swiper-item>
@@ -19,13 +21,15 @@
         <view class="swiper-card" style="background-image: url('/public/image/baijin-card.jpg')">
           <view class="display-flex">
             <image src="image/icon_baijin.png" style="width:36rpx; height: 34rpx;" mode="aspectFit" />
-            <view style="padding-left: 20rpx;color: #4F4C9E;">白金会员</view>
-          </view>
-          <view wx:if="{{!userInfo.vipType}}" style="font-size: 28rpx;font-weight: 300; color: #7976C7;padding-top: 10rpx;">
-            您还未加入白金会员
+            <view class="display-flex" style="padding-left: 20rpx;color: #4F4C9E;">
+              <text>白金会员</text>
+              <block wx:if="{{userInfo.vipType === 'platinum'}}">
+                <text class="vip-current">当前开通</text>
+              </block>
+            </view>
           </view>
           <view wx:if="{{userInfo.vipType}}" style="font-size: 28rpx;font-weight: 300; color: #7976C7;padding-top: 10rpx;">
-            {{userInfo.vipType === "platinum" ? "白金会员" : "黄铜会员" }}{{userInfo.vipExpireAt}}到期
+            {{userInfo.vipType === "platinum" ? "白金会员" + userInfo.vipExpireAt + "到期" : "您还未加入白金会员" }}
           </view>
         </view>
       </swiper-item>
@@ -41,13 +45,13 @@
       <view style="font-size: 24rpx; color: #9D9E9F;">¥{{item.avgStr}}</view>
     </view>
   </view>
-  <view class="price-cell" wx:if="{{upgradeFlag}}">
-    您是黄铜会员，可升级至白金会员剩余{{upgradeInfo.left}}天
-    <!-- {{upgradeInfo.pricePerDay}}元/天 -->
+  <view class="vip-tips-ht" wx:if="{{upgradeFlag}}">
+    <view style="padding-bottom; 10rpx;">您是黄铜会员，可升级至白金会员</view>
+    <text class="label">剩余{{upgradeInfo.left}}天</text>
   </view>
-  <view class="price-cell" wx:if="{{tipFlag}}">
-    您已经是白金会员
-    {{userInfo.vipExpireAt}}期后可继续开通黄铜会员
+  <view class="vip-tips-bj" wx:if="{{tipFlag}}">
+    <view>您已经是白金会员</view>
+    <view>{{userInfo.vipExpireAt}}期后可继续开通黄铜会员</view>
   </view>
   <view>
     <view class="right-title">会员权益</view>

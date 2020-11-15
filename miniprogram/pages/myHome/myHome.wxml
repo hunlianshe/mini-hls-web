@@ -6,6 +6,7 @@
     <view style="border-radius: 16rpx; background: #fff;">
       <view class='display-flex' style="padding: 32rpx;">
         <image class='head-img' src='{{user.avatarUrl}}' />
+        <view class="head-label"><hls-icon iconName="{{userInfo.vipType === 'bronze' ? 'htHead' : 'bjHead'}}" width="50rpx" height="50rpx" /></view>
         <view class='flex-full'>
           <view style="font-size: 44rpx;">{{user.nickName}}</view>
           <view style="font-size: 30rpx; color: #9B9B9B;">信息完成度{{userInfo.finishRate}}%</view>
@@ -27,9 +28,35 @@
       </view>
     </view>
 
-    <view class="vip-cell" bindtap="openVip">
-      <image src="{{openVipImage}}" mode="aspectFit" />
-    </view>
+    <block wx:if="{{!userInfo.vipType}}">
+      <view class="vip-cell" bindtap="openVip">
+        <image src="{{openVipImage}}" mode="aspectFit" />
+      </view>
+    </block>
+    <block wx:elif="{{userInfo.vipType === 'bronze'}}">
+      <view class="vip-cell vip-ht" 
+        style="background-image: url('/public/image/vip-ht.png')">
+        <hls-icon iconName="ht" width="80rpx" height="80rpx"/>
+        <view class="flex-full" style="padding-left: 32rpx;">
+          <view style="font-size: 32rpx;color: #7F512A;font-size: 600;">黄铜会员</view>
+          <view style="font-size: 300;">{{userInfo.vipExpireAt}}到期</view>
+        </view>
+        <button data-id="1" bindtap="openVip" style="background: #fff;color: #B46632;">续费</button>
+        <button data-id="2" bindtap="openVip" style="background: #DE8447;color: #fff;">升级</button>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="vip-cell vip-ht" 
+        style="background-image: url('/public/image/vip-bj.png')">
+        <hls-icon iconName="bj" width="80rpx" height="80rpx"/>
+        <view class="flex-full" style="padding-left: 32rpx;">
+          <view style="font-size: 32rpx;color: #4F4C9E;font-size: 600;">白金会员</view>
+          <view style="color: #726ECD;font-size: 300;">{{userInfo.vipExpireAt}}到期</view>
+        </view>
+        <button data-id="3" bindtap="openVip" style="background: #6A66E1;color: #fff;">续费</button>
+      </view>
+    </block>
+    
 
     <view style="padding: 0 30rpx; background:#ffffff; border-radius: 16rpx;">
       <view class='display-flex home-cell-list' bindtap='myImages'>

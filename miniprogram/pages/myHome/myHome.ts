@@ -1,6 +1,6 @@
 
 import * as Api from '../../service/api.service';
-import { dealRightIntercept, setRightStorage } from '../../utils/utils';
+import { dealRightIntercept, setRightStorage, formatHLSTime } from '../../utils/utils';
 
 Page({
   data: {
@@ -28,7 +28,7 @@ Page({
     this.getUsersLikeCount();
     this.setData!({
       pageLoaded: true,
-    })
+    });
   },
 
   /** 获取用户信息 */
@@ -43,10 +43,12 @@ Page({
     });
   },
   requestForUserInfo(openid: string) {
+    let _this = this;
     Api.getUserInfo(openid).then((result: any) => {
       if (result) {
         const userInfo = result.data;
-        this.setData!({
+        userInfo.vipExpireAt = formatHLSTime(userInfo.vipExpireAt);
+        _this.setData!({
           userInfo,
         });
       }
@@ -142,9 +144,11 @@ Page({
   },
 
   /** 开动会员 */
-  openVip() {
+  openVip(e: any) {
+    const id = e.currentTarget.dataset.id
+    console.log(`open vip:`, id);
     wx.navigateTo({
-      url: `../../packageMyhome/pages/vipCenter/vipCenter`,
+      url: `../../packageMyhome/pages/vipCenter/vipCenter?type=${id}`,
     });
   },
 

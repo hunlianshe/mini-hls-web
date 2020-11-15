@@ -27,7 +27,10 @@ Page({
     tipFlag: false,
     upgradeInfo: {} as any,
   },
-  onLoad: function () {
+  onLoad: function (option: any) {
+    const type = option.type;
+    console.log(`vipCenter type:`, type);
+    this.adjustVipType(type);
     // 获取用户信息
     const user = wx.getStorageSync("userInfo");
     console.log("userInfo", user);
@@ -53,16 +56,36 @@ Page({
 
     // 获取vip的更新信息
     if (user.vipType && user.vipType !== "platinum") {
+      let _this = this;
       vipListInfo().then((res: any) => {
         if (res.code === 200) {
           this.setData!({
             upgradeInfo: res.data.upgradeInfo,
           });
+          _this.checkStatus(this.data.currentRight);
         }
       });
+    }else{
+      this.checkStatus(this.data.currentRight);
     }
+    console.log('this.data.currentRight', this.data.currentRight)
+    
+  },
 
-    this.checkStatus(this.data.currentRight);
+  adjustVipType(type: string) {
+    if (type === "1") {
+      this.setData!({
+        currentRight: 0
+      })
+    } else if (type === "2") {
+      this.setData!({
+        currentRight: 1
+      })
+    } else if (type === "3") {
+      this.setData!({
+        currentRight: 1
+      })
+    }
   },
 
   getVipInfo(): any {},
