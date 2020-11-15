@@ -137,7 +137,10 @@ Page({
         }
       })
       const dateAry: any[] = [];
-      resultList.map((item: any) => {
+      resultList = resultList.reverse();
+      let { messageList } = this.data;
+      messageList = resultList.concat(messageList);
+      messageList.map((item: any) => {
         const date = getDate(item.createdAt);
         if (dateAry.indexOf(date) == -1) {
           item.date = date;
@@ -148,9 +151,6 @@ Page({
         item.time = getTime(item.createdAt);
         return item;
       });
-      // resultList = resultList.reverse();
-      let { messageList } = this.data;
-      messageList = resultList.concat(messageList);
       this.setData!({
         messageList,
       });
@@ -160,7 +160,6 @@ Page({
 
   onPageScroll: function (res) {
    // 页面滚动时执行
-    console.log(res);
     const { pagination } = this.data;
     if (res.scrollTop === 0 && pagination.pageToken !== '') {
       this.getMessageList(pagination.pageSize, pagination.pageToken);
