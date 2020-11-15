@@ -1,1 +1,18 @@
-/* packageMyhome/pages/paySuccess.wxss */
+.paySuccess {
+  text-align: center;
+  padding: 200rpx 100rpx;
+  color: #333333;
+  font-size: 34rpx;
+}
+
+.paySuccess button {
+  background: #FB5572;
+  color: #fff;
+  font-size: 34rpx;
+  line-height: 88rpx;
+  border-radius: 46rpx;
+}
+
+.paySuccess button::after {
+  border: none;
+}

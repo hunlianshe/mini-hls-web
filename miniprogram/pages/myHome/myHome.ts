@@ -78,13 +78,6 @@ Page({
     });
   },
 
-  /** 心理测试列表 */
-  goXlcsList() {
-    wx.navigateTo({
-      url: `../xlcsList/xlcsList`,
-    })
-  },
-
   register() {
     wx.navigateTo({
       url: `../register/register`,
@@ -142,10 +135,11 @@ Page({
     });
   },
 
-  /** 开动会员 */
+  /** 开通会员 */
   openVip() {
     wx.navigateTo({
-      url: `../../packageMyhome/pages/vipCenter/vipCenter`,
+      // url: `../../packageMyhome/pages/vipCenter/vipCenter`,
+      url: `../../packageMyhome/pages/paySuccess/paySuccess`,
     });
   },
 

@@ -43,7 +43,10 @@
         "pages/vipCenter/vipCenter",
         "pages/choosePay/choosePay",
         "pages/paySuccess/paySuccess"
-      ]
+      ],
+      "usingComponents": {
+        "hls-icon": "/components/icon/icon"
+      }
     }
   ],
   "window": {
