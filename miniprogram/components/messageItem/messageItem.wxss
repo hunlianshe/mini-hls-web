@@ -41,3 +41,10 @@
   word-break: break-all;
 }
 
+.messageItem .message-time {
+  font-size: 20rpx; 
+  color: #9092A5; 
+  font-weight: 300;
+  padding-top: 8rpx;
+}
+
