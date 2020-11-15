@@ -50,13 +50,25 @@ Page({
 
 
   receiveMessage() {
+    function getRandom(num: any){
+      return Math.floor((Math.random()+Math.floor(Math.random()*9+1))*Math.pow(10,num-1));
+  }
     console.log("准备接收消息")
    let socket = getSocket()
    socket.on("privateChat", (msg:any) => {
      console.log("接收到的消息是",msg)
      var messageList: any = this.data.messageList;
+     console.log("getRandom(10)",getRandom(10));
+     msg._id = getRandom(10)
      messageList.push(msg);
+     console.log("`item${messageList.length}`",messageList.length)
      this.setData!({messageList})
+     let toLast = `item${messageList.length}`
+     console.log('toLast',toLast)
+     this.setData!({
+      scrollTop: 1000 * messageList.length  // 这里我们的单对话区域最高1000，取了最大值，应该有方法取到精确的
+    });
+
    })
 
   },
@@ -80,6 +92,7 @@ Page({
   sendTap() {
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
     console.log('send message:', this.data.message);
+
     // this.setChatSession();
   },
 
@@ -151,8 +164,10 @@ Page({
         item.time = getTime(item.createdAt);
         return item;
       });
+      // resultList = resultList.reverse();
       this.setData!({
-        messageList,
+        messageList
+
       });
     })
   
