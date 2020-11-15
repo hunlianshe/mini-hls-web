@@ -129,6 +129,7 @@ const getUserInfo = () => {
     success: function (res) {
       const { openid } = res.data;
       userInfo = Api.getUserInfo(openid).then((result: any) => {
+        console.log("result",result)
         if (result) {
           return result.data || {};
         }
@@ -140,7 +141,8 @@ const getUserInfo = () => {
 
 /** 处理权益拦截 */
 const dealRightIntercept = (rightType: string) => {
-  let userInfo = getUserInfo();
+  const userInfo = wx.getStorageSync("userInfo");
+  console.log("userInfo", userInfo);
   const { vipType = "" } = userInfo;
   let needIntercept = false; // 是否需要拦截
   let times = 0;
