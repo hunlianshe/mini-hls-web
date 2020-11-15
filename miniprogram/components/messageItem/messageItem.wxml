@@ -8,7 +8,12 @@
     </view>
     
     <view class="message">
-      <view style="font-size: 28rpx;">{{messageItem.msg}}</view>
+      <block wx:if="{{messageItem.type == 2}}">
+        <image src="{{messageItem.msg}}" style="width: 300rpx" mode="aspectFit" />
+      </block>
+      <block wx:else>
+        <view style="font-size: 28rpx;">{{messageItem.msg}}</view>
+      </block>
       <view class="message-time">{{messageItem.time}}</view>
     </view>
     <view wx:if="{{isRight === true}}" class="avatarUrl">
