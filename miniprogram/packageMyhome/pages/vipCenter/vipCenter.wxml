@@ -5,7 +5,7 @@
         <view class="swiper-card" style="background-image: url('/public/image/huangtong-card.jpg')">
           <view class="display-flex">
             <image src="image/icon_huangtong.png" style="width:36rpx; height: 34rpx;" mode="aspectFit" />
-            <view style="padding-left: 20rpx;color: #914A1B;">
+            <view class="display-flex" style="padding-left: 20rpx;color: #914A1B;">
               <text>黄铜会员</text>
               <block wx:if="{{userInfo.vipType === 'bronze'}}">
                 <text class="vip-current">当前开通</text>
@@ -21,7 +21,7 @@
         <view class="swiper-card" style="background-image: url('/public/image/baijin-card.jpg')">
           <view class="display-flex">
             <image src="image/icon_baijin.png" style="width:36rpx; height: 34rpx;" mode="aspectFit" />
-            <view style="padding-left: 20rpx;color: #4F4C9E;">
+            <view class="display-flex" style="padding-left: 20rpx;color: #4F4C9E;">
               <text>白金会员</text>
               <block wx:if="{{userInfo.vipType === 'platinum'}}">
                 <text class="vip-current">当前开通</text>
