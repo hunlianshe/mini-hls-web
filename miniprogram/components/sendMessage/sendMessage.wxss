@@ -4,6 +4,7 @@
   padding: 20rpx 32rpx;
   align-items: center;
   background: #FAFAFA;
+  border-top: 2rpx solid #DAD9E2;
 }
 
 .sendMessage button {
