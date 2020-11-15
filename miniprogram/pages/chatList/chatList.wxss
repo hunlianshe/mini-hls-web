@@ -39,6 +39,16 @@
   color: #9092A5;
 }
 
+.chatList .info-tips {
+  background: #F53143;
+  border-radius: 16rpx;
+  line-height: 32rpx;
+  font-size: 20rpx;
+  color: #ffffff;
+  margin-left: 16rpx;
+  padding: 0 12rpx;
+}
+
 .no-data {
   padding: 100rpx;
   color: #9092A5;
