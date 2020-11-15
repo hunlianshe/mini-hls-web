@@ -41,8 +41,9 @@
       <view style="font-size: 24rpx; color: #9D9E9F;">¥{{item.avgStr}}</view>
     </view>
   </view>
-  <view class="price-cell" wx:if="{{upgradeFlag}}">
-    您是黄铜会员，可升级至白金会员剩余{{upgradeInfo.left}}天
+  <view class="vip-tips" wx:if="{{upgradeFlag}}">
+    <view style="padding-bottom; 10rpx;">您是黄铜会员，可升级至白金会员</view>
+    <text class="label">剩余{{upgradeInfo.left}}天</text>
     <!-- {{upgradeInfo.pricePerDay}}元/天 -->
   </view>
   <view class="price-cell" wx:if="{{tipFlag}}">
