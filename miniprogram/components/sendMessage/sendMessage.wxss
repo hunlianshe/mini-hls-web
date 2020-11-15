@@ -3,7 +3,8 @@
   display: flex;
   padding: 20rpx 32rpx;
   align-items: center;
-  background: #fff;
+  background: #FAFAFA;
+  border-top: 2rpx solid #DAD9E2;
 }
 
 .sendMessage button {
@@ -15,5 +16,6 @@
   border: 2rpx solid #efefef;
   border-radius: 4rpx;
   flex: 1;
-  padding: 0rpx 10rpx;
+  padding: 6rpx 20rpx;
+  font-size: 28rpx;
 }

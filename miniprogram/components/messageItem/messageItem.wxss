@@ -19,7 +19,7 @@
 
 .messageItem {
   display: flex;
-  width: 60%;
+  max-width: 65%;
   margin-top: 32rpx;
   align-items: flex-end;
 }

@@ -171,7 +171,6 @@ Page({
         item.time = getTime(item.createdAt);
         return item;
       });
-      // resultList = resultList.reverse();
       this.setData!({
         messageList
 
