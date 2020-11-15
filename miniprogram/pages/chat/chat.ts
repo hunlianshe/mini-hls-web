@@ -156,6 +156,15 @@ Page({
     })
   
   },
+
+  onPageScroll: function (res) {
+   // 页面滚动时执行
+    console.log(res);
+    const { pagination } = this.data;
+    if (res.scrollTop === 0 && pagination.pageToken !== '') {
+      this.getMessageList(pagination.pageSize, pagination.pageToken);
+    }
+  },
   
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -189,8 +198,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    const { pagination } = this.data;
-    this.getMessageList(pagination.pageSize, pagination.pageToken);
   },
 
   /**
