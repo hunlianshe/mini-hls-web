@@ -20,4 +20,13 @@ const startSingleChatSession = (
   });
 };
 
-export { startSingleChatSession };
+
+const updateMsgToReadStatus = (cid: any) => {
+  Api.readMsg(cid).then((res: any) => {
+    if (res.code == 200) {
+      console.log(`read msg`, res);
+    } 
+  })
+}
+
+export { startSingleChatSession, updateMsgToReadStatus };

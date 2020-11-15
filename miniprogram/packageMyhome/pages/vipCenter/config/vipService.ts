@@ -84,7 +84,7 @@ export const RIGHTLIST = [
   {
     name: "缘分聊天",
     ordinary: "3次",
-    huangTong: "无限次",
+    huangTong: "20次",
     baiJin: "无限次",
     type: "string",
   },

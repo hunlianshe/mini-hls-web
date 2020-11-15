@@ -43,6 +43,7 @@ Page({
 
     // 获取vip权益
     getVipInfo().then((res: any) => {
+      console.log(`vipInfo`, res.data)
       const priceList = dealWithVipPriceInfo(res.data);
       const vipRightInfo = dealWithVipRightList(res.data);
       console.log(priceList);

@@ -74,7 +74,7 @@ export const dealWithVipRightList = (data: any) => {
     {
       name: "缘分聊天",
       ordinary: "3次",
-      huangTong: "无限次",
+      huangTong: "20次",
       baiJin: "无限次",
       type: "string",
     },
@@ -103,7 +103,7 @@ export const dealWithVipRightList = (data: any) => {
         key = "huangTong";
         break;
       case "白金会员":
-        key = "huangTong";
+        key = "baiJin";
         break;
       default:
         break;
