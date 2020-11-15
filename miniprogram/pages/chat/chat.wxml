@@ -1,7 +1,7 @@
 
 <view>
   <user-info-card userInfo="{{toUser}}" />
-  <view style="padding: 22rpx; margin-bottom: 100rpx;">
+  <view style="padding: 22rpx; margin-bottom: 300rpx;">
     <block wx:for="{{messageList}}">
       <view wx:if="{{item.date !== ''}}" class="chatDate">{{item.date}}</view>
       <message-item messageItem="{{item}}" toUser="{{toUser}}"  me="{{me}}" isRight="{{item.from == toUser.openid}}"/>
