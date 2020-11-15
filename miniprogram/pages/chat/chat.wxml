@@ -1,7 +1,7 @@
 
 <view>
   <user-info-card userInfo="{{toUser}}" />
-  <view style="padding: 32rpx;">
+  <view style="padding: 22rpx;">
     <block wx:for="{{messageList}}">
       <view wx:if="{{item.date !== ''}}" class="chatDate">{{item.date}}</view>
       <message-item messageItem="{{item}}" toUser="{{toUser}}"  me="{{me}}" isRight="{{item.from == toUser.openid}}"/>
@@ -11,6 +11,6 @@
     <send-message bind:sendTap="sendTap"
       bind:inputTap="inputTap"
       bind:uploadImage="uploadImage"
-      toOpenid="{{toUser.openid}}"  />
+      toOpenid="{{toUser.openid}}" />
   </view>
 </view>
