@@ -73,6 +73,9 @@ const phoneCall = (e: any) => {
 
 /** 2020年03月09日 */
 const getDate = (dateStr: string) => {
+  if (!dateStr) {
+    return '';
+  }
   const date = new Date(dateStr);
   const year = date.getFullYear();
   let month: number | string = date.getMonth() + 1;
@@ -89,7 +92,7 @@ const getTime = (dateStr: string) => {
   hours = hours <= 9 ? `0${hours}` : hours;
   let minutes: number | string = date.getMinutes();
   minutes = minutes <= 9 ? `0${minutes}` : minutes;
-  return `${minutes}:${minutes}`;
+  return `${hours}:${minutes}`;
 };
 
 function formatTime(date: Date): string {
