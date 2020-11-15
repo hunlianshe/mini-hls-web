@@ -213,6 +213,13 @@ const getVipInfo = () => httpServer.get({ url: `/users/vip/info` });
 
 const getRightConfig = () => httpServer.get({ url: `/users/vip/info` });
 
+
+/**
+ * 更新消息为已读
+ * @param {}
+ */
+const readMsg = (cid: any) => httpServer.put({ url: `/group/message/read-all/${cid}`})
+
 export {
   getOpenid,
   register,
@@ -247,5 +254,6 @@ export {
   getMessageByCid,
   getVipInfo,
   getRightConfig,
+  readMsg,
   // register,
 };

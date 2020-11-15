@@ -4,6 +4,7 @@
       <image src="{{matcherImage}}" mode="aspectFit" />
     </view>
     <block wx:if="{{userList.length > 0}}">
+     <scroll-view scroll-y="true">
       <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-cid="{{item._id}}" data-openids="{{item.userIds}}" wx:key="{{item.id}}">
         <block wx:for="{{item.userIds}}" wx:for-item="userid">
           <view class="head" wx:if="{{userid != me.openid}}">
@@ -23,6 +24,7 @@
           <view class="messge">{{item.lastMessage.msg}}</view>
         </view>
       </view>
+      </scroll-view>
     </block>
     <block wx:else>
       <view class="no-data">
