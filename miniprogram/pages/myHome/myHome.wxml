@@ -41,8 +41,8 @@
           <view style="font-size: 32rpx;color: #7F512A;font-size: 600;">黄铜会员</view>
           <view style="font-size: 300;">{{userInfo.vipExpireAt}}到期</view>
         </view>
-        <button bindtap="openVip" style="background: #fff;color: #B46632;">续费</button>
-        <button bindtap="openVip" style="background: #DE8447;color: #fff;">升级</button>
+        <button data-id="1" bindtap="openVip" style="background: #fff;color: #B46632;">续费</button>
+        <button data-id="2" bindtap="openVip" style="background: #DE8447;color: #fff;">升级</button>
       </view>
     </block>
     <block wx:else>
@@ -53,7 +53,7 @@
           <view style="font-size: 32rpx;color: #4F4C9E;font-size: 600;">白金会员</view>
           <view style="color: #726ECD;font-size: 300;">{{userInfo.vipExpireAt}}到期</view>
         </view>
-        <button bindtap="openVip" style="background: #6A66E1;color: #fff;">续费</button>
+        <button data-id="3" bindtap="openVip" style="background: #6A66E1;color: #fff;">续费</button>
       </view>
     </block>
     

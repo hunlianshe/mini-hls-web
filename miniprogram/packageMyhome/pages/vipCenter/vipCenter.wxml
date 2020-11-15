@@ -1,6 +1,6 @@
 <view class="vipCenter">
   <view>
-    <swiper indicator-dots="{{swiper.indicatorDots}}" bindchange="swiperChange" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+    <swiper indicator-dots="{{swiper.indicatorDots}}" current="{{currentRight}}" bindchange="swiperChange" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
       <swiper-item>
         <view class="swiper-card" style="background-image: url('/public/image/huangtong-card.jpg')">
           <view class="display-flex">

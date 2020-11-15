@@ -43,11 +43,12 @@ Page({
     });
   },
   requestForUserInfo(openid: string) {
+    let _this = this;
     Api.getUserInfo(openid).then((result: any) => {
       if (result) {
         const userInfo = result.data;
         userInfo.vipExpireAt = formatHLSTime(userInfo.vipExpireAt);
-        this.setData!({
+        _this.setData!({
           userInfo,
         });
       }
@@ -136,10 +137,11 @@ Page({
   },
 
   /** 开通会员 */
-  openVip() {
+  openVip(e: any) {
+    const id = e.currentTarget.dataset.id
+    console.log(`open vip:`, id);
     wx.navigateTo({
-      // url: `../../packageMyhome/pages/vipCenter/vipCenter`,
-      url: `../../packageMyhome/pages/paySuccess/paySuccess`,
+      url: `../../packageMyhome/pages/vipCenter/vipCenter?type=${id}`,
     });
   },
 
