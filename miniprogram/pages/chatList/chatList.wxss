@@ -31,7 +31,7 @@
 }
 
 .chatList .messge {
-  width: 70%;
+  width: 340rpx;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

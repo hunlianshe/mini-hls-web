@@ -5,9 +5,11 @@
     </view>
     <block wx:if="{{userList.length > 0}}">
       <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-cid="{{item._id}}" data-openids="{{item.userIds}}" wx:key="{{item.id}}">
-        <view class="head" wx:for="{{item.userIds}}" wx:for-item="userid">
-          <image  wx:if="{{userid != me.openid}}" src="{{host}}/users/avatorUrl/{{userid}}" />
-        </view>
+        <block wx:for="{{item.userIds}}" wx:for-item="userid">
+          <view class="head" wx:if="{{userid != me.openid}}">
+            <image src="{{host}}/users/avatorUrl/{{userid}}" />
+          </view>
+        </block>
         <view class="flex-full">
           <view class="display-flex">
             <view class="flex-full display-flex">
