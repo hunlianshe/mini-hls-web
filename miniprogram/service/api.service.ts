@@ -167,21 +167,6 @@ const startChatSession = (params: any) =>
   httpServer.post({ url: `/group/create`, data: params });
 
 /**
- * 获取消息列表
- * @param {}
- */
-const getChatMessageList = (
-  sessionId: string,
-  pageSize: number,
-  prePage: number
-) =>
-  httpServer.get({
-    url: `/group/message/list/${sessionId}?pageSize=${
-      pageSize || 1
-    }&pageToken=${prePage || ""}`,
-  });
-
-/**
  * 获取会员的详细信息
  * @param {}
  */
@@ -254,7 +239,6 @@ export {
   getConstellationMmatchingDetailComplex,
   getChatList,
   startChatSession,
-  getChatMessageList,
   vipListInfo,
   rechargeMoney,
   buyVipByCoin,

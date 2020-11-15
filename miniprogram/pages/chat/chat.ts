@@ -6,12 +6,12 @@ Page({
   data: {
     openid: '', // 收信人的openid
     cid: '',
-    me: {}, //我的用户信息
-    host: '', //我的用户信息
-    toUser: {}, //接收人的用户信息
+    me: {}, // 我的用户信息
+    host: '', // 我的用户信息
+    toUser: {}, // 接收人的用户信息
     userInfo: {}, // 用户信息
     message: '',  // 用户输入的消息
-    pagination: {pageSize : 50, pageToken: ''},
+    pagination: {pageSize : 10, pageToken: ''},
     messageList: [],
   },
 
@@ -35,9 +35,9 @@ Page({
     });
 
     this.getToUserInfo(openid);
-    this.getMessageList();
+    const { pagination } = this.data;
+    this.getMessageList(pagination.pageSize, pagination.pageToken);
     this.receiveMessage();
-  
   },
 
   getOpenid() {
@@ -77,8 +77,6 @@ Page({
 
   /** 发送消息事件 */
   sendTap() {
-    // TODO
-    // to do
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
     console.log('send message:', this.data.message);
     this.setChatSession();
@@ -124,69 +122,21 @@ Page({
    uploadImage(e: any) {
     console.log('upload image:', e.detail);
     sendMessage({cid: this.data.cid, msg: e.detail, type: 2})
-
-    // this.setData!({
-    //   message: e.detail.detail.value // 获取输入的值
-    // })
   },
 
-
-  getMessageList() {
-    // const messageList: any = [
-    //   {
-    //     "_id": "5f66e2f82735248c31b97bd8",
-    //     "type": 1,
-    //     "cid": "5f66e025bb97350949c52a97",
-    //     "msg": "hello lisa",
-    //     "status": [
-    //       {
-    //         "msgUnRead": false,
-    //         "_id": "5f66e2f82735248c31b97bda",
-    //         "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
-    //       },
-    //       {
-    //         "msgUnRead": true,
-    //         "_id": "5f66e2f82735248c31b97bd9",
-    //         "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
-    //       }
-    //     ],
-    //     "from": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A",
-    //     "updatedAt": "2020-09-20T05:04:56.688Z",
-    //     "createdAt": "2020-09-20T05:04:56.688Z"
-    //   },
-    //   {
-    //     "_id": "5f66e2f82735248c31b97bd8",
-    //     "type": 1,
-    //     "cid": "5f66e025bb97350949c52a97",
-    //     "msg": "吃饭了吗",
-    //     "status": [
-    //       {
-    //         "msgUnRead": false,
-    //         "_id": "5f66e2f82735248c31b97bda",
-    //         "openid": "oHgB55LJ1wGo2QqEYxgo8tLMxL4A"
-    //       },
-    //       {
-    //         "msgUnRead": true,
-    //         "_id": "5f66e2f82735248c31b97bd9",
-    //         "openid": "oHgB55AlhKqR7azr85YYBwfIE9EQ"
-    //       }
-    //     ],
-    //     "from": "oHgB55AlhKqR7azr85YYBwfIE9EQ",
-    //     "updatedAt": "2020-09-20T05:04:56.688Z",
-    //     "createdAt": "2020-09-20T05:04:56.688Z"
-    //   },
-    // ];
-    Api.getMessageByCid(this.data.cid, this.data.pagination.pageSize, this.data.pagination.pageToken).then((result:any) => {
+  getMessageList(pageSize: number, pageToken: string) {
+    Api.getMessageByCid(this.data.cid, pageSize, pageToken).then((result:any) => {
       console.log("result.data",result.data)
+      let resultList = result.data.result;
+      let lastId = result.data.nextPageToken;
       this.setData!({
         pagination: {
-          pageToken: result.data.pageToken,
+          pageToken: lastId,
           pageSize: 10
-        }// 获取输入的值
+        }
       })
-     let  messageList = result.data.result
       const dateAry: any[] = [];
-      messageList.map((item: any) => {
+      resultList.map((item: any) => {
         const date = getDate(item.createdAt);
         if (dateAry.indexOf(date) == -1) {
           item.date = date;
@@ -197,6 +147,8 @@ Page({
         item.time = getTime(item.createdAt);
         return item;
       });
+      let { messageList } = this.data;
+      messageList = messageList.concat(resultList);
       this.setData!({
         messageList,
       });
@@ -236,13 +188,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    const { pagination } = this.data;
+    this.getMessageList(pagination.pageSize, pagination.pageToken);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 })
