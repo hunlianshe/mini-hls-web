@@ -27,7 +27,10 @@ Page({
     tipFlag: false,
     upgradeInfo: {} as any,
   },
-  onLoad: function () {
+  onLoad: function (option: any) {
+    const type = option.type;
+    console.log(`vipCenter type:`, type);
+    this.adjustVipType(type);
     // 获取用户信息
     const user = wx.getStorageSync("userInfo");
     console.log("userInfo", user);
@@ -63,6 +66,22 @@ Page({
     }
 
     this.checkStatus(this.data.currentRight);
+  },
+
+  adjustVipType(type: string) {
+    if (type === "1") {
+      this.setData!({
+        currentRight: 0
+      })
+    } else if (type === "2") {
+      this.setData!({
+        currentRight: 1
+      })
+    } else if (type === "3") {
+      this.setData!({
+        currentRight: 1
+      })
+    }
   },
 
   getVipInfo(): any {},
