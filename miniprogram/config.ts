@@ -1,9 +1,9 @@
 var host = "14592619.qcloud.la";
 var socket = "http://148.70.243.198:8001";
-var hostUrl = "http://localhost:8009";
+// var hostUrl = "http://localhost:8009";
 
 // var hostUrl = "https://www.scrumplanning.cn/prohls";
-// var hostUrl = "http://148.70.243.198:8009"
+var hostUrl = "http://148.70.243.198:8009"
 let ak = "xsiYQN0VwrBHvxmf42BGdxFiTQgqBC4w";
 var fileHost = "https://test-buycarshop.oss-cn-beijing.aliyuncs.com";
 
