@@ -1,7 +1,5 @@
 import * as Api from '../../service/api.service';
 import * as utils from '../../utils/utils';
-import { IMyApp } from '../../app';
-const app: any = getApp<IMyApp>();
 
 let ageObject:any = {
   '25岁以下':'1',
@@ -32,6 +30,7 @@ let heightObject: any = {
 
 Page({
   data: {
+    user: {} as any,
     type:'',
     ageNumber: '',
     heightNumber: '',
@@ -43,9 +42,13 @@ Page({
   },
 
   onLoad: function (options: any) {
+    const user = wx.getStorageSync('user');
+    this.setData!({
+      user
+    })
     if(options.type === 'usercenter'){
       /** 获取用户信息 */
-      Api.getUserInfo(app.globalData.userInfo.openid).then((result: any) => {
+      Api.getUserInfo(user.openid).then((result: any) => {
         if (result) {
           this.setData!({
             title: "更新"
@@ -128,7 +131,7 @@ Page({
       return false;
     }
     Api.updateUser({
-      openid: app.globalData.userInfo.openid,
+      openid: this.data.user.openid,
       objectInfo: { // 择偶标准
         age,
         height,
