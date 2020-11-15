@@ -160,7 +160,6 @@ Page({
 
   onPageScroll: function (res) {
    // 页面滚动时执行
-    console.log(res);
     const { pagination } = this.data;
     if (res.scrollTop === 0 && pagination.pageToken !== '') {
       this.getMessageList(pagination.pageSize, pagination.pageToken);
