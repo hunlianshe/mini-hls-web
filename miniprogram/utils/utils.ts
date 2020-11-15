@@ -213,4 +213,5 @@ export {
   dealRightIntercept,
   setRightStorage,
   formatHLSTime,
+  getUserInfo
 };
