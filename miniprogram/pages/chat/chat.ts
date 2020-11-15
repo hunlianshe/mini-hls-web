@@ -56,6 +56,7 @@ Page({
      console.log("接收到的消息是",msg)
      var messageList: any = this.data.messageList;
      messageList.push(msg);
+     this.setData!({messageList})
    })
 
   },
@@ -79,7 +80,7 @@ Page({
   sendTap() {
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
     console.log('send message:', this.data.message);
-    this.setChatSession();
+    // this.setChatSession();
   },
 
   setChatSession() {
