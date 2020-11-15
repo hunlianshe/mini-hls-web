@@ -13,7 +13,7 @@
         <view class="flex-full">
           <view class="display-flex">
             <view class="flex-full display-flex">
-              <text>{{item.lastMessage.fromName}}</text>
+              <text>{{item.groupName}}</text>
               <block wx:if="{{item.unreadCount > 0}}">
                 <text class="info-tips">{{item.unreadCount}}</text>
               </block>
