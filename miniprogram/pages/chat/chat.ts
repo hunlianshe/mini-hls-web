@@ -148,7 +148,7 @@ Page({
         return item;
       });
       let { messageList } = this.data;
-      messageList = messageList.concat(resultList);
+      messageList = resultList.concat(messageList);
       this.setData!({
         messageList,
       });

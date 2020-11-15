@@ -2,7 +2,7 @@
 .userInfoCard {
   display: flex;
   box-shadow: #00000050 0 4rpx 8rpx;
-  padding: 32rpx;
+  padding: 20rpx 32rpx;
   border-top-color: #efefef;
   border-top-style: solid;
   border-top-width: 2rpx;

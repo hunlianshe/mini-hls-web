@@ -4,5 +4,6 @@
     "send-message": "/components/sendMessage/sendMessage",
     "message-item": "/components/messageItem/messageItem"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
 }
