@@ -18,7 +18,7 @@ export const dealWithVipPriceInfo = (data: any) => {
         },
         {
           select: false,
-          name: "quarter", // 季
+          name: "season", // 季
           nameStr: "季付",
           value: vipInfo.seasonPrice,
           avgStr: `${vipInfo.monthPrice}元/月`,

@@ -10,7 +10,7 @@ export const BAIJIN = {
     },
     {
       select: false,
-      name: "quarter", // 季
+      name: "season", // 季
       nameStr: "季付",
       value: 60,
       avgStr: "20元/月",
@@ -37,7 +37,7 @@ export const HUANGTONG = {
     },
     {
       select: false,
-      name: "quarter", // 季
+      name: "season", // 季
       nameStr: "季付",
       value: 30,
       avgStr: "10元/月",

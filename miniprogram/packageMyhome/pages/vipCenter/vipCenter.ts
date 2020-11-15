@@ -56,16 +56,20 @@ Page({
 
     // 获取vip的更新信息
     if (user.vipType && user.vipType !== "platinum") {
+      let _this = this;
       vipListInfo().then((res: any) => {
         if (res.code === 200) {
           this.setData!({
             upgradeInfo: res.data.upgradeInfo,
           });
+          _this.checkStatus(this.data.currentRight);
         }
       });
+    }else{
+      this.checkStatus(this.data.currentRight);
     }
-
-    this.checkStatus(this.data.currentRight);
+    console.log('this.data.currentRight', this.data.currentRight)
+    
   },
 
   adjustVipType(type: string) {
