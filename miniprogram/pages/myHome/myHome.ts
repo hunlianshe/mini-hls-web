@@ -1,6 +1,6 @@
 
 import * as Api from '../../service/api.service';
-import { dealRightIntercept, setRightStorage } from '../../utils/utils';
+import { dealRightIntercept, setRightStorage, formatHLSTime } from '../../utils/utils';
 
 Page({
   data: {
@@ -28,7 +28,7 @@ Page({
     this.getUsersLikeCount();
     this.setData!({
       pageLoaded: true,
-    })
+    });
   },
 
   /** 获取用户信息 */
@@ -46,6 +46,7 @@ Page({
     Api.getUserInfo(openid).then((result: any) => {
       if (result) {
         const userInfo = result.data;
+        userInfo.vipExpireAt = formatHLSTime(userInfo.vipExpireAt);
         this.setData!({
           userInfo,
         });

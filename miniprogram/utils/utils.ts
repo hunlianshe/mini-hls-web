@@ -108,6 +108,9 @@ function formatTime(date: Date): string {
 }
 
 function formatHLSTime(dateStr: string): string {
+  if (dateStr === '') {
+    return '';
+  }
   const date = new Date(dateStr);
   const year = date.getFullYear();
   const month = date.getMonth() + 1;

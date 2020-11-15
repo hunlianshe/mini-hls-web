@@ -38,7 +38,7 @@
         <hls-icon iconName="ht" width="80rpx" height="80rpx"/>
         <view class="flex-full" style="padding-left: 32rpx;">
           <view style="font-size: 32rpx;color: #7F512A;font-size: 600;">黄铜会员</view>
-          <view style="font-size: 300;">2020.10.22到期</view>
+          <view style="font-size: 300;">{{userInfo.vipExpireAt}}到期</view>
         </view>
         <button style="background: #fff;color: #B46632;">续费</button>
         <button style="background: #DE8447;color: #fff;">升级</button>
@@ -50,7 +50,7 @@
         <hls-icon iconName="bj" width="80rpx" height="80rpx"/>
         <view class="flex-full" style="padding-left: 32rpx;">
           <view style="font-size: 32rpx;color: #4F4C9E;font-size: 600;">白金会员</view>
-          <view style="color: #726ECD;font-size: 300;">2020.10.22到期</view>
+          <view style="color: #726ECD;font-size: 300;">{{userInfo.vipExpireAt}}到期</view>
         </view>
         <button style="background: #6A66E1;color: #fff;">续费</button>
       </view>
