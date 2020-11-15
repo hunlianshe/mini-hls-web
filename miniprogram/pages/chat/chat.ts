@@ -148,6 +148,7 @@ Page({
         item.time = getTime(item.createdAt);
         return item;
       });
+      // resultList = resultList.reverse();
       let { messageList } = this.data;
       messageList = resultList.concat(messageList);
       this.setData!({
