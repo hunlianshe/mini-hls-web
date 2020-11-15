@@ -63,7 +63,7 @@ Page({
         constellationMatching: 0,
         fateMatch: 3,
         fateWatch: 20,
-        fateChat: 3,
+        fateChat: 0,
         whoLikeMe: 0,
         likeEach: 0,
       },
@@ -77,7 +77,7 @@ Page({
         constellationMatching: 99999, // 星座匹配
         fateMatch: 99999, // 缘分匹配
         fateWatch: 99999, // 缘分下滑查看限制
-        fateChat: 20, // 缘分聊天
+        fateChat: 1, // 缘分聊天
         whoLikeMe: 99999, // 谁喜欢我
         likeEach: 99999, // 互相喜欢
       },

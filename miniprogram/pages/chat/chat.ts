@@ -100,18 +100,20 @@ Page({
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
     console.log('send message:', this.data.message);
 
-    // this.setChatSession();
+    this.setChatSession();
   },
 
   setChatSession() {
     let chatSession = wx.getStorageSync('chatSession');
     let dateNow = new Date();
+    console.log('setChatSession::::')
+    console.log(chatSession)
     // 判断是否是同一天
-    if (chatSession.updateTime && chatSession.updateTime.toDateString() == dateNow.toDateString()) {
+    if (chatSession && chatSession.updateTime && new Date(chatSession.updateTime).toDateString() == dateNow.toDateString()) {
       // 去重后存入聊天人列表
-      if (chatSession.openidList) {
+      if (chatSession.openidList && chatSession.openidList.length > 0) {
         const index = chatSession.openidList.findIndex((openid: any) => openid === this.data.openid)
-        if (index) {
+        if (index !== -1) {
           return;
         } else {
           chatSession = {

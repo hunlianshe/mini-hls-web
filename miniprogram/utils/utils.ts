@@ -164,6 +164,7 @@ const dealRightIntercept = (rightType: string) => {
     case "bronze": // 黄铜
       times = rightConfig[1][rightType];
       console.log("读取拦截times：", times);
+      console.log("xianzaitimes：", timesNow);
       needIntercept = timesNow >= times;
       break;
     case "platinum": // 白金
