@@ -1,6 +1,7 @@
 import {getSocket, sendMessage } from '../../service/socket.service2';
 import { getDate, getTime, setRightStorage } from '../../utils/utils';
 import * as Api from '../../service/api.service';
+import * as ChatService from '../../service/chat.service';
 
 Page({
   data: {
@@ -33,11 +34,17 @@ Page({
     this.setData!({
       me: user
     });
+    this.readAllMessage();
 
     this.getToUserInfo(openid);
     const { pagination } = this.data;
     this.getMessageList(pagination.pageSize, pagination.pageToken);
     this.receiveMessage();
+  },
+
+  // 设置消息已读
+  readAllMessage() {
+    ChatService.updateMsgToReadStatus(this.data.cid);
   },
 
   getOpenid() {
@@ -199,14 +206,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('chat page unload', this.data.cid);
+    ChatService.updateMsgToReadStatus(this.data.cid);
   },
 
   /**
