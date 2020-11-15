@@ -50,7 +50,7 @@ Page({
 
 
   receiveMessage() {
-    function getRandom(num){
+    function getRandom(num: any){
       return Math.floor((Math.random()+Math.floor(Math.random()*9+1))*Math.pow(10,num-1));
   }
     console.log("准备接收消息")
@@ -65,7 +65,7 @@ Page({
      this.setData!({messageList})
      let toLast = `item${messageList.length}`
      console.log('toLast',toLast)
-     this.setData({
+     this.setData!({
       scrollTop: 1000 * messageList.length  // 这里我们的单对话区域最高1000，取了最大值，应该有方法取到精确的
     });
 

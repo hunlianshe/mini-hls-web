@@ -2,8 +2,6 @@
 import * as Api from '../../service/api.service';
 import * as utils from '../../utils/utils';
 import jobJson from '../../public/json/jobJson';
-import { IMyApp } from '../../app';
-const app = getApp<IMyApp>();
 
 Page({
   data: {
@@ -62,8 +60,8 @@ Page({
 
   /** 用户详情 */
   getUserInfo() {
-    const openid = app.globalData.userInfo.openid;
-    Api.getUserInfo(openid || '').then((result: any) => {
+    const user = wx.getStorageSync('user');
+    Api.getUserInfo(user.openid || '').then((result: any) => {
       if (result) {
         this.setData!({
           userInfo: result.data,
