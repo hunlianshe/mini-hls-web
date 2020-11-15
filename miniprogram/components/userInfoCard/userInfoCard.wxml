@@ -1,11 +1,15 @@
-<!--components/userInfoCard.wxml-->
-<view class="userInfoCard">
-  <view class="avatarUrl">
-    <image src="{{userInfo.avatarUrl}}" mode="aspectFit" />
-  </view>
-  <view style="padding: 0 20rpx; flex: 1;">
-    <view style="font-size: 36rpx; color: #030303;">{{userInfo.nickName}}</view>
-    <view style="font-size: 24rpx; color: #9092A5">信息待完善</view>
-  </view>
-  <hls-icon iconName="arrowRed" />
+<view class="userInfoCard" bindtap="userDetail" data-openid="{{userInfo.openid}}">
+  <view style="display: flex; align-items: center; padding: 20rpx 32rpx;">
+    <view class="avatarUrl">
+      <image src="{{userInfo.avatarUrl}}" mode="aspectFit" />
+    </view>
+    <view style="padding: 0 20rpx; flex: 1;">
+      <view style="font-size: 36rpx; color: #030303;">{{userInfo.nickName}}</view>
+      <view style="font-size: 24rpx; color: #9092A5">
+        {{userInfo.age ? userInfo.age + '岁' : ''}}
+        {{userInfo.constellation ? '| ' + userInfo.constellation : ''}}
+      </view>
+    </view>
+    <hls-icon iconName="arrowRed" width="12rpx" height="24rpx" />
+</view>
 </view>

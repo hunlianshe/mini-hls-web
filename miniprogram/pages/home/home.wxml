@@ -7,9 +7,6 @@
         <view style="text-align: center;font-size: 42rpx;">认真又好玩的婚配网站</view>
       </view>
     </view>
-    <!-- <view class="address">
-      地址: 嘉兴市嘉兴市嘉兴市XXXX
-    </view> -->
   </view>
   <view class="list">
     <view class="list-box" bindtap="goXzys">
