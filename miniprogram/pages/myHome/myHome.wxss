@@ -22,6 +22,12 @@
   border: 3px solid #ffffff;
 }
 
+.myHome .head-label {
+  position: absolute;
+  margin-top: 34rpx;
+  margin-left: 80rpx;
+}
+
 .myHome .home-center {
   align-items: center;
   justify-content: space-around;

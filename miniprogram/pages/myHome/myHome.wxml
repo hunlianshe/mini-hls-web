@@ -6,6 +6,7 @@
     <view style="border-radius: 16rpx; background: #fff;">
       <view class='display-flex' style="padding: 32rpx;">
         <image class='head-img' src='{{user.avatarUrl}}' />
+        <view class="head-label"><hls-icon iconName="{{userInfo.vipType === 'bronze' ? 'htHead' : 'bjHead'}}" width="50rpx" height="50rpx" /></view>
         <view class='flex-full'>
           <view style="font-size: 44rpx;">{{user.nickName}}</view>
           <view style="font-size: 30rpx; color: #9B9B9B;">信息完成度{{userInfo.finishRate}}%</view>
