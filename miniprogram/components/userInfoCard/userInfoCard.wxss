@@ -6,6 +6,10 @@
   border-top-color: #efefef;
   border-top-style: solid;
   border-top-width: 2rpx;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  background: #fff;
 }
 .userInfoCard .avatarUrl image {
   width: 88rpx;

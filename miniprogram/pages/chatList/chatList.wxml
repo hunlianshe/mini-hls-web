@@ -1,34 +1,36 @@
 <view class="chatList">
   <view style="background: #fff;">
-    <view style="padding: 32rpx 0;" bindtap="goMatchmaker">
+    <view class="match-maker" bindtap="goMatchmaker">
       <image src="{{matcherImage}}" mode="aspectFit" />
     </view>
-    <block wx:if="{{userList.length > 0}}">
-      <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-cid="{{item._id}}" data-openids="{{item.userIds}}" wx:key="{{item.id}}">
-        <block wx:for="{{item.userIds}}" wx:for-item="userid">
-          <view class="head" wx:if="{{userid != me.openid}}">
-            <image src="{{host}}/users/avatorUrl/{{userid}}" />
-          </view>
-        </block>
-        <view class="flex-full">
-          <view class="display-flex">
-            <view class="flex-full display-flex">
-              <text>{{item.groupName}}</text>
-              <block wx:if="{{item.unreadCount > 0}}">
-                <text class="info-tips">{{item.unreadCount}}</text>
-              </block>
+    <view style="margin-top: 140rpx">
+      <block wx:if="{{userList.length > 0}}">
+        <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-cid="{{item._id}}" data-openids="{{item.userIds}}" wx:key="{{item.id}}">
+          <block wx:for="{{item.userIds}}" wx:for-item="userid">
+            <view class="head" wx:if="{{userid != me.openid}}">
+              <image src="{{host}}/users/avatorUrl/{{userid}}" />
             </view>
-            <view style="font-size: 22rpx; color: #9092A5;">{{item.date}}</view>
+          </block>
+          <view class="flex-full">
+            <view class="display-flex">
+              <view class="flex-full display-flex">
+                <text>{{item.groupName}}</text>
+                <block wx:if="{{item.unreadCount > 0}}">
+                  <text class="info-tips">{{item.unreadCount}}</text>
+                </block>
+              </view>
+              <view style="font-size: 22rpx; color: #9092A5;">{{item.date}}</view>
+            </view>
+            <view class="messge">{{item.lastMessage.type == 1 ? item.lastMessage.msg : '图片消息'}}</view>
           </view>
-          <view class="messge">{{item.lastMessage.msg}}</view>
         </view>
-      </view>
-    </block>
-    <block wx:else>
-      <view class="no-data">
-        你还没开始聊天哦～
-      </view>
-    </block>
+      </block>
+      <block wx:else>
+        <view class="no-data">
+          你还没开始聊天哦～
+        </view>
+      </block>
+    </view>
   </view>
 
   <base-dialog showDialog="{{showDialog}}"

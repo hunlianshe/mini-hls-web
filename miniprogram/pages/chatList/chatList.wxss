@@ -1,9 +1,12 @@
 .chatList {
-  position: fixed;
-  height: 100%;
-  width: 100%;
   background: #F8F9FA;
   color: #4A4A4A;
+}
+
+.chatList .match-maker {
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .chatList image {
@@ -21,13 +24,13 @@
 }
 
 .chatList .head {
-  border-radius: 50%;
   margin-right: 32rpx;
 }
 
 .chatList .head image {
   width: 94rpx;
   height: 94rpx;
+  border-radius: 48rpx;
 }
 
 .chatList .messge {
@@ -37,6 +40,7 @@
   overflow: hidden;
   font-size: 28rpx;
   color: #9092A5;
+  padding-top: 4rpx;
 }
 
 .chatList .info-tips {
