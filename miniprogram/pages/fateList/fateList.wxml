@@ -21,7 +21,7 @@
         <view class="theme-text">{{item.nickName}}</view>
         <view>{{item.age}}  {{item.education}}</view>
       </view>
-      <view bindtap="goChat">
+      <view catch:tap="goChat" data-openid="{{item.openid}}">
         <hls-icon iconName="chat" width="60rpx" height="60rpx" />
       </view>
     </view>

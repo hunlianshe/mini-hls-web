@@ -158,7 +158,7 @@ Page({
   
   },
 
-  onPageScroll: function (res) {
+  onPageScroll: function (res: any) {
    // 页面滚动时执行
     const { pagination } = this.data;
     if (res.scrollTop === 0 && pagination.pageToken !== '') {
