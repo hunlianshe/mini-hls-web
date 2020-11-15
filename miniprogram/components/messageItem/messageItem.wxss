@@ -1,3 +1,22 @@
+.messageConent {
+  display: inline-flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.messageConent.right {
+  float: right;
+  justify-content: flex-end;
+}
+
+.messageConent.right .message {
+  background: #FFF0F3;
+  border: none;
+  margin-left: 0rpx;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 0rpx;
+}
+
 .messageItem {
   display: flex;
   width: 60%;
@@ -9,6 +28,7 @@
   width: 88rpx;
   height: 88rpx;
   border-radius: 50%;
+  margin: 0rpx 10rpx;
 }
 
 .messageItem .message {
@@ -18,17 +38,6 @@
   background: #fff;
   padding: 20rpx;
   margin-left: 10rpx;
+  word-break: break-all;
 }
 
-.messageItem.right {
-  float: right;
-  width: calc(60% - 98rpx);
-}
-
-.messageItem.right .message {
-  background: #FFF0F3;
-  border: none;
-  margin-left: 0rpx;
-  border-bottom-left-radius: 8rpx;
-  border-bottom-right-radius: 0rpx;
-}

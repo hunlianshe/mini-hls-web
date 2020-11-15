@@ -1,16 +1,18 @@
 
  
  
-<view class="{{isRight == true ? 'messageItem right' : 'messageItem'}}">
-  <view wx:if="{{isRight === true}}" class="avatarUrl">
-    <image src="{{toUser.avatarUrl}}" mode="aspectFit" />
+<view class="{{isRight === true ? 'messageConent right' : 'messageConent'}}">
+  <view class="messageItem">
+    <view wx:if="{{isRight !== true}}" class="avatarUrl">
+      <image src="{{toUser.avatarUrl}}" mode="aspectFit"/>
+    </view>
+    
+    <view class="message">
+      <view style="font-size: 28rpx;">{{messageItem.msg}}</view>
+      <view style="font-size: 20rpx; color: #9092A5;">{{messageItem.time}}</view>
+    </view>
+    <view wx:if="{{isRight === true}}" class="avatarUrl">
+      <image src="{{me.avatarUrl}}" mode="aspectFit" />
+    </view>
   </view>
-  
-  <view class="message">
-    <view style="font-size: 28rpx;">{{messageItem.msg}}</view>
-    <view style="font-size: 20rpx; color: #9092A5;">{{messageItem.time}}</view>
-  </view>
-    <!-- <view wx:if="{{isRight === true}}" class="avatarUrl">
-    <image src="{{me.avatarUrl}}" mode="aspectFit" />
-  </view> -->
 </view>
