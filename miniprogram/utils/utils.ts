@@ -203,6 +203,57 @@ const setRightStorage = (rightType: string, value = 0) => {
   });
 };
 
+/** 缘分聊天拦截单独处理
+ * 判断当天聊天人列表
+ */
+const dealFateChatIntercept = (toOpenid: string) => {
+  let rightType = 'fateChat';
+  const userInfo = wx.getStorageSync("userInfo");
+  const { vipType = "" } = userInfo;
+  let needIntercept = false; // 是否需要拦截
+  let times = 0;
+  let chatSession = wx.getStorageSync('chatSession');
+  console.log("chatSession>>>>", chatSession);
+  let openidList = chatSession.openidList || [];
+  let timesNow = openidList.length;
+  let rightConfig: any = wx.getStorageSync("rightConfig"); // 从缓存中读取首页中set的权益配置
+  const findIndex = openidList.findIndex((openid: any) => openid === toOpenid)
+  switch (vipType) {
+    case "": // 普通
+      times = rightConfig[0][rightType];
+      console.log("读取拦截times：", times);
+      if (timesNow < times || findIndex !== -1) {
+        needIntercept = false
+      } else {
+        needIntercept = true;
+      }
+      break;
+    case "bronze": // 黄铜
+      times = rightConfig[1][rightType];
+      console.log("读取拦截times：", times);
+      console.log("timesNow:", timesNow);
+      if (timesNow < times || findIndex !== -1) {
+        needIntercept = false
+      } else {
+        needIntercept = true;
+      }
+      break;
+    case "platinum": // 白金
+      times = rightConfig[2][rightType];
+      console.log("读取拦截times：", times);
+      if (timesNow < times || findIndex !== -1) {
+        needIntercept = false
+      } else {
+        needIntercept = true;
+      }
+      break;
+    default:
+      needIntercept = false;
+      break;
+  }
+  return needIntercept;
+};
+
 export {
   showModal,
   showModelAction,
@@ -216,6 +267,7 @@ export {
   formatTime,
   dealRightIntercept,
   setRightStorage,
+  dealFateChatIntercept,
   formatHLSTime,
   getUserInfo
 };

@@ -19,12 +19,16 @@ Page({
   onLoad: function (options:any) {
     // this.getUserInfo();
     console.log("okkkk")
+    console.log(options)
     let openid = options.openid;
     let cid = options.cid;
     this.setData!({
-      cid: cid
+      cid: cid,
+      openid: openid,
     });
+
     console.log("openid",openid)
+    console.log("cid",cid)
     console.log("cid",cid)
 
     const user = wx.getStorageSync('user');
@@ -104,10 +108,9 @@ Page({
   },
 
   setChatSession() {
+
     let chatSession = wx.getStorageSync('chatSession');
     let dateNow = new Date();
-    console.log('setChatSession::::')
-    console.log(chatSession)
     // 判断是否是同一天
     if (chatSession && chatSession.updateTime && new Date(chatSession.updateTime).toDateString() == dateNow.toDateString()) {
       // 去重后存入聊天人列表
@@ -116,9 +119,10 @@ Page({
         if (index !== -1) {
           return;
         } else {
+          let openidList = chatSession.openidList.push(this.data.openid);
           chatSession = {
             updateTime: dateNow,
-            openidList: chatSession.openidList.push(this.data.openid)
+            openidList,
           }
         }
       }
@@ -130,7 +134,6 @@ Page({
     }
     console.log('chatSession:', chatSession)
     wx.setStorageSync("chatSession", chatSession);
-    setRightStorage('fateChat');
   },
 
   /** 输入消息内容 */
@@ -175,7 +178,6 @@ Page({
       });
       this.setData!({
         messageList
-
       });
     })
   

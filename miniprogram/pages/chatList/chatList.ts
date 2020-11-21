@@ -1,5 +1,5 @@
 import * as Api from "../../service/api.service";
-import { getDate, dealRightIntercept } from "../../utils/utils";
+import { getDate, dealFateChatIntercept } from "../../utils/utils";
 import config from "../../config";
 
 Page({
@@ -49,8 +49,7 @@ Page({
     console.log("this.data.toOpenid", this.data.toOpenid);
     console.log("that.data.me.openid", this.data.me.openid);
 
-    let rightType = "fateChat";
-    if (dealRightIntercept(rightType)) {
+    if (dealFateChatIntercept(this.data.toOpenid)) {
       this.setData!({
         showDialog: true,
       });
