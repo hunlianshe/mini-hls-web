@@ -1,12 +1,12 @@
 <!--pages/home/home.wxml-->
 <view class='fate-page'>
   <view class="match" bindtap="goMatch">
-  <view class="match-content" >
+  <button class="match-content" >
     开启匹配
-  </view>
+  </button>
     
   </view>
-  <view style="margin-top: 120rpx;">
+  <view style="margin-bottom: 100rpx;">
     <block wx:for="{{userList}}" wx:key="{{_id}}">
       <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
         <image src="{{item.photos[0]}}" mode="aspectFill"/>
