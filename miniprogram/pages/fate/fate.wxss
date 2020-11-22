@@ -3,6 +3,38 @@
   padding: 20rpx;
 }
 
+.fate-page .fate-select {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 32rpx 20rpx;
+  font-size: 28rpx;
+  background: #fff;
+}
+
+.fate-page .select-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+}
+
+.fate-page .fate-select .option {
+  border-radius: 30rpx;
+  line-height: 40rpx;
+  background-color: rgb(235, 235, 235);
+  padding: 8rpx 20rpx;
+  color: #333;
+  display: block;
+  word-break: keep-all;
+  margin: 10rpx;
+  width: 55px;
+  text-align: center;
+  float: left;
+  font-size: 24rpx;
+}
+
 .fate-page .match {
   position: fixed;
   bottom: 0;

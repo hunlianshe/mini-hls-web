@@ -54,24 +54,24 @@ const heightMenuList = {
     to: 180,
   },
   "180-185":{
-      from: 180,
-      to: 185,
+    from: 180,
+    to: 185,
   },
   "185-190":{
-      from: 185,
-            to: 190,
-        },
-        "190以上": {
-            to: 190
-        },
+    from: 185,
+    to: 190,
+  },
+  "190以上": {
+    to: 190
+  },
 };
 
 const getAgeMenuList = () => {
-    return Object.keys(ageMenuList);
+  return Object.keys(ageMenuList);
 }
 
 const getHeightMenuList = () => {
- return Object.keys(heightMenuList);
+  return Object.keys(heightMenuList);
 }
 
 export { ageMenuList, heightMenuList, getAgeMenuList, getHeightMenuList };

@@ -29,6 +29,8 @@ Page({
       heightArray: getHeightMenuList(),
       salaryArray: ["5千以下", "5千～1万", "1万～2万", "2万～5万", "5万以上"],
     },
+    showSelect: false,
+    optionType: 'ageArray',
   },
 
   onLoad() {
@@ -156,6 +158,15 @@ Page({
   closeDialog() {
     this.setData!({
       showDialog: false,
+    });
+  },
+
+  // type: ageArray, heightArray, salaryArray
+  openSelect(e: any) {
+    const optionType = e.target.dataset.optionType;
+    this.setData!({
+      showSelect: true,
+      optionType,
     });
   },
 

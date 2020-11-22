@@ -1,11 +1,19 @@
 <!--pages/home/home.wxml-->
 <view class='fate-page'>
-  <view class="match" bindtap="goMatch">
-  <button class="match-content" >
-    开启匹配
-  </button>
-    
+
+  <view class="fate-select">
+    <view class="select-cell">
+      <view bindtap="openSelect" data-option-type="ageArray">年龄</view>
+      <view bindtap="openSelect" data-option-type="heightArray">身高</view>
+      <view bindtap="openSelect" data-option-type="salaryArray">收入</view>
+    </view>
+    <view class="select-box" wx:if="{{showSelect}}">
+      <block wx:for="{{topMenuContent[optionType]}}">
+        <text class="option">{{item}}</text>
+      </block>
+    </view>
   </view>
+
   <view style="margin-bottom: 100rpx;">
     <block wx:for="{{userList}}" wx:key="{{_id}}">
       <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
@@ -21,6 +29,12 @@
         </view>
       </view>
     </block>
+  </view>
+
+  <view class="match" bindtap="goMatch">
+    <button class="match-content" >
+      开启匹配
+    </button>
   </view>
   
   <block wx:if="{{dataAlready && userList.length > 0 && (pageSize * (currentPage + 1) > totalCount)}}">
