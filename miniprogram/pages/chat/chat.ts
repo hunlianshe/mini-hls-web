@@ -1,5 +1,5 @@
 import {getSocket, sendMessage } from '../../service/socket.service2';
-import { getDate, getTime, setRightStorage } from '../../utils/utils';
+import { getDate, getTime } from '../../utils/utils';
 import * as Api from '../../service/api.service';
 import * as ChatService from '../../service/chat.service';
 

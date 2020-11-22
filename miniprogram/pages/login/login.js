@@ -120,6 +120,7 @@ Page({
         });
     },
     getUser(e) {
+        const _this = this;
         let userInfo = e.detail.userInfo;
         userInfo.openid = this.data.user.openid;
         if (!userInfo.openid) {
@@ -132,9 +133,7 @@ Page({
                     key: "user",
                     data: userInfo,
                     success: () => {
-                        wx.switchTab({
-                            url: `../home/home`,
-                        });
+                        _this.getUserInfo(userInfo.openid);
                     }
                 });
             }
@@ -142,6 +141,28 @@ Page({
             console.log('取消授权，留在本页');
         });
     },
+
+    getUserInfo(openid) {
+        Api.getUserInfo(openid).then((res) => {
+            if (res.code === 200) {
+              const userData = res.data;
+              wx.setStorage({
+                key: "userInfo",
+                data: userData,
+              })
+              if (userData.phone) {
+                wx.switchTab({
+                    url: `../home/home`,
+                });
+            }else{
+                wx.navigateTo({
+                  url: '../registerXz/registerXz',
+                })
+            }
+            }
+          });
+    },
+
     navigateToHome() {
         wx.switchTab({
             url: `../home/home`,
