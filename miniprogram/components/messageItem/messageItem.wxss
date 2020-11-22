@@ -5,7 +5,7 @@
 }
 
 .messageConent.right {
-  float: right;
+  /* float: right; */
   justify-content: flex-end;
 }
 
