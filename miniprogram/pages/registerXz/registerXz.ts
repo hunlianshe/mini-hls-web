@@ -8,9 +8,24 @@ Page({
     scene: '',
     constellation: '',
     constellationList: xzList.data,
+    userInfo: {} as any
   },
 
   onLoad: function (options: any) {
+    const userInfo = wx.getStorageSync('userInfo');
+    const user = wx.getStorageSync('user');
+    if (!user || !user.openid) {
+      wx.navigateTo({
+        url: "../login/login",
+      });
+    }
+    if (userInfo.phone) {
+      console.log('come in.....')
+      wx.switchTab({
+        url: `../home/home`,
+      });
+    }
+    
     if (options.scene) {
       this.setData!({
         scene: options.scene,

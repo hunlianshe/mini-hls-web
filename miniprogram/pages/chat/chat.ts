@@ -1,5 +1,5 @@
 import {getSocket, sendMessage } from '../../service/socket.service2';
-import { getDate, getTime, setRightStorage } from '../../utils/utils';
+import { getDate, getTime } from '../../utils/utils';
 import * as Api from '../../service/api.service';
 import * as ChatService from '../../service/chat.service';
 
@@ -119,10 +119,10 @@ Page({
         if (index !== -1) {
           return;
         } else {
-          let openidList = chatSession.openidList.push(this.data.openid);
+          chatSession.openidList.push(this.data.openid);
           chatSession = {
             updateTime: dateNow,
-            openidList,
+            openidList: chatSession.openidList,
           }
         }
       }
@@ -132,7 +132,6 @@ Page({
         openidList: [this.data.openid]
       }
     }
-    console.log('chatSession:', chatSession)
     wx.setStorageSync("chatSession", chatSession);
   },
 
