@@ -209,7 +209,8 @@ const setRightStorage = (rightType: string, value = 0) => {
 const dealFateChatIntercept = (toOpenid: string) => {
   let rightType = 'fateChat';
   const userInfo = wx.getStorageSync("userInfo");
-  const { vipType = "" } = userInfo;
+  // 下面这行是为了测试 
+  const vipType = userInfo.vipType || "";
   let needIntercept = false; // 是否需要拦截
   let times = 0;
   let chatSession = wx.getStorageSync('chatSession');
