@@ -119,10 +119,10 @@ Page({
         if (index !== -1) {
           return;
         } else {
-          let openidList = chatSession.openidList.push(this.data.openid);
+          chatSession.openidList.push(this.data.openid);
           chatSession = {
             updateTime: dateNow,
-            openidList,
+            openidList: chatSession.openidList,
           }
         }
       }
@@ -132,7 +132,6 @@ Page({
         openidList: [this.data.openid]
       }
     }
-    console.log('chatSession:', chatSession)
     wx.setStorageSync("chatSession", chatSession);
   },
 

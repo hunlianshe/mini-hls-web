@@ -1,6 +1,7 @@
 import * as Api from '../../service/api.service';
 import { dealRightIntercept, setRightStorage } from '../../utils/utils';
 import { IMyApp } from '../../app';
+import {getAgeMenuList, getHeightMenuList, ageMenuList, heightMenuList} from './topMenuList'
 const app = getApp<IMyApp>();
 
 Page({
@@ -9,11 +10,11 @@ Page({
     userList: [] as any[],
     curruserList: [],
     dataAlready: false,
-    currentCity: '',
-    selectValue: '',
-    currentQrcode: '',
-    currentPhone: '',
-    phone: '',
+    currentCity: "",
+    selectValue: "",
+    currentQrcode: "",
+    currentPhone: "",
+    phone: "",
     popHidden: true,
     pageLoaded: false,
     popWechat: false,
@@ -23,22 +24,27 @@ Page({
     pullDown: false,
     pullUp: false,
     showDialog: false,
+    topMenuContent: {
+      ageArray: getAgeMenuList(),
+      heightArray: getHeightMenuList(),
+      salaryArray: ["5千以下", "5千～1万", "1万～2万", "2万～5万", "5万以上"],
+    },
   },
 
   onLoad() {
     let _this = this;
     wx.getStorage({
-      key: 'user',
-      success: function(res) {
+      key: "user",
+      success: function (res) {
         _this.setData!({
           userInfo: res.data,
         });
       },
     });
-    this.getUserList('');
+    this.getUserList("");
     this.setData!({
       pageLoaded: true,
-    })
+    });
   },
 
   /** 详情 */
@@ -46,7 +52,7 @@ Page({
     const { openid } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `../userDetail/userDetail?openid=${openid}`,
-    })
+    });
     // wx.navigateTo({
     //   url: '../registerPhone/registerPhone',
     // })
@@ -57,44 +63,50 @@ Page({
    * pageSize 默认 10
    */
   getUserList(objectId: string) {
-    const params = { objectId }
-    Api.getUserList(params).then((result: any) => {
-      if (result.code === 200) {
-        let dataList = objectId ? this.data.userList : [];
-        dataList = dataList.concat(result.data);
-        dataList.map(data => { if (data.age && !data.age.toString().includes('岁') ) { data.age = data.age + "岁"}})
-        dataList.map(item => { 
-          if (item.photos && item.photos.length === 0) {
-            item.photos.push(item.avatarUrl);
-          }
-          item.intro  = [];
-          if (item.age){
-            item.intro.push(item.age)
-          }
-          if (item.jobGeneral) {
-            item.intro.push(item.jobGeneral)
-          }
-          if (item.jobDetail) {
-            item.intro.push(item.jobDetail)
-          }
-          if (item.education) {
-            item.intro.push(item.education)
-          }
-          item.intro = item.intro.join(' | ')
-        });
-        const { currentPage } = this.data;
-        this.setData!({
-          userList: dataList,
-          currentPage: currentPage + 1,
-        });
-      }
-    }).catch((err) => {
-      console.log('get user List', err);
-    })
+    const params = { objectId };
+    Api.getUserList(params)
+      .then((result: any) => {
+        if (result.code === 200) {
+          let dataList = objectId ? this.data.userList : [];
+          dataList = dataList.concat(result.data);
+          dataList.map((data) => {
+            if (data.age && !data.age.toString().includes("岁")) {
+              data.age = data.age + "岁";
+            }
+          });
+          dataList.map((item) => {
+            if (item.photos && item.photos.length === 0) {
+              item.photos.push(item.avatarUrl);
+            }
+            item.intro = [];
+            if (item.age) {
+              item.intro.push(item.age);
+            }
+            if (item.jobGeneral) {
+              item.intro.push(item.jobGeneral);
+            }
+            if (item.jobDetail) {
+              item.intro.push(item.jobDetail);
+            }
+            if (item.education) {
+              item.intro.push(item.education);
+            }
+            item.intro = item.intro.join(" | ");
+          });
+          const { currentPage } = this.data;
+          this.setData!({
+            userList: dataList,
+            currentPage: currentPage + 1,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("get user List", err);
+      });
   },
 
   goMatch() {
-    let rightType = 'fateMatch'; // 缘分匹配
+    let rightType = "fateMatch"; // 缘分匹配
     if (dealRightIntercept(rightType)) {
       this.setData!({
         showDialog: true,
@@ -106,19 +118,19 @@ Page({
     let userInfo = app.globalData.userInfo;
     if (userInfo && userInfo.phone) {
       wx.navigateTo({
-        url: '../matching/matching'
-      })
+        url: "../matching/matching",
+      });
     } else {
       wx.navigateTo({
-        url: '../registerXz/registerXz'
-      })
+        url: "../registerXz/registerXz",
+      });
     }
   },
 
   onShow: function () {
     const { pageLoaded } = this.data;
     if (pageLoaded) {
-      this.getUserList('');
+      this.getUserList("");
     }
   },
 
@@ -128,7 +140,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    let rightType = 'fateWatch'; // 缘分下滑查看限制
+    let rightType = "fateWatch"; // 缘分下滑查看限制
     const { userList, currentPage, pageSize } = this.data;
     if (currentPage > 2 && dealRightIntercept(rightType)) {
       this.setData!({
@@ -137,7 +149,7 @@ Page({
       return;
     }
     setRightStorage(rightType, currentPage * pageSize);
-    const lastId = userList.length > 0 ? userList[userList.length - 1]._id : ''
+    const lastId = userList.length > 0 ? userList[userList.length - 1]._id : "";
     this.getUserList(lastId);
   },
 
@@ -147,11 +159,36 @@ Page({
     });
   },
 
+  /*
+    根据选择的年龄, 身高, 收入范围, 转换成对应请求参数
+    ToDo:
+      页面上年龄, 身高, 收入范围选择
+  */
+  dealWithRequestParameter() {
+    // get selectOptions from this.data
+    const ageSelection = "";
+    const heightSelection = "";
+    const salarySelection = "";
+    const reqParams: any = {};
+    if (ageSelection) {
+     reqParams.age = ageMenuList[ageSelection];
+    }
+    if (heightSelection) {
+      reqParams.height = heightMenuList[heightSelection]
+    }
+    if (salarySelection) {
+      reqParams.salary = salarySelection;
+    }
+    return reqParams;
+  },
+
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (options?: Page.IShareAppMessageOption | undefined): Page.ICustomShareContent {
-    console.log('onShareAppMessage options', options);
+  onShareAppMessage: function (
+    options?: Page.IShareAppMessageOption | undefined
+  ): Page.ICustomShareContent {
+    console.log("onShareAppMessage options", options);
     return {};
-  }
-})
+  },
+});
