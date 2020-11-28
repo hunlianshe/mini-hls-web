@@ -3,27 +3,57 @@
   padding: 20rpx;
 }
 
-.fate-page .fate-select {
+.fate-select {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 32rpx 20rpx;
+  z-index: 1;
+  /* padding: 32rpx 0rpx; */
   font-size: 28rpx;
-  background: #fff;
 }
 
-.fate-page .select-cell {
+.fate-select .selected {
+  color: #FB5572;
+}
+
+.fate-select .option-selected {
+  color: #FB5572 !important;
+  background-color: rgb(247, 237, 239) !important;
+}
+
+.fate-select .select-cell {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  background: #fff;
+  padding-top: 32rpx;
 }
 
-.fate-page .fate-select .option {
+.fate-select .select-box {
+  /* background: #fff; */
+  background: #15141485;
+  position: fixed;
+  border-top: 1rpx solid #efefef;
+  top: 90rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.fate-select .select-box .content {
+  background: #fff;
+  padding: 20rpx;
+  display: inline-block;
+}
+
+.fate-select .option {
   border-radius: 30rpx;
   line-height: 40rpx;
-  background-color: rgb(235, 235, 235);
+  background-color:rgb(249, 247, 247);
   padding: 8rpx 20rpx;
   color: #333;
   display: block;

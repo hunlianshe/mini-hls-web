@@ -1,53 +1,54 @@
-<!--pages/home/home.wxml-->
-<view class='fate-page'>
 
+<view style="padding-bottom: 100rpx;">
   <view class="fate-select">
     <view class="select-cell">
-      <view bindtap="openSelect" data-option-type="ageArray">年龄</view>
-      <view bindtap="openSelect" data-option-type="heightArray">身高</view>
-      <view bindtap="openSelect" data-option-type="salaryArray">收入</view>
+      <view bindtap="openSelect" data-option-type="ageArray" 
+        class="{{optionType === 'ageArray' ? 'selected' : ''}}">年龄</view>
+      <view bindtap="openSelect" data-option-type="heightArray"
+      class="{{optionType === 'heightArray' ? 'selected' : ''}}">身高</view>
+      <view bindtap="openSelect" data-option-type="salaryArray"
+      class="{{optionType === 'salaryArray' ? 'selected' : ''}}">收入</view>
     </view>
     <view class="select-box" wx:if="{{showSelect}}">
-      <block wx:for="{{topMenuContent[optionType]}}">
-        <text class="option">{{item}}</text>
-      </block>
+      <view class="content">
+        <block wx:for="{{topMenuContent[optionType]}}">
+          <text class="{{selection == item ? 'option option-selected' : 'option'}}"
+            bindtap="chooseTap" data-selection="{{item}}">{{item}}</text>
+        </block>
+      </view>
     </view>
   </view>
 
-  <view style="margin-bottom: 100rpx;">
-    <block wx:for="{{userList}}" wx:key="{{_id}}">
-      <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
-        <image src="{{item.photos[0]}}" mode="aspectFill"/>
-        <view style="padding: 20rpx;">
-          <view class="display-flex">
-            <text class="flex-full">{{item.nickName}}</text>
-            <block wx:if="{{item.constellation}}"><text class="label">{{item.constellation}}</text></block>
-          </view>
-          <view class="info">
-            {{item.intro}}
+  <block wx:if="{{dataAlready && userList.length === 0}}">
+    <noData message="暂时没有相关数据～" />
+  </block>
+  <block wx:if="{{dataAlready && userList.length > 0}}">
+    <view class='fate-page'>
+      <block wx:for="{{userList}}" wx:key="{{_id}}">
+        <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
+          <image src="{{item.photos[0]}}" mode="aspectFill"/>
+          <view style="padding: 20rpx;">
+            <view class="display-flex">
+              <text class="flex-full">{{item.nickName}}</text>
+              <block wx:if="{{item.constellation}}"><text class="label">{{item.constellation}}</text></block>
+            </view>
+            <view class="info">
+              {{item.intro}}
+            </view>
           </view>
         </view>
+      </block>
+
+      <view class="match" bindtap="goMatch">
+        <button class="match-content" >
+          开启匹配
+        </button>
       </view>
-    </block>
-  </view>
 
-  <view class="match" bindtap="goMatch">
-    <button class="match-content" >
-      开启匹配
-    </button>
-  </view>
-  
-  <block wx:if="{{dataAlready && userList.length > 0 && (pageSize * (currentPage + 1) > totalCount)}}">
-    <footer />
+      <base-dialog showDialog="{{showDialog}}"
+        title="查看缘分已达上限"
+        descText="查看缘分已达查看人数上限，开通或升级会员后可查看更多缘分"
+        bind:closeDialog="closeDialog" />
+    </view>
   </block>
-
-  <block wx:if="{{dataAlready && userList.length === 0}}">
-    <noData type='{{keyword ? 1 : 0}}' />
-  </block>
-
-  <base-dialog showDialog="{{showDialog}}"
-    title="查看缘分已达上限"
-    descText="查看缘分已达查看人数上限，开通或升级会员后可查看更多缘分"
-    bind:closeDialog="closeDialog" />
 </view>
-
