@@ -4,7 +4,8 @@
   <scroll-view  
     scroll-y="true" 
     style11="position: fixed; top: 150rpx; bottom: 150rpx;"
-    style="height: 1000rpx; margin-bottom: 150rpx; padding-top: 150rpx;" 
+    style="{{messageList.length <=5 ? 'height: 500rpx' : 'height: 1000rpx;'}}"
+    class="chat-scroll-view"
     scroll-into-view="{{needToView ? 'msg' + (messageList.length-1) : ''}}" 
     scroll-with-animation="true"
     refresher-enabled="{{true}}"

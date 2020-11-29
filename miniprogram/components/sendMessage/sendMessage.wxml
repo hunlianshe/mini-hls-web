@@ -1,5 +1,12 @@
 <view class="sendMessage">
-  <input type="text" value='{{inputValue}}'  confirm-hold="true"  placeholder="" bindinput="inputTap" auto-focus confirm-type="发送" bindconfirm="confirmTap" />
+  <input type="text" 
+    value='{{inputValue}}' 
+    confirm-hold="true" 
+    placeholder=""
+    bindinput="inputTap"
+    auto-focus
+    confirm-type="发送"
+    bindconfirm="confirmTap" />
   <view style="margin: 0rpx 20rpx 20rpx 20rpx;">
     <hls-icon iconName="image" bindtap="chooseImage" width="54rpx" height="54rpx" />
   </view>

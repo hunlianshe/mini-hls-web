@@ -6,3 +6,9 @@
   padding-top: 32rpx;
   color: #9092A5;
 }
+
+.chat-scroll-view {
+  height: 1000rpx;
+  margin-bottom: 150rpx;
+  padding-top: 150rpx;
+}
