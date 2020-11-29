@@ -22,6 +22,8 @@ Component({
   },
 
   methods: {
-   
+    openImage() {
+      console.log('openImage');
+    }
   }
 })

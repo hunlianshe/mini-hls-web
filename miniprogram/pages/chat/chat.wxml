@@ -1,17 +1,16 @@
 
 <view>
   <user-info-card userInfo="{{toUser}}" />
-  <scroll-view  scroll-y="true" style="height: 1200rpx; margin-bottom: 160rpx; padding-top: 150rpx;"  scroll-into-view="msg{{messageList.length-1}}" scroll-with-animation="true" >
+  <scroll-view  scroll-y="true" style="height: 1200rpx; margin-bottom: 300rpx; padding-top: 150rpx;"  scroll-into-view="msg{{messageList.length-1}}" scroll-with-animation="true" >
   <!-- <view  style="padding: 22rpx; margin-bottom: 300rpx; overflow-y: scroll;"> -->
     <view wx:for="{{messageList}}"  id="msg{{index}}">
       <block wx:if="{{item.date}}" >
         <view class="chatDate">{{item.date}}</view>
       </block>
-      <!-- {{item.msg}} -->
       <message-item messageItem="{{item}}" toUser="{{toUser}}"  me="{{me}}" isRight="{{item.from == me.openid}}"/>
     </view>
   <!-- </view> -->
-</scroll-view>
+  </scroll-view>
   <view style="position: fixed; bottom: 0; width: 100%;">
     <send-message bind:sendTap="sendTap"
       bind:inputTap="inputTap"
