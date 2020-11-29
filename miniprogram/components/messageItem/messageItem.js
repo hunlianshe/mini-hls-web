@@ -22,8 +22,8 @@ Component({
   },
 
   methods: {
-    openImage() {
-      console.log('openImage');
+    openImage(e) {
+      console.log('openImage:', e.currentTarget.dataset.url);
     }
   }
 })

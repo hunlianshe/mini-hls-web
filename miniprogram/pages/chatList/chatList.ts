@@ -13,6 +13,7 @@ Page({
   },
 
   getChatList() {
+    wx.showLoading({title: ''});
     Api.getChatList().then((result: any) => {
       if (result) {
         const userList = result.data;
@@ -27,6 +28,7 @@ Page({
       } else {
         throw new Error("获取聊天列表失败");
       }
+      wx.hideLoading();
     });
   },
 

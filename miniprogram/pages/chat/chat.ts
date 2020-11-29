@@ -164,11 +164,20 @@ Page({
   
   },
 
-  onPageScroll: function (res: any) {
-   // 页面滚动时执行
-   console.log('onPageScroll:', res)
+  // onPageScroll: function (res: any) {
+  //  // 页面滚动时执行
+  //  console.log('onPageScroll:', res)
+  //   const { pagination } = this.data;
+  //   if (res.scrollTop === 0 && pagination.pageToken !== '') {
+  //     this.getMessageList(pagination.pageSize, pagination.pageToken);
+  //   }
+  // },
+
+  onRefresh: function (e: any) {
+    console.log('onRefresh', e)
+    console.log('onRefresh', e.detail.scrollTop)
     const { pagination } = this.data;
-    if (res.scrollTop === 0 && pagination.pageToken !== '') {
+    if (e.detail.scrollTop === 0 && pagination.pageToken !== '') {
       this.getMessageList(pagination.pageSize, pagination.pageToken);
     }
   },
