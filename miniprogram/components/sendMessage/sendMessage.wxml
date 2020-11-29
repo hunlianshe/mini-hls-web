@@ -3,5 +3,5 @@
   <view style="margin: 0rpx 20rpx 20rpx 20rpx;">
     <hls-icon iconName="image" bindtap="chooseImage" width="54rpx" height="54rpx" />
   </view>
-  <button type="default" size="mini" bindtap="sendTap">00发送</button>
+  <button type="default" size="mini" bindtap="sendTap">发送</button>
 </view>
