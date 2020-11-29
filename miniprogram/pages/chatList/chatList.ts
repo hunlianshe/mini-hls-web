@@ -74,11 +74,11 @@ Page({
     });
   },
 
-  getToUserByOpenids(userIds: any) {
+  getToUserByOpenids(users: any) {
     var that = this;
-    userIds.forEach((userId: any) => {
-      if (that.data.me.openid !== userId) {
-        that.setData!({ toOpenid: userId });
+    users.forEach((user: any) => {
+      if (that.data.me.openid !== user.openid) {
+        that.setData!({ toOpenid: user.openid });
       }
     });
   },

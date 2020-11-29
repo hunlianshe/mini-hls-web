@@ -5,10 +5,10 @@
     </view>
     <view style="margin-top: 140rpx">
       <block wx:if="{{userList.length > 0}}">
-        <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-cid="{{item._id}}" data-openids="{{item.userIds}}" wx:key="{{item.id}}">
-          <block wx:for="{{item.userIds}}" wx:for-item="userid">
-            <view class="head" wx:if="{{userid != me.openid}}">
-              <image src="{{host}}/users/avatorUrl/{{userid}}" />
+        <view class="item-cell" wx:for="{{userList}}" bindtap="goChat" data-cid="{{item._id}}" data-openids="{{item.users}}" wx:key="{{item.id}}">
+          <block wx:for="{{item.users}}" wx:for-item="user">
+            <view class="head" wx:if="{{user.openid != me.openid}}">
+              <image src="{{host}}/users/avatorUrl/{{user.openid}}" />
             </view>
           </block>
           <view class="flex-full">
