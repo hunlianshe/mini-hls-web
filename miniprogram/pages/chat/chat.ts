@@ -3,8 +3,6 @@ import { getDate, getTime } from '../../utils/utils';
 import * as Api from '../../service/api.service';
 import * as ChatService from '../../service/chat.service';
 
-let loadingTimes = 0;
-
 Page({
   data: {
     openid: '', // 收信人的openid
@@ -16,7 +14,7 @@ Page({
     message: '',  // 用户输入的消息
     pagination: {pageSize : 10, pageToken: ''},
     messageList: [],
-    firstLoading: false,
+    needToView: true,
   },
 
   onLoad: function (options:any) {
@@ -134,10 +132,7 @@ Page({
   },
 
   getMessageList(pageSize: number, pageToken: string) {
-    loadingTimes++;
-    this.setData!({
-      firstLoading: loadingTimes === 1,
-    });
+    wx.showLoading({title: ''});
     Api.getMessageByCid(this.data.cid, pageSize, pageToken).then((result:any) => {
       let resultList = result.data.result;
       let lastId = result.data.nextPageToken;
@@ -165,6 +160,7 @@ Page({
       this.setData!({
         messageList
       });
+      wx.hideLoading();
     });
   },
 
@@ -173,6 +169,9 @@ Page({
     console.log('onRefresh', e.detail.scrollTop)
     const { pagination } = this.data;
     if (e.detail.scrollTop === 0 && pagination.pageToken !== '') {
+      this.setData!({
+        needToView: false,
+      });
       this.getMessageList(pagination.pageSize, pagination.pageToken);
     }
   },
