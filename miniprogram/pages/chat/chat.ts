@@ -88,6 +88,9 @@ Page({
 
   /** 发送消息事件 */
   sendTap() {
+    this.setData!({
+      needToView: true,
+    });
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
     this.setChatSession();
   },
@@ -128,6 +131,9 @@ Page({
 
    /** 输入消息内容 */
    uploadImage(e: any) {
+    this.setData!({
+      needToView: true,
+    });
     sendMessage({cid: this.data.cid, msg: e.detail, type: 2})
   },
 
