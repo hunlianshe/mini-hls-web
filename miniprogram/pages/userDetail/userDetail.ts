@@ -6,6 +6,8 @@ Page({
     openid: "",
     userInfo: {} as any,
     showDialog: false,
+    imagePreview: false,
+    imagePreviewUrl: ""
   },
 
   onLoad: function (options: any) {
@@ -72,6 +74,26 @@ Page({
           url: `../chat/chat?openid=${this.data.openid}&cid=${result.data._id}`,
         });
       }
+    });
+  },
+
+  _openImage: function (e: any) {
+    const index = e.currentTarget.dataset.index;
+    const userInfo = this.data.userInfo;
+    if (!index && index !== 0) {
+      this.data.imagePreviewUrl = userInfo.avatarUrl
+    }else{
+      this.data.imagePreviewUrl = userInfo.photos[index]
+    }
+    this.setData!({
+      imagePreview: true,
+      imagePreviewUrl: this.data.imagePreviewUrl
+    });
+  },
+  
+  _close: function () {
+    this.setData!({
+      imagePreview: false,
     });
   },
 
