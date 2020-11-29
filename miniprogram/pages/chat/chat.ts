@@ -130,14 +130,14 @@ Page({
     })
   },
 
-  inputBlur(e: any) {
+  inputBlur() {
     console.log('inputBlurinputBlurinputBlur')
     this.setData!({
       inputFocus: false,
     });
   },
 
-  inputFocus(e: any) {
+  inputFocus() {
     console.log('inputFocus')
     this.setData!({
       inputFocus: true,
