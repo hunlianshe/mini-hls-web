@@ -7,7 +7,7 @@
   <scroll-view  
     scroll-y="true" 
     style11="position: fixed; top: 150rpx; bottom: 150rpx;"
-    style="{{(inputFocus && messageList.length <=5) ? 'padding-top:660rpx' : ''}}"
+    style="{{(inputFocus && messageList.length <=5) ? 'padding-top:600rpx' : ''}}"
     class="chat-scroll-view"
     scroll-into-view="{{needToView ? 'msg' + (messageList.length-1) : ''}}" 
     scroll-with-animation="true"
