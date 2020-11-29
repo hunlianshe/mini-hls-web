@@ -86,6 +86,15 @@ Page({
     });
     const params = e.detail.value;
     if (!utils.validateEmpty(params.money, "请输入充值金额")) {
+      this.setData!({
+        submitDisable: false,
+      });
+      return false;
+    }
+    if (!utils.validateMoney(params.money, "请输入小数点保留2位的金额")) {
+      this.setData!({
+        submitDisable: false,
+      });
       return false;
     }
     // TODO
