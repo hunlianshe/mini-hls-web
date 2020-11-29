@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/myHome/myHome",
+  "entryPagePath": "pages/home/home",
   "pages": [
     "pages/chatList/chatList",
     "pages/index/index",
