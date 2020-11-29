@@ -15,6 +15,7 @@ Page({
     pagination: {pageSize : 10, pageToken: ''},
     messageList: [],
     needToView: true,
+    inputFocus: true,
   },
 
   onLoad: function (options:any) {
@@ -127,6 +128,20 @@ Page({
     this.setData!({
       message: e.detail.detail.value // 获取输入的值
     })
+  },
+
+  inputBlur(e: any) {
+    console.log('inputBlurinputBlurinputBlur')
+    this.setData!({
+      inputFocus: false,
+    });
+  },
+
+  inputFocus(e: any) {
+    console.log('inputFocus')
+    this.setData!({
+      inputFocus: true,
+    });
   },
 
    /** 输入消息内容 */

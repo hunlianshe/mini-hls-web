@@ -26,6 +26,12 @@ Component({
     inputTap(e) {
       this.triggerEvent("inputTap", e, {});
     },
+    inputBlur(e) {
+      this.triggerEvent("inputBlur", e, {});
+    },
+    inputFocus(e) {
+      this.triggerEvent("inputFocus", e, {});
+    },
     chooseImage() {
       console.log("are you coming");
       const that = this;

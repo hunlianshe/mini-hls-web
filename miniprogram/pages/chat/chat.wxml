@@ -1,10 +1,13 @@
 
 <view>
-  <user-info-card userInfo="{{toUser}}" />
+  <view style="position: fixed; top: 0; width: 100%; z-index:99;">
+    <user-info-card userInfo="{{toUser}}" />
+  </view>
+
   <scroll-view  
     scroll-y="true" 
     style11="position: fixed; top: 150rpx; bottom: 150rpx;"
-    style="{{messageList.length <=5 ? 'height: 500rpx' : 'height: 1000rpx;'}}"
+    style="{{(inputFocus && messageList.length <=5) ? 'padding-top:560rpx' : ''}}"
     class="chat-scroll-view"
     scroll-into-view="{{needToView ? 'msg' + (messageList.length-1) : ''}}" 
     scroll-with-animation="true"
@@ -23,6 +26,8 @@
     <send-message bind:sendTap="sendTap"
       bind:inputTap="inputTap"
       bind:uploadImage="uploadImage"
+      bind:inputBlur="inputBlur"
+      bind:inputFocus="inputFocus"
       toOpenid="{{toUser.openid}}" />
   </view>
 </view>
