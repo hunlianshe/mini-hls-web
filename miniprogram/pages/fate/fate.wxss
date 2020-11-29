@@ -33,7 +33,6 @@
 }
 
 .fate-select .select-box {
-  /* background: #fff; */
   background: #15141485;
   position: fixed;
   border-top: 1rpx solid #efefef;

@@ -188,10 +188,11 @@ Page({
   },
 
   chooseTap(e: any) {
-    const selection = e.target.dataset.selection;
+    const selectionData = e.target.dataset.selection;
+    const { selection } = this.data;
     console.log(selection);
     this.setData!({
-      selection,
+      selection: selectionData === selection ? '' : selectionData,
     });
     const { optionType } = this.data;
     const params = this.dealWithRequestParameter(optionType, selection);
