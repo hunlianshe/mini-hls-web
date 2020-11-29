@@ -37,6 +37,24 @@ const validateEmpty = (value: any, desc: any) => {
   }
 };
 
+/**
+ * 校验字段不能有多余2位小数
+ * **/
+const validateMoney = (value: any, desc: any) => {
+  // 判断是否是小数位大于2位
+  let ret: any = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/;
+  ret = new RegExp(ret);
+  if (!ret.test(value)) {
+    wx.showToast({
+      title: desc,
+      icon: "none",
+    });
+    return false;
+  } else {
+    return true;
+  }
+};
+
 /** 校验上传图片 */
 const validateImages = (images: any, desc: any) => {
   if (images.length <= 0) {
@@ -74,7 +92,7 @@ const phoneCall = (e: any) => {
 /** 2020年03月09日 */
 const getDate = (dateStr: string) => {
   if (!dateStr) {
-    return '';
+    return "";
   }
   const date = new Date(dateStr);
   const year = date.getFullYear();
@@ -111,8 +129,8 @@ function formatTime(date: Date): string {
 }
 
 function formatHLSTime(dateStr: string): string {
-  if (dateStr === '') {
-    return '';
+  if (dateStr === "") {
+    return "";
   }
   const date = new Date(dateStr);
   const year = date.getFullYear();
@@ -135,7 +153,7 @@ const getUserInfo = () => {
     success: function (res) {
       const { openid } = res.data;
       userInfo = Api.getUserInfo(openid).then((result: any) => {
-        console.log("result",result)
+        console.log("result", result);
         if (result) {
           return result.data || {};
         }
@@ -207,24 +225,24 @@ const setRightStorage = (rightType: string, value = 0) => {
  * 判断当天聊天人列表
  */
 const dealFateChatIntercept = (toOpenid: string) => {
-  let rightType = 'fateChat';
+  let rightType = "fateChat";
   const userInfo = wx.getStorageSync("userInfo");
-  // 下面这行是为了测试 
+  // 下面这行是为了测试
   const vipType = userInfo.vipType || "";
   let needIntercept = false; // 是否需要拦截
   let times = 0;
-  let chatSession = wx.getStorageSync('chatSession');
+  let chatSession = wx.getStorageSync("chatSession");
   console.log("chatSession>>>>", chatSession);
   let openidList = chatSession.openidList || [];
   let timesNow = openidList.length;
   let rightConfig: any = wx.getStorageSync("rightConfig"); // 从缓存中读取首页中set的权益配置
-  const findIndex = openidList.findIndex((openid: any) => openid === toOpenid)
+  const findIndex = openidList.findIndex((openid: any) => openid === toOpenid);
   switch (vipType) {
     case "": // 普通
       times = rightConfig[0][rightType];
       console.log("读取拦截times：", times);
       if (timesNow < times || findIndex !== -1) {
-        needIntercept = false
+        needIntercept = false;
       } else {
         needIntercept = true;
       }
@@ -234,7 +252,7 @@ const dealFateChatIntercept = (toOpenid: string) => {
       console.log("读取拦截times：", times);
       console.log("timesNow:", timesNow);
       if (timesNow < times || findIndex !== -1) {
-        needIntercept = false
+        needIntercept = false;
       } else {
         needIntercept = true;
       }
@@ -243,7 +261,7 @@ const dealFateChatIntercept = (toOpenid: string) => {
       times = rightConfig[2][rightType];
       console.log("读取拦截times：", times);
       if (timesNow < times || findIndex !== -1) {
-        needIntercept = false
+        needIntercept = false;
       } else {
         needIntercept = true;
       }
@@ -270,5 +288,6 @@ export {
   setRightStorage,
   dealFateChatIntercept,
   formatHLSTime,
-  getUserInfo
+  getUserInfo,
+  validateMoney,
 };
