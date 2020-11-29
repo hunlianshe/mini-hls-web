@@ -18,12 +18,23 @@ Component({
       type: Boolean,
       value: true,
     }
-    
+  },
+
+  data: {
+    imagePreview: false,
   },
 
   methods: {
-    openImage(e) {
-      console.log('openImage:', e.currentTarget.dataset.url);
-    }
+    _openImage: function() {
+      console.log('openImageopenImage')
+      this.setData({
+        imagePreview: true,
+      });
+    },
+    _close: function() {
+      this.setData({
+        imagePreview: false,
+      });
+    },
   }
 })
