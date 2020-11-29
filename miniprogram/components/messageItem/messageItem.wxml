@@ -8,7 +8,9 @@
     </view>
     
     <view class="message">
-      <block wx:if="{{messageItem.type == 2}}" bindtap="openImage">
+      <block wx:if="{{messageItem.type == 2}}" 
+        bindtap="openImage" 
+        data-url="{{messageItem.msg}}">
         <image src="{{messageItem.msg}}" style="width: 300rpx" mode="aspectFit" />
       </block>
       <block wx:else>

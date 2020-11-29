@@ -1,5 +1,6 @@
 var host = "14592619.qcloud.la";
 var socket = "https://www.wxmini.top";
+// var socket = "http://127.0.0.1:8000";
 // var hostUrl = "http://localhost:8009";
 
 var hostUrl = "https://www.scrumplanning.cn/prohls";

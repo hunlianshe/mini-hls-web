@@ -66,10 +66,11 @@ Page({
    * pageSize 默认 10
    */
   getUserList(params: any) {
-    // const params = { objectId };
+    wx.showLoading({ title: ''});
     const { objectId } = params;
     Api.getUserList(params)
       .then((result: any) => {
+        wx.hideLoading();
         this.setData!({
           dataAlready: true,
         })
@@ -108,6 +109,7 @@ Page({
         }
       })
       .catch((err) => {
+        wx.hideLoading();
         console.log("get user List", err);
       });
   },

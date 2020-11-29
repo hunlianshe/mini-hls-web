@@ -5,6 +5,8 @@
   align-items: center;
   background: #FAFAFA;
   border-top: 2rpx solid #DAD9E2;
+  line-height: 80rpx;
+  height: 80rpx;
 }
 
 .sendMessage button {
