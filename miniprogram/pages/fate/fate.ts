@@ -189,12 +189,11 @@ Page({
 
   chooseTap(e: any) {
     const selectionData = e.target.dataset.selection;
-    const { selection } = this.data;
-    console.log(selection);
+    const selectionInit = this.data.selection;
     this.setData!({
-      selection: selectionData === selection ? '' : selectionData,
+      selection: selectionData === selectionInit ? '' : selectionData,
     });
-    const { optionType } = this.data;
+    const { optionType, selection } = this.data;
     const params = this.dealWithRequestParameter(optionType, selection);
     this.getUserList(params);
   },
