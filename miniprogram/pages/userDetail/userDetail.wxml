@@ -1,7 +1,7 @@
 <view class="userDetail">
   <view style="background: #ffffff; padding-bottom: 30rpx;">
     <view class="head">
-      <image src="{{userInfo.avatarUrl}}" />
+      <image bindtap="_openImage" src="{{userInfo.avatarUrl}}" />
     </view>
     <view class="outline">
       <view class="display-flex" style="justify-content: center;padding-bottom: 30rpx;">
@@ -18,7 +18,7 @@
     </view>
     <scroll-view scroll-x class='scroll-cell image-list'>
       <block wx:for="{{userInfo.photos}}" wx:key="{{index}}">
-        <image src="{{item}}" mode="aspectFill" />
+        <image src="{{item}}" bindtap="_openImage" data-index="{{index}}" mode="aspectFill" />
       </block>
     </scroll-view>
   </view>
@@ -71,4 +71,7 @@
     <button class="common-btn" bindtap="putUsersLike">喜欢ta</button>
   </view>
     <base-dialog showDialog="{{showDialog}}" title="聊天次数已达上限" descText="缘分聊天次数已达上限，开通或升级会员后进行更多缘分聊天" bind:closeDialog="closeDialog" />
+  <view class="image-preview" bindtap="_close" wx:if="{{imagePreview}}">
+    <image src="{{imagePreviewUrl}}" mode="aspectFit"></image>
+  </view>
 </view>
