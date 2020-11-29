@@ -3,7 +3,7 @@
     <view class='info-box'>
       <view class='info-cell display-flex'>
         <text>昵称</text>
-        <input type="digit" class="align-right" name="nickName" value="{{nickName}}"
+        <input type="text" class="align-right" name="nickName" value="{{nickName}}"
           maxlength="7" placeholder="请填写昵称" placeholder-class="placeholder"/>
       </view>
 
