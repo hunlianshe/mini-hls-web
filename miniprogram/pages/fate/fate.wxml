@@ -3,11 +3,20 @@
   <view class="fate-select">
     <view class="select-cell">
       <view bindtap="openSelect" data-option-type="ageArray" 
-        class="{{optionType === 'ageArray' ? 'selected' : ''}}">年龄</view>
+        class="{{optionType === 'ageArray' ? 'select-item selected' : 'select-item'}}">
+        年龄
+        <hls-icon iconName="{{optionType === 'ageArray' ? 'arrowSelected' : 'arrowUnSelected'}}" width="16rpx" height="8rpx"></hls-icon>
+      </view>
       <view bindtap="openSelect" data-option-type="heightArray"
-      class="{{optionType === 'heightArray' ? 'selected' : ''}}">身高</view>
+        class="{{optionType === 'heightArray' ? 'select-item selected' : 'select-item'}}">
+        身高
+        <hls-icon iconName="{{optionType === 'heightArray' ? 'arrowSelected' : 'arrowUnSelected'}}" width="16rpx" height="8rpx"></hls-icon>
+      </view>
       <view bindtap="openSelect" data-option-type="salaryArray"
-      class="{{optionType === 'salaryArray' ? 'selected' : ''}}">收入</view>
+        class="{{optionType === 'salaryArray' ? 'select-item selected' : 'select-item'}}">
+        收入
+        <hls-icon iconName="{{optionType === 'salaryArray' ? 'arrowSelected' : 'arrowUnSelected'}}" width="16rpx" height="8rpx"></hls-icon>
+        </view>
     </view>
     <view class="select-box" wx:if="{{showSelect}}">
       <view class="content">
