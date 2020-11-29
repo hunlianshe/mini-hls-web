@@ -21,30 +21,26 @@
     <view class="match-cell display-flex">
       <view class="head-img">
         <image src="{{matchResult.me.avatarUrl}}" />
-        <!-- <image wx:if ="{{matchResult.me.gender =='2'}}" src="../../public/image/female.png" /> -->
       </view>
       <image src="../../public/image/lineHeartLeft.png" style="height: 54rpx; width: 142rpx;" mode="aspectFit" />
       <view class="label">
         配对成功
       </view>
       <image src="../../public/image/lineHeartRight.png" style="height: 54rpx; width: 142rpx;" mode="aspectFit" />
-        <!-- <image src="{{matchResult.opposite.avatarUrl}}" /> -->
 
       <view class="head-img">
         <image src="{{matchResult.opposite.avatarUrl}}" />
-
-        <!-- <image src="../../public/image/female.png" /> -->
       </view>
     </view>
 
     <view class="signs">
       <view class="display-flex">
         <view class="flex-full">
-          <view class="block">
+          <view class="block" wx:if="{{matchResult.me.constellation}}">
            {{matchResult.me.constellation}}
           </view>
         </view>
-        <view class="block">
+        <view class="block" wx:if="{{matchResult.opposite.constellation}}">
            {{matchResult.opposite.constellation}}
         </view>
       </view>

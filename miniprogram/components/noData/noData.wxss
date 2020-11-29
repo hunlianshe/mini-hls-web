@@ -3,6 +3,7 @@
   margin-top: 10px;
   background-color: #ffffff;
   text-align: center;
-  padding: 40px;
   font-size: 12px;
+  margin-top: 40%;
+  padding: 40px;
 }

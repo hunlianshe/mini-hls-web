@@ -18,8 +18,6 @@ Page({
 
   onLoad: function (options:any) {
     // this.getUserInfo();
-    console.log("okkkk")
-    console.log(options)
     let openid = options.openid;
     let cid = options.cid;
     this.setData!({
@@ -27,14 +25,7 @@ Page({
       openid: openid,
     });
 
-    console.log("openid",openid)
-    console.log("cid",cid)
-    console.log("cid",cid)
-
     const user = wx.getStorageSync('user');
-    console.log("user",user)
-    // openid = user.openid || '';
-    // return openid;
     this.setData!({
       me: user
     });
@@ -63,25 +54,23 @@ Page({
   receiveMessage() {
     function getRandom(num: any){
       return Math.floor((Math.random()+Math.floor(Math.random()*9+1))*Math.pow(10,num-1));
-  }
+    }
     console.log("准备接收消息")
-   let socket = getSocket()
-   socket.on("privateChat", (msg:any) => {
-     console.log("接收到的消息是",msg)
-     var messageList: any = this.data.messageList;
-     console.log("getRandom(10)",getRandom(10));
-     msg._id = getRandom(10)
-     messageList.push(msg);
-     console.log("`item${messageList.length}`",messageList.length)
-     this.setData!({messageList})
-     let toLast = `item${messageList.length}`
-     console.log('toLast',toLast)
-     this.setData!({
-      scrollTop: 1000 * messageList.length  // 这里我们的单对话区域最高1000，取了最大值，应该有方法取到精确的
-    });
-
-   })
-
+    let socket = getSocket()
+    socket.on("privateChat", (msg:any) => {
+      console.log("接收到的消息是",msg)
+      var messageList: any = this.data.messageList;
+      console.log("getRandom(10)",getRandom(10));
+      msg._id = getRandom(10)
+      messageList.push(msg);
+      console.log("`item${messageList.length}`",messageList.length)
+      this.setData!({messageList})
+      let toLast = `item${messageList.length}`
+      console.log('toLast',toLast)
+      this.setData!({
+        scrollTop: 1000 * messageList.length  // 这里我们的单对话区域最高1000，取了最大值，应该有方法取到精确的
+      });
+    })
   },
 
   // 消息对方的信息
@@ -89,7 +78,6 @@ Page({
     Api.getUserInfo(openid).then((result: any) => {
       if (result) {
         const userInfo = result.data;
-        console.log('userInfo:', userInfo)
         this.setData!({
           toUser: userInfo
         });
@@ -102,13 +90,10 @@ Page({
   /** 发送消息事件 */
   sendTap() {
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
-    console.log('send message:', this.data.message);
-
     this.setChatSession();
   },
 
   setChatSession() {
-
     let chatSession = wx.getStorageSync('chatSession');
     let dateNow = new Date();
     // 判断是否是同一天
@@ -137,7 +122,6 @@ Page({
 
   /** 输入消息内容 */
   inputTap(e: any) {
-    console.log('input message:', e);
     this.setData!({
       message: e.detail.detail.value // 获取输入的值
     })
@@ -145,13 +129,11 @@ Page({
 
    /** 输入消息内容 */
    uploadImage(e: any) {
-    console.log('upload image:', e.detail);
     sendMessage({cid: this.data.cid, msg: e.detail, type: 2})
   },
 
   getMessageList(pageSize: number, pageToken: string) {
     Api.getMessageByCid(this.data.cid, pageSize, pageToken).then((result:any) => {
-      console.log("result.data",result.data)
       let resultList = result.data.result;
       let lastId = result.data.nextPageToken;
       this.setData!({
@@ -182,10 +164,20 @@ Page({
   
   },
 
-  onPageScroll: function (res: any) {
-   // 页面滚动时执行
+  // onPageScroll: function (res: any) {
+  //  // 页面滚动时执行
+  //  console.log('onPageScroll:', res)
+  //   const { pagination } = this.data;
+  //   if (res.scrollTop === 0 && pagination.pageToken !== '') {
+  //     this.getMessageList(pagination.pageSize, pagination.pageToken);
+  //   }
+  // },
+
+  onRefresh: function (e: any) {
+    console.log('onRefresh', e)
+    console.log('onRefresh', e.detail.scrollTop)
     const { pagination } = this.data;
-    if (res.scrollTop === 0 && pagination.pageToken !== '') {
+    if (e.detail.scrollTop === 0 && pagination.pageToken !== '') {
       this.getMessageList(pagination.pageSize, pagination.pageToken);
     }
   },
@@ -214,7 +206,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log('chat page unload', this.data.cid);
     ChatService.updateMsgToReadStatus(this.data.cid);
   },
 

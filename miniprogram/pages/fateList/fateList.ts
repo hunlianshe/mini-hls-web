@@ -1,10 +1,15 @@
 import * as Api from '../../service/api.service';
-import { dealRightIntercept, setRightStorage } from '../../utils/utils';
+import {
+  dealRightIntercept,
+  setRightStorage,
+  dealFateChatIntercept,
+} from "../../utils/utils";
+
 import * as ChatService from '../../service/chat.service';
 
 Page({
   data: {
-    _active: '1',
+    _active: "1",
     listLikes: [] as any[],
     showDialog: false,
   },
@@ -16,35 +21,34 @@ Page({
     this.getUsersListLikes(this.data._active);
   },
 
-  onReady: function () {
-  },
+  onReady: function () {},
 
   /** 获取对应喜欢类别的用户列表 */
   getUsersListLikes(active: string) {
-    let type = 'likeMe';
+    let type = "likeMe";
     switch (active) {
-      case '1':
-        type = 'meLike';
+      case "1":
+        type = "meLike";
         break;
-      case '2':
-        type = 'likeMe';
+      case "2":
+        type = "likeMe";
         break;
-      case '3':
-        type = 'likeEachOther';
+      case "3":
+        type = "likeEachOther";
         break;
       default:
         break;
     }
-    const params = { type, }
+    const params = { type };
     Api.getUsersListLikes(params).then((result: any) => {
       if (result) {
-        const listLikes:any = result.data;
+        const listLikes: any = result.data;
         listLikes.forEach((like: any) => {
           if (like.photos && like.photos.length) {
-            like.avatarUrl = like.photos[0]
+            like.avatarUrl = like.photos[0];
           }
-        })
-        
+        });
+
         this.setData!({
           listLikes,
         });
@@ -58,17 +62,19 @@ Page({
     this.setData!({
       _active: index,
     });
-    let rightType = '';
-    if (index == 2) { // 喜欢我
-      rightType = 'whoLikeMe';
-    } else if (index == 3) { // 相互喜欢
-      rightType = 'likeEach';
+    let rightType = "";
+    if (index == 2) {
+      // 喜欢我
+      rightType = "whoLikeMe";
+    } else if (index == 3) {
+      // 相互喜欢
+      rightType = "likeEach";
     }
     // 处理拦截并返回是否需要被拦截
     if (dealRightIntercept(rightType)) {
       this.setData!({
         showDialog: true,
-      })
+      });
       return;
     }
     setRightStorage(rightType);
@@ -83,18 +89,25 @@ Page({
 
   /** 详情 */
   userDetail(e: any) {
-    console.log('come in..... user detail')
+    console.log("come in..... user detail");
     const { openid } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `../userDetail/userDetail?openid=${openid}`,
-    })
+    });
   },
 
   /** 去聊天 */
   goChat(e: any) {
-    console.log('come in..... go to chat')
+    console.log("come in..... go to chat");
     const { openid } = e.currentTarget.dataset;
     console.log(`fateList openid:`, e.currentTarget);
+    if (dealFateChatIntercept(openid)) {
+      this.setData!({
+        showDialog: true,
+      });
+      return;
+    }
+
     ChatService.startSingleChatSession(openid);
     // Api.startChatSession({
     //   userIds: [this.data.openid]
@@ -129,4 +142,4 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {},
-})
+});

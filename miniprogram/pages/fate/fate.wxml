@@ -1,39 +1,63 @@
-<!--pages/home/home.wxml-->
-<view class='fate-page'>
-  <view class="match" bindtap="goMatch">
-  <view class="match-content" >
-    开启匹配
-  </view>
-    
-  </view>
-  <view style="margin-top: 120rpx;">
-    <block wx:for="{{userList}}" wx:key="{{_id}}">
-      <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
-        <image src="{{item.photos[0]}}" mode="aspectFill"/>
-        <view style="padding: 20rpx;">
-          <view class="display-flex">
-            <text class="flex-full">{{item.nickName}}</text>
-            <block wx:if="{{item.constellation}}"><text class="label">{{item.constellation}}</text></block>
-          </view>
-          <view class="info">
-            {{item.intro}}
-          </view>
-        </view>
+
+<view style="padding-bottom: 100rpx;">
+  <view class="fate-select">
+    <view class="select-cell">
+      <view bindtap="openSelect" data-option-type="ageArray" 
+        class="{{optionType === 'ageArray' ? 'select-item selected' : 'select-item'}}">
+        年龄
+        <hls-icon iconName="{{optionType === 'ageArray' ? 'arrowSelected' : 'arrowUnSelected'}}" width="16rpx" height="8rpx"></hls-icon>
       </view>
-    </block>
+      <view bindtap="openSelect" data-option-type="heightArray"
+        class="{{optionType === 'heightArray' ? 'select-item selected' : 'select-item'}}">
+        身高
+        <hls-icon iconName="{{optionType === 'heightArray' ? 'arrowSelected' : 'arrowUnSelected'}}" width="16rpx" height="8rpx"></hls-icon>
+      </view>
+      <view bindtap="openSelect" data-option-type="salaryArray"
+        class="{{optionType === 'salaryArray' ? 'select-item selected' : 'select-item'}}">
+        收入
+        <hls-icon iconName="{{optionType === 'salaryArray' ? 'arrowSelected' : 'arrowUnSelected'}}" width="16rpx" height="8rpx"></hls-icon>
+        </view>
+    </view>
+    <view class="select-box" wx:if="{{showSelect}}">
+      <view class="content">
+        <block wx:for="{{topMenuContent[optionType]}}">
+          <text class="{{selection == item ? 'option option-selected' : 'option'}}"
+            bindtap="chooseTap" data-selection="{{item}}">{{item}}</text>
+        </block>
+      </view>
+    </view>
   </view>
-  
-  <block wx:if="{{dataAlready && userList.length > 0 && (pageSize * (currentPage + 1) > totalCount)}}">
-    <footer />
-  </block>
 
   <block wx:if="{{dataAlready && userList.length === 0}}">
-    <noData type='{{keyword ? 1 : 0}}' />
+    <noData message="暂时没有相关数据～" />
   </block>
+  <block wx:if="{{dataAlready && userList.length > 0}}">
+    <view class='fate-page'>
+      <block wx:for="{{userList}}" wx:key="{{_id}}">
+        <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
+          <image src="{{item.photos[0]}}" mode="aspectFill"/>
+          <view style="padding: 20rpx;">
+            <view class="display-flex">
+              <text class="flex-full">{{item.nickName}}</text>
+              <block wx:if="{{item.constellation}}"><text class="label">{{item.constellation}}</text></block>
+            </view>
+            <view class="info">
+              {{item.intro}}
+            </view>
+          </view>
+        </view>
+      </block>
 
-  <base-dialog showDialog="{{showDialog}}"
-    title="查看缘分已达上限"
-    descText="查看缘分已达查看人数上限，开通或升级会员后可查看更多缘分"
-    bind:closeDialog="closeDialog" />
+      <view class="match" bindtap="goMatch">
+        <button class="match-content" >
+          开启匹配
+        </button>
+      </view>
+
+      <base-dialog showDialog="{{showDialog}}"
+        title="查看缘分已达上限"
+        descText="查看缘分已达查看人数上限，开通或升级会员后可查看更多缘分"
+        bind:closeDialog="closeDialog" />
+    </view>
+  </block>
 </view>
-

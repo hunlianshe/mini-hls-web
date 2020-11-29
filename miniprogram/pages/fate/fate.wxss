@@ -3,23 +3,87 @@
   padding: 20rpx;
 }
 
-.fate-page .match {
+.fate-select {
   position: fixed;
   top: 0;
-  width: 100%;
-  padding: 20rpx 0;
-  background: #ffffff;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  font-size: 28rpx;
+}
+
+.fate-select .selected {
+  color: #FB5572;
+}
+
+.fate-select .option-selected {
+  color: #FB5572 !important;
+  background-color: rgb(247, 237, 239) !important;
+}
+
+.fate-select .select-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  background: #fff;
+  padding-top: 32rpx;
+}
+
+.fate-select .select-cell .select-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fate-select .select-box {
+  background: #15141485;
+  position: fixed;
+  border-top: 1rpx solid #efefef;
+  top: 90rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.fate-select .select-box .content {
+  background: #fff;
+  padding: 20rpx;
+  display: inline-block;
+}
+
+.fate-select .option {
+  border-radius: 30rpx;
+  line-height: 40rpx;
+  background-color:rgb(249, 247, 247);
+  padding: 8rpx 20rpx;
+  color: #333;
+  display: block;
+  word-break: keep-all;
+  margin: 10rpx;
+  width: 55px;
+  text-align: center;
+  float: left;
+  font-size: 24rpx;
+}
+
+.fate-page .match {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20rpx;
+  background: #fff;
 }
 
 .fate-page .match .match-content {
-  line-height: 80rpx;
-  text-align: center;
-  color: #E39BF0;
-  font-size: 34rpx;
-  background: #fff;
-  border-radius: 10rpx;
-  border: 2rpx solid #E39BF0;
-  margin: 0 40rpx;
+  background: #FB5572;
+  color: #ffffff;
+  font-size: 32rpx;
+  line-height: 90rpx;
+  border-radius: 45rpx;
 }
 
 .user-box {

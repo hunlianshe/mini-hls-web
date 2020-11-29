@@ -51,6 +51,7 @@ Component({
   methods: {
     // 点击确定
     ensureTap() {
+      this.triggerEvent('closeDialog', {}, {})
       wx.navigateTo({
         url: this.properties.clickUrl,
       });

@@ -29,6 +29,9 @@ Page({
       heightArray: getHeightMenuList(),
       salaryArray: ["5千以下", "5千～1万", "1万～2万", "2万～5万", "5万以上"],
     },
+    showSelect: false,
+    optionType: '',
+    selection: '',
   },
 
   onLoad() {
@@ -41,7 +44,7 @@ Page({
         });
       },
     });
-    this.getUserList("");
+    this.getUserList({});
     this.setData!({
       pageLoaded: true,
     });
@@ -62,10 +65,15 @@ Page({
    * @param {string} objectId
    * pageSize 默认 10
    */
-  getUserList(objectId: string) {
-    const params = { objectId };
+  getUserList(params: any) {
+    wx.showLoading({ title: ''});
+    const { objectId } = params;
     Api.getUserList(params)
       .then((result: any) => {
+        wx.hideLoading();
+        this.setData!({
+          dataAlready: true,
+        })
         if (result.code === 200) {
           let dataList = objectId ? this.data.userList : [];
           dataList = dataList.concat(result.data);
@@ -101,6 +109,7 @@ Page({
         }
       })
       .catch((err) => {
+        wx.hideLoading();
         console.log("get user List", err);
       });
   },
@@ -130,7 +139,7 @@ Page({
   onShow: function () {
     const { pageLoaded } = this.data;
     if (pageLoaded) {
-      this.getUserList("");
+      this.getUserList({});
     }
   },
 
@@ -150,7 +159,11 @@ Page({
     }
     setRightStorage(rightType, currentPage * pageSize);
     const lastId = userList.length > 0 ? userList[userList.length - 1]._id : "";
-    this.getUserList(lastId);
+    
+    const { optionType, selection } = this.data;
+    const params = this.dealWithRequestParameter(optionType, selection);
+    params.objectId = lastId;
+    this.getUserList(params);
   },
 
   closeDialog() {
@@ -159,25 +172,56 @@ Page({
     });
   },
 
+  // type: ageArray, heightArray, salaryArray
+  openSelect(e: any) {
+    const optionTypedata = e.target.dataset.optionType;
+    const { optionType } = this.data;
+    if (optionTypedata === optionType) {
+      this.setData!({
+        showSelect: false,
+        optionType: '',
+      });
+      return;
+    }
+    this.setData!({
+      showSelect: true,
+      optionType: optionTypedata,
+    });
+  },
+
+  chooseTap(e: any) {
+    const selectionData = e.target.dataset.selection;
+    const selectionInit = this.data.selection;
+    this.setData!({
+      selection: selectionData === selectionInit ? '' : selectionData,
+    });
+    const { optionType, selection } = this.data;
+    const params = this.dealWithRequestParameter(optionType, selection);
+    this.getUserList(params);
+  },
+
   /*
     根据选择的年龄, 身高, 收入范围, 转换成对应请求参数
     ToDo:
       页面上年龄, 身高, 收入范围选择
   */
-  dealWithRequestParameter() {
+  dealWithRequestParameter(optionType: string, selection: string) {
     // get selectOptions from this.data
-    const ageSelection = "";
-    const heightSelection = "";
-    const salarySelection = "";
+    // const ageSelection = "";
+    // const heightSelection = "";
+    // const salarySelection = "";
     const reqParams: any = {};
-    if (ageSelection) {
-     reqParams.age = ageMenuList[ageSelection];
-    }
-    if (heightSelection) {
-      reqParams.height = heightMenuList[heightSelection]
-    }
-    if (salarySelection) {
-      reqParams.salary = salarySelection;
+    // ageArray, heightArray, salaryArray
+    switch(optionType) {
+      case 'ageArray':
+        reqParams.age = ageMenuList[selection];
+        break;
+      case 'heightArray':
+        reqParams.height = heightMenuList[selection]
+        break;
+      case 'salaryArray':
+        reqParams.salary = selection;
+        break;
     }
     return reqParams;
   },

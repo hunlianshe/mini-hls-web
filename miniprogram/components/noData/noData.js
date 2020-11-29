@@ -2,11 +2,10 @@
 Component({
   /**
    * 组件的属性列表
-   * type: 0(城市列表) 1（搜索列表）
    */
   properties: {
-    type: {
-      type: Number,
+    message: {
+      type: String,
       value: 0
     }
   },
