@@ -14,6 +14,8 @@ Page({
     message: '',  // 用户输入的消息
     pagination: {pageSize : 10, pageToken: ''},
     messageList: [],
+    needToView: true,
+    inputFocus: true,
   },
 
   onLoad: function (options:any) {
@@ -48,8 +50,6 @@ Page({
     openid = user.openid || '';
     return openid;
   },
-
-
 
   receiveMessage() {
     function getRandom(num: any){
@@ -90,6 +90,9 @@ Page({
   /** 发送消息事件 */
   sendTap() {
     if(!this.data.message) return 
+    this.setData!({
+      needToView: true,
+    });
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
     this.setData!({
       msg: ''
@@ -131,12 +134,30 @@ Page({
     })
   },
 
+  inputBlur() {
+    console.log('inputBlurinputBlurinputBlur')
+    this.setData!({
+      inputFocus: false,
+    });
+  },
+
+  inputFocus() {
+    console.log('inputFocus')
+    this.setData!({
+      inputFocus: true,
+    });
+  },
+
    /** 输入消息内容 */
    uploadImage(e: any) {
+    this.setData!({
+      needToView: true,
+    });
     sendMessage({cid: this.data.cid, msg: e.detail, type: 2})
   },
 
   getMessageList(pageSize: number, pageToken: string) {
+    wx.showLoading({title: ''});
     Api.getMessageByCid(this.data.cid, pageSize, pageToken).then((result:any) => {
       let resultList = result.data.result;
       let lastId = result.data.nextPageToken;
@@ -164,24 +185,18 @@ Page({
       this.setData!({
         messageList
       });
-    })
-  
+      wx.hideLoading();
+    });
   },
-
-  // onPageScroll: function (res: any) {
-  //  // 页面滚动时执行
-  //  console.log('onPageScroll:', res)
-  //   const { pagination } = this.data;
-  //   if (res.scrollTop === 0 && pagination.pageToken !== '') {
-  //     this.getMessageList(pagination.pageSize, pagination.pageToken);
-  //   }
-  // },
 
   onRefresh: function (e: any) {
     console.log('onRefresh', e)
     console.log('onRefresh', e.detail.scrollTop)
     const { pagination } = this.data;
     if (e.detail.scrollTop === 0 && pagination.pageToken !== '') {
+      this.setData!({
+        needToView: false,
+      });
       this.getMessageList(pagination.pageSize, pagination.pageToken);
     }
   },

@@ -17,8 +17,9 @@ Page({
   },
   
   onLoad() {
+    const userInfo = wx.getStorageSync("userInfo");
     this.setData!({
-      userInfo: app.globalData.userInfo,
+      userInfo: userInfo,
       hasUserInfo: true,
     });
   },
@@ -112,8 +113,8 @@ Page({
         submitDisable: true
       });  
       if (result.code === 200) {
-        wx.navigateTo({
-          url: '../matching/matching',
+        wx.switchTab({
+          url: '../home/home',
         });
       } else {
         this.setData!({
@@ -123,6 +124,8 @@ Page({
       }
     })
   },
+
+  // getUserInfo
 
   formReset(): void {
   }

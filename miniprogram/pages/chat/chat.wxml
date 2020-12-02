@@ -1,26 +1,33 @@
 
 <view>
-  <user-info-card userInfo="{{toUser}}" />
+  <view style="position: fixed; top: 0; width: 100%; z-index:99;">
+    <user-info-card userInfo="{{toUser}}" />
+  </view>
+
   <scroll-view  
-    scroll-y="true" style="height: 1200rpx; margin-bottom: 300rpx; padding-top: 150rpx;"  scroll-into-view="msg{{messageList.length-1}}" 
+    scroll-y="true" 
+    style11="position: fixed; top: 150rpx; bottom: 150rpx;"
+    style="{{(inputFocus && messageList.length <=5) ? 'padding-top:600rpx' : ''}}"
+    class="chat-scroll-view"
+    scroll-into-view="{{needToView ? 'msg' + (messageList.length-1) : ''}}" 
     scroll-with-animation="true"
     refresher-enabled="{{true}}"
     refresher-threshold="{{100}}"
     refresher-default-style="white"
     bindscroll="onRefresh">
-  <!-- <view  style="padding: 22rpx; margin-bottom: 300rpx; overflow-y: scroll;"> -->
     <view wx:for="{{messageList}}"  id="msg{{index}}">
       <block wx:if="{{item.date}}" >
         <view class="chatDate">{{item.date}}</view>
       </block>
       <message-item messageItem="{{item}}" toUser="{{toUser}}"  me="{{me}}" isRight="{{item.from == me.openid}}"/>
     </view>
-  <!-- </view> -->
   </scroll-view>
   <view style="position: fixed; bottom: 0; width: 100%;">
     <send-message bind:sendTap="sendTap"
       bind:inputTap="inputTap"
       bind:uploadImage="uploadImage"
+      bind:inputBlur="inputBlur"
+      bind:inputFocus="inputFocus"
       toOpenid="{{toUser.openid}}" />
   </view>
 </view>

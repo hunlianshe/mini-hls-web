@@ -5,11 +5,14 @@
   align-items: center;
   background: #FAFAFA;
   border-top: 2rpx solid #DAD9E2;
+  line-height: 80rpx;
+  height: 80rpx;
 }
 
 .sendMessage button {
   background: #FB5572;
   color: #ffffff;
+  margin-bottom: 20rpx;
 }
 
 .sendMessage input {
@@ -18,4 +21,5 @@
   flex: 1;
   padding: 6rpx 20rpx;
   font-size: 28rpx;
+  margin-bottom: 20rpx;
 }

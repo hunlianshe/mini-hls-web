@@ -20,7 +20,6 @@
       </view>
       <view class="footer-container">
         <button class="common-btn" catchtap="next">下一步</button>
-        <view class="jump-over" catchtap="jumpOver">跳过</view>
       </view>
     </view>
     

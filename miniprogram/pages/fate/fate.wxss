@@ -1,6 +1,7 @@
 .fate-page {
   background: #fbf9fc;
   padding: 20rpx;
+  margin-top: 100rpx;
 }
 
 .fate-select {

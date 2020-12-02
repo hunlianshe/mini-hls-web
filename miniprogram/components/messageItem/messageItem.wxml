@@ -8,10 +8,11 @@
     </view>
     
     <view class="message">
-      <block wx:if="{{messageItem.type == 2}}" 
-        bindtap="openImage" 
-        data-url="{{messageItem.msg}}">
-        <image src="{{messageItem.msg}}" style="width: 300rpx" mode="aspectFit" />
+      <block wx:if="{{messageItem.type == 2}}" >
+        <image src="{{messageItem.msg}}" 
+          style="width: 300rpx"
+          bindtap="_openImage"
+          mode="aspectFit" />
       </block>
       <block wx:else>
         <view style="font-size: 28rpx;">{{messageItem.msg}}</view>
@@ -21,5 +22,9 @@
     <view wx:if="{{isRight === true}}" class="avatarUrl">
       <image src="{{me.avatarUrl}}" mode="aspectFit" />
     </view>
+  </view>
+
+  <view class="image-preview" bindtap="_close" wx:if="{{imagePreview}}">
+    <image src="{{messageItem.msg}}" mode="aspectFit"></image>
   </view>
 </view>

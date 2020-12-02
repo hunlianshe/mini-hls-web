@@ -26,6 +26,12 @@ Component({
     inputTap(e) {
       this.triggerEvent("inputTap", e, {});
     },
+    inputBlur(e) {
+      this.triggerEvent("inputBlur", e, {});
+    },
+    inputFocus(e) {
+      this.triggerEvent("inputFocus", e, {});
+    },
     chooseImage() {
       console.log("are you coming");
       const that = this;
@@ -40,23 +46,23 @@ Component({
             `images/hls/${Math.floor(Math.random() * 100000)}/` +
             tempFilePaths[0].replace("http://tmp/", "");
           console.log("dir", dir);
+          wx.showLoading({ title: '' });
           uploadImage({
             filePath: tempFilePaths[0],
             dir,
             success: function (res) {
               console.log("res", res);
               console.log("config", config);
-
+              wx.hideLoading();
               that.triggerEvent(
                 "uploadImage",
                 `${config.uploadImageUrl}/${res}`,
                 {}
               );
-
-              //  var indexImage = `${aliyunServerURL}/${res}`;
-              // console.log("indexImage",indexImage)
             },
-            fail: function () {},
+            fail: function () {
+              wx.hideLoading();
+            },
           });
         },
       });
