@@ -11,22 +11,22 @@ export const dealWithVipPriceInfo = (data: any) => {
       priceList: [
         {
           select: false,
-          name: "year", // 年
-          nameStr: "年付",
+          name: 'year', // 年
+          nameStr: '年付',
           value: vipInfo.yearPrice,
-          avgStr: `${vipInfo.monthPrice}元/月`,
+          avgStr: `${vipInfo.yearMonthPrice}元/月`,
         },
         {
           select: false,
-          name: "season", // 季
-          nameStr: "季付",
+          name: 'season', // 季
+          nameStr: '季付',
           value: vipInfo.seasonPrice,
-          avgStr: `${vipInfo.monthPrice}元/月`,
+          avgStr: `${vipInfo.seasonMonthPrice}元/月`,
         },
         {
           select: false,
-          name: "month", // 月
-          nameStr: "月付",
+          name: 'month', // 月
+          nameStr: '月付',
           value: vipInfo.monthPrice,
           avgStr: `${vipInfo.monthPrice}/月`,
         },
