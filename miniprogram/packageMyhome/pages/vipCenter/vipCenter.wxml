@@ -2,7 +2,7 @@
   <view>
     <swiper indicator-dots="{{swiper.indicatorDots}}" current="{{currentRight}}" bindchange="swiperChange" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
       <swiper-item>
-        <view class="swiper-card" style="background-image: url('/public/image/huangtong-card.jpg')">
+        <view class="swiper-card" style="background-image: url('https://test-buycarshop.oss-cn-beijing.aliyuncs.com/images/shop//wx962723a0268b268e.o6zAJs1_0yTCY2DXKpcW4o4X_GFk.GsjMT82taKol2ae3c66e58a0f4fd6e2196553d4eaf99.jpg')">
           <view class="display-flex">
             <image src="image/icon_huangtong.png" style="width:36rpx; height: 34rpx;" mode="aspectFit" />
             <view class="display-flex" style="padding-left: 20rpx;color: #914A1B;">
@@ -18,7 +18,7 @@
         </view>
       </swiper-item>
       <swiper-item>
-        <view class="swiper-card" style="background-image: url('/public/image/baijin-card.jpg')">
+        <view class="swiper-card" style="background-image: url('https://test-buycarshop.oss-cn-beijing.aliyuncs.com/images/shop//wx962723a0268b268e.o6zAJs1_0yTCY2DXKpcW4o4X_GFk.5FjyVdqDehCs8ce53ad6c64dc038b42edc90894cb7a4.jpg')">
           <view class="display-flex">
             <image src="image/icon_baijin.png" style="width:36rpx; height: 34rpx;" mode="aspectFit" />
             <view class="display-flex" style="padding-left: 20rpx;color: #4F4C9E;">

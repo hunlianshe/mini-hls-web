@@ -89,10 +89,14 @@ Page({
 
   /** 发送消息事件 */
   sendTap() {
+    if(!this.data.message) return 
     this.setData!({
       needToView: true,
     });
     sendMessage({cid: this.data.cid, msg: this.data.message, type: 1});
+    this.setData!({
+      msg: ''
+    });
     this.setChatSession();
   },
 
