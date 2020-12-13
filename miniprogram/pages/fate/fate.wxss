@@ -88,17 +88,18 @@
 }
 
 .user-box {
-  width: 44%;
+  width: calc((100% - 120rpx)/2);
   font-size: 14px;
   color: #797979;  
   display: inline-block;
   background-color: #ffffff;
-  margin: 0px 1%;
-  margin-bottom: 20px;
-  padding: 2%;
+  margin: 0px 10rpx;
+  margin-bottom: 40rpx;
+  padding: 20rpx;
   border-radius: 8rpx 8rpx 0 0;
   background: #ffffff;
   color: #333333;
+  height: 300px;
 }
 
 .user-box image {
@@ -112,7 +113,7 @@
 .user-box .label {
   border: 1px solid #E39BF0;
   border-radius: 40rpx;
-  font-size: 22rpx;
+  font-size: 20rpx;
   padding: 6rpx 10rpx;
 }
 

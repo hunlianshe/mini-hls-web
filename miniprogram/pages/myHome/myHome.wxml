@@ -35,7 +35,7 @@
     </block>
     <block wx:elif="{{userInfo.vipType === 'bronze'}}">
       <view class="vip-cell vip-ht" 
-        style="background-image: url('/public/image/vip-ht.png')">
+        style="background-image: url('https://test-buycarshop.oss-cn-beijing.aliyuncs.com/images/shop//wx962723a0268b268e.o6zAJs1_0yTCY2DXKpcW4o4X_GFk.baWYot9OoQsB9f4a6ac2d44d4376991dae414766c943.png')">
         <hls-icon iconName="ht" width="80rpx" height="80rpx"/>
         <view class="flex-full" style="padding-left: 32rpx;">
           <view style="font-size: 32rpx;color: #7F512A;font-size: 600;">黄铜会员</view>
@@ -47,7 +47,7 @@
     </block>
     <block wx:else>
       <view class="vip-cell vip-ht" 
-        style="background-image: url('/public/image/vip-bj.png')">
+        style="background-image: url('https://test-buycarshop.oss-cn-beijing.aliyuncs.com/images/shop//wx962723a0268b268e.o6zAJs1_0yTCY2DXKpcW4o4X_GFk.foM3pVjWE5JR567cd33e47f3a4ddabbe624dac598b88.png')">
         <hls-icon iconName="bj" width="80rpx" height="80rpx"/>
         <view class="flex-full" style="padding-left: 32rpx;">
           <view style="font-size: 32rpx;color: #4F4C9E;font-size: 600;">白金会员</view>

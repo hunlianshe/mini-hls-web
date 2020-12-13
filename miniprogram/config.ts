@@ -3,7 +3,7 @@ var socket = "https://www.wxmini.top";
 // var socket = "http://127.0.0.1:8000";
 // var hostUrl = "http://localhost:8009";
 
-var hostUrl = "https://www.wxmini.top/prohls";
+var hostUrl = "https://www.scrumplanning.cn/prohls";
 // var hostUrl = "http://148.70.243.198:8009"
 let ak = "xsiYQN0VwrBHvxmf42BGdxFiTQgqBC4w";
 var fileHost = "https://test-buycarshop.oss-cn-beijing.aliyuncs.com";
