@@ -34,16 +34,14 @@
   <block wx:if="{{dataAlready && userList.length > 0}}">
     <view class='fate-page'>
       <block wx:for="{{userList}}" wx:key="{{_id}}">
-        <view class="user-box" bindtap="userDetail" data-openid="{{item.openid}}" >
+        <view class="user-box clearfix" bindtap="userDetail" data-openid="{{item.openid}}" >
           <image src="{{item.photos[0]}}" mode="aspectFill"/>
-          <view>
-            <view class="display-flex">
-              <text class="flex-full">{{item.nickName}}</text>
-              <block wx:if="{{item.constellation}}"><text class="label">{{item.constellation}}</text></block>
+          <view style="padding-top: 10rpx">
+            <view class="display-flex" style="height: 80rpx;">
+              <view class="flex-full">{{item.nickName}}</view>
+              <block wx:if="{{item.constellation}}"><view class="label">{{item.constellation}}</view></block>
             </view>
-            <view class="info">
-              {{item.intro}}
-            </view>
+            <view class="info">{{item.intro || "信息待完善"}}</view>
           </view>
         </view>
       </block>
