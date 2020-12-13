@@ -38,7 +38,13 @@ Page({
       he: xzList.data[e.detail.value].ch,
     });
   },
-
+  onShareAppMessage: function () {
+    return {
+      title: '星座匹配',
+      desc: `${this.data.me} VS ${this.data.he} 缘分指数`,
+      path: `/pages/matchXZResult/matchXZResult?me=${this.data.me}&he=${this.data.he}`,
+    }
+  },
   /** 获取星座详解 */
   getConstellationMmatchingDetail(me: string, he: string) {
     me = me.replace(/座/, '');

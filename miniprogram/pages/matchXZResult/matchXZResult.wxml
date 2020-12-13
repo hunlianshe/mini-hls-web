@@ -27,7 +27,7 @@
     </view>
   </view>
   <view class="footer">
-    <!-- <button class="更多匹配">分享</button> -->
+    <button class="common-btn" open-type='share'>分享</button>
     <button class="common-btn" bindtap="goMatch">缘分匹配，寻找心爱的他</button>
   </view>
 </view>
