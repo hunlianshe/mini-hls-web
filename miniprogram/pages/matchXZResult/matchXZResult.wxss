@@ -55,7 +55,7 @@
 
 .matchXZResult .outline {
   margin: 0 50rpx;
-  padding-bottom: 200rpx;
+  padding-bottom: 240rpx;
 }
 
 .matchXZResult .match-item view {
@@ -80,6 +80,7 @@
   position: fixed;
   bottom: 10rpx;
   width: 100%;
+  background: #ffffff;
 }
 
 .matchXZResult .footer button {

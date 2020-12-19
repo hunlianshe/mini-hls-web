@@ -67,13 +67,6 @@ Page({
     this.getConstellationMmatchingDetail(me, he);
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
   goMatch() {
     let userInfo = app.globalData.userInfo;
     if (userInfo && userInfo.phone) {
@@ -86,20 +79,4 @@ Page({
       })
     }
   },
-
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
 })
