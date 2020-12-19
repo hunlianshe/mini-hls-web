@@ -41,7 +41,8 @@
               <view class="flex-full">{{item.nickName}}</view>
               <block wx:if="{{item.constellation}}"><view class="label">{{item.constellation}}</view></block>
             </view>
-            <view class="info">{{item.intro || "信息待完善"}}</view>
+            <view wx:if="{{item.intro}}" class="info">{{item.intro}}</view>
+            <view wx:else class="info" style="visibility:hidden">信息待完善</view>
           </view>
         </view>
       </block>
