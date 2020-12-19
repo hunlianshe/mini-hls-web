@@ -78,16 +78,17 @@
 
 .matchXZResult .footer {
   position: fixed;
-  bottom: 40rpx;
-  display: flex;
+  bottom: 10rpx;
   width: 100%;
 }
 
 .matchXZResult .footer button {
   line-height: 70rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   border-radius: 10rpx;
-  width: 430rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin: 30rpx;
 }
 
 .matchXZResult .title{
