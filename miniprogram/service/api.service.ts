@@ -140,20 +140,6 @@ const getUserDetail = (id: any) =>
   httpServer.get({ url: `/user/getUserInfo?id=${id}` });
 
 /**
- * 创建店铺
- * @param {}
- */
-const createShop = (params: any) =>
-  httpServer.post({ url: `/shop/createShop`, data: params });
-
-/**
- * 更新店铺
- * @param {}
- */
-const updateShop = (params: any) =>
-  httpServer.post({ url: `/shop/updateShop`, data: params });
-
-/**
  * 获取聊天列表
  * @param {}
  */
@@ -209,9 +195,8 @@ const getMessageByCid = (cid: string, pageSize: number, pageToken?: string) =>
     url: `/group/message/list/${cid}?pageSize=${pageSize}&pageToken=${pageToken}`,
   });
 
+/** 会员权限的各种配置信息 */
 const getVipInfo = () => httpServer.get({ url: `/users/vip/info` });
-
-const getRightConfig = () => httpServer.get({ url: `/users/vip/info` });
 
 
 /**
@@ -240,8 +225,6 @@ export {
   getGenerateCatOrDogResult,
   getPastLove,
   getAccessToken,
-  createShop,
-  updateShop,
   getUserDetail,
   getConstellationMmatchingDetailComplex,
   getChatList,
@@ -253,7 +236,5 @@ export {
   checkOrderStatus,
   getMessageByCid,
   getVipInfo,
-  getRightConfig,
   readMsg,
-  // register,
 };
